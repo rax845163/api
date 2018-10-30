@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/containers-ai/api/prediction/v1alpha1";
+
+message PredictionPodCreationRequest {
+    // int64 id = 1;
+    // string name = 2;
+
+    string namespace = 1;
+    string pod_name = 2;
+}
+
+message PredictionPodDeletionRequest {
+    // int64 id = 1;
+
+    string namespace = 1;
+    string pod_name = 2;
+}
+
+// message PredictionDiskCreationRequest {
+//     int64 id = 1;
+//     string name = 2;
+// }
+
+// message PredictionDiskDeletionRequest {
+//     int64 id = 1;
+// }
+
+message PredictionPodResponse {
+    // int64 id = 1;
+    // string name = 2;
+
+    string namespace = 1;
+    string pod_name = 2;
+}
+
+// message PredictionDiskResponse {
+//     int64 id = 1;
+//     string name = 2;
+// }
+
+service AlamendaAIService {
+    rpc CreatePredictionPod(PredictionPodCreationRequest) 
+            returns (PredictionPodResponse) {}
+    rpc DeletePredictionPod(PredictionPodDeletionRequest)
+            returns (google.protobuf.Empty) {}
+    // rpc CreatePredictionDisk(PredictionDiskCreationRequest)
+    //         returns (PredictionDiskResponse) {}
+    // rpc DeletePredictionDisk(PredictionDiskDeletionRequest)
+    //         returns (google.protobuf.Empty) {}
+}
