@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message GetMetricRequest {
+}
+
+message GetMetricResponse {
+}
+
+message PostPredictResultRequest {
+}
+
+message PostPredictResultResponse {
+}
+
+service OperatorService {
+    rpc GetMetric(GetMetricRequest)
+            returns (GetMetricResponse) {}
+    rpc PostPredictResult(PostPredictResultRequest)
+            returns (PostPredictResultResponse) {}
+}
