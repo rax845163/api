@@ -14,10 +14,10 @@ class OperatorServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.GetMetric = channel.unary_unary(
-        '/OperatorService/GetMetric',
-        request_serializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricRequest.SerializeToString,
-        response_deserializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricResponse.FromString,
+    self.GetMetrics = channel.unary_unary(
+        '/OperatorService/GetMetrics',
+        request_serializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricsRequest.SerializeToString,
+        response_deserializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricsResponse.FromString,
         )
     self.PostPredictResult = channel.unary_unary(
         '/OperatorService/PostPredictResult',
@@ -30,7 +30,7 @@ class OperatorServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def GetMetric(self, request, context):
+  def GetMetrics(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -47,10 +47,10 @@ class OperatorServiceServicer(object):
 
 def add_OperatorServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'GetMetric': grpc.unary_unary_rpc_method_handler(
-          servicer.GetMetric,
-          request_deserializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricRequest.FromString,
-          response_serializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricResponse.SerializeToString,
+      'GetMetrics': grpc.unary_unary_rpc_method_handler(
+          servicer.GetMetrics,
+          request_deserializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricsRequest.FromString,
+          response_serializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricsResponse.SerializeToString,
       ),
       'PostPredictResult': grpc.unary_unary_rpc_method_handler(
           servicer.PostPredictResult,
