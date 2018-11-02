@@ -13,25 +13,96 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='operator/v1alpha1/server.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x1eoperator/v1alpha1/server.proto\"\x12\n\x10GetMetricRequest\"\x13\n\x11GetMetricResponse\"\x1a\n\x18PostPredictResultRequest\"\x1b\n\x19PostPredictResultResponse2\x95\x01\n\x0fOperatorService\x12\x34\n\tGetMetric\x12\x11.GetMetricRequest\x1a\x12.GetMetricResponse\"\x00\x12L\n\x11PostPredictResult\x12\x19.PostPredictResultRequest\x1a\x1a.PostPredictResultResponse\"\x00\x62\x06proto3')
-)
+  serialized_pb=_b('\n\x1eoperator/v1alpha1/server.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd6\x01\n\x11GetMetricsRequest\x12\x0e\n\x06metric\x18\x01 \x01(\t\x12*\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12.\n\x08\x64uration\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12 \n\ntime_range\x18\x04 \x01(\x0b\x32\n.TimeRangeH\x00\x12\"\n\nconditions\x18\x05 \x03(\x0b\x32\x0e.LabelSelectorB\x0f\n\rtime_selector\".\n\x12GetMetricsResponse\x12\x18\n\x07results\x18\x01 \x03(\x0b\x32\x07.Result\"\x1a\n\x18PostPredictResultRequest\"\x1b\n\x19PostPredictResultResponse\"i\n\tTimeRange\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"7\n\rLabelSelector\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\n\n\x02op\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\t\"r\n\x06Result\x12#\n\x06labels\x18\x01 \x03(\x0b\x32\x13.Result.LabelsEntry\x12\x14\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x06.Value\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"@\n\x05Value\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\r\n\x05value\x18\x02 \x01(\x01\x32\x98\x01\n\x0fOperatorService\x12\x37\n\nGetMetrics\x12\x12.GetMetricsRequest\x1a\x13.GetMetricsResponse\"\x00\x12L\n\x11PostPredictResult\x12\x19.PostPredictResultRequest\x1a\x1a.PostPredictResultResponse\"\x00\x62\x06proto3')
+  ,
+  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
 
 
-_GETMETRICREQUEST = _descriptor.Descriptor(
-  name='GetMetricRequest',
-  full_name='GetMetricRequest',
+_GETMETRICSREQUEST = _descriptor.Descriptor(
+  name='GetMetricsRequest',
+  full_name='GetMetricsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='metric', full_name='GetMetricsRequest.metric', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='GetMetricsRequest.time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='duration', full_name='GetMetricsRequest.duration', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='time_range', full_name='GetMetricsRequest.time_range', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='conditions', full_name='GetMetricsRequest.conditions', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='time_selector', full_name='GetMetricsRequest.time_selector',
+      index=0, containing_type=None, fields=[]),
+  ],
+  serialized_start=68,
+  serialized_end=282,
+)
+
+
+_GETMETRICSRESPONSE = _descriptor.Descriptor(
+  name='GetMetricsResponse',
+  full_name='GetMetricsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='results', full_name='GetMetricsResponse.results', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -44,32 +115,8 @@ _GETMETRICREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=34,
-  serialized_end=52,
-)
-
-
-_GETMETRICRESPONSE = _descriptor.Descriptor(
-  name='GetMetricResponse',
-  full_name='GetMetricResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=54,
-  serialized_end=73,
+  serialized_start=284,
+  serialized_end=330,
 )
 
 
@@ -92,8 +139,8 @@ _POSTPREDICTRESULTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=75,
-  serialized_end=101,
+  serialized_start=332,
+  serialized_end=358,
 )
 
 
@@ -116,29 +163,249 @@ _POSTPREDICTRESULTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=103,
-  serialized_end=130,
+  serialized_start=360,
+  serialized_end=387,
 )
 
-DESCRIPTOR.message_types_by_name['GetMetricRequest'] = _GETMETRICREQUEST
-DESCRIPTOR.message_types_by_name['GetMetricResponse'] = _GETMETRICRESPONSE
+
+_TIMERANGE = _descriptor.Descriptor(
+  name='TimeRange',
+  full_name='TimeRange',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='TimeRange.start_time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='end_time', full_name='TimeRange.end_time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=389,
+  serialized_end=494,
+)
+
+
+_LABELSELECTOR = _descriptor.Descriptor(
+  name='LabelSelector',
+  full_name='LabelSelector',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='LabelSelector.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='op', full_name='LabelSelector.op', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='LabelSelector.value', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=496,
+  serialized_end=551,
+)
+
+
+_RESULT_LABELSENTRY = _descriptor.Descriptor(
+  name='LabelsEntry',
+  full_name='Result.LabelsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='Result.LabelsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='Result.LabelsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=_descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001')),
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=622,
+  serialized_end=667,
+)
+
+_RESULT = _descriptor.Descriptor(
+  name='Result',
+  full_name='Result',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='labels', full_name='Result.labels', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='Result.data', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_RESULT_LABELSENTRY, ],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=553,
+  serialized_end=667,
+)
+
+
+_VALUE = _descriptor.Descriptor(
+  name='Value',
+  full_name='Value',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='time', full_name='Value.time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='Value.value', index=1,
+      number=2, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=669,
+  serialized_end=733,
+)
+
+_GETMETRICSREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_GETMETRICSREQUEST.fields_by_name['duration'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_GETMETRICSREQUEST.fields_by_name['time_range'].message_type = _TIMERANGE
+_GETMETRICSREQUEST.fields_by_name['conditions'].message_type = _LABELSELECTOR
+_GETMETRICSREQUEST.oneofs_by_name['time_selector'].fields.append(
+  _GETMETRICSREQUEST.fields_by_name['time'])
+_GETMETRICSREQUEST.fields_by_name['time'].containing_oneof = _GETMETRICSREQUEST.oneofs_by_name['time_selector']
+_GETMETRICSREQUEST.oneofs_by_name['time_selector'].fields.append(
+  _GETMETRICSREQUEST.fields_by_name['duration'])
+_GETMETRICSREQUEST.fields_by_name['duration'].containing_oneof = _GETMETRICSREQUEST.oneofs_by_name['time_selector']
+_GETMETRICSREQUEST.oneofs_by_name['time_selector'].fields.append(
+  _GETMETRICSREQUEST.fields_by_name['time_range'])
+_GETMETRICSREQUEST.fields_by_name['time_range'].containing_oneof = _GETMETRICSREQUEST.oneofs_by_name['time_selector']
+_GETMETRICSRESPONSE.fields_by_name['results'].message_type = _RESULT
+_TIMERANGE.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TIMERANGE.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_RESULT_LABELSENTRY.containing_type = _RESULT
+_RESULT.fields_by_name['labels'].message_type = _RESULT_LABELSENTRY
+_RESULT.fields_by_name['data'].message_type = _VALUE
+_VALUE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+DESCRIPTOR.message_types_by_name['GetMetricsRequest'] = _GETMETRICSREQUEST
+DESCRIPTOR.message_types_by_name['GetMetricsResponse'] = _GETMETRICSRESPONSE
 DESCRIPTOR.message_types_by_name['PostPredictResultRequest'] = _POSTPREDICTRESULTREQUEST
 DESCRIPTOR.message_types_by_name['PostPredictResultResponse'] = _POSTPREDICTRESULTRESPONSE
+DESCRIPTOR.message_types_by_name['TimeRange'] = _TIMERANGE
+DESCRIPTOR.message_types_by_name['LabelSelector'] = _LABELSELECTOR
+DESCRIPTOR.message_types_by_name['Result'] = _RESULT
+DESCRIPTOR.message_types_by_name['Value'] = _VALUE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-GetMetricRequest = _reflection.GeneratedProtocolMessageType('GetMetricRequest', (_message.Message,), dict(
-  DESCRIPTOR = _GETMETRICREQUEST,
+GetMetricsRequest = _reflection.GeneratedProtocolMessageType('GetMetricsRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETMETRICSREQUEST,
   __module__ = 'operator.v1alpha1.server_pb2'
-  # @@protoc_insertion_point(class_scope:GetMetricRequest)
+  # @@protoc_insertion_point(class_scope:GetMetricsRequest)
   ))
-_sym_db.RegisterMessage(GetMetricRequest)
+_sym_db.RegisterMessage(GetMetricsRequest)
 
-GetMetricResponse = _reflection.GeneratedProtocolMessageType('GetMetricResponse', (_message.Message,), dict(
-  DESCRIPTOR = _GETMETRICRESPONSE,
+GetMetricsResponse = _reflection.GeneratedProtocolMessageType('GetMetricsResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETMETRICSRESPONSE,
   __module__ = 'operator.v1alpha1.server_pb2'
-  # @@protoc_insertion_point(class_scope:GetMetricResponse)
+  # @@protoc_insertion_point(class_scope:GetMetricsResponse)
   ))
-_sym_db.RegisterMessage(GetMetricResponse)
+_sym_db.RegisterMessage(GetMetricsResponse)
 
 PostPredictResultRequest = _reflection.GeneratedProtocolMessageType('PostPredictResultRequest', (_message.Message,), dict(
   DESCRIPTOR = _POSTPREDICTRESULTREQUEST,
@@ -154,7 +421,45 @@ PostPredictResultResponse = _reflection.GeneratedProtocolMessageType('PostPredic
   ))
 _sym_db.RegisterMessage(PostPredictResultResponse)
 
+TimeRange = _reflection.GeneratedProtocolMessageType('TimeRange', (_message.Message,), dict(
+  DESCRIPTOR = _TIMERANGE,
+  __module__ = 'operator.v1alpha1.server_pb2'
+  # @@protoc_insertion_point(class_scope:TimeRange)
+  ))
+_sym_db.RegisterMessage(TimeRange)
 
+LabelSelector = _reflection.GeneratedProtocolMessageType('LabelSelector', (_message.Message,), dict(
+  DESCRIPTOR = _LABELSELECTOR,
+  __module__ = 'operator.v1alpha1.server_pb2'
+  # @@protoc_insertion_point(class_scope:LabelSelector)
+  ))
+_sym_db.RegisterMessage(LabelSelector)
+
+Result = _reflection.GeneratedProtocolMessageType('Result', (_message.Message,), dict(
+
+  LabelsEntry = _reflection.GeneratedProtocolMessageType('LabelsEntry', (_message.Message,), dict(
+    DESCRIPTOR = _RESULT_LABELSENTRY,
+    __module__ = 'operator.v1alpha1.server_pb2'
+    # @@protoc_insertion_point(class_scope:Result.LabelsEntry)
+    ))
+  ,
+  DESCRIPTOR = _RESULT,
+  __module__ = 'operator.v1alpha1.server_pb2'
+  # @@protoc_insertion_point(class_scope:Result)
+  ))
+_sym_db.RegisterMessage(Result)
+_sym_db.RegisterMessage(Result.LabelsEntry)
+
+Value = _reflection.GeneratedProtocolMessageType('Value', (_message.Message,), dict(
+  DESCRIPTOR = _VALUE,
+  __module__ = 'operator.v1alpha1.server_pb2'
+  # @@protoc_insertion_point(class_scope:Value)
+  ))
+_sym_db.RegisterMessage(Value)
+
+
+_RESULT_LABELSENTRY.has_options = True
+_RESULT_LABELSENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
 
 _OPERATORSERVICE = _descriptor.ServiceDescriptor(
   name='OperatorService',
@@ -162,16 +467,16 @@ _OPERATORSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=133,
-  serialized_end=282,
+  serialized_start=736,
+  serialized_end=888,
   methods=[
   _descriptor.MethodDescriptor(
-    name='GetMetric',
-    full_name='OperatorService.GetMetric',
+    name='GetMetrics',
+    full_name='OperatorService.GetMetrics',
     index=0,
     containing_service=None,
-    input_type=_GETMETRICREQUEST,
-    output_type=_GETMETRICRESPONSE,
+    input_type=_GETMETRICSREQUEST,
+    output_type=_GETMETRICSRESPONSE,
     options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -188,155 +493,4 @@ _sym_db.RegisterServiceDescriptor(_OPERATORSERVICE)
 
 DESCRIPTOR.services_by_name['OperatorService'] = _OPERATORSERVICE
 
-try:
-  # THESE ELEMENTS WILL BE DEPRECATED.
-  # Please use the generated *_pb2_grpc.py files instead.
-  import grpc
-  from grpc.beta import implementations as beta_implementations
-  from grpc.beta import interfaces as beta_interfaces
-  from grpc.framework.common import cardinality
-  from grpc.framework.interfaces.face import utilities as face_utilities
-
-
-  class OperatorServiceStub(object):
-    # missing associated documentation comment in .proto file
-    pass
-
-    def __init__(self, channel):
-      """Constructor.
-
-      Args:
-        channel: A grpc.Channel.
-      """
-      self.GetMetric = channel.unary_unary(
-          '/OperatorService/GetMetric',
-          request_serializer=GetMetricRequest.SerializeToString,
-          response_deserializer=GetMetricResponse.FromString,
-          )
-      self.PostPredictResult = channel.unary_unary(
-          '/OperatorService/PostPredictResult',
-          request_serializer=PostPredictResultRequest.SerializeToString,
-          response_deserializer=PostPredictResultResponse.FromString,
-          )
-
-
-  class OperatorServiceServicer(object):
-    # missing associated documentation comment in .proto file
-    pass
-
-    def GetMetric(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def PostPredictResult(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-
-  def add_OperatorServiceServicer_to_server(servicer, server):
-    rpc_method_handlers = {
-        'GetMetric': grpc.unary_unary_rpc_method_handler(
-            servicer.GetMetric,
-            request_deserializer=GetMetricRequest.FromString,
-            response_serializer=GetMetricResponse.SerializeToString,
-        ),
-        'PostPredictResult': grpc.unary_unary_rpc_method_handler(
-            servicer.PostPredictResult,
-            request_deserializer=PostPredictResultRequest.FromString,
-            response_serializer=PostPredictResultResponse.SerializeToString,
-        ),
-    }
-    generic_handler = grpc.method_handlers_generic_handler(
-        'OperatorService', rpc_method_handlers)
-    server.add_generic_rpc_handlers((generic_handler,))
-
-
-  class BetaOperatorServiceServicer(object):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This class was generated
-    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    # missing associated documentation comment in .proto file
-    pass
-    def GetMetric(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def PostPredictResult(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-
-
-  class BetaOperatorServiceStub(object):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This class was generated
-    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    # missing associated documentation comment in .proto file
-    pass
-    def GetMetric(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
-      raise NotImplementedError()
-    GetMetric.future = None
-    def PostPredictResult(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
-      raise NotImplementedError()
-    PostPredictResult.future = None
-
-
-  def beta_create_OperatorService_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This function was
-    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
-    request_deserializers = {
-      ('OperatorService', 'GetMetric'): GetMetricRequest.FromString,
-      ('OperatorService', 'PostPredictResult'): PostPredictResultRequest.FromString,
-    }
-    response_serializers = {
-      ('OperatorService', 'GetMetric'): GetMetricResponse.SerializeToString,
-      ('OperatorService', 'PostPredictResult'): PostPredictResultResponse.SerializeToString,
-    }
-    method_implementations = {
-      ('OperatorService', 'GetMetric'): face_utilities.unary_unary_inline(servicer.GetMetric),
-      ('OperatorService', 'PostPredictResult'): face_utilities.unary_unary_inline(servicer.PostPredictResult),
-    }
-    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-    return beta_implementations.server(method_implementations, options=server_options)
-
-
-  def beta_create_OperatorService_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This function was
-    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
-    request_serializers = {
-      ('OperatorService', 'GetMetric'): GetMetricRequest.SerializeToString,
-      ('OperatorService', 'PostPredictResult'): PostPredictResultRequest.SerializeToString,
-    }
-    response_deserializers = {
-      ('OperatorService', 'GetMetric'): GetMetricResponse.FromString,
-      ('OperatorService', 'PostPredictResult'): PostPredictResultResponse.FromString,
-    }
-    cardinalities = {
-      'GetMetric': cardinality.Cardinality.UNARY_UNARY,
-      'PostPredictResult': cardinality.Cardinality.UNARY_UNARY,
-    }
-    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-    return beta_implementations.dynamic_stub(channel, 'OperatorService', cardinalities, options=stub_options)
-except ImportError:
-  pass
 # @@protoc_insertion_point(module_scope)
