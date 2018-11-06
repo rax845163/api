@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
 
 service OperatorService {
     rpc GetMetrics(GetMetricsRequest)
@@ -13,7 +14,7 @@ message GetMetricsRequest {
     string metric = 1;
     oneof time_selector {
         google.protobuf.Timestamp time = 2;
-        google.protobuf.Timestamp duration = 3;
+        google.protobuf.Duration duration = 3;
         TimeRange time_range = 4;
     }
     repeated LabelSelector conditions = 5;
