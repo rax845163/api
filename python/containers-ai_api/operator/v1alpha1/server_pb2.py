@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='operator/v1alpha1/server.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x1eoperator/v1alpha1/server.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\"\xd5\x01\n\x11GetMetricsRequest\x12\x0e\n\x06metric\x18\x01 \x01(\t\x12*\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12-\n\x08\x64uration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12 \n\ntime_range\x18\x04 \x01(\x0b\x32\n.TimeRangeH\x00\x12\"\n\nconditions\x18\x05 \x03(\x0b\x32\x0e.LabelSelectorB\x0f\n\rtime_selector\".\n\x12GetMetricsResponse\x12\x18\n\x07results\x18\x01 \x03(\x0b\x32\x07.Result\"s\n\x05Limit\x12\x33\n\x0fresource_limits\x18\x01 \x03(\x0b\x32\x1a.Limit.ResourceLimitsEntry\x1a\x35\n\x13ResourceLimitsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"}\n\x07Request\x12\x39\n\x11resource_requests\x18\x01 \x03(\x0b\x32\x1e.Request.ResourceRequestsEntry\x1a\x37\n\x15ResourceRequestsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"<\n\x08Resource\x12\x15\n\x05limit\x18\x01 \x01(\x0b\x32\x06.Limit\x12\x19\n\x07request\x18\x02 \x01(\x0b\x32\x08.Request\"W\n\x0eRecommendation\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x1b\n\x08resource\x18\x02 \x01(\x0b\x32\t.Resource\"F\n\x0bPredictData\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\r\n\x05value\x18\x02 \x01(\t\"4\n\x0eTimeSeriesData\x12\"\n\x0cpredict_data\x18\x01 \x03(\x0b\x32\x0c.PredictData\"\xf8\x01\n\x10PredictContainer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12?\n\x10row_predict_data\x18\x02 \x03(\x0b\x32%.PredictContainer.RowPredictDataEntry\x12(\n\x0frecommendations\x18\x03 \x03(\x0b\x32\x0f.Recommendation\x12#\n\x10initial_resource\x18\x04 \x01(\x0b\x32\t.Resource\x1a\x46\n\x13RowPredictDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1e\n\x05value\x18\x02 \x01(\x0b\x32\x0f.TimeSeriesData:\x02\x38\x01\"i\n\nPredictPod\x12\x0b\n\x03uid\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12-\n\x12predict_containers\x18\x04 \x03(\x0b\x32\x11.PredictContainer\"=\n\x18PostPredictResultRequest\x12!\n\x0cpredict_pods\x18\x01 \x03(\x0b\x32\x0b.PredictPod\",\n\x19PostPredictResultResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"i\n\tTimeRange\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"7\n\rLabelSelector\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\n\n\x02op\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\t\"r\n\x06Result\x12#\n\x06labels\x18\x01 \x03(\x0b\x32\x13.Result.LabelsEntry\x12\x14\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x06.Value\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"@\n\x05Value\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\r\n\x05value\x18\x02 \x01(\x01\x32\x98\x01\n\x0fOperatorService\x12\x37\n\nGetMetrics\x12\x12.GetMetricsRequest\x1a\x13.GetMetricsResponse\"\x00\x12L\n\x11PostPredictResult\x12\x19.PostPredictResultRequest\x1a\x1a.PostPredictResultResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x1eoperator/v1alpha1/server.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\"\xd5\x01\n\x11GetMetricsRequest\x12\x0e\n\x06metric\x18\x01 \x01(\t\x12*\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12-\n\x08\x64uration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12 \n\ntime_range\x18\x04 \x01(\x0b\x32\n.TimeRangeH\x00\x12\"\n\nconditions\x18\x05 \x03(\x0b\x32\x0e.LabelSelectorB\x0f\n\rtime_selector\".\n\x12GetMetricsResponse\x12\x18\n\x07results\x18\x01 \x03(\x0b\x32\x07.Result\"\xb6\x01\n\x08Resource\x12#\n\x05limit\x18\x01 \x03(\x0b\x32\x14.Resource.LimitEntry\x12\'\n\x07request\x18\x02 \x03(\x0b\x32\x16.Resource.RequestEntry\x1a,\n\nLimitEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a.\n\x0cRequestEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"W\n\x0eRecommendation\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x1b\n\x08resource\x18\x02 \x01(\x0b\x32\t.Resource\"F\n\x0bPredictData\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\r\n\x05value\x18\x02 \x01(\t\"4\n\x0eTimeSeriesData\x12\"\n\x0cpredict_data\x18\x01 \x03(\x0b\x32\x0c.PredictData\"\xf8\x01\n\x10PredictContainer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12?\n\x10row_predict_data\x18\x02 \x03(\x0b\x32%.PredictContainer.RowPredictDataEntry\x12(\n\x0frecommendations\x18\x03 \x03(\x0b\x32\x0f.Recommendation\x12#\n\x10initial_resource\x18\x04 \x01(\x0b\x32\t.Resource\x1a\x46\n\x13RowPredictDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1e\n\x05value\x18\x02 \x01(\x0b\x32\x0f.TimeSeriesData:\x02\x38\x01\"i\n\nPredictPod\x12\x0b\n\x03uid\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12-\n\x12predict_containers\x18\x04 \x03(\x0b\x32\x11.PredictContainer\"=\n\x18PostPredictResultRequest\x12!\n\x0cpredict_pods\x18\x01 \x03(\x0b\x32\x0b.PredictPod\",\n\x19PostPredictResultResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"i\n\tTimeRange\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"7\n\rLabelSelector\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\n\n\x02op\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\t\"r\n\x06Result\x12#\n\x06labels\x18\x01 \x03(\x0b\x32\x13.Result.LabelsEntry\x12\x14\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x06.Value\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"@\n\x05Value\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\r\n\x05value\x18\x02 \x01(\x01\x32\x98\x01\n\x0fOperatorService\x12\x37\n\nGetMetrics\x12\x12.GetMetricsRequest\x1a\x13.GetMetricsResponse\"\x00\x12L\n\x11PostPredictResult\x12\x19.PostPredictResultRequest\x1a\x1a.PostPredictResultResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,])
 
@@ -121,22 +121,22 @@ _GETMETRICSRESPONSE = _descriptor.Descriptor(
 )
 
 
-_LIMIT_RESOURCELIMITSENTRY = _descriptor.Descriptor(
-  name='ResourceLimitsEntry',
-  full_name='Limit.ResourceLimitsEntry',
+_RESOURCE_LIMITENTRY = _descriptor.Descriptor(
+  name='LimitEntry',
+  full_name='Resource.LimitEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='Limit.ResourceLimitsEntry.key', index=0,
+      name='key', full_name='Resource.LimitEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='value', full_name='Limit.ResourceLimitsEntry.value', index=1,
+      name='value', full_name='Resource.LimitEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -154,57 +154,26 @@ _LIMIT_RESOURCELIMITSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=425,
-  serialized_end=478,
+  serialized_start=454,
+  serialized_end=498,
 )
 
-_LIMIT = _descriptor.Descriptor(
-  name='Limit',
-  full_name='Limit',
+_RESOURCE_REQUESTENTRY = _descriptor.Descriptor(
+  name='RequestEntry',
+  full_name='Resource.RequestEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='resource_limits', full_name='Limit.resource_limits', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[_LIMIT_RESOURCELIMITSENTRY, ],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=363,
-  serialized_end=478,
-)
-
-
-_REQUEST_RESOURCEREQUESTSENTRY = _descriptor.Descriptor(
-  name='ResourceRequestsEntry',
-  full_name='Request.ResourceRequestsEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='Request.ResourceRequestsEntry.key', index=0,
+      name='key', full_name='Resource.RequestEntry.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='value', full_name='Request.ResourceRequestsEntry.value', index=1,
+      name='value', full_name='Resource.RequestEntry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -222,40 +191,9 @@ _REQUEST_RESOURCEREQUESTSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=550,
-  serialized_end=605,
+  serialized_start=500,
+  serialized_end=546,
 )
-
-_REQUEST = _descriptor.Descriptor(
-  name='Request',
-  full_name='Request',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='resource_requests', full_name='Request.resource_requests', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[_REQUEST_RESOURCEREQUESTSENTRY, ],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=480,
-  serialized_end=605,
-)
-
 
 _RESOURCE = _descriptor.Descriptor(
   name='Resource',
@@ -266,22 +204,22 @@ _RESOURCE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='limit', full_name='Resource.limit', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='request', full_name='Resource.request', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_RESOURCE_LIMITENTRY, _RESOURCE_REQUESTENTRY, ],
   enum_types=[
   ],
   options=None,
@@ -290,8 +228,8 @@ _RESOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=607,
-  serialized_end=667,
+  serialized_start=364,
+  serialized_end=546,
 )
 
 
@@ -328,8 +266,8 @@ _RECOMMENDATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=669,
-  serialized_end=756,
+  serialized_start=548,
+  serialized_end=635,
 )
 
 
@@ -366,8 +304,8 @@ _PREDICTDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=758,
-  serialized_end=828,
+  serialized_start=637,
+  serialized_end=707,
 )
 
 
@@ -397,8 +335,8 @@ _TIMESERIESDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=830,
-  serialized_end=882,
+  serialized_start=709,
+  serialized_end=761,
 )
 
 
@@ -435,8 +373,8 @@ _PREDICTCONTAINER_ROWPREDICTDATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1063,
-  serialized_end=1133,
+  serialized_start=942,
+  serialized_end=1012,
 )
 
 _PREDICTCONTAINER = _descriptor.Descriptor(
@@ -486,8 +424,8 @@ _PREDICTCONTAINER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=885,
-  serialized_end=1133,
+  serialized_start=764,
+  serialized_end=1012,
 )
 
 
@@ -538,8 +476,8 @@ _PREDICTPOD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1135,
-  serialized_end=1240,
+  serialized_start=1014,
+  serialized_end=1119,
 )
 
 
@@ -569,8 +507,8 @@ _POSTPREDICTRESULTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1242,
-  serialized_end=1303,
+  serialized_start=1121,
+  serialized_end=1182,
 )
 
 
@@ -600,8 +538,8 @@ _POSTPREDICTRESULTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1305,
-  serialized_end=1349,
+  serialized_start=1184,
+  serialized_end=1228,
 )
 
 
@@ -638,8 +576,8 @@ _TIMERANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1351,
-  serialized_end=1456,
+  serialized_start=1230,
+  serialized_end=1335,
 )
 
 
@@ -683,8 +621,8 @@ _LABELSELECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1458,
-  serialized_end=1513,
+  serialized_start=1337,
+  serialized_end=1392,
 )
 
 
@@ -721,8 +659,8 @@ _RESULT_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1584,
-  serialized_end=1629,
+  serialized_start=1463,
+  serialized_end=1508,
 )
 
 _RESULT = _descriptor.Descriptor(
@@ -758,8 +696,8 @@ _RESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1515,
-  serialized_end=1629,
+  serialized_start=1394,
+  serialized_end=1508,
 )
 
 
@@ -796,8 +734,8 @@ _VALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1631,
-  serialized_end=1695,
+  serialized_start=1510,
+  serialized_end=1574,
 )
 
 _GETMETRICSREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -814,12 +752,10 @@ _GETMETRICSREQUEST.oneofs_by_name['time_selector'].fields.append(
   _GETMETRICSREQUEST.fields_by_name['time_range'])
 _GETMETRICSREQUEST.fields_by_name['time_range'].containing_oneof = _GETMETRICSREQUEST.oneofs_by_name['time_selector']
 _GETMETRICSRESPONSE.fields_by_name['results'].message_type = _RESULT
-_LIMIT_RESOURCELIMITSENTRY.containing_type = _LIMIT
-_LIMIT.fields_by_name['resource_limits'].message_type = _LIMIT_RESOURCELIMITSENTRY
-_REQUEST_RESOURCEREQUESTSENTRY.containing_type = _REQUEST
-_REQUEST.fields_by_name['resource_requests'].message_type = _REQUEST_RESOURCEREQUESTSENTRY
-_RESOURCE.fields_by_name['limit'].message_type = _LIMIT
-_RESOURCE.fields_by_name['request'].message_type = _REQUEST
+_RESOURCE_LIMITENTRY.containing_type = _RESOURCE
+_RESOURCE_REQUESTENTRY.containing_type = _RESOURCE
+_RESOURCE.fields_by_name['limit'].message_type = _RESOURCE_LIMITENTRY
+_RESOURCE.fields_by_name['request'].message_type = _RESOURCE_REQUESTENTRY
 _RECOMMENDATION.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _RECOMMENDATION.fields_by_name['resource'].message_type = _RESOURCE
 _PREDICTDATA.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -839,8 +775,6 @@ _RESULT.fields_by_name['data'].message_type = _VALUE
 _VALUE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 DESCRIPTOR.message_types_by_name['GetMetricsRequest'] = _GETMETRICSREQUEST
 DESCRIPTOR.message_types_by_name['GetMetricsResponse'] = _GETMETRICSRESPONSE
-DESCRIPTOR.message_types_by_name['Limit'] = _LIMIT
-DESCRIPTOR.message_types_by_name['Request'] = _REQUEST
 DESCRIPTOR.message_types_by_name['Resource'] = _RESOURCE
 DESCRIPTOR.message_types_by_name['Recommendation'] = _RECOMMENDATION
 DESCRIPTOR.message_types_by_name['PredictData'] = _PREDICTDATA
@@ -869,42 +803,28 @@ GetMetricsResponse = _reflection.GeneratedProtocolMessageType('GetMetricsRespons
   ))
 _sym_db.RegisterMessage(GetMetricsResponse)
 
-Limit = _reflection.GeneratedProtocolMessageType('Limit', (_message.Message,), dict(
-
-  ResourceLimitsEntry = _reflection.GeneratedProtocolMessageType('ResourceLimitsEntry', (_message.Message,), dict(
-    DESCRIPTOR = _LIMIT_RESOURCELIMITSENTRY,
-    __module__ = 'operator.v1alpha1.server_pb2'
-    # @@protoc_insertion_point(class_scope:Limit.ResourceLimitsEntry)
-    ))
-  ,
-  DESCRIPTOR = _LIMIT,
-  __module__ = 'operator.v1alpha1.server_pb2'
-  # @@protoc_insertion_point(class_scope:Limit)
-  ))
-_sym_db.RegisterMessage(Limit)
-_sym_db.RegisterMessage(Limit.ResourceLimitsEntry)
-
-Request = _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), dict(
-
-  ResourceRequestsEntry = _reflection.GeneratedProtocolMessageType('ResourceRequestsEntry', (_message.Message,), dict(
-    DESCRIPTOR = _REQUEST_RESOURCEREQUESTSENTRY,
-    __module__ = 'operator.v1alpha1.server_pb2'
-    # @@protoc_insertion_point(class_scope:Request.ResourceRequestsEntry)
-    ))
-  ,
-  DESCRIPTOR = _REQUEST,
-  __module__ = 'operator.v1alpha1.server_pb2'
-  # @@protoc_insertion_point(class_scope:Request)
-  ))
-_sym_db.RegisterMessage(Request)
-_sym_db.RegisterMessage(Request.ResourceRequestsEntry)
-
 Resource = _reflection.GeneratedProtocolMessageType('Resource', (_message.Message,), dict(
+
+  LimitEntry = _reflection.GeneratedProtocolMessageType('LimitEntry', (_message.Message,), dict(
+    DESCRIPTOR = _RESOURCE_LIMITENTRY,
+    __module__ = 'operator.v1alpha1.server_pb2'
+    # @@protoc_insertion_point(class_scope:Resource.LimitEntry)
+    ))
+  ,
+
+  RequestEntry = _reflection.GeneratedProtocolMessageType('RequestEntry', (_message.Message,), dict(
+    DESCRIPTOR = _RESOURCE_REQUESTENTRY,
+    __module__ = 'operator.v1alpha1.server_pb2'
+    # @@protoc_insertion_point(class_scope:Resource.RequestEntry)
+    ))
+  ,
   DESCRIPTOR = _RESOURCE,
   __module__ = 'operator.v1alpha1.server_pb2'
   # @@protoc_insertion_point(class_scope:Resource)
   ))
 _sym_db.RegisterMessage(Resource)
+_sym_db.RegisterMessage(Resource.LimitEntry)
+_sym_db.RegisterMessage(Resource.RequestEntry)
 
 Recommendation = _reflection.GeneratedProtocolMessageType('Recommendation', (_message.Message,), dict(
   DESCRIPTOR = _RECOMMENDATION,
@@ -1000,10 +920,10 @@ Value = _reflection.GeneratedProtocolMessageType('Value', (_message.Message,), d
 _sym_db.RegisterMessage(Value)
 
 
-_LIMIT_RESOURCELIMITSENTRY.has_options = True
-_LIMIT_RESOURCELIMITSENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
-_REQUEST_RESOURCEREQUESTSENTRY.has_options = True
-_REQUEST_RESOURCEREQUESTSENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
+_RESOURCE_LIMITENTRY.has_options = True
+_RESOURCE_LIMITENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
+_RESOURCE_REQUESTENTRY.has_options = True
+_RESOURCE_REQUESTENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
 _PREDICTCONTAINER_ROWPREDICTDATAENTRY.has_options = True
 _PREDICTCONTAINER_ROWPREDICTDATAENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
 _RESULT_LABELSENTRY.has_options = True
@@ -1015,8 +935,8 @@ _OPERATORSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=1698,
-  serialized_end=1850,
+  serialized_start=1577,
+  serialized_end=1729,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetMetrics',

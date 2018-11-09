@@ -24,17 +24,9 @@ message GetMetricsResponse {
     repeated Result results = 1;
 }
 
-message Limit {
-    map<string,string> resource_limits = 1;
-}
-
-message Request {
-    map<string,string> resource_requests = 1;    
-}
-
 message Resource {
-    Limit limit = 1;
-    Request request = 2;
+    map<string,string> limit = 1;
+    map<string,string> request = 2;
 }
 
 message Recommendation {
