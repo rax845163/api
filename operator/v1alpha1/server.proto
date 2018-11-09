@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
+import "google/rpc/status.proto";
 
 service OperatorService {
     rpc GetMetrics(GetMetricsRequest)
@@ -22,6 +23,7 @@ message GetMetricsRequest {
 
 message GetMetricsResponse {
     repeated Result results = 1;
+    google.rpc.Status status = 2;
 }
 
 message Resource {
@@ -63,6 +65,7 @@ message PostPredictResultRequest {
 
 message PostPredictResultResponse {
     string message = 1;
+    google.rpc.Status status = 2;
 }
 
 message TimeRange {
