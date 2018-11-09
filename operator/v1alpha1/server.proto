@@ -25,13 +25,11 @@ message GetMetricsResponse {
 }
 
 message Limit {
-    string cpu = 1;
-    string memory = 2;
+    map<string,string> resource_limits = 1;
 }
 
 message Request {
-    string cpu = 1;
-    string memory = 2;
+    map<string,string> resource_requests = 1;    
 }
 
 message Resource {
