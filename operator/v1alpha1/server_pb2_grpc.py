@@ -19,6 +19,11 @@ class OperatorServiceStub(object):
         request_serializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricsRequest.SerializeToString,
         response_deserializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricsResponse.FromString,
         )
+    self.GetComputeMetrics = channel.unary_unary(
+        '/OperatorService/GetComputeMetrics',
+        request_serializer=operator_dot_v1alpha1_dot_server__pb2.GetComputeMetricsRequest.SerializeToString,
+        response_deserializer=operator_dot_v1alpha1_dot_server__pb2.GetComputeMetricsResponse.FromString,
+        )
     self.PostPredictResult = channel.unary_unary(
         '/OperatorService/PostPredictResult',
         request_serializer=operator_dot_v1alpha1_dot_server__pb2.PostPredictResultRequest.SerializeToString,
@@ -31,6 +36,13 @@ class OperatorServiceServicer(object):
   pass
 
   def GetMetrics(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def GetComputeMetrics(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -51,6 +63,11 @@ def add_OperatorServiceServicer_to_server(servicer, server):
           servicer.GetMetrics,
           request_deserializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricsRequest.FromString,
           response_serializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricsResponse.SerializeToString,
+      ),
+      'GetComputeMetrics': grpc.unary_unary_rpc_method_handler(
+          servicer.GetComputeMetrics,
+          request_deserializer=operator_dot_v1alpha1_dot_server__pb2.GetComputeMetricsRequest.FromString,
+          response_serializer=operator_dot_v1alpha1_dot_server__pb2.GetComputeMetricsResponse.SerializeToString,
       ),
       'PostPredictResult': grpc.unary_unary_rpc_method_handler(
           servicer.PostPredictResult,
