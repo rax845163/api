@@ -7,8 +7,47 @@ import "google/rpc/status.proto";
 service OperatorService {
     rpc GetMetrics(GetMetricsRequest)
         returns (GetMetricsResponse) {}
+    rpc GetComputeMetrics(GetComputeMetricsRequest)
+        returns (GetComputeMetricsResponse) {}
     rpc PostPredictResult(PostPredictResultRequest)
         returns (PostPredictResultResponse) {}
+}
+
+enum ComputeMetric {
+    CPU = 0;
+    MEMORY = 1;
+}
+
+message TimeRange {
+    google.protobuf.Timestamp start_time = 1;
+    google.protobuf.Timestamp end_time = 2;
+}
+    
+message LabelSelector {
+    string key = 1;
+    string op = 2 ;
+    string value = 3;
+}
+
+message Value {
+    google.protobuf.Timestamp time = 1;
+    double value = 2;
+}
+
+message ComputeMetricScope {
+    string namespace = 1;
+    string pod_name = 2;
+    string container_name = 3;
+}
+
+message MetricResult {
+    map<string, string> labels = 1;
+    repeated Value data = 2;
+}
+
+message ComputeMetricResult {
+    ComputeMetricScope scope = 1;
+    repeated Value data = 2;
 }
 
 message GetMetricsRequest {
@@ -22,7 +61,22 @@ message GetMetricsRequest {
 }
 
 message GetMetricsResponse {
-    repeated Result results = 1;
+    repeated MetricResult results = 1;
+    google.rpc.Status status = 2;
+}
+
+message GetComputeMetricsRequest {
+    ComputeMetric type = 1;
+    repeated ComputeMetricScope scopes = 2;
+    oneof time_selector {
+        google.protobuf.Timestamp time = 3;
+        google.protobuf.Duration duration = 4;
+        TimeRange time_range = 5;
+    }
+}
+
+message GetComputeMetricsResponse {
+    repeated ComputeMetricResult results = 1;
     google.rpc.Status status = 2;
 }
 
@@ -68,23 +122,3 @@ message PostPredictResultResponse {
     google.rpc.Status status = 2;
 }
 
-message TimeRange {
-    google.protobuf.Timestamp start_time = 1;
-    google.protobuf.Timestamp end_time = 2;
-}
-    
-message LabelSelector {
-    string key = 1;
-    string op = 2 ;
-    string value = 3;
-}
-    
-message Result {
-    map<string, string> labels = 1;
-    repeated Value data = 2;
-}
-
-message Value {
-    google.protobuf.Timestamp time = 1;
-    double value = 2;
-}
