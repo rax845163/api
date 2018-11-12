@@ -64,7 +64,8 @@ message GetMetricResponse {
 // Get metrics summation by grouping labels.
 message GetMetricSumRequest {
     string metric = 1;
-    repeated string labels = 2;
+    repeated LabelSelector conditions = 2;
+    repeated string labels = 3;
 }
 
 message GetMetricSumResponse {
