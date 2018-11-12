@@ -27,6 +27,7 @@ enum StrOp {
 message TimeRange {
     google.protobuf.Timestamp start_time = 1;
     google.protobuf.Timestamp end_time = 2;
+    google.protobuf.Duration step = 3;
 }
     
 message LabelSelector {
@@ -64,8 +65,13 @@ message GetMetricResponse {
 // Get metrics summation by grouping labels.
 message GetMetricSumRequest {
     string metric = 1;
-    repeated LabelSelector conditions = 2;
-    repeated string labels = 3;
+    oneof time_selector {
+        google.protobuf.Timestamp time = 2;
+        google.protobuf.Duration duration = 3;
+        TimeRange time_range = 4;
+    }
+    repeated LabelSelector conditions = 5;
+    repeated string labels = 6;
 }
 
 message GetMetricSumResponse {
