@@ -14,15 +14,20 @@ class OperatorServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.GetMetrics = channel.unary_unary(
-        '/OperatorService/GetMetrics',
-        request_serializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricsRequest.SerializeToString,
-        response_deserializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricsResponse.FromString,
+    self.ListMetrics = channel.unary_unary(
+        '/OperatorService/ListMetrics',
+        request_serializer=operator_dot_v1alpha1_dot_server__pb2.ListMetricsRequest.SerializeToString,
+        response_deserializer=operator_dot_v1alpha1_dot_server__pb2.ListMetricsResponse.FromString,
         )
-    self.PostPredictResult = channel.unary_unary(
-        '/OperatorService/PostPredictResult',
-        request_serializer=operator_dot_v1alpha1_dot_server__pb2.PostPredictResultRequest.SerializeToString,
-        response_deserializer=operator_dot_v1alpha1_dot_server__pb2.PostPredictResultResponse.FromString,
+    self.ListMetricsSum = channel.unary_unary(
+        '/OperatorService/ListMetricsSum',
+        request_serializer=operator_dot_v1alpha1_dot_server__pb2.ListMetricsSumRequest.SerializeToString,
+        response_deserializer=operator_dot_v1alpha1_dot_server__pb2.ListMetricsSumResponse.FromString,
+        )
+    self.CreatePredictResult = channel.unary_unary(
+        '/OperatorService/CreatePredictResult',
+        request_serializer=operator_dot_v1alpha1_dot_server__pb2.CreatePredictResultRequest.SerializeToString,
+        response_deserializer=operator_dot_v1alpha1_dot_server__pb2.CreatePredictResultResponse.FromString,
         )
 
 
@@ -30,14 +35,21 @@ class OperatorServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def GetMetrics(self, request, context):
+  def ListMetrics(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def PostPredictResult(self, request, context):
+  def ListMetricsSum(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def CreatePredictResult(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -47,15 +59,20 @@ class OperatorServiceServicer(object):
 
 def add_OperatorServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'GetMetrics': grpc.unary_unary_rpc_method_handler(
-          servicer.GetMetrics,
-          request_deserializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricsRequest.FromString,
-          response_serializer=operator_dot_v1alpha1_dot_server__pb2.GetMetricsResponse.SerializeToString,
+      'ListMetrics': grpc.unary_unary_rpc_method_handler(
+          servicer.ListMetrics,
+          request_deserializer=operator_dot_v1alpha1_dot_server__pb2.ListMetricsRequest.FromString,
+          response_serializer=operator_dot_v1alpha1_dot_server__pb2.ListMetricsResponse.SerializeToString,
       ),
-      'PostPredictResult': grpc.unary_unary_rpc_method_handler(
-          servicer.PostPredictResult,
-          request_deserializer=operator_dot_v1alpha1_dot_server__pb2.PostPredictResultRequest.FromString,
-          response_serializer=operator_dot_v1alpha1_dot_server__pb2.PostPredictResultResponse.SerializeToString,
+      'ListMetricsSum': grpc.unary_unary_rpc_method_handler(
+          servicer.ListMetricsSum,
+          request_deserializer=operator_dot_v1alpha1_dot_server__pb2.ListMetricsSumRequest.FromString,
+          response_serializer=operator_dot_v1alpha1_dot_server__pb2.ListMetricsSumResponse.SerializeToString,
+      ),
+      'CreatePredictResult': grpc.unary_unary_rpc_method_handler(
+          servicer.CreatePredictResult,
+          request_deserializer=operator_dot_v1alpha1_dot_server__pb2.CreatePredictResultRequest.FromString,
+          response_serializer=operator_dot_v1alpha1_dot_server__pb2.CreatePredictResultResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
