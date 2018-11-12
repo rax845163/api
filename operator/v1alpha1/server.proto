@@ -5,17 +5,23 @@ import "google/protobuf/duration.proto";
 import "google/rpc/status.proto";
 
 service OperatorService {
-    rpc GetMetrics(GetMetricsRequest)
-        returns (GetMetricsResponse) {}
-    rpc GetComputeMetrics(GetComputeMetricsRequest)
-        returns (GetComputeMetricsResponse) {}
+    rpc GetMetric(GetMetricRequest)
+        returns (GetMetricResponse) {}
+    rpc GetMetricSum(GetMetricSumRequest)
+        returns (GetMetricSumResponse) {}
     rpc PostPredictResult(PostPredictResultRequest)
         returns (PostPredictResultResponse) {}
 }
 
-enum ComputeMetric {
-    CPU = 0;
-    MEMORY = 1;
+enum MetricType {
+    CPU_USAGE_TOTAL = 0;
+    CPU_USAGE_TOTAL_RATE = 1;
+    MEMORY_USAGE = 2;
+}
+
+enum StrOp {
+    Equal = 0;
+    NotEqual = 1;
 }
 
 message TimeRange {
@@ -25,7 +31,7 @@ message TimeRange {
     
 message LabelSelector {
     string key = 1;
-    string op = 2 ;
+    StrOp op = 2 ;
     string value = 3;
 }
 
@@ -34,23 +40,13 @@ message Value {
     double value = 2;
 }
 
-message ComputeMetricScope {
-    string namespace = 1;
-    string pod_name = 2;
-    string container_name = 3;
-}
-
 message MetricResult {
     map<string, string> labels = 1;
     repeated Value data = 2;
 }
 
-message ComputeMetricResult {
-    ComputeMetricScope scope = 1;
-    repeated Value data = 2;
-}
-
-message GetMetricsRequest {
+// Get metric with each condition do AND operation. 
+message GetMetricRequest {
     string metric = 1;
     oneof time_selector {
         google.protobuf.Timestamp time = 2;
@@ -60,23 +56,19 @@ message GetMetricsRequest {
     repeated LabelSelector conditions = 5;
 }
 
-message GetMetricsResponse {
-    repeated MetricResult results = 1;
+message GetMetricResponse {
+    MetricResult result = 1;
     google.rpc.Status status = 2;
 }
 
-message GetComputeMetricsRequest {
-    ComputeMetric type = 1;
-    repeated ComputeMetricScope scopes = 2;
-    oneof time_selector {
-        google.protobuf.Timestamp time = 3;
-        google.protobuf.Duration duration = 4;
-        TimeRange time_range = 5;
-    }
+// Get metrics summation by grouping labels.
+message GetMetricSumRequest {
+    string metric = 1;
+    repeated string labels = 2;
 }
 
-message GetComputeMetricsResponse {
-    repeated ComputeMetricResult results = 1;
+message GetMetricSumResponse {
+    MetricResult result = 1;
     google.rpc.Status status = 2;
 }
 
