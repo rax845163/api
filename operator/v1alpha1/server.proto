@@ -14,9 +14,9 @@ service OperatorService {
 }
 
 enum MetricType {
-    CPU_USAGE_TOTAL = 0;
-    CPU_USAGE_TOTAL_RATE = 1;
-    MEMORY_USAGE = 2;
+    CONTAINER_CPU_USAGE_TOTAL = 0;
+    CONTAINER_CPU_USAGE_TOTAL_RATE = 1;
+    CONTAINER_MEMORY_USAGE = 2;
 }
 
 enum StrOp {
@@ -48,7 +48,7 @@ message MetricResult {
 
 // Get metric with each condition do AND operation. 
 message GetMetricRequest {
-    string metric = 1;
+    MetricType metric_type = 1;
     oneof time_selector {
         google.protobuf.Timestamp time = 2;
         google.protobuf.Duration duration = 3;
@@ -58,13 +58,13 @@ message GetMetricRequest {
 }
 
 message GetMetricResponse {
-    MetricResult result = 1;
+    repeated MetricResult results = 1;
     google.rpc.Status status = 2;
 }
 
 // Get metrics summation by grouping labels.
 message GetMetricSumRequest {
-    string metric = 1;
+    MetricType metric_type = 1;
     oneof time_selector {
         google.protobuf.Timestamp time = 2;
         google.protobuf.Duration duration = 3;
@@ -75,7 +75,7 @@ message GetMetricSumRequest {
 }
 
 message GetMetricSumResponse {
-    MetricResult result = 1;
+    repeated MetricResult results = 1;
     google.rpc.Status status = 2;
 }
 

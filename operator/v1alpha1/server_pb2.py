@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='operator/v1alpha1/server.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x1eoperator/v1alpha1/server.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x17google/rpc/status.proto\"\x92\x01\n\tTimeRange\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\'\n\x04step\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\"?\n\rLabelSelector\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x12\n\x02op\x18\x02 \x01(\x0e\x32\x06.StrOp\x12\r\n\x05value\x18\x03 \x01(\t\"@\n\x05Value\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\r\n\x05value\x18\x02 \x01(\x01\"~\n\x0cMetricResult\x12)\n\x06labels\x18\x01 \x03(\x0b\x32\x19.MetricResult.LabelsEntry\x12\x14\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x06.Value\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd4\x01\n\x10GetMetricRequest\x12\x0e\n\x06metric\x18\x01 \x01(\t\x12*\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12-\n\x08\x64uration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12 \n\ntime_range\x18\x04 \x01(\x0b\x32\n.TimeRangeH\x00\x12\"\n\nconditions\x18\x05 \x03(\x0b\x32\x0e.LabelSelectorB\x0f\n\rtime_selector\"V\n\x11GetMetricResponse\x12\x1d\n\x06result\x18\x01 \x01(\x0b\x32\r.MetricResult\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\"\xe7\x01\n\x13GetMetricSumRequest\x12\x0e\n\x06metric\x18\x01 \x01(\t\x12*\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12-\n\x08\x64uration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12 \n\ntime_range\x18\x04 \x01(\x0b\x32\n.TimeRangeH\x00\x12\"\n\nconditions\x18\x05 \x03(\x0b\x32\x0e.LabelSelector\x12\x0e\n\x06labels\x18\x06 \x03(\tB\x0f\n\rtime_selector\"Y\n\x14GetMetricSumResponse\x12\x1d\n\x06result\x18\x01 \x01(\x0b\x32\r.MetricResult\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\"\xb6\x01\n\x08Resource\x12#\n\x05limit\x18\x01 \x03(\x0b\x32\x14.Resource.LimitEntry\x12\'\n\x07request\x18\x02 \x03(\x0b\x32\x16.Resource.RequestEntry\x1a,\n\nLimitEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a.\n\x0cRequestEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"W\n\x0eRecommendation\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x1b\n\x08resource\x18\x02 \x01(\x0b\x32\t.Resource\"F\n\x0bPredictData\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\r\n\x05value\x18\x02 \x01(\t\"4\n\x0eTimeSeriesData\x12\"\n\x0cpredict_data\x18\x01 \x03(\x0b\x32\x0c.PredictData\"\xf8\x01\n\x10PredictContainer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12?\n\x10row_predict_data\x18\x02 \x03(\x0b\x32%.PredictContainer.RowPredictDataEntry\x12(\n\x0frecommendations\x18\x03 \x03(\x0b\x32\x0f.Recommendation\x12#\n\x10initial_resource\x18\x04 \x01(\x0b\x32\t.Resource\x1a\x46\n\x13RowPredictDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1e\n\x05value\x18\x02 \x01(\x0b\x32\x0f.TimeSeriesData:\x02\x38\x01\"i\n\nPredictPod\x12\x0b\n\x03uid\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12-\n\x12predict_containers\x18\x04 \x03(\x0b\x32\x11.PredictContainer\"=\n\x18PostPredictResultRequest\x12!\n\x0cpredict_pods\x18\x01 \x03(\x0b\x32\x0b.PredictPod\"P\n\x19PostPredictResultResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status*M\n\nMetricType\x12\x13\n\x0f\x43PU_USAGE_TOTAL\x10\x00\x12\x18\n\x14\x43PU_USAGE_TOTAL_RATE\x10\x01\x12\x10\n\x0cMEMORY_USAGE\x10\x02* \n\x05StrOp\x12\t\n\x05\x45qual\x10\x00\x12\x0c\n\x08NotEqual\x10\x01\x32\xd4\x01\n\x0fOperatorService\x12\x34\n\tGetMetric\x12\x11.GetMetricRequest\x1a\x12.GetMetricResponse\"\x00\x12=\n\x0cGetMetricSum\x12\x14.GetMetricSumRequest\x1a\x15.GetMetricSumResponse\"\x00\x12L\n\x11PostPredictResult\x12\x19.PostPredictResultRequest\x1a\x1a.PostPredictResultResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x1eoperator/v1alpha1/server.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x17google/rpc/status.proto\"\x92\x01\n\tTimeRange\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\'\n\x04step\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\"?\n\rLabelSelector\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x12\n\x02op\x18\x02 \x01(\x0e\x32\x06.StrOp\x12\r\n\x05value\x18\x03 \x01(\t\"@\n\x05Value\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\r\n\x05value\x18\x02 \x01(\x01\"~\n\x0cMetricResult\x12)\n\x06labels\x18\x01 \x03(\x0b\x32\x19.MetricResult.LabelsEntry\x12\x14\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x06.Value\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xe6\x01\n\x10GetMetricRequest\x12 \n\x0bmetric_type\x18\x01 \x01(\x0e\x32\x0b.MetricType\x12*\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12-\n\x08\x64uration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12 \n\ntime_range\x18\x04 \x01(\x0b\x32\n.TimeRangeH\x00\x12\"\n\nconditions\x18\x05 \x03(\x0b\x32\x0e.LabelSelectorB\x0f\n\rtime_selector\"W\n\x11GetMetricResponse\x12\x1e\n\x07results\x18\x01 \x03(\x0b\x32\r.MetricResult\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\"\xf9\x01\n\x13GetMetricSumRequest\x12 \n\x0bmetric_type\x18\x01 \x01(\x0e\x32\x0b.MetricType\x12*\n\x04time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12-\n\x08\x64uration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12 \n\ntime_range\x18\x04 \x01(\x0b\x32\n.TimeRangeH\x00\x12\"\n\nconditions\x18\x05 \x03(\x0b\x32\x0e.LabelSelector\x12\x0e\n\x06labels\x18\x06 \x03(\tB\x0f\n\rtime_selector\"Z\n\x14GetMetricSumResponse\x12\x1e\n\x07results\x18\x01 \x03(\x0b\x32\r.MetricResult\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\"\xb6\x01\n\x08Resource\x12#\n\x05limit\x18\x01 \x03(\x0b\x32\x14.Resource.LimitEntry\x12\'\n\x07request\x18\x02 \x03(\x0b\x32\x16.Resource.RequestEntry\x1a,\n\nLimitEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a.\n\x0cRequestEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"W\n\x0eRecommendation\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x1b\n\x08resource\x18\x02 \x01(\x0b\x32\t.Resource\"F\n\x0bPredictData\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\r\n\x05value\x18\x02 \x01(\t\"4\n\x0eTimeSeriesData\x12\"\n\x0cpredict_data\x18\x01 \x03(\x0b\x32\x0c.PredictData\"\xf8\x01\n\x10PredictContainer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12?\n\x10row_predict_data\x18\x02 \x03(\x0b\x32%.PredictContainer.RowPredictDataEntry\x12(\n\x0frecommendations\x18\x03 \x03(\x0b\x32\x0f.Recommendation\x12#\n\x10initial_resource\x18\x04 \x01(\x0b\x32\t.Resource\x1a\x46\n\x13RowPredictDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1e\n\x05value\x18\x02 \x01(\x0b\x32\x0f.TimeSeriesData:\x02\x38\x01\"i\n\nPredictPod\x12\x0b\n\x03uid\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12-\n\x12predict_containers\x18\x04 \x03(\x0b\x32\x11.PredictContainer\"=\n\x18PostPredictResultRequest\x12!\n\x0cpredict_pods\x18\x01 \x03(\x0b\x32\x0b.PredictPod\"P\n\x19PostPredictResultResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status*k\n\nMetricType\x12\x1d\n\x19\x43ONTAINER_CPU_USAGE_TOTAL\x10\x00\x12\"\n\x1e\x43ONTAINER_CPU_USAGE_TOTAL_RATE\x10\x01\x12\x1a\n\x16\x43ONTAINER_MEMORY_USAGE\x10\x02* \n\x05StrOp\x12\t\n\x05\x45qual\x10\x00\x12\x0c\n\x08NotEqual\x10\x01\x32\xd4\x01\n\x0fOperatorService\x12\x34\n\tGetMetric\x12\x11.GetMetricRequest\x1a\x12.GetMetricResponse\"\x00\x12=\n\x0cGetMetricSum\x12\x14.GetMetricSumRequest\x1a\x15.GetMetricSumResponse\"\x00\x12L\n\x11PostPredictResult\x12\x19.PostPredictResultRequest\x1a\x1a.PostPredictResultResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
@@ -34,22 +34,22 @@ _METRICTYPE = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='CPU_USAGE_TOTAL', index=0, number=0,
+      name='CONTAINER_CPU_USAGE_TOTAL', index=0, number=0,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CPU_USAGE_TOTAL_RATE', index=1, number=1,
+      name='CONTAINER_CPU_USAGE_TOTAL_RATE', index=1, number=1,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='MEMORY_USAGE', index=2, number=2,
+      name='CONTAINER_MEMORY_USAGE', index=2, number=2,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=2063,
-  serialized_end=2140,
+  serialized_start=2101,
+  serialized_end=2208,
 )
 _sym_db.RegisterEnumDescriptor(_METRICTYPE)
 
@@ -71,15 +71,15 @@ _STROP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2142,
-  serialized_end=2174,
+  serialized_start=2210,
+  serialized_end=2242,
 )
 _sym_db.RegisterEnumDescriptor(_STROP)
 
 StrOp = enum_type_wrapper.EnumTypeWrapper(_STROP)
-CPU_USAGE_TOTAL = 0
-CPU_USAGE_TOTAL_RATE = 1
-MEMORY_USAGE = 2
+CONTAINER_CPU_USAGE_TOTAL = 0
+CONTAINER_CPU_USAGE_TOTAL_RATE = 1
+CONTAINER_MEMORY_USAGE = 2
 Equal = 0
 NotEqual = 1
 
@@ -296,9 +296,9 @@ _GETMETRICREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='metric', full_name='GetMetricRequest.metric', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='metric_type', full_name='GetMetricRequest.metric_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -346,7 +346,7 @@ _GETMETRICREQUEST = _descriptor.Descriptor(
       index=0, containing_type=None, fields=[]),
   ],
   serialized_start=533,
-  serialized_end=745,
+  serialized_end=763,
 )
 
 
@@ -358,9 +358,9 @@ _GETMETRICRESPONSE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='result', full_name='GetMetricResponse.result', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='results', full_name='GetMetricResponse.results', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -383,8 +383,8 @@ _GETMETRICRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=747,
-  serialized_end=833,
+  serialized_start=765,
+  serialized_end=852,
 )
 
 
@@ -396,9 +396,9 @@ _GETMETRICSUMREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='metric', full_name='GetMetricSumRequest.metric', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='metric_type', full_name='GetMetricSumRequest.metric_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -452,8 +452,8 @@ _GETMETRICSUMREQUEST = _descriptor.Descriptor(
       name='time_selector', full_name='GetMetricSumRequest.time_selector',
       index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=836,
-  serialized_end=1067,
+  serialized_start=855,
+  serialized_end=1104,
 )
 
 
@@ -465,9 +465,9 @@ _GETMETRICSUMRESPONSE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='result', full_name='GetMetricSumResponse.result', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='results', full_name='GetMetricSumResponse.results', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -490,8 +490,8 @@ _GETMETRICSUMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1069,
-  serialized_end=1158,
+  serialized_start=1106,
+  serialized_end=1196,
 )
 
 
@@ -528,8 +528,8 @@ _RESOURCE_LIMITENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1251,
-  serialized_end=1295,
+  serialized_start=1289,
+  serialized_end=1333,
 )
 
 _RESOURCE_REQUESTENTRY = _descriptor.Descriptor(
@@ -565,8 +565,8 @@ _RESOURCE_REQUESTENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1297,
-  serialized_end=1343,
+  serialized_start=1335,
+  serialized_end=1381,
 )
 
 _RESOURCE = _descriptor.Descriptor(
@@ -602,8 +602,8 @@ _RESOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1161,
-  serialized_end=1343,
+  serialized_start=1199,
+  serialized_end=1381,
 )
 
 
@@ -640,8 +640,8 @@ _RECOMMENDATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1345,
-  serialized_end=1432,
+  serialized_start=1383,
+  serialized_end=1470,
 )
 
 
@@ -678,8 +678,8 @@ _PREDICTDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1434,
-  serialized_end=1504,
+  serialized_start=1472,
+  serialized_end=1542,
 )
 
 
@@ -709,8 +709,8 @@ _TIMESERIESDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1506,
-  serialized_end=1558,
+  serialized_start=1544,
+  serialized_end=1596,
 )
 
 
@@ -747,8 +747,8 @@ _PREDICTCONTAINER_ROWPREDICTDATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1739,
-  serialized_end=1809,
+  serialized_start=1777,
+  serialized_end=1847,
 )
 
 _PREDICTCONTAINER = _descriptor.Descriptor(
@@ -798,8 +798,8 @@ _PREDICTCONTAINER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1561,
-  serialized_end=1809,
+  serialized_start=1599,
+  serialized_end=1847,
 )
 
 
@@ -850,8 +850,8 @@ _PREDICTPOD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1811,
-  serialized_end=1916,
+  serialized_start=1849,
+  serialized_end=1954,
 )
 
 
@@ -881,8 +881,8 @@ _POSTPREDICTRESULTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1918,
-  serialized_end=1979,
+  serialized_start=1956,
+  serialized_end=2017,
 )
 
 
@@ -919,8 +919,8 @@ _POSTPREDICTRESULTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1981,
-  serialized_end=2061,
+  serialized_start=2019,
+  serialized_end=2099,
 )
 
 _TIMERANGE.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -931,6 +931,7 @@ _VALUE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__
 _METRICRESULT_LABELSENTRY.containing_type = _METRICRESULT
 _METRICRESULT.fields_by_name['labels'].message_type = _METRICRESULT_LABELSENTRY
 _METRICRESULT.fields_by_name['data'].message_type = _VALUE
+_GETMETRICREQUEST.fields_by_name['metric_type'].enum_type = _METRICTYPE
 _GETMETRICREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _GETMETRICREQUEST.fields_by_name['duration'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _GETMETRICREQUEST.fields_by_name['time_range'].message_type = _TIMERANGE
@@ -944,8 +945,9 @@ _GETMETRICREQUEST.fields_by_name['duration'].containing_oneof = _GETMETRICREQUES
 _GETMETRICREQUEST.oneofs_by_name['time_selector'].fields.append(
   _GETMETRICREQUEST.fields_by_name['time_range'])
 _GETMETRICREQUEST.fields_by_name['time_range'].containing_oneof = _GETMETRICREQUEST.oneofs_by_name['time_selector']
-_GETMETRICRESPONSE.fields_by_name['result'].message_type = _METRICRESULT
+_GETMETRICRESPONSE.fields_by_name['results'].message_type = _METRICRESULT
 _GETMETRICRESPONSE.fields_by_name['status'].message_type = google_dot_rpc_dot_status__pb2._STATUS
+_GETMETRICSUMREQUEST.fields_by_name['metric_type'].enum_type = _METRICTYPE
 _GETMETRICSUMREQUEST.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _GETMETRICSUMREQUEST.fields_by_name['duration'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _GETMETRICSUMREQUEST.fields_by_name['time_range'].message_type = _TIMERANGE
@@ -959,7 +961,7 @@ _GETMETRICSUMREQUEST.fields_by_name['duration'].containing_oneof = _GETMETRICSUM
 _GETMETRICSUMREQUEST.oneofs_by_name['time_selector'].fields.append(
   _GETMETRICSUMREQUEST.fields_by_name['time_range'])
 _GETMETRICSUMREQUEST.fields_by_name['time_range'].containing_oneof = _GETMETRICSUMREQUEST.oneofs_by_name['time_selector']
-_GETMETRICSUMRESPONSE.fields_by_name['result'].message_type = _METRICRESULT
+_GETMETRICSUMRESPONSE.fields_by_name['results'].message_type = _METRICRESULT
 _GETMETRICSUMRESPONSE.fields_by_name['status'].message_type = google_dot_rpc_dot_status__pb2._STATUS
 _RESOURCE_LIMITENTRY.containing_type = _RESOURCE
 _RESOURCE_REQUESTENTRY.containing_type = _RESOURCE
@@ -1157,8 +1159,8 @@ _OPERATORSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=2177,
-  serialized_end=2389,
+  serialized_start=2245,
+  serialized_end=2457,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetMetric',
