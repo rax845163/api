@@ -5,12 +5,12 @@ import "google/protobuf/duration.proto";
 import "google/rpc/status.proto";
 
 service OperatorService {
-    rpc GetMetric(GetMetricRequest)
-        returns (GetMetricResponse) {}
-    rpc GetMetricSum(GetMetricSumRequest)
-        returns (GetMetricSumResponse) {}
-    rpc PostPredictResult(PostPredictResultRequest)
-        returns (PostPredictResultResponse) {}
+    rpc ListMetrics(ListMetricsRequest)
+        returns (ListMetricsResponse) {}
+    rpc ListMetricsSum(ListMetricsSumRequest)
+        returns (ListMetricsSumResponse) {}
+    rpc CreatePredictResult(CreatePredictResultRequest)
+        returns (CreatePredictResultResponse) {}
 }
 
 enum MetricType {
@@ -47,7 +47,7 @@ message MetricResult {
 }
 
 // Get metric with each condition do AND operation. 
-message GetMetricRequest {
+message ListMetricsRequest {
     MetricType metric_type = 1;
     oneof time_selector {
         google.protobuf.Timestamp time = 2;
@@ -57,13 +57,13 @@ message GetMetricRequest {
     repeated LabelSelector conditions = 5;
 }
 
-message GetMetricResponse {
-    repeated MetricResult results = 1;
+message ListMetricsResponse {
+    repeated MetricResult metrics = 1;
     google.rpc.Status status = 2;
 }
 
 // Get metrics summation by grouping labels.
-message GetMetricSumRequest {
+message ListMetricsSumRequest {
     MetricType metric_type = 1;
     oneof time_selector {
         google.protobuf.Timestamp time = 2;
@@ -74,8 +74,8 @@ message GetMetricSumRequest {
     repeated string labels = 6;
 }
 
-message GetMetricSumResponse {
-    repeated MetricResult results = 1;
+message ListMetricsSumResponse {
+    repeated MetricResult metrics = 1;
     google.rpc.Status status = 2;
 }
 
@@ -112,12 +112,11 @@ message PredictPod {
     repeated PredictContainer predict_containers = 4;
 }
 
-message PostPredictResultRequest {
+message CreatePredictResultRequest {
     repeated PredictPod predict_pods = 1;
 }
 
-message PostPredictResultResponse {
-    string message = 1;
-    google.rpc.Status status = 2;
+message CreatePredictResultResponse {
+    google.rpc.Status status = 1;
 }
 
