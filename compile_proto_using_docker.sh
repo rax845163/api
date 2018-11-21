@@ -43,9 +43,10 @@ build_go_image(){
 }
 
 compile_grpc_python(){
+    echo "Check gRPC python image."
     local DOCKERFILE_MD5=`md5sum $ALAMEA_GRPC_PYTHON_IMAGE_DOCKERFILE | awk '{print $1}'`
     if ! docker images $ALAMEA_GRPC_PYTHON_IMAGE | grep $ALAMEA_GRPC_PYTHON_IMAGE_REPO > /dev/null 2>&1; then
-        echo "build new image $ALAMEA_GRPC_PYTHON_IMAGE";
+        echo "Build new image $ALAMEA_GRPC_PYTHON_IMAGE";
         build_python_image
 	return 0
     fi
@@ -53,17 +54,20 @@ compile_grpc_python(){
         if [ \"$REQUIREMENT_MD5\" != \"\$REQUIREMENT_MD5\" ] || [ \"$DOCKERFILE_MD5\" != \"\$DOCKERFILE_MD5\" ]; then
             exit 1;
         fi"; then
-        echo "refresh image $ALAMEA_GRPC_PYTHON_IMAGE";
+        echo "Refresh image $ALAMEA_GRPC_PYTHON_IMAGE";
         docker rmi $ALAMEA_GRPC_PYTHON_IMAGE;
         build_python_image
     fi
+    echo "Start compiling proto files to python files."
     docker run --rm -v $(pwd):$(pwd) -w $(pwd) $ALAMEA_GRPC_PYTHON_IMAGE bash -c "for pt in \$(find . | grep \\\.proto\$ | grep -v ^\\\./include);do python -m grpc_tools.protoc -I . -I include/ --python_out=./ --grpc_python_out=./ \$pt; done"
+    echo "Finish compiling proto files to python files."
 }
 
 compile_grpc_go(){
+    echo "Check gRPC go image."
     local DOCKERFILE_MD5=`md5sum $ALAMEA_GRPC_GO_IMAGE_DOCKERFILE | awk '{print $1}'`
     if ! docker images $ALAMEA_GRPC_GO_IMAGE | grep $ALAMEA_GRPC_GO_IMAGE_REPO > /dev/null 2>&1; then
-        echo "build new image $ALAMEA_GRPC_GO_IMAGE";
+        echo "Build new image $ALAMEA_GRPC_GO_IMAGE";
         build_go_image
 	return 0
     fi
@@ -71,11 +75,13 @@ compile_grpc_go(){
         if [ \"$DOCKERFILE_MD5\" != \"\$DOCKERFILE_MD5\" ]; then
             exit 1;
         fi"; then
-        echo "refresh image $ALAMEA_GRPC_GO_IMAGE";
+        echo "Refresh image $ALAMEA_GRPC_GO_IMAGE";
         docker rmi $ALAMEA_GRPC_GO_IMAGE;
         build_go_image
     fi
+    echo "Start compiling proto files to go files."
     docker run --rm -v $(pwd):$(pwd) -w $(pwd) $ALAMEA_GRPC_GO_IMAGE bash -c "for pt in \$(find . | grep \\\.proto\$ | grep -v ^\\\./include);do protoc -I . -I include/ \$pt --go_out=plugins=grpc:.; done"
+    echo "Finish compiling proto files to go files."
 }
 
 remove_dockerfiles(){
