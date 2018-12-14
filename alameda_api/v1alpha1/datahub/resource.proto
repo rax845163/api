@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package containers_ai.alameda.v1alpha1.datahub;
+
+import "alameda_api/v1alpha1/datahub/predict.proto";
+
+message Container {
+    string name = 1;
+    repeated MetricData limit_resource = 2;
+    repeated MetricData request_resource = 3;
+}
+
+message AlamedaPod {    
+    string namespace = 1;
+    string name = 2;
+    string resource_link = 3;
+    repeated Container containers = 4;
+}
+
+message AlamedaNode {    
+    string name = 1;
+}
