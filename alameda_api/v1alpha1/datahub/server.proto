@@ -10,14 +10,8 @@ import "alameda_api/v1alpha1/datahub/predict.proto";
 import "alameda_api/v1alpha1/datahub/metric.proto";
 import "alameda_api/v1alpha1/datahub/resource.proto";
 
-message Response {
-    google.rpc.Status status = 1;
-    string message = 2;
-}
-
-// Get metric with each condition do AND operation. 
-message ListMetricsRequest {
-    MetricType metric_type = 1;
+message ListContainerMetricsRequest {
+    ContainerMetricType metric_type = 1;
     oneof time_selector {
         google.protobuf.Timestamp time = 2;
         google.protobuf.Duration duration = 3;
@@ -26,27 +20,25 @@ message ListMetricsRequest {
     repeated LabelSelector conditions = 5;
 }
 
-message ListMetricsResponse {
+message ListContainerMetricsResponse {
     google.rpc.Status status = 1;
-    string message = 2;
+    ContainerMetricType metric_type = 2;
     repeated MetricResult metrics = 3;
 }
 
-// Get metrics summation by grouping labels.
-message ListMetricsSumRequest {
-    MetricType metric_type = 1;
+message ListNodeMetricsRequest {
+    NodeMetricType metric_type = 1;
     oneof time_selector {
         google.protobuf.Timestamp time = 2;
         google.protobuf.Duration duration = 3;
         TimeRange time_range = 4;
     }
     repeated LabelSelector conditions = 5;
-    repeated string labels = 6;
 }
 
-message ListMetricsSumResponse {
+message ListNodeMetricsResponse {
     google.rpc.Status status = 1;
-    string message = 2;
+    NodeMetricType metric_type = 2;
     repeated MetricResult metrics = 3;
 }
 
@@ -75,7 +67,6 @@ message GetPodPredictRequest {
 
 message GetPodPredictResponse {
     google.rpc.Status status = 1;
-    string message = 2;
     PredictPod predict_pod = 3;
 }
 
@@ -86,8 +77,7 @@ message GetNodePredictRequest {
 
 message GetNodePredictResponse {
     google.rpc.Status status = 1;
-    string message = 2;
-    PredictNode predict_node = 3;
+    PredictNode predict_node = 2;
 }
 
 message CreatePredictPodsRequest {
@@ -99,26 +89,26 @@ message CreatePredictNodesRequest {
 }
 
 service DatahubService {
-    rpc ListMetrics(ListMetricsRequest)
-        returns (ListMetricsResponse) {}
-    rpc ListMetricsSum(ListMetricsSumRequest)
-        returns (ListMetricsSumResponse) {}
+    rpc ListContainerMetrics(ListContainerMetricsRequest)
+        returns (ListContainerMetricsResponse) {}
+    rpc ListNodeMetrics(ListNodeMetricsRequest)
+        returns (ListNodeMetricsResponse) {}
     rpc RegisterAlamedaPod(RegisterAlamedaPodRequest)
-        returns (Response){}
+        returns (google.rpc.Status){}
     rpc DeregisterAlamedaPod(DeregisterAlamedaPodRequest)
-        returns (Response){}
+        returns (google.rpc.Status){}
     rpc RegisterAlamedaNode(RegisterAlamedaNodeRequest)
-        returns (Response){}
+        returns (google.rpc.Status){}
     rpc DeregisterAlamedaNode(DeregisterAlamedaNodeRequest)
-        returns (Response){}
+        returns (google.rpc.Status){}
     rpc ListAlamedaPods(google.protobuf.Empty)
-        returns (Response){}
+        returns (google.rpc.Status){}
     rpc ListAlamedaNodes(google.protobuf.Empty)
-        returns (Response){}
+        returns (google.rpc.Status){}
     rpc CreatePredictPods(CreatePredictPodsRequest)
-        returns (Response) {}
+        returns (google.rpc.Status) {}
     rpc CreatePredictNodes(CreatePredictNodesRequest)
-        returns (Response) {}
+        returns (google.rpc.Status) {}
     rpc GetPodPredictResult(GetPodPredictRequest)
         returns (GetPodPredictResponse) {}
     rpc GetNodePredictResult(GetNodePredictRequest)
