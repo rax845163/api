@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package containers_ai.alameda.v1alpha1.datahub;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+enum MetricType {
+    METRICTYPE_UNDEFINED = 0;
+    CONTAINER_CPU_USAGE_SECONDS_TOTAL_RATE5M = 1;
+    CONTAINER_MEMORY_USAGE_BYTES = 2;
+    NODE_CPU_USAGE_SECONDS_AVG1M = 3;
+    NODE_MEMORY_USAGE_BYTES = 4;
+}
+
+enum StrOp {
+    Equal = 0;
+    NotEqual = 1;
+}
+
+message Sample {
+    google.protobuf.Timestamp time = 1;
+    oneof value {
+        double double_value = 2;
+        string string_value = 3;
+    }
+}
+
+message MetricResult {
+    map<string, string> labels = 1;
+    repeated Sample samples = 2;
+}
+
+message TimeRange {
+    google.protobuf.Timestamp start_time = 1;
+    google.protobuf.Timestamp end_time = 2;
+    google.protobuf.Duration step = 3;
+}
+
+message LabelSelector {
+    string key = 1;
+    StrOp op = 2 ;
+    string value = 3;
+}
