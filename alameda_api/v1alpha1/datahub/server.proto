@@ -42,21 +42,31 @@ message ListNodeMetricsResponse {
     repeated MetricResult metrics = 3;
 }
 
-message RegisterAlamedaPodRequest {
+message CreateAlamedaPodRequest {
     RecommendationPolicy policy = 1;
     repeated AlamedaPod alameda_pods = 2;
 }
 
-message DeregisterAlamedaPodRequest {
+message DeleteAlamedaPodRequest {
     repeated AlamedaPod alameda_pods = 1;
 }
 
-message RegisterAlamedaNodeRequest {
+message CreateAlamedaNodeRequest {
     repeated AlamedaNode alameda_nodes = 1;
 }
 
-message DeregisterAlamedaNodeRequest {
+message DeleteAlamedaNodeRequest {
     repeated AlamedaNode alameda_nodes = 1;
+}
+
+message ListAlamedaPodsResponse {
+    google.rpc.Status status = 1;
+    repeated AlamedaPod alameda_pods = 2;
+}
+
+message ListAlamedaNodesResponse {
+    google.rpc.Status status = 1;
+    repeated AlamedaNode alameda_nodes = 2;
 }
 
 message GetPodPredictRequest {
@@ -93,18 +103,18 @@ service DatahubService {
         returns (ListContainerMetricsResponse) {}
     rpc ListNodeMetrics(ListNodeMetricsRequest)
         returns (ListNodeMetricsResponse) {}
-    rpc RegisterAlamedaPod(RegisterAlamedaPodRequest)
+    rpc CreateAlamedaPod(CreateAlamedaPodRequest)
         returns (google.rpc.Status){}
-    rpc DeregisterAlamedaPod(DeregisterAlamedaPodRequest)
+    rpc DeleteAlamedaPod(DeleteAlamedaPodRequest)
         returns (google.rpc.Status){}
-    rpc RegisterAlamedaNode(RegisterAlamedaNodeRequest)
+    rpc CreateAlamedaNode(CreateAlamedaNodeRequest)
         returns (google.rpc.Status){}
-    rpc DeregisterAlamedaNode(DeregisterAlamedaNodeRequest)
+    rpc DeleteAlamedaNode(DeleteAlamedaNodeRequest)
         returns (google.rpc.Status){}
     rpc ListAlamedaPods(google.protobuf.Empty)
-        returns (google.rpc.Status){}
+        returns (ListAlamedaPodsResponse){}
     rpc ListAlamedaNodes(google.protobuf.Empty)
-        returns (google.rpc.Status){}
+        returns (ListAlamedaNodesResponse){}
     rpc CreatePredictPods(CreatePredictPodsRequest)
         returns (google.rpc.Status) {}
     rpc CreatePredictNodes(CreatePredictNodesRequest)
