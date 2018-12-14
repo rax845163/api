@@ -27,148 +27,101 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type Response struct {
-	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	Message              string         `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
-}
-
-func (m *Response) Reset()         { *m = Response{} }
-func (m *Response) String() string { return proto.CompactTextString(m) }
-func (*Response) ProtoMessage()    {}
-func (*Response) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{0}
-}
-func (m *Response) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Response.Unmarshal(m, b)
-}
-func (m *Response) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Response.Marshal(b, m, deterministic)
-}
-func (dst *Response) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Response.Merge(dst, src)
-}
-func (m *Response) XXX_Size() int {
-	return xxx_messageInfo_Response.Size(m)
-}
-func (m *Response) XXX_DiscardUnknown() {
-	xxx_messageInfo_Response.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_Response proto.InternalMessageInfo
-
-func (m *Response) GetStatus() *status.Status {
-	if m != nil {
-		return m.Status
-	}
-	return nil
-}
-
-func (m *Response) GetMessage() string {
-	if m != nil {
-		return m.Message
-	}
-	return ""
-}
-
-// Get metric with each condition do AND operation.
-type ListMetricsRequest struct {
-	MetricType MetricType `protobuf:"varint,1,opt,name=metric_type,json=metricType,proto3,enum=containers_ai.alameda.v1alpha1.datahub.MetricType" json:"metric_type,omitempty"`
+type ListContainerMetricsRequest struct {
+	MetricType ContainerMetricType `protobuf:"varint,1,opt,name=metric_type,json=metricType,proto3,enum=containers_ai.alameda.v1alpha1.datahub.ContainerMetricType" json:"metric_type,omitempty"`
 	// Types that are valid to be assigned to TimeSelector:
-	//	*ListMetricsRequest_Time
-	//	*ListMetricsRequest_Duration
-	//	*ListMetricsRequest_TimeRange
-	TimeSelector         isListMetricsRequest_TimeSelector `protobuf_oneof:"time_selector"`
-	Conditions           []*LabelSelector                  `protobuf:"bytes,5,rep,name=conditions,proto3" json:"conditions,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                          `json:"-"`
-	XXX_unrecognized     []byte                            `json:"-"`
-	XXX_sizecache        int32                             `json:"-"`
+	//	*ListContainerMetricsRequest_Time
+	//	*ListContainerMetricsRequest_Duration
+	//	*ListContainerMetricsRequest_TimeRange
+	TimeSelector         isListContainerMetricsRequest_TimeSelector `protobuf_oneof:"time_selector"`
+	Conditions           []*LabelSelector                           `protobuf:"bytes,5,rep,name=conditions,proto3" json:"conditions,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                                   `json:"-"`
+	XXX_unrecognized     []byte                                     `json:"-"`
+	XXX_sizecache        int32                                      `json:"-"`
 }
 
-func (m *ListMetricsRequest) Reset()         { *m = ListMetricsRequest{} }
-func (m *ListMetricsRequest) String() string { return proto.CompactTextString(m) }
-func (*ListMetricsRequest) ProtoMessage()    {}
-func (*ListMetricsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{1}
+func (m *ListContainerMetricsRequest) Reset()         { *m = ListContainerMetricsRequest{} }
+func (m *ListContainerMetricsRequest) String() string { return proto.CompactTextString(m) }
+func (*ListContainerMetricsRequest) ProtoMessage()    {}
+func (*ListContainerMetricsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{0}
 }
-func (m *ListMetricsRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ListMetricsRequest.Unmarshal(m, b)
+func (m *ListContainerMetricsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListContainerMetricsRequest.Unmarshal(m, b)
 }
-func (m *ListMetricsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ListMetricsRequest.Marshal(b, m, deterministic)
+func (m *ListContainerMetricsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListContainerMetricsRequest.Marshal(b, m, deterministic)
 }
-func (dst *ListMetricsRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListMetricsRequest.Merge(dst, src)
+func (dst *ListContainerMetricsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListContainerMetricsRequest.Merge(dst, src)
 }
-func (m *ListMetricsRequest) XXX_Size() int {
-	return xxx_messageInfo_ListMetricsRequest.Size(m)
+func (m *ListContainerMetricsRequest) XXX_Size() int {
+	return xxx_messageInfo_ListContainerMetricsRequest.Size(m)
 }
-func (m *ListMetricsRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_ListMetricsRequest.DiscardUnknown(m)
+func (m *ListContainerMetricsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListContainerMetricsRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ListMetricsRequest proto.InternalMessageInfo
+var xxx_messageInfo_ListContainerMetricsRequest proto.InternalMessageInfo
 
-func (m *ListMetricsRequest) GetMetricType() MetricType {
+func (m *ListContainerMetricsRequest) GetMetricType() ContainerMetricType {
 	if m != nil {
 		return m.MetricType
 	}
-	return MetricType_METRICTYPE_UNDEFINED
+	return ContainerMetricType_CONTAINER_METRICTYPE_UNDEFINED
 }
 
-type isListMetricsRequest_TimeSelector interface {
-	isListMetricsRequest_TimeSelector()
+type isListContainerMetricsRequest_TimeSelector interface {
+	isListContainerMetricsRequest_TimeSelector()
 }
 
-type ListMetricsRequest_Time struct {
+type ListContainerMetricsRequest_Time struct {
 	Time *timestamp.Timestamp `protobuf:"bytes,2,opt,name=time,proto3,oneof"`
 }
 
-type ListMetricsRequest_Duration struct {
+type ListContainerMetricsRequest_Duration struct {
 	Duration *duration.Duration `protobuf:"bytes,3,opt,name=duration,proto3,oneof"`
 }
 
-type ListMetricsRequest_TimeRange struct {
+type ListContainerMetricsRequest_TimeRange struct {
 	TimeRange *TimeRange `protobuf:"bytes,4,opt,name=time_range,json=timeRange,proto3,oneof"`
 }
 
-func (*ListMetricsRequest_Time) isListMetricsRequest_TimeSelector() {}
+func (*ListContainerMetricsRequest_Time) isListContainerMetricsRequest_TimeSelector() {}
 
-func (*ListMetricsRequest_Duration) isListMetricsRequest_TimeSelector() {}
+func (*ListContainerMetricsRequest_Duration) isListContainerMetricsRequest_TimeSelector() {}
 
-func (*ListMetricsRequest_TimeRange) isListMetricsRequest_TimeSelector() {}
+func (*ListContainerMetricsRequest_TimeRange) isListContainerMetricsRequest_TimeSelector() {}
 
-func (m *ListMetricsRequest) GetTimeSelector() isListMetricsRequest_TimeSelector {
+func (m *ListContainerMetricsRequest) GetTimeSelector() isListContainerMetricsRequest_TimeSelector {
 	if m != nil {
 		return m.TimeSelector
 	}
 	return nil
 }
 
-func (m *ListMetricsRequest) GetTime() *timestamp.Timestamp {
-	if x, ok := m.GetTimeSelector().(*ListMetricsRequest_Time); ok {
+func (m *ListContainerMetricsRequest) GetTime() *timestamp.Timestamp {
+	if x, ok := m.GetTimeSelector().(*ListContainerMetricsRequest_Time); ok {
 		return x.Time
 	}
 	return nil
 }
 
-func (m *ListMetricsRequest) GetDuration() *duration.Duration {
-	if x, ok := m.GetTimeSelector().(*ListMetricsRequest_Duration); ok {
+func (m *ListContainerMetricsRequest) GetDuration() *duration.Duration {
+	if x, ok := m.GetTimeSelector().(*ListContainerMetricsRequest_Duration); ok {
 		return x.Duration
 	}
 	return nil
 }
 
-func (m *ListMetricsRequest) GetTimeRange() *TimeRange {
-	if x, ok := m.GetTimeSelector().(*ListMetricsRequest_TimeRange); ok {
+func (m *ListContainerMetricsRequest) GetTimeRange() *TimeRange {
+	if x, ok := m.GetTimeSelector().(*ListContainerMetricsRequest_TimeRange); ok {
 		return x.TimeRange
 	}
 	return nil
 }
 
-func (m *ListMetricsRequest) GetConditions() []*LabelSelector {
+func (m *ListContainerMetricsRequest) GetConditions() []*LabelSelector {
 	if m != nil {
 		return m.Conditions
 	}
@@ -176,42 +129,42 @@ func (m *ListMetricsRequest) GetConditions() []*LabelSelector {
 }
 
 // XXX_OneofFuncs is for the internal use of the proto package.
-func (*ListMetricsRequest) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
-	return _ListMetricsRequest_OneofMarshaler, _ListMetricsRequest_OneofUnmarshaler, _ListMetricsRequest_OneofSizer, []interface{}{
-		(*ListMetricsRequest_Time)(nil),
-		(*ListMetricsRequest_Duration)(nil),
-		(*ListMetricsRequest_TimeRange)(nil),
+func (*ListContainerMetricsRequest) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
+	return _ListContainerMetricsRequest_OneofMarshaler, _ListContainerMetricsRequest_OneofUnmarshaler, _ListContainerMetricsRequest_OneofSizer, []interface{}{
+		(*ListContainerMetricsRequest_Time)(nil),
+		(*ListContainerMetricsRequest_Duration)(nil),
+		(*ListContainerMetricsRequest_TimeRange)(nil),
 	}
 }
 
-func _ListMetricsRequest_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
-	m := msg.(*ListMetricsRequest)
+func _ListContainerMetricsRequest_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
+	m := msg.(*ListContainerMetricsRequest)
 	// time_selector
 	switch x := m.TimeSelector.(type) {
-	case *ListMetricsRequest_Time:
+	case *ListContainerMetricsRequest_Time:
 		b.EncodeVarint(2<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Time); err != nil {
 			return err
 		}
-	case *ListMetricsRequest_Duration:
+	case *ListContainerMetricsRequest_Duration:
 		b.EncodeVarint(3<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Duration); err != nil {
 			return err
 		}
-	case *ListMetricsRequest_TimeRange:
+	case *ListContainerMetricsRequest_TimeRange:
 		b.EncodeVarint(4<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.TimeRange); err != nil {
 			return err
 		}
 	case nil:
 	default:
-		return fmt.Errorf("ListMetricsRequest.TimeSelector has unexpected type %T", x)
+		return fmt.Errorf("ListContainerMetricsRequest.TimeSelector has unexpected type %T", x)
 	}
 	return nil
 }
 
-func _ListMetricsRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
-	m := msg.(*ListMetricsRequest)
+func _ListContainerMetricsRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
+	m := msg.(*ListContainerMetricsRequest)
 	switch tag {
 	case 2: // time_selector.time
 		if wire != proto.WireBytes {
@@ -219,7 +172,7 @@ func _ListMetricsRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *p
 		}
 		msg := new(timestamp.Timestamp)
 		err := b.DecodeMessage(msg)
-		m.TimeSelector = &ListMetricsRequest_Time{msg}
+		m.TimeSelector = &ListContainerMetricsRequest_Time{msg}
 		return true, err
 	case 3: // time_selector.duration
 		if wire != proto.WireBytes {
@@ -227,7 +180,7 @@ func _ListMetricsRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *p
 		}
 		msg := new(duration.Duration)
 		err := b.DecodeMessage(msg)
-		m.TimeSelector = &ListMetricsRequest_Duration{msg}
+		m.TimeSelector = &ListContainerMetricsRequest_Duration{msg}
 		return true, err
 	case 4: // time_selector.time_range
 		if wire != proto.WireBytes {
@@ -235,28 +188,28 @@ func _ListMetricsRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *p
 		}
 		msg := new(TimeRange)
 		err := b.DecodeMessage(msg)
-		m.TimeSelector = &ListMetricsRequest_TimeRange{msg}
+		m.TimeSelector = &ListContainerMetricsRequest_TimeRange{msg}
 		return true, err
 	default:
 		return false, nil
 	}
 }
 
-func _ListMetricsRequest_OneofSizer(msg proto.Message) (n int) {
-	m := msg.(*ListMetricsRequest)
+func _ListContainerMetricsRequest_OneofSizer(msg proto.Message) (n int) {
+	m := msg.(*ListContainerMetricsRequest)
 	// time_selector
 	switch x := m.TimeSelector.(type) {
-	case *ListMetricsRequest_Time:
+	case *ListContainerMetricsRequest_Time:
 		s := proto.Size(x.Time)
 		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *ListMetricsRequest_Duration:
+	case *ListContainerMetricsRequest_Duration:
 		s := proto.Size(x.Duration)
 		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *ListMetricsRequest_TimeRange:
+	case *ListContainerMetricsRequest_TimeRange:
 		s := proto.Size(x.TimeRange)
 		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
@@ -268,207 +221,198 @@ func _ListMetricsRequest_OneofSizer(msg proto.Message) (n int) {
 	return n
 }
 
-type ListMetricsResponse struct {
-	Status               *status.Status  `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	Message              string          `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
-	Metrics              []*MetricResult `protobuf:"bytes,3,rep,name=metrics,proto3" json:"metrics,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+type ListContainerMetricsResponse struct {
+	Status               *status.Status      `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	MetricType           ContainerMetricType `protobuf:"varint,2,opt,name=metric_type,json=metricType,proto3,enum=containers_ai.alameda.v1alpha1.datahub.ContainerMetricType" json:"metric_type,omitempty"`
+	Metrics              []*MetricResult     `protobuf:"bytes,3,rep,name=metrics,proto3" json:"metrics,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
+	XXX_unrecognized     []byte              `json:"-"`
+	XXX_sizecache        int32               `json:"-"`
 }
 
-func (m *ListMetricsResponse) Reset()         { *m = ListMetricsResponse{} }
-func (m *ListMetricsResponse) String() string { return proto.CompactTextString(m) }
-func (*ListMetricsResponse) ProtoMessage()    {}
-func (*ListMetricsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{2}
+func (m *ListContainerMetricsResponse) Reset()         { *m = ListContainerMetricsResponse{} }
+func (m *ListContainerMetricsResponse) String() string { return proto.CompactTextString(m) }
+func (*ListContainerMetricsResponse) ProtoMessage()    {}
+func (*ListContainerMetricsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{1}
 }
-func (m *ListMetricsResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ListMetricsResponse.Unmarshal(m, b)
+func (m *ListContainerMetricsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListContainerMetricsResponse.Unmarshal(m, b)
 }
-func (m *ListMetricsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ListMetricsResponse.Marshal(b, m, deterministic)
+func (m *ListContainerMetricsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListContainerMetricsResponse.Marshal(b, m, deterministic)
 }
-func (dst *ListMetricsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListMetricsResponse.Merge(dst, src)
+func (dst *ListContainerMetricsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListContainerMetricsResponse.Merge(dst, src)
 }
-func (m *ListMetricsResponse) XXX_Size() int {
-	return xxx_messageInfo_ListMetricsResponse.Size(m)
+func (m *ListContainerMetricsResponse) XXX_Size() int {
+	return xxx_messageInfo_ListContainerMetricsResponse.Size(m)
 }
-func (m *ListMetricsResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ListMetricsResponse.DiscardUnknown(m)
+func (m *ListContainerMetricsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListContainerMetricsResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ListMetricsResponse proto.InternalMessageInfo
+var xxx_messageInfo_ListContainerMetricsResponse proto.InternalMessageInfo
 
-func (m *ListMetricsResponse) GetStatus() *status.Status {
+func (m *ListContainerMetricsResponse) GetStatus() *status.Status {
 	if m != nil {
 		return m.Status
 	}
 	return nil
 }
 
-func (m *ListMetricsResponse) GetMessage() string {
+func (m *ListContainerMetricsResponse) GetMetricType() ContainerMetricType {
 	if m != nil {
-		return m.Message
+		return m.MetricType
 	}
-	return ""
+	return ContainerMetricType_CONTAINER_METRICTYPE_UNDEFINED
 }
 
-func (m *ListMetricsResponse) GetMetrics() []*MetricResult {
+func (m *ListContainerMetricsResponse) GetMetrics() []*MetricResult {
 	if m != nil {
 		return m.Metrics
 	}
 	return nil
 }
 
-// Get metrics summation by grouping labels.
-type ListMetricsSumRequest struct {
-	MetricType MetricType `protobuf:"varint,1,opt,name=metric_type,json=metricType,proto3,enum=containers_ai.alameda.v1alpha1.datahub.MetricType" json:"metric_type,omitempty"`
+type ListNodeMetricsRequest struct {
+	MetricType NodeMetricType `protobuf:"varint,1,opt,name=metric_type,json=metricType,proto3,enum=containers_ai.alameda.v1alpha1.datahub.NodeMetricType" json:"metric_type,omitempty"`
 	// Types that are valid to be assigned to TimeSelector:
-	//	*ListMetricsSumRequest_Time
-	//	*ListMetricsSumRequest_Duration
-	//	*ListMetricsSumRequest_TimeRange
-	TimeSelector         isListMetricsSumRequest_TimeSelector `protobuf_oneof:"time_selector"`
-	Conditions           []*LabelSelector                     `protobuf:"bytes,5,rep,name=conditions,proto3" json:"conditions,omitempty"`
-	Labels               []string                             `protobuf:"bytes,6,rep,name=labels,proto3" json:"labels,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                             `json:"-"`
-	XXX_unrecognized     []byte                               `json:"-"`
-	XXX_sizecache        int32                                `json:"-"`
+	//	*ListNodeMetricsRequest_Time
+	//	*ListNodeMetricsRequest_Duration
+	//	*ListNodeMetricsRequest_TimeRange
+	TimeSelector         isListNodeMetricsRequest_TimeSelector `protobuf_oneof:"time_selector"`
+	Conditions           []*LabelSelector                      `protobuf:"bytes,5,rep,name=conditions,proto3" json:"conditions,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                              `json:"-"`
+	XXX_unrecognized     []byte                                `json:"-"`
+	XXX_sizecache        int32                                 `json:"-"`
 }
 
-func (m *ListMetricsSumRequest) Reset()         { *m = ListMetricsSumRequest{} }
-func (m *ListMetricsSumRequest) String() string { return proto.CompactTextString(m) }
-func (*ListMetricsSumRequest) ProtoMessage()    {}
-func (*ListMetricsSumRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{3}
+func (m *ListNodeMetricsRequest) Reset()         { *m = ListNodeMetricsRequest{} }
+func (m *ListNodeMetricsRequest) String() string { return proto.CompactTextString(m) }
+func (*ListNodeMetricsRequest) ProtoMessage()    {}
+func (*ListNodeMetricsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{2}
 }
-func (m *ListMetricsSumRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ListMetricsSumRequest.Unmarshal(m, b)
+func (m *ListNodeMetricsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListNodeMetricsRequest.Unmarshal(m, b)
 }
-func (m *ListMetricsSumRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ListMetricsSumRequest.Marshal(b, m, deterministic)
+func (m *ListNodeMetricsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListNodeMetricsRequest.Marshal(b, m, deterministic)
 }
-func (dst *ListMetricsSumRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListMetricsSumRequest.Merge(dst, src)
+func (dst *ListNodeMetricsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListNodeMetricsRequest.Merge(dst, src)
 }
-func (m *ListMetricsSumRequest) XXX_Size() int {
-	return xxx_messageInfo_ListMetricsSumRequest.Size(m)
+func (m *ListNodeMetricsRequest) XXX_Size() int {
+	return xxx_messageInfo_ListNodeMetricsRequest.Size(m)
 }
-func (m *ListMetricsSumRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_ListMetricsSumRequest.DiscardUnknown(m)
+func (m *ListNodeMetricsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListNodeMetricsRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ListMetricsSumRequest proto.InternalMessageInfo
+var xxx_messageInfo_ListNodeMetricsRequest proto.InternalMessageInfo
 
-func (m *ListMetricsSumRequest) GetMetricType() MetricType {
+func (m *ListNodeMetricsRequest) GetMetricType() NodeMetricType {
 	if m != nil {
 		return m.MetricType
 	}
-	return MetricType_METRICTYPE_UNDEFINED
+	return NodeMetricType_NODE_METRICTYPE_UNDEFINED
 }
 
-type isListMetricsSumRequest_TimeSelector interface {
-	isListMetricsSumRequest_TimeSelector()
+type isListNodeMetricsRequest_TimeSelector interface {
+	isListNodeMetricsRequest_TimeSelector()
 }
 
-type ListMetricsSumRequest_Time struct {
+type ListNodeMetricsRequest_Time struct {
 	Time *timestamp.Timestamp `protobuf:"bytes,2,opt,name=time,proto3,oneof"`
 }
 
-type ListMetricsSumRequest_Duration struct {
+type ListNodeMetricsRequest_Duration struct {
 	Duration *duration.Duration `protobuf:"bytes,3,opt,name=duration,proto3,oneof"`
 }
 
-type ListMetricsSumRequest_TimeRange struct {
+type ListNodeMetricsRequest_TimeRange struct {
 	TimeRange *TimeRange `protobuf:"bytes,4,opt,name=time_range,json=timeRange,proto3,oneof"`
 }
 
-func (*ListMetricsSumRequest_Time) isListMetricsSumRequest_TimeSelector() {}
+func (*ListNodeMetricsRequest_Time) isListNodeMetricsRequest_TimeSelector() {}
 
-func (*ListMetricsSumRequest_Duration) isListMetricsSumRequest_TimeSelector() {}
+func (*ListNodeMetricsRequest_Duration) isListNodeMetricsRequest_TimeSelector() {}
 
-func (*ListMetricsSumRequest_TimeRange) isListMetricsSumRequest_TimeSelector() {}
+func (*ListNodeMetricsRequest_TimeRange) isListNodeMetricsRequest_TimeSelector() {}
 
-func (m *ListMetricsSumRequest) GetTimeSelector() isListMetricsSumRequest_TimeSelector {
+func (m *ListNodeMetricsRequest) GetTimeSelector() isListNodeMetricsRequest_TimeSelector {
 	if m != nil {
 		return m.TimeSelector
 	}
 	return nil
 }
 
-func (m *ListMetricsSumRequest) GetTime() *timestamp.Timestamp {
-	if x, ok := m.GetTimeSelector().(*ListMetricsSumRequest_Time); ok {
+func (m *ListNodeMetricsRequest) GetTime() *timestamp.Timestamp {
+	if x, ok := m.GetTimeSelector().(*ListNodeMetricsRequest_Time); ok {
 		return x.Time
 	}
 	return nil
 }
 
-func (m *ListMetricsSumRequest) GetDuration() *duration.Duration {
-	if x, ok := m.GetTimeSelector().(*ListMetricsSumRequest_Duration); ok {
+func (m *ListNodeMetricsRequest) GetDuration() *duration.Duration {
+	if x, ok := m.GetTimeSelector().(*ListNodeMetricsRequest_Duration); ok {
 		return x.Duration
 	}
 	return nil
 }
 
-func (m *ListMetricsSumRequest) GetTimeRange() *TimeRange {
-	if x, ok := m.GetTimeSelector().(*ListMetricsSumRequest_TimeRange); ok {
+func (m *ListNodeMetricsRequest) GetTimeRange() *TimeRange {
+	if x, ok := m.GetTimeSelector().(*ListNodeMetricsRequest_TimeRange); ok {
 		return x.TimeRange
 	}
 	return nil
 }
 
-func (m *ListMetricsSumRequest) GetConditions() []*LabelSelector {
+func (m *ListNodeMetricsRequest) GetConditions() []*LabelSelector {
 	if m != nil {
 		return m.Conditions
 	}
 	return nil
 }
 
-func (m *ListMetricsSumRequest) GetLabels() []string {
-	if m != nil {
-		return m.Labels
-	}
-	return nil
-}
-
 // XXX_OneofFuncs is for the internal use of the proto package.
-func (*ListMetricsSumRequest) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
-	return _ListMetricsSumRequest_OneofMarshaler, _ListMetricsSumRequest_OneofUnmarshaler, _ListMetricsSumRequest_OneofSizer, []interface{}{
-		(*ListMetricsSumRequest_Time)(nil),
-		(*ListMetricsSumRequest_Duration)(nil),
-		(*ListMetricsSumRequest_TimeRange)(nil),
+func (*ListNodeMetricsRequest) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
+	return _ListNodeMetricsRequest_OneofMarshaler, _ListNodeMetricsRequest_OneofUnmarshaler, _ListNodeMetricsRequest_OneofSizer, []interface{}{
+		(*ListNodeMetricsRequest_Time)(nil),
+		(*ListNodeMetricsRequest_Duration)(nil),
+		(*ListNodeMetricsRequest_TimeRange)(nil),
 	}
 }
 
-func _ListMetricsSumRequest_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
-	m := msg.(*ListMetricsSumRequest)
+func _ListNodeMetricsRequest_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
+	m := msg.(*ListNodeMetricsRequest)
 	// time_selector
 	switch x := m.TimeSelector.(type) {
-	case *ListMetricsSumRequest_Time:
+	case *ListNodeMetricsRequest_Time:
 		b.EncodeVarint(2<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Time); err != nil {
 			return err
 		}
-	case *ListMetricsSumRequest_Duration:
+	case *ListNodeMetricsRequest_Duration:
 		b.EncodeVarint(3<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.Duration); err != nil {
 			return err
 		}
-	case *ListMetricsSumRequest_TimeRange:
+	case *ListNodeMetricsRequest_TimeRange:
 		b.EncodeVarint(4<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.TimeRange); err != nil {
 			return err
 		}
 	case nil:
 	default:
-		return fmt.Errorf("ListMetricsSumRequest.TimeSelector has unexpected type %T", x)
+		return fmt.Errorf("ListNodeMetricsRequest.TimeSelector has unexpected type %T", x)
 	}
 	return nil
 }
 
-func _ListMetricsSumRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
-	m := msg.(*ListMetricsSumRequest)
+func _ListNodeMetricsRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
+	m := msg.(*ListNodeMetricsRequest)
 	switch tag {
 	case 2: // time_selector.time
 		if wire != proto.WireBytes {
@@ -476,7 +420,7 @@ func _ListMetricsSumRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b
 		}
 		msg := new(timestamp.Timestamp)
 		err := b.DecodeMessage(msg)
-		m.TimeSelector = &ListMetricsSumRequest_Time{msg}
+		m.TimeSelector = &ListNodeMetricsRequest_Time{msg}
 		return true, err
 	case 3: // time_selector.duration
 		if wire != proto.WireBytes {
@@ -484,7 +428,7 @@ func _ListMetricsSumRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b
 		}
 		msg := new(duration.Duration)
 		err := b.DecodeMessage(msg)
-		m.TimeSelector = &ListMetricsSumRequest_Duration{msg}
+		m.TimeSelector = &ListNodeMetricsRequest_Duration{msg}
 		return true, err
 	case 4: // time_selector.time_range
 		if wire != proto.WireBytes {
@@ -492,28 +436,28 @@ func _ListMetricsSumRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b
 		}
 		msg := new(TimeRange)
 		err := b.DecodeMessage(msg)
-		m.TimeSelector = &ListMetricsSumRequest_TimeRange{msg}
+		m.TimeSelector = &ListNodeMetricsRequest_TimeRange{msg}
 		return true, err
 	default:
 		return false, nil
 	}
 }
 
-func _ListMetricsSumRequest_OneofSizer(msg proto.Message) (n int) {
-	m := msg.(*ListMetricsSumRequest)
+func _ListNodeMetricsRequest_OneofSizer(msg proto.Message) (n int) {
+	m := msg.(*ListNodeMetricsRequest)
 	// time_selector
 	switch x := m.TimeSelector.(type) {
-	case *ListMetricsSumRequest_Time:
+	case *ListNodeMetricsRequest_Time:
 		s := proto.Size(x.Time)
 		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *ListMetricsSumRequest_Duration:
+	case *ListNodeMetricsRequest_Duration:
 		s := proto.Size(x.Duration)
 		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
 		n += s
-	case *ListMetricsSumRequest_TimeRange:
+	case *ListNodeMetricsRequest_TimeRange:
 		s := proto.Size(x.TimeRange)
 		n += 1 // tag and wire
 		n += proto.SizeVarint(uint64(s))
@@ -525,54 +469,54 @@ func _ListMetricsSumRequest_OneofSizer(msg proto.Message) (n int) {
 	return n
 }
 
-type ListMetricsSumResponse struct {
+type ListNodeMetricsResponse struct {
 	Status               *status.Status  `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	Message              string          `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	MetricType           NodeMetricType  `protobuf:"varint,2,opt,name=metric_type,json=metricType,proto3,enum=containers_ai.alameda.v1alpha1.datahub.NodeMetricType" json:"metric_type,omitempty"`
 	Metrics              []*MetricResult `protobuf:"bytes,3,rep,name=metrics,proto3" json:"metrics,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`
 	XXX_sizecache        int32           `json:"-"`
 }
 
-func (m *ListMetricsSumResponse) Reset()         { *m = ListMetricsSumResponse{} }
-func (m *ListMetricsSumResponse) String() string { return proto.CompactTextString(m) }
-func (*ListMetricsSumResponse) ProtoMessage()    {}
-func (*ListMetricsSumResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{4}
+func (m *ListNodeMetricsResponse) Reset()         { *m = ListNodeMetricsResponse{} }
+func (m *ListNodeMetricsResponse) String() string { return proto.CompactTextString(m) }
+func (*ListNodeMetricsResponse) ProtoMessage()    {}
+func (*ListNodeMetricsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{3}
 }
-func (m *ListMetricsSumResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ListMetricsSumResponse.Unmarshal(m, b)
+func (m *ListNodeMetricsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListNodeMetricsResponse.Unmarshal(m, b)
 }
-func (m *ListMetricsSumResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ListMetricsSumResponse.Marshal(b, m, deterministic)
+func (m *ListNodeMetricsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListNodeMetricsResponse.Marshal(b, m, deterministic)
 }
-func (dst *ListMetricsSumResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListMetricsSumResponse.Merge(dst, src)
+func (dst *ListNodeMetricsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListNodeMetricsResponse.Merge(dst, src)
 }
-func (m *ListMetricsSumResponse) XXX_Size() int {
-	return xxx_messageInfo_ListMetricsSumResponse.Size(m)
+func (m *ListNodeMetricsResponse) XXX_Size() int {
+	return xxx_messageInfo_ListNodeMetricsResponse.Size(m)
 }
-func (m *ListMetricsSumResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ListMetricsSumResponse.DiscardUnknown(m)
+func (m *ListNodeMetricsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListNodeMetricsResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ListMetricsSumResponse proto.InternalMessageInfo
+var xxx_messageInfo_ListNodeMetricsResponse proto.InternalMessageInfo
 
-func (m *ListMetricsSumResponse) GetStatus() *status.Status {
+func (m *ListNodeMetricsResponse) GetStatus() *status.Status {
 	if m != nil {
 		return m.Status
 	}
 	return nil
 }
 
-func (m *ListMetricsSumResponse) GetMessage() string {
+func (m *ListNodeMetricsResponse) GetMetricType() NodeMetricType {
 	if m != nil {
-		return m.Message
+		return m.MetricType
 	}
-	return ""
+	return NodeMetricType_NODE_METRICTYPE_UNDEFINED
 }
 
-func (m *ListMetricsSumResponse) GetMetrics() []*MetricResult {
+func (m *ListNodeMetricsResponse) GetMetrics() []*MetricResult {
 	if m != nil {
 		return m.Metrics
 	}
@@ -591,7 +535,7 @@ func (m *RegisterAlamedaPodRequest) Reset()         { *m = RegisterAlamedaPodReq
 func (m *RegisterAlamedaPodRequest) String() string { return proto.CompactTextString(m) }
 func (*RegisterAlamedaPodRequest) ProtoMessage()    {}
 func (*RegisterAlamedaPodRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{5}
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{4}
 }
 func (m *RegisterAlamedaPodRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_RegisterAlamedaPodRequest.Unmarshal(m, b)
@@ -636,7 +580,7 @@ func (m *DeregisterAlamedaPodRequest) Reset()         { *m = DeregisterAlamedaPo
 func (m *DeregisterAlamedaPodRequest) String() string { return proto.CompactTextString(m) }
 func (*DeregisterAlamedaPodRequest) ProtoMessage()    {}
 func (*DeregisterAlamedaPodRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{6}
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{5}
 }
 func (m *DeregisterAlamedaPodRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeregisterAlamedaPodRequest.Unmarshal(m, b)
@@ -674,7 +618,7 @@ func (m *RegisterAlamedaNodeRequest) Reset()         { *m = RegisterAlamedaNodeR
 func (m *RegisterAlamedaNodeRequest) String() string { return proto.CompactTextString(m) }
 func (*RegisterAlamedaNodeRequest) ProtoMessage()    {}
 func (*RegisterAlamedaNodeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{7}
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{6}
 }
 func (m *RegisterAlamedaNodeRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_RegisterAlamedaNodeRequest.Unmarshal(m, b)
@@ -712,7 +656,7 @@ func (m *DeregisterAlamedaNodeRequest) Reset()         { *m = DeregisterAlamedaN
 func (m *DeregisterAlamedaNodeRequest) String() string { return proto.CompactTextString(m) }
 func (*DeregisterAlamedaNodeRequest) ProtoMessage()    {}
 func (*DeregisterAlamedaNodeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{8}
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{7}
 }
 func (m *DeregisterAlamedaNodeRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeregisterAlamedaNodeRequest.Unmarshal(m, b)
@@ -752,7 +696,7 @@ func (m *GetPodPredictRequest) Reset()         { *m = GetPodPredictRequest{} }
 func (m *GetPodPredictRequest) String() string { return proto.CompactTextString(m) }
 func (*GetPodPredictRequest) ProtoMessage()    {}
 func (*GetPodPredictRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{9}
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{8}
 }
 func (m *GetPodPredictRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetPodPredictRequest.Unmarshal(m, b)
@@ -795,7 +739,6 @@ func (m *GetPodPredictRequest) GetTimeRange() *TimeRange {
 
 type GetPodPredictResponse struct {
 	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	Message              string         `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	PredictPod           *PredictPod    `protobuf:"bytes,3,opt,name=predict_pod,json=predictPod,proto3" json:"predict_pod,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
 	XXX_unrecognized     []byte         `json:"-"`
@@ -806,7 +749,7 @@ func (m *GetPodPredictResponse) Reset()         { *m = GetPodPredictResponse{} }
 func (m *GetPodPredictResponse) String() string { return proto.CompactTextString(m) }
 func (*GetPodPredictResponse) ProtoMessage()    {}
 func (*GetPodPredictResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{10}
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{9}
 }
 func (m *GetPodPredictResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetPodPredictResponse.Unmarshal(m, b)
@@ -833,13 +776,6 @@ func (m *GetPodPredictResponse) GetStatus() *status.Status {
 	return nil
 }
 
-func (m *GetPodPredictResponse) GetMessage() string {
-	if m != nil {
-		return m.Message
-	}
-	return ""
-}
-
 func (m *GetPodPredictResponse) GetPredictPod() *PredictPod {
 	if m != nil {
 		return m.PredictPod
@@ -859,7 +795,7 @@ func (m *GetNodePredictRequest) Reset()         { *m = GetNodePredictRequest{} }
 func (m *GetNodePredictRequest) String() string { return proto.CompactTextString(m) }
 func (*GetNodePredictRequest) ProtoMessage()    {}
 func (*GetNodePredictRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{11}
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{10}
 }
 func (m *GetNodePredictRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetNodePredictRequest.Unmarshal(m, b)
@@ -895,8 +831,7 @@ func (m *GetNodePredictRequest) GetTimeRange() *TimeRange {
 
 type GetNodePredictResponse struct {
 	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	Message              string         `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
-	PredictNode          *PredictNode   `protobuf:"bytes,3,opt,name=predict_node,json=predictNode,proto3" json:"predict_node,omitempty"`
+	PredictNode          *PredictNode   `protobuf:"bytes,2,opt,name=predict_node,json=predictNode,proto3" json:"predict_node,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
 	XXX_unrecognized     []byte         `json:"-"`
 	XXX_sizecache        int32          `json:"-"`
@@ -906,7 +841,7 @@ func (m *GetNodePredictResponse) Reset()         { *m = GetNodePredictResponse{}
 func (m *GetNodePredictResponse) String() string { return proto.CompactTextString(m) }
 func (*GetNodePredictResponse) ProtoMessage()    {}
 func (*GetNodePredictResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{12}
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{11}
 }
 func (m *GetNodePredictResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetNodePredictResponse.Unmarshal(m, b)
@@ -933,13 +868,6 @@ func (m *GetNodePredictResponse) GetStatus() *status.Status {
 	return nil
 }
 
-func (m *GetNodePredictResponse) GetMessage() string {
-	if m != nil {
-		return m.Message
-	}
-	return ""
-}
-
 func (m *GetNodePredictResponse) GetPredictNode() *PredictNode {
 	if m != nil {
 		return m.PredictNode
@@ -958,7 +886,7 @@ func (m *CreatePredictPodsRequest) Reset()         { *m = CreatePredictPodsReque
 func (m *CreatePredictPodsRequest) String() string { return proto.CompactTextString(m) }
 func (*CreatePredictPodsRequest) ProtoMessage()    {}
 func (*CreatePredictPodsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{13}
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{12}
 }
 func (m *CreatePredictPodsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreatePredictPodsRequest.Unmarshal(m, b)
@@ -996,7 +924,7 @@ func (m *CreatePredictNodesRequest) Reset()         { *m = CreatePredictNodesReq
 func (m *CreatePredictNodesRequest) String() string { return proto.CompactTextString(m) }
 func (*CreatePredictNodesRequest) ProtoMessage()    {}
 func (*CreatePredictNodesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_a97973d48fbd6927, []int{14}
+	return fileDescriptor_server_2e8dcdc1bb4bdaa4, []int{13}
 }
 func (m *CreatePredictNodesRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreatePredictNodesRequest.Unmarshal(m, b)
@@ -1024,11 +952,10 @@ func (m *CreatePredictNodesRequest) GetPredictNodes() []*PredictNode {
 }
 
 func init() {
-	proto.RegisterType((*Response)(nil), "containers_ai.alameda.v1alpha1.datahub.Response")
-	proto.RegisterType((*ListMetricsRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListMetricsRequest")
-	proto.RegisterType((*ListMetricsResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.ListMetricsResponse")
-	proto.RegisterType((*ListMetricsSumRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListMetricsSumRequest")
-	proto.RegisterType((*ListMetricsSumResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.ListMetricsSumResponse")
+	proto.RegisterType((*ListContainerMetricsRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListContainerMetricsRequest")
+	proto.RegisterType((*ListContainerMetricsResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.ListContainerMetricsResponse")
+	proto.RegisterType((*ListNodeMetricsRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListNodeMetricsRequest")
+	proto.RegisterType((*ListNodeMetricsResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.ListNodeMetricsResponse")
 	proto.RegisterType((*RegisterAlamedaPodRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.RegisterAlamedaPodRequest")
 	proto.RegisterType((*DeregisterAlamedaPodRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.DeregisterAlamedaPodRequest")
 	proto.RegisterType((*RegisterAlamedaNodeRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.RegisterAlamedaNodeRequest")
@@ -1053,16 +980,16 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type DatahubServiceClient interface {
-	ListMetrics(ctx context.Context, in *ListMetricsRequest, opts ...grpc.CallOption) (*ListMetricsResponse, error)
-	ListMetricsSum(ctx context.Context, in *ListMetricsSumRequest, opts ...grpc.CallOption) (*ListMetricsSumResponse, error)
-	RegisterAlamedaPod(ctx context.Context, in *RegisterAlamedaPodRequest, opts ...grpc.CallOption) (*Response, error)
-	DeregisterAlamedaPod(ctx context.Context, in *DeregisterAlamedaPodRequest, opts ...grpc.CallOption) (*Response, error)
-	RegisterAlamedaNode(ctx context.Context, in *RegisterAlamedaNodeRequest, opts ...grpc.CallOption) (*Response, error)
-	DeregisterAlamedaNode(ctx context.Context, in *DeregisterAlamedaNodeRequest, opts ...grpc.CallOption) (*Response, error)
-	ListAlamedaPods(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Response, error)
-	ListAlamedaNodes(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Response, error)
-	CreatePredictPods(ctx context.Context, in *CreatePredictPodsRequest, opts ...grpc.CallOption) (*Response, error)
-	CreatePredictNodes(ctx context.Context, in *CreatePredictNodesRequest, opts ...grpc.CallOption) (*Response, error)
+	ListContainerMetrics(ctx context.Context, in *ListContainerMetricsRequest, opts ...grpc.CallOption) (*ListContainerMetricsResponse, error)
+	ListNodeMetrics(ctx context.Context, in *ListNodeMetricsRequest, opts ...grpc.CallOption) (*ListNodeMetricsResponse, error)
+	RegisterAlamedaPod(ctx context.Context, in *RegisterAlamedaPodRequest, opts ...grpc.CallOption) (*status.Status, error)
+	DeregisterAlamedaPod(ctx context.Context, in *DeregisterAlamedaPodRequest, opts ...grpc.CallOption) (*status.Status, error)
+	RegisterAlamedaNode(ctx context.Context, in *RegisterAlamedaNodeRequest, opts ...grpc.CallOption) (*status.Status, error)
+	DeregisterAlamedaNode(ctx context.Context, in *DeregisterAlamedaNodeRequest, opts ...grpc.CallOption) (*status.Status, error)
+	ListAlamedaPods(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*status.Status, error)
+	ListAlamedaNodes(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*status.Status, error)
+	CreatePredictPods(ctx context.Context, in *CreatePredictPodsRequest, opts ...grpc.CallOption) (*status.Status, error)
+	CreatePredictNodes(ctx context.Context, in *CreatePredictNodesRequest, opts ...grpc.CallOption) (*status.Status, error)
 	GetPodPredictResult(ctx context.Context, in *GetPodPredictRequest, opts ...grpc.CallOption) (*GetPodPredictResponse, error)
 	GetNodePredictResult(ctx context.Context, in *GetNodePredictRequest, opts ...grpc.CallOption) (*GetNodePredictResponse, error)
 }
@@ -1075,26 +1002,26 @@ func NewDatahubServiceClient(cc *grpc.ClientConn) DatahubServiceClient {
 	return &datahubServiceClient{cc}
 }
 
-func (c *datahubServiceClient) ListMetrics(ctx context.Context, in *ListMetricsRequest, opts ...grpc.CallOption) (*ListMetricsResponse, error) {
-	out := new(ListMetricsResponse)
-	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListMetrics", in, out, opts...)
+func (c *datahubServiceClient) ListContainerMetrics(ctx context.Context, in *ListContainerMetricsRequest, opts ...grpc.CallOption) (*ListContainerMetricsResponse, error) {
+	out := new(ListContainerMetricsResponse)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListContainerMetrics", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *datahubServiceClient) ListMetricsSum(ctx context.Context, in *ListMetricsSumRequest, opts ...grpc.CallOption) (*ListMetricsSumResponse, error) {
-	out := new(ListMetricsSumResponse)
-	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListMetricsSum", in, out, opts...)
+func (c *datahubServiceClient) ListNodeMetrics(ctx context.Context, in *ListNodeMetricsRequest, opts ...grpc.CallOption) (*ListNodeMetricsResponse, error) {
+	out := new(ListNodeMetricsResponse)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListNodeMetrics", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *datahubServiceClient) RegisterAlamedaPod(ctx context.Context, in *RegisterAlamedaPodRequest, opts ...grpc.CallOption) (*Response, error) {
-	out := new(Response)
+func (c *datahubServiceClient) RegisterAlamedaPod(ctx context.Context, in *RegisterAlamedaPodRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
 	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/RegisterAlamedaPod", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1102,8 +1029,8 @@ func (c *datahubServiceClient) RegisterAlamedaPod(ctx context.Context, in *Regis
 	return out, nil
 }
 
-func (c *datahubServiceClient) DeregisterAlamedaPod(ctx context.Context, in *DeregisterAlamedaPodRequest, opts ...grpc.CallOption) (*Response, error) {
-	out := new(Response)
+func (c *datahubServiceClient) DeregisterAlamedaPod(ctx context.Context, in *DeregisterAlamedaPodRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
 	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeregisterAlamedaPod", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1111,8 +1038,8 @@ func (c *datahubServiceClient) DeregisterAlamedaPod(ctx context.Context, in *Der
 	return out, nil
 }
 
-func (c *datahubServiceClient) RegisterAlamedaNode(ctx context.Context, in *RegisterAlamedaNodeRequest, opts ...grpc.CallOption) (*Response, error) {
-	out := new(Response)
+func (c *datahubServiceClient) RegisterAlamedaNode(ctx context.Context, in *RegisterAlamedaNodeRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
 	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/RegisterAlamedaNode", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1120,8 +1047,8 @@ func (c *datahubServiceClient) RegisterAlamedaNode(ctx context.Context, in *Regi
 	return out, nil
 }
 
-func (c *datahubServiceClient) DeregisterAlamedaNode(ctx context.Context, in *DeregisterAlamedaNodeRequest, opts ...grpc.CallOption) (*Response, error) {
-	out := new(Response)
+func (c *datahubServiceClient) DeregisterAlamedaNode(ctx context.Context, in *DeregisterAlamedaNodeRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
 	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeregisterAlamedaNode", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1129,8 +1056,8 @@ func (c *datahubServiceClient) DeregisterAlamedaNode(ctx context.Context, in *De
 	return out, nil
 }
 
-func (c *datahubServiceClient) ListAlamedaPods(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Response, error) {
-	out := new(Response)
+func (c *datahubServiceClient) ListAlamedaPods(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
 	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListAlamedaPods", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1138,8 +1065,8 @@ func (c *datahubServiceClient) ListAlamedaPods(ctx context.Context, in *empty.Em
 	return out, nil
 }
 
-func (c *datahubServiceClient) ListAlamedaNodes(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*Response, error) {
-	out := new(Response)
+func (c *datahubServiceClient) ListAlamedaNodes(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
 	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListAlamedaNodes", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1147,8 +1074,8 @@ func (c *datahubServiceClient) ListAlamedaNodes(ctx context.Context, in *empty.E
 	return out, nil
 }
 
-func (c *datahubServiceClient) CreatePredictPods(ctx context.Context, in *CreatePredictPodsRequest, opts ...grpc.CallOption) (*Response, error) {
-	out := new(Response)
+func (c *datahubServiceClient) CreatePredictPods(ctx context.Context, in *CreatePredictPodsRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
 	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePredictPods", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1156,8 +1083,8 @@ func (c *datahubServiceClient) CreatePredictPods(ctx context.Context, in *Create
 	return out, nil
 }
 
-func (c *datahubServiceClient) CreatePredictNodes(ctx context.Context, in *CreatePredictNodesRequest, opts ...grpc.CallOption) (*Response, error) {
-	out := new(Response)
+func (c *datahubServiceClient) CreatePredictNodes(ctx context.Context, in *CreatePredictNodesRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
 	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePredictNodes", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1185,16 +1112,16 @@ func (c *datahubServiceClient) GetNodePredictResult(ctx context.Context, in *Get
 
 // DatahubServiceServer is the server API for DatahubService service.
 type DatahubServiceServer interface {
-	ListMetrics(context.Context, *ListMetricsRequest) (*ListMetricsResponse, error)
-	ListMetricsSum(context.Context, *ListMetricsSumRequest) (*ListMetricsSumResponse, error)
-	RegisterAlamedaPod(context.Context, *RegisterAlamedaPodRequest) (*Response, error)
-	DeregisterAlamedaPod(context.Context, *DeregisterAlamedaPodRequest) (*Response, error)
-	RegisterAlamedaNode(context.Context, *RegisterAlamedaNodeRequest) (*Response, error)
-	DeregisterAlamedaNode(context.Context, *DeregisterAlamedaNodeRequest) (*Response, error)
-	ListAlamedaPods(context.Context, *empty.Empty) (*Response, error)
-	ListAlamedaNodes(context.Context, *empty.Empty) (*Response, error)
-	CreatePredictPods(context.Context, *CreatePredictPodsRequest) (*Response, error)
-	CreatePredictNodes(context.Context, *CreatePredictNodesRequest) (*Response, error)
+	ListContainerMetrics(context.Context, *ListContainerMetricsRequest) (*ListContainerMetricsResponse, error)
+	ListNodeMetrics(context.Context, *ListNodeMetricsRequest) (*ListNodeMetricsResponse, error)
+	RegisterAlamedaPod(context.Context, *RegisterAlamedaPodRequest) (*status.Status, error)
+	DeregisterAlamedaPod(context.Context, *DeregisterAlamedaPodRequest) (*status.Status, error)
+	RegisterAlamedaNode(context.Context, *RegisterAlamedaNodeRequest) (*status.Status, error)
+	DeregisterAlamedaNode(context.Context, *DeregisterAlamedaNodeRequest) (*status.Status, error)
+	ListAlamedaPods(context.Context, *empty.Empty) (*status.Status, error)
+	ListAlamedaNodes(context.Context, *empty.Empty) (*status.Status, error)
+	CreatePredictPods(context.Context, *CreatePredictPodsRequest) (*status.Status, error)
+	CreatePredictNodes(context.Context, *CreatePredictNodesRequest) (*status.Status, error)
 	GetPodPredictResult(context.Context, *GetPodPredictRequest) (*GetPodPredictResponse, error)
 	GetNodePredictResult(context.Context, *GetNodePredictRequest) (*GetNodePredictResponse, error)
 }
@@ -1203,38 +1130,38 @@ func RegisterDatahubServiceServer(s *grpc.Server, srv DatahubServiceServer) {
 	s.RegisterService(&_DatahubService_serviceDesc, srv)
 }
 
-func _DatahubService_ListMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListMetricsRequest)
+func _DatahubService_ListContainerMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListContainerMetricsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DatahubServiceServer).ListMetrics(ctx, in)
+		return srv.(DatahubServiceServer).ListContainerMetrics(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListMetrics",
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListContainerMetrics",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatahubServiceServer).ListMetrics(ctx, req.(*ListMetricsRequest))
+		return srv.(DatahubServiceServer).ListContainerMetrics(ctx, req.(*ListContainerMetricsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DatahubService_ListMetricsSum_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListMetricsSumRequest)
+func _DatahubService_ListNodeMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListNodeMetricsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DatahubServiceServer).ListMetricsSum(ctx, in)
+		return srv.(DatahubServiceServer).ListNodeMetrics(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListMetricsSum",
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListNodeMetrics",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatahubServiceServer).ListMetricsSum(ctx, req.(*ListMetricsSumRequest))
+		return srv.(DatahubServiceServer).ListNodeMetrics(ctx, req.(*ListNodeMetricsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1424,12 +1351,12 @@ var _DatahubService_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*DatahubServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "ListMetrics",
-			Handler:    _DatahubService_ListMetrics_Handler,
+			MethodName: "ListContainerMetrics",
+			Handler:    _DatahubService_ListContainerMetrics_Handler,
 		},
 		{
-			MethodName: "ListMetricsSum",
-			Handler:    _DatahubService_ListMetricsSum_Handler,
+			MethodName: "ListNodeMetrics",
+			Handler:    _DatahubService_ListNodeMetrics_Handler,
 		},
 		{
 			MethodName: "RegisterAlamedaPod",
@@ -1477,73 +1404,71 @@ var _DatahubService_serviceDesc = grpc.ServiceDesc{
 }
 
 func init() {
-	proto.RegisterFile("alameda_api/v1alpha1/datahub/server.proto", fileDescriptor_server_a97973d48fbd6927)
+	proto.RegisterFile("alameda_api/v1alpha1/datahub/server.proto", fileDescriptor_server_2e8dcdc1bb4bdaa4)
 }
 
-var fileDescriptor_server_a97973d48fbd6927 = []byte{
-	// 1009 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x57, 0x5f, 0x6f, 0xe3, 0x44,
-	0x10, 0xef, 0x36, 0x25, 0x34, 0x93, 0x5e, 0x0f, 0xb6, 0xd7, 0xe2, 0xa6, 0x27, 0xa8, 0xfc, 0x80,
-	0xca, 0x21, 0x39, 0xd7, 0x14, 0x84, 0x04, 0x1c, 0xe2, 0xee, 0x8a, 0xe8, 0xc3, 0x51, 0x45, 0x9b,
-	0x1e, 0xe2, 0x05, 0xa2, 0xad, 0x3d, 0xe4, 0x2c, 0xc5, 0xb1, 0xcf, 0xbb, 0xae, 0xe8, 0x17, 0x40,
-	0x20, 0x84, 0xe0, 0x24, 0x24, 0x24, 0xbe, 0xc2, 0x49, 0x3c, 0xf0, 0xc0, 0x67, 0xe0, 0x4b, 0x21,
-	0xa1, 0x5d, 0xaf, 0x13, 0x27, 0x4e, 0x2b, 0xc7, 0x44, 0x27, 0x1e, 0x78, 0xf3, 0x66, 0x67, 0x7e,
-	0xf3, 0x9b, 0x3f, 0x3b, 0x33, 0x81, 0xb7, 0xf8, 0x90, 0x07, 0xe8, 0xf1, 0x3e, 0x8f, 0xfc, 0xf6,
-	0xc5, 0x21, 0x1f, 0x46, 0x4f, 0xf8, 0x61, 0xdb, 0xe3, 0x92, 0x3f, 0x49, 0xce, 0xdb, 0x02, 0xe3,
-	0x0b, 0x8c, 0x9d, 0x28, 0x0e, 0x65, 0x48, 0xdf, 0x74, 0xc3, 0x91, 0xe4, 0xfe, 0x08, 0x63, 0xd1,
-	0xe7, 0xbe, 0x63, 0x14, 0x9d, 0x4c, 0xc9, 0x31, 0x4a, 0xad, 0xd7, 0x06, 0x61, 0x38, 0x18, 0x62,
-	0x3b, 0x8e, 0xdc, 0xb6, 0x90, 0x5c, 0x26, 0x22, 0x05, 0x68, 0xbd, 0x61, 0x2e, 0xf4, 0xe9, 0x3c,
-	0xf9, 0xba, 0x2d, 0xfd, 0x00, 0x85, 0xe4, 0x41, 0x64, 0x04, 0x5e, 0x9f, 0x15, 0xf0, 0x92, 0x98,
-	0x4b, 0x3f, 0x1c, 0x99, 0xfb, 0xbd, 0xd9, 0x7b, 0x0c, 0x22, 0x79, 0x69, 0x2e, 0xef, 0x5c, 0xeb,
-	0x49, 0x14, 0xa3, 0xe7, 0xbb, 0xd2, 0xc8, 0x5e, 0xef, 0x75, 0x80, 0x32, 0xf6, 0x5d, 0x23, 0xfa,
-	0xf6, 0xb5, 0xa2, 0x31, 0x8a, 0x30, 0x89, 0x5d, 0x4c, 0x85, 0xed, 0x2e, 0xac, 0x33, 0x14, 0x51,
-	0x38, 0x12, 0x48, 0xef, 0x40, 0x3d, 0xf5, 0xde, 0x22, 0xfb, 0xe4, 0xa0, 0xd9, 0xa1, 0x4e, 0xca,
-	0xde, 0x89, 0x23, 0xd7, 0xe9, 0xe9, 0x1b, 0x66, 0x24, 0xa8, 0x05, 0x2f, 0x07, 0x28, 0x04, 0x1f,
-	0xa0, 0xb5, 0xba, 0x4f, 0x0e, 0x1a, 0x2c, 0x3b, 0xda, 0x3f, 0xd7, 0x80, 0x3e, 0xf2, 0x85, 0xfc,
-	0x4c, 0x73, 0x12, 0x0c, 0x9f, 0x26, 0x28, 0x24, 0xed, 0x41, 0x33, 0x65, 0xd9, 0x97, 0x97, 0x11,
-	0x6a, 0x0b, 0x9b, 0x9d, 0x8e, 0x53, 0x2e, 0x43, 0x4e, 0x0a, 0x76, 0x76, 0x19, 0x21, 0x83, 0x60,
-	0xfc, 0x4d, 0xef, 0xc2, 0x9a, 0xca, 0x88, 0xa6, 0xd0, 0xec, 0xb4, 0x32, 0xbe, 0x59, 0xb4, 0x9d,
-	0xb3, 0x2c, 0x5d, 0x27, 0x2b, 0x4c, 0x4b, 0xd2, 0xf7, 0x60, 0x3d, 0x4b, 0x91, 0x55, 0xd3, 0x5a,
-	0xbb, 0x05, 0xad, 0x63, 0x23, 0x70, 0xb2, 0xc2, 0xc6, 0xc2, 0x94, 0x01, 0x28, 0x80, 0x7e, 0xcc,
-	0x47, 0x03, 0xb4, 0xd6, 0xb4, 0xea, 0x61, 0x59, 0xfa, 0x8a, 0x07, 0x53, 0x8a, 0x27, 0x2b, 0xac,
-	0x21, 0xb3, 0x03, 0x7d, 0x0c, 0xe0, 0x86, 0x23, 0xcf, 0x57, 0x06, 0x84, 0xf5, 0xd2, 0x7e, 0xed,
-	0xa0, 0xd9, 0x79, 0xb7, 0x2c, 0xe6, 0x23, 0x7e, 0x8e, 0xc3, 0x1e, 0x0e, 0xd1, 0x95, 0x61, 0xcc,
-	0x72, 0x40, 0x0f, 0x6e, 0xc2, 0x0d, 0x4d, 0x55, 0x98, 0x4b, 0xfb, 0x39, 0x81, 0xad, 0xa9, 0x94,
-	0x2c, 0x33, 0xe1, 0xf4, 0x54, 0xdd, 0x68, 0x60, 0xab, 0xa6, 0x5d, 0x78, 0x67, 0xb1, 0xac, 0x32,
-	0x14, 0xc9, 0x50, 0xb2, 0x0c, 0xc4, 0x7e, 0x5e, 0x83, 0xed, 0x1c, 0xdb, 0x5e, 0x12, 0xfc, 0x5f,
-	0x43, 0x2f, 0xba, 0x86, 0xe8, 0x0e, 0xd4, 0x87, 0xea, 0x52, 0x58, 0xf5, 0xfd, 0xda, 0x41, 0x83,
-	0x99, 0x53, 0xb1, 0xb6, 0x7e, 0x27, 0xb0, 0x33, 0x9b, 0xad, 0xff, 0x74, 0x79, 0xfd, 0x45, 0x60,
-	0x97, 0xe1, 0xc0, 0x17, 0x12, 0xe3, 0xfb, 0xa9, 0x6a, 0x37, 0xf4, 0xb2, 0x12, 0x3b, 0x83, 0x7a,
-	0x14, 0x0e, 0x7d, 0xf7, 0xd2, 0x54, 0xd7, 0x87, 0x65, 0x8d, 0x31, 0x74, 0xc3, 0x20, 0xc0, 0x91,
-	0xa7, 0x53, 0xdd, 0xd5, 0x18, 0xcc, 0x60, 0xd1, 0xc7, 0xb0, 0x91, 0x35, 0xe5, 0x28, 0xf4, 0x84,
-	0xb5, 0xaa, 0x1d, 0x29, 0x5d, 0xb9, 0x39, 0x9a, 0x4d, 0x3e, 0xfe, 0x16, 0xb6, 0x84, 0xbd, 0x63,
-	0x8c, 0xaf, 0xf4, 0x65, 0xd6, 0x2a, 0x59, 0x8e, 0xd5, 0x0b, 0x68, 0xcd, 0xc4, 0xef, 0x34, 0xf4,
-	0x30, 0x33, 0xfa, 0x05, 0xdc, 0xc8, 0x8c, 0x8e, 0x42, 0x0f, 0x33, 0xab, 0x47, 0x0b, 0x5a, 0xd5,
-	0x90, 0x19, 0x7d, 0x75, 0x10, 0xf6, 0x37, 0x70, 0xbb, 0xe0, 0xed, 0x8b, 0xb1, 0xfc, 0x1b, 0x81,
-	0x5b, 0x9f, 0xa2, 0xec, 0x86, 0x5e, 0x37, 0x1d, 0xca, 0x99, 0xc9, 0xdb, 0xd0, 0x18, 0xf1, 0x00,
-	0x45, 0xc4, 0xdd, 0xb4, 0x1d, 0x35, 0xd8, 0xe4, 0x07, 0x4a, 0x61, 0x4d, 0x1d, 0x4c, 0x41, 0xeb,
-	0x6f, 0xda, 0x9d, 0x6a, 0x01, 0xb5, 0x8a, 0x2d, 0x20, 0xd7, 0x00, 0xec, 0x3f, 0x08, 0x6c, 0xcf,
-	0x90, 0x5b, 0xea, 0xfb, 0xeb, 0x41, 0xd3, 0xac, 0x22, 0xaa, 0x8a, 0x0c, 0xe5, 0xd2, 0x45, 0x64,
-	0x38, 0xa9, 0x22, 0x82, 0x68, 0xfc, 0x6d, 0x7f, 0x9b, 0x92, 0x56, 0xe1, 0x9d, 0x09, 0xe9, 0x1e,
-	0x34, 0x54, 0xf6, 0xfa, 0x3a, 0x72, 0x69, 0x48, 0xd7, 0xd5, 0x0f, 0xa7, 0xc5, 0xe8, 0xad, 0x2e,
-	0x21, 0x7a, 0x7f, 0x12, 0xd8, 0x99, 0x25, 0xb2, 0xd4, 0xf0, 0x7d, 0x0e, 0x1b, 0x59, 0xf8, 0x94,
-	0x1b, 0x26, 0x7e, 0x47, 0x0b, 0xc6, 0x4f, 0x17, 0x65, 0x96, 0x07, 0x75, 0xb0, 0x9f, 0x82, 0xf5,
-	0x30, 0x46, 0x2e, 0x71, 0x12, 0x61, 0x91, 0x7b, 0xf8, 0xb9, 0x94, 0x2d, 0xfc, 0xf0, 0x73, 0x39,
-	0x6b, 0x4e, 0x72, 0x26, 0xec, 0x04, 0x76, 0xa7, 0x4c, 0xea, 0xc7, 0x91, 0x7b, 0x7d, 0x79, 0x3f,
-	0x17, 0x7e, 0x7d, 0x79, 0x47, 0x37, 0x72, 0x8e, 0x8a, 0xce, 0xdf, 0x1b, 0xb0, 0x79, 0x9c, 0x4a,
-	0xf5, 0x30, 0xbe, 0xf0, 0x5d, 0xa4, 0xdf, 0x11, 0x68, 0xe6, 0x86, 0x0e, 0x7d, 0xbf, 0xf4, 0xc0,
-	0x2b, 0x2c, 0xa6, 0xad, 0x0f, 0x2a, 0xe9, 0xa6, 0x35, 0x62, 0xaf, 0xd0, 0x67, 0x04, 0x36, 0xa7,
-	0xe7, 0x1f, 0xbd, 0x57, 0x01, 0x71, 0xb2, 0xe5, 0xb4, 0x3e, 0xaa, 0xaa, 0x3e, 0xe6, 0xf4, 0x03,
-	0x01, 0x5a, 0x1c, 0x71, 0xf4, 0x7e, 0xf9, 0x59, 0x76, 0xc5, 0x48, 0x69, 0xdd, 0x2d, 0x0f, 0x31,
-	0x66, 0xf3, 0x13, 0x81, 0x5b, 0xf3, 0xc6, 0x14, 0x7d, 0x58, 0x16, 0xec, 0x9a, 0x21, 0x57, 0x89,
-	0xd1, 0x8f, 0x04, 0xb6, 0xe6, 0x8c, 0x30, 0xfa, 0xa0, 0x62, 0x80, 0x72, 0x53, 0xa8, 0x12, 0x9f,
-	0x67, 0x04, 0xb6, 0xe7, 0x8e, 0x36, 0x7a, 0x5c, 0x39, 0x44, 0xff, 0x96, 0xd3, 0x97, 0x70, 0x53,
-	0xd5, 0xd7, 0x24, 0xe0, 0x82, 0xee, 0x14, 0xb6, 0xdc, 0x4f, 0xd4, 0xbf, 0xd9, 0x4a, 0xf0, 0x5f,
-	0xc1, 0x2b, 0x39, 0x78, 0xfd, 0xd0, 0x97, 0x8a, 0xff, 0x3d, 0x81, 0x57, 0x0b, 0xfd, 0x91, 0x7e,
-	0x5c, 0x16, 0xe9, 0xaa, 0xd6, 0x5a, 0x89, 0x8b, 0x7a, 0x8e, 0xc5, 0xc6, 0x59, 0xfe, 0x39, 0x5e,
-	0xd9, 0x74, 0x2b, 0xb1, 0xf9, 0x85, 0xc0, 0xd6, 0xec, 0xbe, 0x90, 0x0c, 0x25, 0x2d, 0xbd, 0xe9,
-	0xce, 0xdb, 0x84, 0x5a, 0xf7, 0x2a, 0x6a, 0x8f, 0x69, 0xfd, 0x9a, 0xee, 0x58, 0xd3, 0x83, 0x58,
-	0xf1, 0x5a, 0x04, 0xb9, 0xb8, 0x4f, 0x94, 0xef, 0xa6, 0xf3, 0xb7, 0x00, 0x7b, 0xe5, 0xbc, 0xae,
-	0xcb, 0xf1, 0xe8, 0x9f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xaf, 0x10, 0x38, 0xef, 0x79, 0x12, 0x00,
-	0x00,
+var fileDescriptor_server_2e8dcdc1bb4bdaa4 = []byte{
+	// 991 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xec, 0x57, 0xdd, 0x6e, 0xe3, 0x44,
+	0x14, 0x8e, 0x9b, 0x52, 0x36, 0x27, 0xdd, 0x5d, 0x98, 0xed, 0x76, 0x53, 0xb7, 0x82, 0xca, 0x17,
+	0xa8, 0x2c, 0x92, 0x43, 0x53, 0x7e, 0x2e, 0x80, 0xfd, 0x6b, 0x10, 0xbd, 0x58, 0xaa, 0xc8, 0xed,
+	0xb2, 0x5c, 0x20, 0x45, 0x53, 0x7b, 0xe8, 0x5a, 0xc4, 0x1e, 0xd7, 0x33, 0xae, 0xe8, 0x0b, 0xf0,
+	0x04, 0x2b, 0xb1, 0x42, 0x5c, 0x81, 0x78, 0x17, 0x9e, 0x86, 0x6b, 0x2e, 0xd1, 0x8c, 0x67, 0x12,
+	0xd7, 0x3f, 0xc1, 0x31, 0x11, 0x57, 0x7b, 0xe7, 0xc9, 0x9c, 0xf3, 0x9d, 0x73, 0xbe, 0xf3, 0xcd,
+	0x9c, 0x09, 0xbc, 0x8f, 0x27, 0x38, 0x20, 0x1e, 0x1e, 0xe3, 0xc8, 0xef, 0x5f, 0xee, 0xe3, 0x49,
+	0xf4, 0x02, 0xef, 0xf7, 0x3d, 0xcc, 0xf1, 0x8b, 0xe4, 0xac, 0xcf, 0x48, 0x7c, 0x49, 0x62, 0x3b,
+	0x8a, 0x29, 0xa7, 0xe8, 0x3d, 0x97, 0x86, 0x1c, 0xfb, 0x21, 0x89, 0xd9, 0x18, 0xfb, 0xb6, 0x72,
+	0xb4, 0xb5, 0x93, 0xad, 0x9c, 0xcc, 0x7b, 0xe7, 0x94, 0x9e, 0x4f, 0x48, 0x3f, 0x8e, 0xdc, 0x3e,
+	0xe3, 0x98, 0x27, 0x2c, 0x05, 0x30, 0xdf, 0x55, 0x1b, 0x72, 0x75, 0x96, 0x7c, 0xdf, 0xe7, 0x7e,
+	0x40, 0x18, 0xc7, 0x41, 0xa4, 0x0c, 0xde, 0xc9, 0x1b, 0x78, 0x49, 0x8c, 0xb9, 0x4f, 0x43, 0xb5,
+	0xbf, 0x9d, 0xdf, 0x27, 0x41, 0xc4, 0xaf, 0xd4, 0xe6, 0xfd, 0xb9, 0x95, 0x44, 0x31, 0xf1, 0x7c,
+	0x97, 0x2b, 0xdb, 0xf9, 0x55, 0x07, 0x84, 0xc7, 0xbe, 0xab, 0x4c, 0x3f, 0x98, 0x6b, 0x1a, 0x13,
+	0x46, 0x93, 0xd8, 0x25, 0xa9, 0xb1, 0xf5, 0x5b, 0x1b, 0xb6, 0x9f, 0xfa, 0x8c, 0x1f, 0x6a, 0xa6,
+	0xbe, 0x96, 0x50, 0xcc, 0x21, 0x17, 0x09, 0x61, 0x1c, 0x7d, 0x07, 0xdd, 0x14, 0x7c, 0xcc, 0xaf,
+	0x22, 0xd2, 0x33, 0x76, 0x8d, 0xbd, 0x5b, 0x83, 0xcf, 0xec, 0x7a, 0xc4, 0xda, 0x39, 0xd4, 0xd3,
+	0xab, 0x88, 0x38, 0x10, 0x4c, 0xbf, 0xd1, 0x87, 0xb0, 0x2a, 0x18, 0xed, 0xad, 0xec, 0x1a, 0x7b,
+	0xdd, 0x81, 0x69, 0xa7, 0x6c, 0xd9, 0x9a, 0x2d, 0xfb, 0x54, 0xd3, 0x7d, 0xd4, 0x72, 0xa4, 0x25,
+	0xfa, 0x14, 0x6e, 0x68, 0x8a, 0x7b, 0x6d, 0xe9, 0xb5, 0x55, 0xf0, 0x1a, 0x2a, 0x83, 0xa3, 0x96,
+	0x33, 0x35, 0x46, 0x0e, 0x80, 0x00, 0x18, 0xc7, 0x38, 0x3c, 0x27, 0xbd, 0x55, 0xe9, 0xba, 0x5f,
+	0xb7, 0x0e, 0x91, 0x87, 0x23, 0x1c, 0x8f, 0x5a, 0x4e, 0x87, 0xeb, 0x05, 0x7a, 0x06, 0xe0, 0xd2,
+	0xd0, 0xf3, 0x45, 0x00, 0xd6, 0x7b, 0x63, 0xb7, 0xbd, 0xd7, 0x1d, 0x7c, 0x5c, 0x17, 0xf3, 0x29,
+	0x3e, 0x23, 0x93, 0x13, 0x32, 0x21, 0x2e, 0xa7, 0xb1, 0x93, 0x01, 0x7a, 0x72, 0x1b, 0x6e, 0xca,
+	0x54, 0x99, 0xda, 0xb4, 0xfe, 0x36, 0x60, 0xa7, 0xbc, 0x49, 0x2c, 0xa2, 0x21, 0x23, 0xe8, 0x3e,
+	0xac, 0xa5, 0xba, 0x95, 0x0d, 0xea, 0x0e, 0x90, 0xe6, 0x24, 0x8e, 0x5c, 0xfb, 0x44, 0xee, 0x38,
+	0xca, 0x22, 0xdf, 0xd1, 0x95, 0xe5, 0x76, 0xf4, 0x18, 0xde, 0x4c, 0x57, 0xac, 0xd7, 0x96, 0x7c,
+	0x7c, 0x54, 0x17, 0x39, 0x05, 0x74, 0x08, 0x4b, 0x26, 0xdc, 0xd1, 0x20, 0xd6, 0xab, 0x36, 0x6c,
+	0x8a, 0xd2, 0x8f, 0xa9, 0x47, 0x72, 0xd2, 0x7c, 0x5e, 0x26, 0xcd, 0x4f, 0xea, 0x86, 0x9b, 0x01,
+	0xbe, 0x56, 0x65, 0x33, 0x55, 0xfe, 0x65, 0xc0, 0xbd, 0x42, 0x6b, 0x1a, 0x08, 0xf2, 0x79, 0x99,
+	0x20, 0x97, 0xd1, 0xc7, 0x65, 0x6b, 0xf1, 0x4f, 0x03, 0xb6, 0x1c, 0x72, 0xee, 0x33, 0x4e, 0xe2,
+	0xc7, 0xa9, 0xeb, 0x88, 0x7a, 0x5a, 0x8e, 0xa7, 0xb0, 0x16, 0xd1, 0x89, 0xef, 0x5e, 0x29, 0x25,
+	0x7e, 0x5e, 0x37, 0x98, 0x43, 0x5c, 0x1a, 0x04, 0x24, 0xf4, 0xa4, 0x24, 0x46, 0x12, 0xc3, 0x51,
+	0x58, 0xe8, 0x19, 0xac, 0xeb, 0xeb, 0x3c, 0xa2, 0x1e, 0xeb, 0xad, 0xc8, 0x42, 0x06, 0x75, 0xb1,
+	0x33, 0x69, 0x76, 0xf1, 0xf4, 0x9b, 0x59, 0x1c, 0xb6, 0x87, 0x24, 0xae, 0xac, 0x25, 0x1f, 0xd5,
+	0x58, 0x4e, 0xd4, 0x4b, 0x30, 0x73, 0xfc, 0x89, 0xee, 0xe9, 0xa0, 0xdf, 0xc2, 0x4d, 0x1d, 0x34,
+	0xa4, 0x1e, 0xd1, 0x51, 0x0f, 0x16, 0x8c, 0x2a, 0x21, 0x75, 0xfa, 0x62, 0xc1, 0xac, 0x1f, 0x61,
+	0xa7, 0x50, 0xed, 0xff, 0x13, 0xf9, 0x17, 0x03, 0x36, 0xbe, 0x22, 0x7c, 0x44, 0xbd, 0x51, 0x3a,
+	0xce, 0x75, 0xc8, 0x1d, 0xe8, 0x84, 0x38, 0x20, 0x2c, 0xc2, 0x6e, 0x7a, 0x75, 0x75, 0x9c, 0xd9,
+	0x0f, 0x08, 0xc1, 0xaa, 0x58, 0xc8, 0xb3, 0xd0, 0x71, 0xe4, 0x37, 0x1a, 0x5d, 0xbb, 0x2a, 0xda,
+	0x0d, 0xaf, 0x8a, 0xcc, 0x45, 0x61, 0xbd, 0x32, 0xe0, 0x6e, 0x2e, 0xb9, 0x06, 0xc7, 0xf7, 0x04,
+	0xba, 0xea, 0xa9, 0x22, 0xb4, 0xa2, 0x12, 0xab, 0x2d, 0x15, 0x15, 0x59, 0x48, 0x05, 0xa2, 0xe9,
+	0xb7, 0xf5, 0x53, 0x9a, 0x9a, 0x20, 0x31, 0x47, 0xdc, 0x36, 0x74, 0x44, 0x8f, 0xc6, 0x92, 0x9f,
+	0x94, 0xb8, 0x1b, 0xe2, 0x87, 0xe3, 0x22, 0x47, 0x2b, 0x4b, 0xe0, 0xe8, 0x57, 0x03, 0x36, 0xf3,
+	0x89, 0x34, 0x20, 0xe9, 0x1b, 0x58, 0xd7, 0x24, 0x89, 0x64, 0x55, 0x6a, 0x07, 0x0b, 0xb2, 0x24,
+	0x05, 0xa6, 0xd9, 0x16, 0x0b, 0xeb, 0x02, 0x7a, 0x87, 0x31, 0xc1, 0x9c, 0xcc, 0x78, 0x64, 0x99,
+	0x43, 0x9c, 0x69, 0xcc, 0xc2, 0x87, 0x38, 0xd3, 0x99, 0xee, 0xac, 0x33, 0xcc, 0x4a, 0x60, 0xeb,
+	0x5a, 0x48, 0x29, 0xf4, 0xcc, 0x49, 0xca, 0xd6, 0xb9, 0xf0, 0x49, 0xca, 0x16, 0xba, 0x9e, 0x29,
+	0x94, 0x0d, 0xfe, 0xe8, 0xc2, 0xad, 0x61, 0x6a, 0x75, 0x42, 0xe2, 0x4b, 0xdf, 0x25, 0xe8, 0x77,
+	0x03, 0x36, 0xca, 0x9e, 0x45, 0xe8, 0xb0, 0xf6, 0xb4, 0xab, 0x7e, 0xf9, 0x9a, 0xc3, 0xff, 0x06,
+	0x92, 0x8a, 0xc4, 0x6a, 0xa1, 0x97, 0x06, 0xdc, 0xce, 0x8d, 0x49, 0xf4, 0x60, 0x11, 0xec, 0xe2,
+	0xd3, 0xc7, 0x7c, 0xd8, 0xd8, 0x7f, 0x9a, 0x56, 0x00, 0xa8, 0x38, 0xcb, 0xd0, 0xe3, 0xfa, 0x43,
+	0xab, 0x62, 0x76, 0x98, 0x25, 0xc7, 0xc0, 0x6a, 0xa1, 0x0b, 0xd8, 0x28, 0x1b, 0x38, 0xf5, 0x5b,
+	0x35, 0x67, 0x5c, 0x55, 0x84, 0xa4, 0x70, 0xa7, 0x64, 0xda, 0xa0, 0x27, 0x0d, 0x4b, 0xcc, 0x0c,
+	0x8c, 0x8a, 0x80, 0x0c, 0xee, 0x96, 0x8e, 0x19, 0x34, 0x6c, 0x5c, 0xe4, 0xbf, 0x07, 0x7d, 0x98,
+	0xaa, 0x6b, 0x46, 0x0a, 0x43, 0x9b, 0x85, 0xb7, 0xe7, 0x97, 0xe2, 0x5f, 0x67, 0x05, 0xc0, 0x23,
+	0x78, 0x2b, 0x03, 0x20, 0x0f, 0xdb, 0x82, 0x08, 0x3f, 0xc0, 0xdb, 0x85, 0x4b, 0x08, 0x3d, 0xaa,
+	0xfd, 0x8f, 0xa2, 0xe2, 0xfe, 0xaa, 0x08, 0x16, 0x00, 0x2a, 0x5e, 0x3f, 0xf5, 0x75, 0x5b, 0x79,
+	0x75, 0x55, 0x84, 0x7b, 0x69, 0xc0, 0x9d, 0xfc, 0x8c, 0x4c, 0x26, 0x1c, 0xd5, 0x7e, 0xdd, 0x95,
+	0x4d, 0x7f, 0xf3, 0x8b, 0x86, 0xde, 0xd3, 0xd3, 0xfb, 0x73, 0xfa, 0xae, 0xb8, 0x3e, 0x96, 0x44,
+	0x5e, 0x8b, 0x20, 0x17, 0xa7, 0xab, 0xf9, 0xa0, 0xa9, 0xbb, 0xce, 0xec, 0x6c, 0x4d, 0x4a, 0xe6,
+	0xe0, 0x9f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xb4, 0x7b, 0x85, 0x6d, 0xa7, 0x11, 0x00, 0x00,
 }

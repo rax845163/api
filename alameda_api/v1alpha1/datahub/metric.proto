@@ -5,12 +5,16 @@ package containers_ai.alameda.v1alpha1.datahub;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 
-enum MetricType {
-    METRICTYPE_UNDEFINED = 0;
-    CONTAINER_CPU_USAGE_SECONDS_TOTAL_RATE5M = 1;
+enum ContainerMetricType {
+    CONTAINER_METRICTYPE_UNDEFINED = 0;
+    CONTAINER_CPU_USAGE_SECONDS_PERCENTAGE = 1;
     CONTAINER_MEMORY_USAGE_BYTES = 2;
-    NODE_CPU_USAGE_SECONDS_AVG1M = 3;
-    NODE_MEMORY_USAGE_BYTES = 4;
+}
+
+enum NodeMetricType {
+    NODE_METRICTYPE_UNDEFINED = 0;
+    NODE_CPU_USAGE_SECONDS_PERCENTAGE= 1;
+    NODE_MEMORY_USAGE_BYTES = 2;
 }
 
 enum StrOp {

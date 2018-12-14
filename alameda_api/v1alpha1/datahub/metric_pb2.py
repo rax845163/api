@@ -22,45 +22,64 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containers_ai.alameda.v1alpha1.datahub',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n)alameda_api/v1alpha1/datahub/metric.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\"k\n\x06Sample\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\x0c\x64ouble_value\x18\x02 \x01(\x01H\x00\x12\x16\n\x0cstring_value\x18\x03 \x01(\tH\x00\x42\x07\n\x05value\"\xd0\x01\n\x0cMetricResult\x12P\n\x06labels\x18\x01 \x03(\x0b\x32@.containers_ai.alameda.v1alpha1.datahub.MetricResult.LabelsEntry\x12?\n\x07samples\x18\x02 \x03(\x0b\x32..containers_ai.alameda.v1alpha1.datahub.Sample\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x92\x01\n\tTimeRange\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\'\n\x04step\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\"f\n\rLabelSelector\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x02op\x18\x02 \x01(\x0e\x32-.containers_ai.alameda.v1alpha1.datahub.StrOp\x12\r\n\x05value\x18\x03 \x01(\t*\xb5\x01\n\nMetricType\x12\x18\n\x14METRICTYPE_UNDEFINED\x10\x00\x12,\n(CONTAINER_CPU_USAGE_SECONDS_TOTAL_RATE5M\x10\x01\x12 \n\x1c\x43ONTAINER_MEMORY_USAGE_BYTES\x10\x02\x12 \n\x1cNODE_CPU_USAGE_SECONDS_AVG1M\x10\x03\x12\x1b\n\x17NODE_MEMORY_USAGE_BYTES\x10\x04* \n\x05StrOp\x12\t\n\x05\x45qual\x10\x00\x12\x0c\n\x08NotEqual\x10\x01\x62\x06proto3')
+  serialized_pb=_b('\n)alameda_api/v1alpha1/datahub/metric.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\"k\n\x06Sample\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\x0c\x64ouble_value\x18\x02 \x01(\x01H\x00\x12\x16\n\x0cstring_value\x18\x03 \x01(\tH\x00\x42\x07\n\x05value\"\xd0\x01\n\x0cMetricResult\x12P\n\x06labels\x18\x01 \x03(\x0b\x32@.containers_ai.alameda.v1alpha1.datahub.MetricResult.LabelsEntry\x12?\n\x07samples\x18\x02 \x03(\x0b\x32..containers_ai.alameda.v1alpha1.datahub.Sample\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x92\x01\n\tTimeRange\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\'\n\x04step\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\"f\n\rLabelSelector\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x02op\x18\x02 \x01(\x0e\x32-.containers_ai.alameda.v1alpha1.datahub.StrOp\x12\r\n\x05value\x18\x03 \x01(\t*\x87\x01\n\x13\x43ontainerMetricType\x12\"\n\x1e\x43ONTAINER_METRICTYPE_UNDEFINED\x10\x00\x12*\n&CONTAINER_CPU_USAGE_SECONDS_PERCENTAGE\x10\x01\x12 \n\x1c\x43ONTAINER_MEMORY_USAGE_BYTES\x10\x02*s\n\x0eNodeMetricType\x12\x1d\n\x19NODE_METRICTYPE_UNDEFINED\x10\x00\x12%\n!NODE_CPU_USAGE_SECONDS_PERCENTAGE\x10\x01\x12\x1b\n\x17NODE_MEMORY_USAGE_BYTES\x10\x02* \n\x05StrOp\x12\t\n\x05\x45qual\x10\x00\x12\x0c\n\x08NotEqual\x10\x01\x62\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,])
 
-_METRICTYPE = _descriptor.EnumDescriptor(
-  name='MetricType',
-  full_name='containers_ai.alameda.v1alpha1.datahub.MetricType',
+_CONTAINERMETRICTYPE = _descriptor.EnumDescriptor(
+  name='ContainerMetricType',
+  full_name='containers_ai.alameda.v1alpha1.datahub.ContainerMetricType',
   filename=None,
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='METRICTYPE_UNDEFINED', index=0, number=0,
+      name='CONTAINER_METRICTYPE_UNDEFINED', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='CONTAINER_CPU_USAGE_SECONDS_TOTAL_RATE5M', index=1, number=1,
+      name='CONTAINER_CPU_USAGE_SECONDS_PERCENTAGE', index=1, number=1,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
       name='CONTAINER_MEMORY_USAGE_BYTES', index=2, number=2,
       serialized_options=None,
       type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=724,
+  serialized_end=859,
+)
+_sym_db.RegisterEnumDescriptor(_CONTAINERMETRICTYPE)
+
+ContainerMetricType = enum_type_wrapper.EnumTypeWrapper(_CONTAINERMETRICTYPE)
+_NODEMETRICTYPE = _descriptor.EnumDescriptor(
+  name='NodeMetricType',
+  full_name='containers_ai.alameda.v1alpha1.datahub.NodeMetricType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
     _descriptor.EnumValueDescriptor(
-      name='NODE_CPU_USAGE_SECONDS_AVG1M', index=3, number=3,
+      name='NODE_METRICTYPE_UNDEFINED', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='NODE_MEMORY_USAGE_BYTES', index=4, number=4,
+      name='NODE_CPU_USAGE_SECONDS_PERCENTAGE', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='NODE_MEMORY_USAGE_BYTES', index=2, number=2,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=724,
-  serialized_end=905,
+  serialized_start=861,
+  serialized_end=976,
 )
-_sym_db.RegisterEnumDescriptor(_METRICTYPE)
+_sym_db.RegisterEnumDescriptor(_NODEMETRICTYPE)
 
-MetricType = enum_type_wrapper.EnumTypeWrapper(_METRICTYPE)
+NodeMetricType = enum_type_wrapper.EnumTypeWrapper(_NODEMETRICTYPE)
 _STROP = _descriptor.EnumDescriptor(
   name='StrOp',
   full_name='containers_ai.alameda.v1alpha1.datahub.StrOp',
@@ -78,17 +97,18 @@ _STROP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=907,
-  serialized_end=939,
+  serialized_start=978,
+  serialized_end=1010,
 )
 _sym_db.RegisterEnumDescriptor(_STROP)
 
 StrOp = enum_type_wrapper.EnumTypeWrapper(_STROP)
-METRICTYPE_UNDEFINED = 0
-CONTAINER_CPU_USAGE_SECONDS_TOTAL_RATE5M = 1
+CONTAINER_METRICTYPE_UNDEFINED = 0
+CONTAINER_CPU_USAGE_SECONDS_PERCENTAGE = 1
 CONTAINER_MEMORY_USAGE_BYTES = 2
-NODE_CPU_USAGE_SECONDS_AVG1M = 3
-NODE_MEMORY_USAGE_BYTES = 4
+NODE_METRICTYPE_UNDEFINED = 0
+NODE_CPU_USAGE_SECONDS_PERCENTAGE = 1
+NODE_MEMORY_USAGE_BYTES = 2
 Equal = 0
 NotEqual = 1
 
@@ -324,7 +344,8 @@ DESCRIPTOR.message_types_by_name['Sample'] = _SAMPLE
 DESCRIPTOR.message_types_by_name['MetricResult'] = _METRICRESULT
 DESCRIPTOR.message_types_by_name['TimeRange'] = _TIMERANGE
 DESCRIPTOR.message_types_by_name['LabelSelector'] = _LABELSELECTOR
-DESCRIPTOR.enum_types_by_name['MetricType'] = _METRICTYPE
+DESCRIPTOR.enum_types_by_name['ContainerMetricType'] = _CONTAINERMETRICTYPE
+DESCRIPTOR.enum_types_by_name['NodeMetricType'] = _NODEMETRICTYPE
 DESCRIPTOR.enum_types_by_name['StrOp'] = _STROP
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

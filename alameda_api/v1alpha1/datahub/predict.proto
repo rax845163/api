@@ -36,9 +36,12 @@ message PredictNode {
 }
 
 message MetricData {
-    MetricType metric_type = 1;
+    oneof metric_type {
+        ContainerMetricType container_metric_type = 1;
+        NodeMetricType node_metric_type = 2;
+    }
     oneof predict_data {
-        TimeSeriesData time_series_data = 2;
-        string value = 3;
+        TimeSeriesData time_series_data = 3;
+        string value = 4;
     }
 }
