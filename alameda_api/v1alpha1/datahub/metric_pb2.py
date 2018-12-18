@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containers_ai.alameda.v1alpha1.datahub',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n)alameda_api/v1alpha1/datahub/metric.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\"k\n\x06Sample\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\x0c\x64ouble_value\x18\x02 \x01(\x01H\x00\x12\x16\n\x0cstring_value\x18\x03 \x01(\tH\x00\x42\x07\n\x05value\"\xd0\x01\n\x0cMetricResult\x12P\n\x06labels\x18\x01 \x03(\x0b\x32@.containers_ai.alameda.v1alpha1.datahub.MetricResult.LabelsEntry\x12?\n\x07samples\x18\x02 \x03(\x0b\x32..containers_ai.alameda.v1alpha1.datahub.Sample\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x92\x01\n\tTimeRange\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\'\n\x04step\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\"f\n\rLabelSelector\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x02op\x18\x02 \x01(\x0e\x32-.containers_ai.alameda.v1alpha1.datahub.StrOp\x12\r\n\x05value\x18\x03 \x01(\t\"T\n\x0eTimeSeriesData\x12\x42\n\ndata_point\x18\x01 \x03(\x0b\x32..containers_ai.alameda.v1alpha1.datahub.Sample\"\x96\x01\n\nMetricData\x12\x13\n\x0bmetric_type\x18\x01 \x01(\t\x12R\n\x10time_series_data\x18\x02 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.TimeSeriesDataH\x00\x12\x0f\n\x05value\x18\x03 \x01(\tH\x00\x42\x0e\n\x0cpredict_data*\x87\x01\n\x13\x43ontainerMetricType\x12\"\n\x1e\x43ONTAINER_METRICTYPE_UNDEFINED\x10\x00\x12*\n&CONTAINER_CPU_USAGE_SECONDS_PERCENTAGE\x10\x01\x12 \n\x1c\x43ONTAINER_MEMORY_USAGE_BYTES\x10\x02*s\n\x0eNodeMetricType\x12\x1d\n\x19NODE_METRICTYPE_UNDEFINED\x10\x00\x12%\n!NODE_CPU_USAGE_SECONDS_PERCENTAGE\x10\x01\x12\x1b\n\x17NODE_MEMORY_USAGE_BYTES\x10\x02* \n\x05StrOp\x12\t\n\x05\x45qual\x10\x00\x12\x0c\n\x08NotEqual\x10\x01\x62\x06proto3')
+  serialized_pb=_b('\n)alameda_api/v1alpha1/datahub/metric.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\"E\n\x06Sample\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x11\n\tnum_value\x18\x02 \x01(\t\"\xd0\x01\n\x0cMetricResult\x12P\n\x06labels\x18\x01 \x03(\x0b\x32@.containers_ai.alameda.v1alpha1.datahub.MetricResult.LabelsEntry\x12?\n\x07samples\x18\x02 \x03(\x0b\x32..containers_ai.alameda.v1alpha1.datahub.Sample\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x92\x01\n\tTimeRange\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\'\n\x04step\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\"f\n\rLabelSelector\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x02op\x18\x02 \x01(\x0e\x32-.containers_ai.alameda.v1alpha1.datahub.StrOp\x12\r\n\x05value\x18\x03 \x01(\t\"_\n\nMetricData\x12\x13\n\x0bmetric_type\x18\x01 \x01(\t\x12<\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32..containers_ai.alameda.v1alpha1.datahub.Sample*\x87\x01\n\x13\x43ontainerMetricType\x12\"\n\x1e\x43ONTAINER_METRICTYPE_UNDEFINED\x10\x00\x12*\n&CONTAINER_CPU_USAGE_SECONDS_PERCENTAGE\x10\x01\x12 \n\x1c\x43ONTAINER_MEMORY_USAGE_BYTES\x10\x02*s\n\x0eNodeMetricType\x12\x1d\n\x19NODE_METRICTYPE_UNDEFINED\x10\x00\x12%\n!NODE_CPU_USAGE_SECONDS_PERCENTAGE\x10\x01\x12\x1b\n\x17NODE_MEMORY_USAGE_BYTES\x10\x02* \n\x05StrOp\x12\t\n\x05\x45qual\x10\x00\x12\x0c\n\x08NotEqual\x10\x01\x62\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,])
 
@@ -47,8 +47,8 @@ _CONTAINERMETRICTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=963,
-  serialized_end=1098,
+  serialized_start=783,
+  serialized_end=918,
 )
 _sym_db.RegisterEnumDescriptor(_CONTAINERMETRICTYPE)
 
@@ -74,8 +74,8 @@ _NODEMETRICTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1100,
-  serialized_end=1215,
+  serialized_start=920,
+  serialized_end=1035,
 )
 _sym_db.RegisterEnumDescriptor(_NODEMETRICTYPE)
 
@@ -97,8 +97,8 @@ _STROP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1217,
-  serialized_end=1249,
+  serialized_start=1037,
+  serialized_end=1069,
 )
 _sym_db.RegisterEnumDescriptor(_STROP)
 
@@ -129,15 +129,8 @@ _SAMPLE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='double_value', full_name='containers_ai.alameda.v1alpha1.datahub.Sample.double_value', index=1,
-      number=2, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='string_value', full_name='containers_ai.alameda.v1alpha1.datahub.Sample.string_value', index=2,
-      number=3, type=9, cpp_type=9, label=1,
+      name='num_value', full_name='containers_ai.alameda.v1alpha1.datahub.Sample.num_value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -153,12 +146,9 @@ _SAMPLE = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
-    _descriptor.OneofDescriptor(
-      name='value', full_name='containers_ai.alameda.v1alpha1.datahub.Sample.value',
-      index=0, containing_type=None, fields=[]),
   ],
   serialized_start=150,
-  serialized_end=257,
+  serialized_end=219,
 )
 
 
@@ -195,8 +185,8 @@ _METRICRESULT_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=423,
-  serialized_end=468,
+  serialized_start=385,
+  serialized_end=430,
 )
 
 _METRICRESULT = _descriptor.Descriptor(
@@ -232,8 +222,8 @@ _METRICRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=260,
-  serialized_end=468,
+  serialized_start=222,
+  serialized_end=430,
 )
 
 
@@ -277,8 +267,8 @@ _TIMERANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=471,
-  serialized_end=617,
+  serialized_start=433,
+  serialized_end=579,
 )
 
 
@@ -322,39 +312,8 @@ _LABELSELECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=619,
-  serialized_end=721,
-)
-
-
-_TIMESERIESDATA = _descriptor.Descriptor(
-  name='TimeSeriesData',
-  full_name='containers_ai.alameda.v1alpha1.datahub.TimeSeriesData',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='data_point', full_name='containers_ai.alameda.v1alpha1.datahub.TimeSeriesData.data_point', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=723,
-  serialized_end=807,
+  serialized_start=581,
+  serialized_end=683,
 )
 
 
@@ -373,16 +332,9 @@ _METRICDATA = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='time_series_data', full_name='containers_ai.alameda.v1alpha1.datahub.MetricData.time_series_data', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='containers_ai.alameda.v1alpha1.datahub.MetricData.value', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='data', full_name='containers_ai.alameda.v1alpha1.datahub.MetricData.data', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -397,21 +349,12 @@ _METRICDATA = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
-    _descriptor.OneofDescriptor(
-      name='predict_data', full_name='containers_ai.alameda.v1alpha1.datahub.MetricData.predict_data',
-      index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=810,
-  serialized_end=960,
+  serialized_start=685,
+  serialized_end=780,
 )
 
 _SAMPLE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-_SAMPLE.oneofs_by_name['value'].fields.append(
-  _SAMPLE.fields_by_name['double_value'])
-_SAMPLE.fields_by_name['double_value'].containing_oneof = _SAMPLE.oneofs_by_name['value']
-_SAMPLE.oneofs_by_name['value'].fields.append(
-  _SAMPLE.fields_by_name['string_value'])
-_SAMPLE.fields_by_name['string_value'].containing_oneof = _SAMPLE.oneofs_by_name['value']
 _METRICRESULT_LABELSENTRY.containing_type = _METRICRESULT
 _METRICRESULT.fields_by_name['labels'].message_type = _METRICRESULT_LABELSENTRY
 _METRICRESULT.fields_by_name['samples'].message_type = _SAMPLE
@@ -419,19 +362,11 @@ _TIMERANGE.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_t
 _TIMERANGE.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _TIMERANGE.fields_by_name['step'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _LABELSELECTOR.fields_by_name['op'].enum_type = _STROP
-_TIMESERIESDATA.fields_by_name['data_point'].message_type = _SAMPLE
-_METRICDATA.fields_by_name['time_series_data'].message_type = _TIMESERIESDATA
-_METRICDATA.oneofs_by_name['predict_data'].fields.append(
-  _METRICDATA.fields_by_name['time_series_data'])
-_METRICDATA.fields_by_name['time_series_data'].containing_oneof = _METRICDATA.oneofs_by_name['predict_data']
-_METRICDATA.oneofs_by_name['predict_data'].fields.append(
-  _METRICDATA.fields_by_name['value'])
-_METRICDATA.fields_by_name['value'].containing_oneof = _METRICDATA.oneofs_by_name['predict_data']
+_METRICDATA.fields_by_name['data'].message_type = _SAMPLE
 DESCRIPTOR.message_types_by_name['Sample'] = _SAMPLE
 DESCRIPTOR.message_types_by_name['MetricResult'] = _METRICRESULT
 DESCRIPTOR.message_types_by_name['TimeRange'] = _TIMERANGE
 DESCRIPTOR.message_types_by_name['LabelSelector'] = _LABELSELECTOR
-DESCRIPTOR.message_types_by_name['TimeSeriesData'] = _TIMESERIESDATA
 DESCRIPTOR.message_types_by_name['MetricData'] = _METRICDATA
 DESCRIPTOR.enum_types_by_name['ContainerMetricType'] = _CONTAINERMETRICTYPE
 DESCRIPTOR.enum_types_by_name['NodeMetricType'] = _NODEMETRICTYPE
@@ -473,13 +408,6 @@ LabelSelector = _reflection.GeneratedProtocolMessageType('LabelSelector', (_mess
   # @@protoc_insertion_point(class_scope:containers_ai.alameda.v1alpha1.datahub.LabelSelector)
   ))
 _sym_db.RegisterMessage(LabelSelector)
-
-TimeSeriesData = _reflection.GeneratedProtocolMessageType('TimeSeriesData', (_message.Message,), dict(
-  DESCRIPTOR = _TIMESERIESDATA,
-  __module__ = 'alameda_api.v1alpha1.datahub.metric_pb2'
-  # @@protoc_insertion_point(class_scope:containers_ai.alameda.v1alpha1.datahub.TimeSeriesData)
-  ))
-_sym_db.RegisterMessage(TimeSeriesData)
 
 MetricData = _reflection.GeneratedProtocolMessageType('MetricData', (_message.Message,), dict(
   DESCRIPTOR = _METRICDATA,

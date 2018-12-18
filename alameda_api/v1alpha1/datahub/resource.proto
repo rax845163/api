@@ -13,6 +13,10 @@ message Container {
     string name = 1;
     repeated MetricData limit_resource = 2;
     repeated MetricData request_resource = 3;
+    repeated MetricData limit_resource_recommendation = 4;
+    repeated MetricData request_resource_recommendation = 5;
+    repeated MetricData initial_limit_resource_recommendation = 6;
+    repeated MetricData initial_request_resource_recommendation = 7;
 }
 
 message AlamedaPod {
