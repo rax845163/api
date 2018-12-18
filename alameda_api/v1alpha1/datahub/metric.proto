@@ -24,10 +24,7 @@ enum StrOp {
 
 message Sample {
     google.protobuf.Timestamp time = 1;
-    oneof value {
-        double double_value = 2;
-        string string_value = 3;
-    }
+    string num_value = 2;
 }
 
 message MetricResult {
@@ -45,4 +42,16 @@ message LabelSelector {
     string key = 1;
     StrOp op = 2 ;
     string value = 3;
+}
+
+message TimeSeriesData {
+    repeated Sample data_point = 1;
+}
+
+message MetricData {
+    string metric_type = 1;
+    oneof predict_data {
+        TimeSeriesData time_series_data = 2;
+        string value = 3;
+    }
 }
