@@ -44,14 +44,8 @@ message LabelSelector {
     string value = 3;
 }
 
-message TimeSeriesData {
-    repeated Sample data_point = 1;
-}
-
 message MetricData {
     string metric_type = 1;
-    oneof predict_data {
-        TimeSeriesData time_series_data = 2;
-        string value = 3;
-    }
+    // data can be time series or non-time series
+    repeated Sample data = 2;
 }
