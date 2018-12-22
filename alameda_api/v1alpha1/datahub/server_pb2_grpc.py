@@ -81,6 +81,11 @@ class DatahubServiceStub(object):
         request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetAlamedaPodResourceInfoRequest.SerializeToString,
         response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListAlamedaPodsResponse.FromString,
         )
+    self.ListPodsByNodeName = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListPodsByNodeName',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsByNodeNameRequest.SerializeToString,
+        response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListAlamedaPodsResponse.FromString,
+        )
 
 
 class DatahubServiceServicer(object):
@@ -178,6 +183,13 @@ class DatahubServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def ListPodsByNodeName(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_DatahubServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -244,6 +256,11 @@ def add_DatahubServiceServicer_to_server(servicer, server):
       'GetAlamedaPodResourceInfo': grpc.unary_unary_rpc_method_handler(
           servicer.GetAlamedaPodResourceInfo,
           request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetAlamedaPodResourceInfoRequest.FromString,
+          response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListAlamedaPodsResponse.SerializeToString,
+      ),
+      'ListPodsByNodeName': grpc.unary_unary_rpc_method_handler(
+          servicer.ListPodsByNodeName,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsByNodeNameRequest.FromString,
           response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListAlamedaPodsResponse.SerializeToString,
       ),
   }

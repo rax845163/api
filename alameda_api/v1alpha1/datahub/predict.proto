@@ -28,6 +28,7 @@ message PredictPod {
     oneof assign_pod_policy {
         NodePriority node_priority = 4;
         Selector node_selector = 5;
+        string node_name = 6;
     };
 }
 
