@@ -59,14 +59,14 @@ message DeleteAlamedaNodeRequest {
     repeated Node alameda_nodes = 1;
 }
 
-message ListAlamedaPodsResponse {
+message ListPodsResponse {
     google.rpc.Status status = 1;
-    repeated Pod alameda_pods = 2;
+    repeated Pod pods = 2;
 }
 
-message ListAlamedaNodesResponse {
+message ListNodesResponse {
     google.rpc.Status status = 1;
-    repeated Node alameda_nodes = 2;
+    repeated Node nodes = 2;
 }
 
 message GetPodPredictRequest {
@@ -122,9 +122,9 @@ service DatahubService {
     rpc DeleteAlamedaNode(DeleteAlamedaNodeRequest)
         returns (google.rpc.Status){}
     rpc ListAlamedaPods(google.protobuf.Empty)
-        returns (ListAlamedaPodsResponse){}
+        returns (ListPodsResponse){}
     rpc ListAlamedaNodes(google.protobuf.Empty)
-        returns (ListAlamedaNodesResponse){}
+        returns (ListNodesResponse){}
     rpc CreatePredictPods(CreatePredictPodsRequest)
         returns (google.rpc.Status) {}
     rpc CreatePredictNodes(CreatePredictNodesRequest)
@@ -134,7 +134,7 @@ service DatahubService {
     rpc GetNodePredictResult(GetNodePredictRequest)
         returns (GetNodePredictResponse) {}
     rpc GetAlamedaPodResourceInfo(GetAlamedaPodResourceInfoRequest)
-        returns (ListAlamedaPodsResponse) {}
+        returns (ListPodsResponse) {}
     rpc ListPodsByNodeName(ListPodsByNodeNameRequest)
-        returns (ListAlamedaPodsResponse) {}
+        returns (ListPodsResponse) {}
 }
