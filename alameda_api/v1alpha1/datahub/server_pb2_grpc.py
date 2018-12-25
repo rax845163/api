@@ -16,10 +16,10 @@ class DatahubServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.ListContainerMetrics = channel.unary_unary(
-        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListContainerMetrics',
-        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListContainerMetricsRequest.SerializeToString,
-        response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListContainerMetricsResponse.FromString,
+    self.ListPodMetrics = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListPodMetrics',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodMetricsRequest.SerializeToString,
+        response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodMetricsResponse.FromString,
         )
     self.ListNodeMetrics = channel.unary_unary(
         '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListNodeMetrics',
@@ -92,7 +92,7 @@ class DatahubServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def ListContainerMetrics(self, request, context):
+  def ListPodMetrics(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -193,10 +193,10 @@ class DatahubServiceServicer(object):
 
 def add_DatahubServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'ListContainerMetrics': grpc.unary_unary_rpc_method_handler(
-          servicer.ListContainerMetrics,
-          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListContainerMetricsRequest.FromString,
-          response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListContainerMetricsResponse.SerializeToString,
+      'ListPodMetrics': grpc.unary_unary_rpc_method_handler(
+          servicer.ListPodMetrics,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodMetricsRequest.FromString,
+          response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodMetricsResponse.SerializeToString,
       ),
       'ListNodeMetrics': grpc.unary_unary_rpc_method_handler(
           servicer.ListNodeMetrics,
