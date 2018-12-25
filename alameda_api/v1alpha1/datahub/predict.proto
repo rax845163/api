@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package containers_ai.alameda.v1alpha1.datahub;
 
-import "alameda_api/v1alpha1/datahub/resource.proto";
+import "alameda_api/v1alpha1/datahub/metadata.proto";
 import "alameda_api/v1alpha1/datahub/metric.proto";
 import "alameda_api/v1alpha1/datahub/pod_assignment.proto";
 

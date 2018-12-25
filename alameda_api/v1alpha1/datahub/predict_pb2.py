@@ -13,7 +13,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from alameda_api.v1alpha1.datahub import resource_pb2 as alameda__api_dot_v1alpha1_dot_datahub_dot_resource__pb2
+from alameda_api.v1alpha1.datahub import metadata_pb2 as alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2
 from alameda_api.v1alpha1.datahub import metric_pb2 as alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2
 from alameda_api.v1alpha1.datahub import pod_assignment_pb2 as alameda__api_dot_v1alpha1_dot_datahub_dot_pod__assignment__pb2
 
@@ -23,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containers_ai.alameda.v1alpha1.datahub',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n*alameda_api/v1alpha1/datahub/predict.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a+alameda_api/v1alpha1/datahub/resource.proto\x1a)alameda_api/v1alpha1/datahub/metric.proto\x1a\x31\x61lameda_api/v1alpha1/datahub/pod_assignment.proto\"\xca\x03\n\x10PredictContainer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12L\n\x10row_predict_data\x18\x02 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12N\n\x12limit_predict_data\x18\x03 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12P\n\x14request_predict_data\x18\x04 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12Z\n\x1einitial_limit_predict_resource\x18\x05 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12\\\n initial_request_predict_resource\x18\x06 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\"\x84\x03\n\nPredictPod\x12\x0b\n\x03uid\x18\x01 \x01(\t\x12O\n\x0fnamespaced_name\x18\x02 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12T\n\x12predict_containers\x18\x03 \x03(\x0b\x32\x38.containers_ai.alameda.v1alpha1.datahub.PredictContainer\x12M\n\rnode_priority\x18\x04 \x01(\x0b\x32\x34.containers_ai.alameda.v1alpha1.datahub.NodePriorityH\x00\x12I\n\rnode_selector\x18\x05 \x01(\x0b\x32\x30.containers_ai.alameda.v1alpha1.datahub.SelectorH\x00\x12\x13\n\tnode_name\x18\x06 \x01(\tH\x00\x42\x13\n\x11\x61ssign_pod_policy\"i\n\x0bPredictNode\x12\x0c\n\x04name\x18\x01 \x01(\t\x12L\n\x10row_predict_data\x18\x02 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData*S\n\x14RecommendationPolicy\x12\"\n\x1eRECOMMENDATIONPOLICY_UNDEFINED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0b\n\x07\x43OMPACT\x10\x02\x62\x06proto3')
+  serialized_pb=_b('\n*alameda_api/v1alpha1/datahub/predict.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a+alameda_api/v1alpha1/datahub/metadata.proto\x1a)alameda_api/v1alpha1/datahub/metric.proto\x1a\x31\x61lameda_api/v1alpha1/datahub/pod_assignment.proto\"\xca\x03\n\x10PredictContainer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12L\n\x10row_predict_data\x18\x02 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12N\n\x12limit_predict_data\x18\x03 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12P\n\x14request_predict_data\x18\x04 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12Z\n\x1einitial_limit_predict_resource\x18\x05 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12\\\n initial_request_predict_resource\x18\x06 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\"\x84\x03\n\nPredictPod\x12\x0b\n\x03uid\x18\x01 \x01(\t\x12O\n\x0fnamespaced_name\x18\x02 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12T\n\x12predict_containers\x18\x03 \x03(\x0b\x32\x38.containers_ai.alameda.v1alpha1.datahub.PredictContainer\x12M\n\rnode_priority\x18\x04 \x01(\x0b\x32\x34.containers_ai.alameda.v1alpha1.datahub.NodePriorityH\x00\x12I\n\rnode_selector\x18\x05 \x01(\x0b\x32\x30.containers_ai.alameda.v1alpha1.datahub.SelectorH\x00\x12\x13\n\tnode_name\x18\x06 \x01(\tH\x00\x42\x13\n\x11\x61ssign_pod_policy\"i\n\x0bPredictNode\x12\x0c\n\x04name\x18\x01 \x01(\t\x12L\n\x10row_predict_data\x18\x02 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData*S\n\x14RecommendationPolicy\x12\"\n\x1eRECOMMENDATIONPOLICY_UNDEFINED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0b\n\x07\x43OMPACT\x10\x02\x62\x06proto3')
   ,
-  dependencies=[alameda__api_dot_v1alpha1_dot_datahub_dot_resource__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_pod__assignment__pb2.DESCRIPTOR,])
+  dependencies=[alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_pod__assignment__pb2.DESCRIPTOR,])
 
 _RECOMMENDATIONPOLICY = _descriptor.EnumDescriptor(
   name='RecommendationPolicy',
@@ -237,7 +237,7 @@ _PREDICTCONTAINER.fields_by_name['limit_predict_data'].message_type = alameda__a
 _PREDICTCONTAINER.fields_by_name['request_predict_data'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2._METRICDATA
 _PREDICTCONTAINER.fields_by_name['initial_limit_predict_resource'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2._METRICDATA
 _PREDICTCONTAINER.fields_by_name['initial_request_predict_resource'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2._METRICDATA
-_PREDICTPOD.fields_by_name['namespaced_name'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_resource__pb2._NAMESPACEDNAME
+_PREDICTPOD.fields_by_name['namespaced_name'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2._NAMESPACEDNAME
 _PREDICTPOD.fields_by_name['predict_containers'].message_type = _PREDICTCONTAINER
 _PREDICTPOD.fields_by_name['node_priority'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_pod__assignment__pb2._NODEPRIORITY
 _PREDICTPOD.fields_by_name['node_selector'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_pod__assignment__pb2._SELECTOR
