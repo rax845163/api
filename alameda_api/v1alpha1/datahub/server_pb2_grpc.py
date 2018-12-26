@@ -16,6 +16,11 @@ class DatahubServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
+    self.GetAlamedaPodResourceInfo = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetAlamedaPodResourceInfo',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetAlamedaPodResourceInfoRequest.SerializeToString,
+        response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsResponse.FromString,
+        )
     self.ListPodMetrics = channel.unary_unary(
         '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListPodMetrics',
         request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodMetricsRequest.SerializeToString,
@@ -25,26 +30,6 @@ class DatahubServiceStub(object):
         '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListNodeMetrics',
         request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListNodeMetricsRequest.SerializeToString,
         response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListNodeMetricsResponse.FromString,
-        )
-    self.CreateAlamedaPod = channel.unary_unary(
-        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateAlamedaPod',
-        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreateAlamedaPodRequest.SerializeToString,
-        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
-        )
-    self.DeleteAlamedaPod = channel.unary_unary(
-        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeleteAlamedaPod',
-        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.DeleteAlamedaPodRequest.SerializeToString,
-        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
-        )
-    self.CreateAlamedaNode = channel.unary_unary(
-        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateAlamedaNode',
-        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreateAlamedaNodeRequest.SerializeToString,
-        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
-        )
-    self.DeleteAlamedaNode = channel.unary_unary(
-        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeleteAlamedaNode',
-        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.DeleteAlamedaNodeRequest.SerializeToString,
-        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
         )
     self.ListAlamedaPods = channel.unary_unary(
         '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListAlamedaPods',
@@ -56,41 +41,73 @@ class DatahubServiceStub(object):
         request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
         response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListNodesResponse.FromString,
         )
-    self.CreatePredictPods = channel.unary_unary(
-        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePredictPods',
-        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreatePredictPodsRequest.SerializeToString,
-        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
+    self.ListPodPrediction = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListPodPrediction',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodPredictionRequest.SerializeToString,
+        response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodPredictionResponse.FromString,
         )
-    self.CreatePredictNodes = channel.unary_unary(
-        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePredictNodes',
-        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreatePredictNodesRequest.SerializeToString,
-        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
+    self.ListNodePrediction = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListNodePrediction',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListNodePredictionRequest.SerializeToString,
+        response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListNodePredictionResponse.FromString,
         )
-    self.GetPodPredictResult = channel.unary_unary(
-        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetPodPredictResult',
-        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetPodPredictRequest.SerializeToString,
-        response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetPodPredictResponse.FromString,
-        )
-    self.GetNodePredictResult = channel.unary_unary(
-        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetNodePredictResult',
-        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetNodePredictRequest.SerializeToString,
-        response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetNodePredictResponse.FromString,
-        )
-    self.GetAlamedaPodResourceInfo = channel.unary_unary(
-        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetAlamedaPodResourceInfo',
-        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetAlamedaPodResourceInfoRequest.SerializeToString,
-        response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsResponse.FromString,
+    self.ListPodRecommendation = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListPodRecommendation',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodRecommendationRequest.SerializeToString,
+        response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodRecommendationResponse.FromString,
         )
     self.ListPodsByNodeName = channel.unary_unary(
         '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListPodsByNodeName',
         request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsByNodeNameRequest.SerializeToString,
         response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsResponse.FromString,
         )
+    self.CreateAlamedaPod = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateAlamedaPod',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreateAlamedaPodRequest.SerializeToString,
+        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
+        )
+    self.CreateAlamedaNode = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateAlamedaNode',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreateAlamedaNodeRequest.SerializeToString,
+        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
+        )
+    self.CreatePodPrediction = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePodPrediction',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreatePodPredictionRequest.SerializeToString,
+        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
+        )
+    self.CreateNodePrediction = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateNodePrediction',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreateNodePredictionRequest.SerializeToString,
+        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
+        )
+    self.CreatePodRecommendation = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePodRecommendation',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreatePodRecommendationRequest.SerializeToString,
+        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
+        )
+    self.DeleteAlamedaPod = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeleteAlamedaPod',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.DeleteAlamedaPodRequest.SerializeToString,
+        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
+        )
+    self.DeleteAlamedaNode = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeleteAlamedaNode',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.DeleteAlamedaNodeRequest.SerializeToString,
+        response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
+        )
 
 
 class DatahubServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
+
+  def GetAlamedaPodResourceInfo(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
 
   def ListPodMetrics(self, request, context):
     # missing associated documentation comment in .proto file
@@ -106,77 +123,35 @@ class DatahubServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def CreateAlamedaPod(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def DeleteAlamedaPod(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def CreateAlamedaNode(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def DeleteAlamedaNode(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
   def ListAlamedaPods(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """List pods need to be predicted
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def ListAlamedaNodes(self, request, context):
+    """List nodes need to be predicted
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def ListPodPrediction(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def CreatePredictPods(self, request, context):
+  def ListNodePrediction(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def CreatePredictNodes(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def GetPodPredictResult(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def GetNodePredictResult(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def GetAlamedaPodResourceInfo(self, request, context):
+  def ListPodRecommendation(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -190,9 +165,63 @@ class DatahubServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def CreateAlamedaPod(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def CreateAlamedaNode(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def CreatePodPrediction(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def CreateNodePrediction(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def CreatePodRecommendation(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def DeleteAlamedaPod(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def DeleteAlamedaNode(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_DatahubServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
+      'GetAlamedaPodResourceInfo': grpc.unary_unary_rpc_method_handler(
+          servicer.GetAlamedaPodResourceInfo,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetAlamedaPodResourceInfoRequest.FromString,
+          response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsResponse.SerializeToString,
+      ),
       'ListPodMetrics': grpc.unary_unary_rpc_method_handler(
           servicer.ListPodMetrics,
           request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodMetricsRequest.FromString,
@@ -202,26 +231,6 @@ def add_DatahubServiceServicer_to_server(servicer, server):
           servicer.ListNodeMetrics,
           request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListNodeMetricsRequest.FromString,
           response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListNodeMetricsResponse.SerializeToString,
-      ),
-      'CreateAlamedaPod': grpc.unary_unary_rpc_method_handler(
-          servicer.CreateAlamedaPod,
-          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreateAlamedaPodRequest.FromString,
-          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
-      ),
-      'DeleteAlamedaPod': grpc.unary_unary_rpc_method_handler(
-          servicer.DeleteAlamedaPod,
-          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.DeleteAlamedaPodRequest.FromString,
-          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
-      ),
-      'CreateAlamedaNode': grpc.unary_unary_rpc_method_handler(
-          servicer.CreateAlamedaNode,
-          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreateAlamedaNodeRequest.FromString,
-          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
-      ),
-      'DeleteAlamedaNode': grpc.unary_unary_rpc_method_handler(
-          servicer.DeleteAlamedaNode,
-          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.DeleteAlamedaNodeRequest.FromString,
-          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
       ),
       'ListAlamedaPods': grpc.unary_unary_rpc_method_handler(
           servicer.ListAlamedaPods,
@@ -233,35 +242,60 @@ def add_DatahubServiceServicer_to_server(servicer, server):
           request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
           response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListNodesResponse.SerializeToString,
       ),
-      'CreatePredictPods': grpc.unary_unary_rpc_method_handler(
-          servicer.CreatePredictPods,
-          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreatePredictPodsRequest.FromString,
-          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
+      'ListPodPrediction': grpc.unary_unary_rpc_method_handler(
+          servicer.ListPodPrediction,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodPredictionRequest.FromString,
+          response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodPredictionResponse.SerializeToString,
       ),
-      'CreatePredictNodes': grpc.unary_unary_rpc_method_handler(
-          servicer.CreatePredictNodes,
-          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreatePredictNodesRequest.FromString,
-          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
+      'ListNodePrediction': grpc.unary_unary_rpc_method_handler(
+          servicer.ListNodePrediction,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListNodePredictionRequest.FromString,
+          response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListNodePredictionResponse.SerializeToString,
       ),
-      'GetPodPredictResult': grpc.unary_unary_rpc_method_handler(
-          servicer.GetPodPredictResult,
-          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetPodPredictRequest.FromString,
-          response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetPodPredictResponse.SerializeToString,
-      ),
-      'GetNodePredictResult': grpc.unary_unary_rpc_method_handler(
-          servicer.GetNodePredictResult,
-          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetNodePredictRequest.FromString,
-          response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetNodePredictResponse.SerializeToString,
-      ),
-      'GetAlamedaPodResourceInfo': grpc.unary_unary_rpc_method_handler(
-          servicer.GetAlamedaPodResourceInfo,
-          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetAlamedaPodResourceInfoRequest.FromString,
-          response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsResponse.SerializeToString,
+      'ListPodRecommendation': grpc.unary_unary_rpc_method_handler(
+          servicer.ListPodRecommendation,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodRecommendationRequest.FromString,
+          response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodRecommendationResponse.SerializeToString,
       ),
       'ListPodsByNodeName': grpc.unary_unary_rpc_method_handler(
           servicer.ListPodsByNodeName,
           request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsByNodeNameRequest.FromString,
           response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsResponse.SerializeToString,
+      ),
+      'CreateAlamedaPod': grpc.unary_unary_rpc_method_handler(
+          servicer.CreateAlamedaPod,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreateAlamedaPodRequest.FromString,
+          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
+      ),
+      'CreateAlamedaNode': grpc.unary_unary_rpc_method_handler(
+          servicer.CreateAlamedaNode,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreateAlamedaNodeRequest.FromString,
+          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
+      ),
+      'CreatePodPrediction': grpc.unary_unary_rpc_method_handler(
+          servicer.CreatePodPrediction,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreatePodPredictionRequest.FromString,
+          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
+      ),
+      'CreateNodePrediction': grpc.unary_unary_rpc_method_handler(
+          servicer.CreateNodePrediction,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreateNodePredictionRequest.FromString,
+          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
+      ),
+      'CreatePodRecommendation': grpc.unary_unary_rpc_method_handler(
+          servicer.CreatePodRecommendation,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreatePodRecommendationRequest.FromString,
+          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
+      ),
+      'DeleteAlamedaPod': grpc.unary_unary_rpc_method_handler(
+          servicer.DeleteAlamedaPod,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.DeleteAlamedaPodRequest.FromString,
+          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
+      ),
+      'DeleteAlamedaNode': grpc.unary_unary_rpc_method_handler(
+          servicer.DeleteAlamedaNode,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.DeleteAlamedaNodeRequest.FromString,
+          response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

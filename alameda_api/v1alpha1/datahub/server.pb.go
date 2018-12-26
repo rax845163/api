@@ -25,702 +25,6 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type ListPodMetricsRequest struct {
-	NamespacedName       *NamespacedName `protobuf:"bytes,1,opt,name=namespaced_name,json=namespacedName,proto3" json:"namespaced_name,omitempty"`
-	TimeRange            *TimeRange      `protobuf:"bytes,2,opt,name=time_range,json=timeRange,proto3" json:"time_range,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
-}
-
-func (m *ListPodMetricsRequest) Reset()         { *m = ListPodMetricsRequest{} }
-func (m *ListPodMetricsRequest) String() string { return proto.CompactTextString(m) }
-func (*ListPodMetricsRequest) ProtoMessage()    {}
-func (*ListPodMetricsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{0}
-}
-func (m *ListPodMetricsRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ListPodMetricsRequest.Unmarshal(m, b)
-}
-func (m *ListPodMetricsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ListPodMetricsRequest.Marshal(b, m, deterministic)
-}
-func (dst *ListPodMetricsRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListPodMetricsRequest.Merge(dst, src)
-}
-func (m *ListPodMetricsRequest) XXX_Size() int {
-	return xxx_messageInfo_ListPodMetricsRequest.Size(m)
-}
-func (m *ListPodMetricsRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_ListPodMetricsRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ListPodMetricsRequest proto.InternalMessageInfo
-
-func (m *ListPodMetricsRequest) GetNamespacedName() *NamespacedName {
-	if m != nil {
-		return m.NamespacedName
-	}
-	return nil
-}
-
-func (m *ListPodMetricsRequest) GetTimeRange() *TimeRange {
-	if m != nil {
-		return m.TimeRange
-	}
-	return nil
-}
-
-type ListPodMetricsResponse struct {
-	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	PodMetrics           []*PodMetric   `protobuf:"bytes,2,rep,name=pod_metrics,json=podMetrics,proto3" json:"pod_metrics,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
-}
-
-func (m *ListPodMetricsResponse) Reset()         { *m = ListPodMetricsResponse{} }
-func (m *ListPodMetricsResponse) String() string { return proto.CompactTextString(m) }
-func (*ListPodMetricsResponse) ProtoMessage()    {}
-func (*ListPodMetricsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{1}
-}
-func (m *ListPodMetricsResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ListPodMetricsResponse.Unmarshal(m, b)
-}
-func (m *ListPodMetricsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ListPodMetricsResponse.Marshal(b, m, deterministic)
-}
-func (dst *ListPodMetricsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListPodMetricsResponse.Merge(dst, src)
-}
-func (m *ListPodMetricsResponse) XXX_Size() int {
-	return xxx_messageInfo_ListPodMetricsResponse.Size(m)
-}
-func (m *ListPodMetricsResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ListPodMetricsResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ListPodMetricsResponse proto.InternalMessageInfo
-
-func (m *ListPodMetricsResponse) GetStatus() *status.Status {
-	if m != nil {
-		return m.Status
-	}
-	return nil
-}
-
-func (m *ListPodMetricsResponse) GetPodMetrics() []*PodMetric {
-	if m != nil {
-		return m.PodMetrics
-	}
-	return nil
-}
-
-type ListNodeMetricsRequest struct {
-	NodeNames            []string   `protobuf:"bytes,1,rep,name=node_names,json=nodeNames,proto3" json:"node_names,omitempty"`
-	TimeRange            *TimeRange `protobuf:"bytes,2,opt,name=time_range,json=timeRange,proto3" json:"time_range,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
-	XXX_unrecognized     []byte     `json:"-"`
-	XXX_sizecache        int32      `json:"-"`
-}
-
-func (m *ListNodeMetricsRequest) Reset()         { *m = ListNodeMetricsRequest{} }
-func (m *ListNodeMetricsRequest) String() string { return proto.CompactTextString(m) }
-func (*ListNodeMetricsRequest) ProtoMessage()    {}
-func (*ListNodeMetricsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{2}
-}
-func (m *ListNodeMetricsRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ListNodeMetricsRequest.Unmarshal(m, b)
-}
-func (m *ListNodeMetricsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ListNodeMetricsRequest.Marshal(b, m, deterministic)
-}
-func (dst *ListNodeMetricsRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListNodeMetricsRequest.Merge(dst, src)
-}
-func (m *ListNodeMetricsRequest) XXX_Size() int {
-	return xxx_messageInfo_ListNodeMetricsRequest.Size(m)
-}
-func (m *ListNodeMetricsRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_ListNodeMetricsRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ListNodeMetricsRequest proto.InternalMessageInfo
-
-func (m *ListNodeMetricsRequest) GetNodeNames() []string {
-	if m != nil {
-		return m.NodeNames
-	}
-	return nil
-}
-
-func (m *ListNodeMetricsRequest) GetTimeRange() *TimeRange {
-	if m != nil {
-		return m.TimeRange
-	}
-	return nil
-}
-
-type ListNodeMetricsResponse struct {
-	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	NodeMetrics          []*NodeMetric  `protobuf:"bytes,2,rep,name=node_metrics,json=nodeMetrics,proto3" json:"node_metrics,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
-}
-
-func (m *ListNodeMetricsResponse) Reset()         { *m = ListNodeMetricsResponse{} }
-func (m *ListNodeMetricsResponse) String() string { return proto.CompactTextString(m) }
-func (*ListNodeMetricsResponse) ProtoMessage()    {}
-func (*ListNodeMetricsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{3}
-}
-func (m *ListNodeMetricsResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ListNodeMetricsResponse.Unmarshal(m, b)
-}
-func (m *ListNodeMetricsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ListNodeMetricsResponse.Marshal(b, m, deterministic)
-}
-func (dst *ListNodeMetricsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListNodeMetricsResponse.Merge(dst, src)
-}
-func (m *ListNodeMetricsResponse) XXX_Size() int {
-	return xxx_messageInfo_ListNodeMetricsResponse.Size(m)
-}
-func (m *ListNodeMetricsResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ListNodeMetricsResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ListNodeMetricsResponse proto.InternalMessageInfo
-
-func (m *ListNodeMetricsResponse) GetStatus() *status.Status {
-	if m != nil {
-		return m.Status
-	}
-	return nil
-}
-
-func (m *ListNodeMetricsResponse) GetNodeMetrics() []*NodeMetric {
-	if m != nil {
-		return m.NodeMetrics
-	}
-	return nil
-}
-
-type CreateAlamedaPodRequest struct {
-	Policy               RecommendationPolicy `protobuf:"varint,1,opt,name=policy,proto3,enum=containers_ai.alameda.v1alpha1.datahub.RecommendationPolicy" json:"policy,omitempty"`
-	AlamedaPods          []*Pod               `protobuf:"bytes,2,rep,name=alameda_pods,json=alamedaPods,proto3" json:"alameda_pods,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
-}
-
-func (m *CreateAlamedaPodRequest) Reset()         { *m = CreateAlamedaPodRequest{} }
-func (m *CreateAlamedaPodRequest) String() string { return proto.CompactTextString(m) }
-func (*CreateAlamedaPodRequest) ProtoMessage()    {}
-func (*CreateAlamedaPodRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{4}
-}
-func (m *CreateAlamedaPodRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CreateAlamedaPodRequest.Unmarshal(m, b)
-}
-func (m *CreateAlamedaPodRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CreateAlamedaPodRequest.Marshal(b, m, deterministic)
-}
-func (dst *CreateAlamedaPodRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateAlamedaPodRequest.Merge(dst, src)
-}
-func (m *CreateAlamedaPodRequest) XXX_Size() int {
-	return xxx_messageInfo_CreateAlamedaPodRequest.Size(m)
-}
-func (m *CreateAlamedaPodRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_CreateAlamedaPodRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_CreateAlamedaPodRequest proto.InternalMessageInfo
-
-func (m *CreateAlamedaPodRequest) GetPolicy() RecommendationPolicy {
-	if m != nil {
-		return m.Policy
-	}
-	return RecommendationPolicy_RECOMMENDATIONPOLICY_UNDEFINED
-}
-
-func (m *CreateAlamedaPodRequest) GetAlamedaPods() []*Pod {
-	if m != nil {
-		return m.AlamedaPods
-	}
-	return nil
-}
-
-type DeleteAlamedaPodRequest struct {
-	AlamedaPods          []*Pod   `protobuf:"bytes,1,rep,name=alameda_pods,json=alamedaPods,proto3" json:"alameda_pods,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *DeleteAlamedaPodRequest) Reset()         { *m = DeleteAlamedaPodRequest{} }
-func (m *DeleteAlamedaPodRequest) String() string { return proto.CompactTextString(m) }
-func (*DeleteAlamedaPodRequest) ProtoMessage()    {}
-func (*DeleteAlamedaPodRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{5}
-}
-func (m *DeleteAlamedaPodRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DeleteAlamedaPodRequest.Unmarshal(m, b)
-}
-func (m *DeleteAlamedaPodRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DeleteAlamedaPodRequest.Marshal(b, m, deterministic)
-}
-func (dst *DeleteAlamedaPodRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeleteAlamedaPodRequest.Merge(dst, src)
-}
-func (m *DeleteAlamedaPodRequest) XXX_Size() int {
-	return xxx_messageInfo_DeleteAlamedaPodRequest.Size(m)
-}
-func (m *DeleteAlamedaPodRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_DeleteAlamedaPodRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_DeleteAlamedaPodRequest proto.InternalMessageInfo
-
-func (m *DeleteAlamedaPodRequest) GetAlamedaPods() []*Pod {
-	if m != nil {
-		return m.AlamedaPods
-	}
-	return nil
-}
-
-type CreateAlamedaNodeRequest struct {
-	AlamedaNodes         []*Node  `protobuf:"bytes,1,rep,name=alameda_nodes,json=alamedaNodes,proto3" json:"alameda_nodes,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *CreateAlamedaNodeRequest) Reset()         { *m = CreateAlamedaNodeRequest{} }
-func (m *CreateAlamedaNodeRequest) String() string { return proto.CompactTextString(m) }
-func (*CreateAlamedaNodeRequest) ProtoMessage()    {}
-func (*CreateAlamedaNodeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{6}
-}
-func (m *CreateAlamedaNodeRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CreateAlamedaNodeRequest.Unmarshal(m, b)
-}
-func (m *CreateAlamedaNodeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CreateAlamedaNodeRequest.Marshal(b, m, deterministic)
-}
-func (dst *CreateAlamedaNodeRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateAlamedaNodeRequest.Merge(dst, src)
-}
-func (m *CreateAlamedaNodeRequest) XXX_Size() int {
-	return xxx_messageInfo_CreateAlamedaNodeRequest.Size(m)
-}
-func (m *CreateAlamedaNodeRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_CreateAlamedaNodeRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_CreateAlamedaNodeRequest proto.InternalMessageInfo
-
-func (m *CreateAlamedaNodeRequest) GetAlamedaNodes() []*Node {
-	if m != nil {
-		return m.AlamedaNodes
-	}
-	return nil
-}
-
-type DeleteAlamedaNodeRequest struct {
-	AlamedaNodes         []*Node  `protobuf:"bytes,1,rep,name=alameda_nodes,json=alamedaNodes,proto3" json:"alameda_nodes,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *DeleteAlamedaNodeRequest) Reset()         { *m = DeleteAlamedaNodeRequest{} }
-func (m *DeleteAlamedaNodeRequest) String() string { return proto.CompactTextString(m) }
-func (*DeleteAlamedaNodeRequest) ProtoMessage()    {}
-func (*DeleteAlamedaNodeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{7}
-}
-func (m *DeleteAlamedaNodeRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DeleteAlamedaNodeRequest.Unmarshal(m, b)
-}
-func (m *DeleteAlamedaNodeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DeleteAlamedaNodeRequest.Marshal(b, m, deterministic)
-}
-func (dst *DeleteAlamedaNodeRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeleteAlamedaNodeRequest.Merge(dst, src)
-}
-func (m *DeleteAlamedaNodeRequest) XXX_Size() int {
-	return xxx_messageInfo_DeleteAlamedaNodeRequest.Size(m)
-}
-func (m *DeleteAlamedaNodeRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_DeleteAlamedaNodeRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_DeleteAlamedaNodeRequest proto.InternalMessageInfo
-
-func (m *DeleteAlamedaNodeRequest) GetAlamedaNodes() []*Node {
-	if m != nil {
-		return m.AlamedaNodes
-	}
-	return nil
-}
-
-type ListPodsResponse struct {
-	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	Pods                 []*Pod         `protobuf:"bytes,2,rep,name=pods,proto3" json:"pods,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
-}
-
-func (m *ListPodsResponse) Reset()         { *m = ListPodsResponse{} }
-func (m *ListPodsResponse) String() string { return proto.CompactTextString(m) }
-func (*ListPodsResponse) ProtoMessage()    {}
-func (*ListPodsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{8}
-}
-func (m *ListPodsResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ListPodsResponse.Unmarshal(m, b)
-}
-func (m *ListPodsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ListPodsResponse.Marshal(b, m, deterministic)
-}
-func (dst *ListPodsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListPodsResponse.Merge(dst, src)
-}
-func (m *ListPodsResponse) XXX_Size() int {
-	return xxx_messageInfo_ListPodsResponse.Size(m)
-}
-func (m *ListPodsResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ListPodsResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ListPodsResponse proto.InternalMessageInfo
-
-func (m *ListPodsResponse) GetStatus() *status.Status {
-	if m != nil {
-		return m.Status
-	}
-	return nil
-}
-
-func (m *ListPodsResponse) GetPods() []*Pod {
-	if m != nil {
-		return m.Pods
-	}
-	return nil
-}
-
-type ListNodesResponse struct {
-	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	Nodes                []*Node        `protobuf:"bytes,2,rep,name=nodes,proto3" json:"nodes,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
-}
-
-func (m *ListNodesResponse) Reset()         { *m = ListNodesResponse{} }
-func (m *ListNodesResponse) String() string { return proto.CompactTextString(m) }
-func (*ListNodesResponse) ProtoMessage()    {}
-func (*ListNodesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{9}
-}
-func (m *ListNodesResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ListNodesResponse.Unmarshal(m, b)
-}
-func (m *ListNodesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ListNodesResponse.Marshal(b, m, deterministic)
-}
-func (dst *ListNodesResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListNodesResponse.Merge(dst, src)
-}
-func (m *ListNodesResponse) XXX_Size() int {
-	return xxx_messageInfo_ListNodesResponse.Size(m)
-}
-func (m *ListNodesResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ListNodesResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ListNodesResponse proto.InternalMessageInfo
-
-func (m *ListNodesResponse) GetStatus() *status.Status {
-	if m != nil {
-		return m.Status
-	}
-	return nil
-}
-
-func (m *ListNodesResponse) GetNodes() []*Node {
-	if m != nil {
-		return m.Nodes
-	}
-	return nil
-}
-
-type GetPodPredictRequest struct {
-	NamespacedName       *NamespacedName `protobuf:"bytes,1,opt,name=namespaced_name,json=namespacedName,proto3" json:"namespaced_name,omitempty"`
-	TimeRange            *TimeRange      `protobuf:"bytes,2,opt,name=time_range,json=timeRange,proto3" json:"time_range,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
-}
-
-func (m *GetPodPredictRequest) Reset()         { *m = GetPodPredictRequest{} }
-func (m *GetPodPredictRequest) String() string { return proto.CompactTextString(m) }
-func (*GetPodPredictRequest) ProtoMessage()    {}
-func (*GetPodPredictRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{10}
-}
-func (m *GetPodPredictRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetPodPredictRequest.Unmarshal(m, b)
-}
-func (m *GetPodPredictRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetPodPredictRequest.Marshal(b, m, deterministic)
-}
-func (dst *GetPodPredictRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetPodPredictRequest.Merge(dst, src)
-}
-func (m *GetPodPredictRequest) XXX_Size() int {
-	return xxx_messageInfo_GetPodPredictRequest.Size(m)
-}
-func (m *GetPodPredictRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetPodPredictRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetPodPredictRequest proto.InternalMessageInfo
-
-func (m *GetPodPredictRequest) GetNamespacedName() *NamespacedName {
-	if m != nil {
-		return m.NamespacedName
-	}
-	return nil
-}
-
-func (m *GetPodPredictRequest) GetTimeRange() *TimeRange {
-	if m != nil {
-		return m.TimeRange
-	}
-	return nil
-}
-
-type GetPodPredictResponse struct {
-	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	PredictPod           *PredictPod    `protobuf:"bytes,2,opt,name=predict_pod,json=predictPod,proto3" json:"predict_pod,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
-}
-
-func (m *GetPodPredictResponse) Reset()         { *m = GetPodPredictResponse{} }
-func (m *GetPodPredictResponse) String() string { return proto.CompactTextString(m) }
-func (*GetPodPredictResponse) ProtoMessage()    {}
-func (*GetPodPredictResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{11}
-}
-func (m *GetPodPredictResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetPodPredictResponse.Unmarshal(m, b)
-}
-func (m *GetPodPredictResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetPodPredictResponse.Marshal(b, m, deterministic)
-}
-func (dst *GetPodPredictResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetPodPredictResponse.Merge(dst, src)
-}
-func (m *GetPodPredictResponse) XXX_Size() int {
-	return xxx_messageInfo_GetPodPredictResponse.Size(m)
-}
-func (m *GetPodPredictResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetPodPredictResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetPodPredictResponse proto.InternalMessageInfo
-
-func (m *GetPodPredictResponse) GetStatus() *status.Status {
-	if m != nil {
-		return m.Status
-	}
-	return nil
-}
-
-func (m *GetPodPredictResponse) GetPredictPod() *PredictPod {
-	if m != nil {
-		return m.PredictPod
-	}
-	return nil
-}
-
-type GetNodePredictRequest struct {
-	NodeName             string     `protobuf:"bytes,1,opt,name=node_name,json=nodeName,proto3" json:"node_name,omitempty"`
-	TimeRange            *TimeRange `protobuf:"bytes,2,opt,name=time_range,json=timeRange,proto3" json:"time_range,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
-	XXX_unrecognized     []byte     `json:"-"`
-	XXX_sizecache        int32      `json:"-"`
-}
-
-func (m *GetNodePredictRequest) Reset()         { *m = GetNodePredictRequest{} }
-func (m *GetNodePredictRequest) String() string { return proto.CompactTextString(m) }
-func (*GetNodePredictRequest) ProtoMessage()    {}
-func (*GetNodePredictRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{12}
-}
-func (m *GetNodePredictRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetNodePredictRequest.Unmarshal(m, b)
-}
-func (m *GetNodePredictRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetNodePredictRequest.Marshal(b, m, deterministic)
-}
-func (dst *GetNodePredictRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetNodePredictRequest.Merge(dst, src)
-}
-func (m *GetNodePredictRequest) XXX_Size() int {
-	return xxx_messageInfo_GetNodePredictRequest.Size(m)
-}
-func (m *GetNodePredictRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetNodePredictRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetNodePredictRequest proto.InternalMessageInfo
-
-func (m *GetNodePredictRequest) GetNodeName() string {
-	if m != nil {
-		return m.NodeName
-	}
-	return ""
-}
-
-func (m *GetNodePredictRequest) GetTimeRange() *TimeRange {
-	if m != nil {
-		return m.TimeRange
-	}
-	return nil
-}
-
-type GetNodePredictResponse struct {
-	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	PredictNode          *PredictNode   `protobuf:"bytes,2,opt,name=predict_node,json=predictNode,proto3" json:"predict_node,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
-}
-
-func (m *GetNodePredictResponse) Reset()         { *m = GetNodePredictResponse{} }
-func (m *GetNodePredictResponse) String() string { return proto.CompactTextString(m) }
-func (*GetNodePredictResponse) ProtoMessage()    {}
-func (*GetNodePredictResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{13}
-}
-func (m *GetNodePredictResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetNodePredictResponse.Unmarshal(m, b)
-}
-func (m *GetNodePredictResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetNodePredictResponse.Marshal(b, m, deterministic)
-}
-func (dst *GetNodePredictResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetNodePredictResponse.Merge(dst, src)
-}
-func (m *GetNodePredictResponse) XXX_Size() int {
-	return xxx_messageInfo_GetNodePredictResponse.Size(m)
-}
-func (m *GetNodePredictResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetNodePredictResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetNodePredictResponse proto.InternalMessageInfo
-
-func (m *GetNodePredictResponse) GetStatus() *status.Status {
-	if m != nil {
-		return m.Status
-	}
-	return nil
-}
-
-func (m *GetNodePredictResponse) GetPredictNode() *PredictNode {
-	if m != nil {
-		return m.PredictNode
-	}
-	return nil
-}
-
-type CreatePredictPodsRequest struct {
-	PredictPods          []*PredictPod `protobuf:"bytes,1,rep,name=predict_pods,json=predictPods,proto3" json:"predict_pods,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
-}
-
-func (m *CreatePredictPodsRequest) Reset()         { *m = CreatePredictPodsRequest{} }
-func (m *CreatePredictPodsRequest) String() string { return proto.CompactTextString(m) }
-func (*CreatePredictPodsRequest) ProtoMessage()    {}
-func (*CreatePredictPodsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{14}
-}
-func (m *CreatePredictPodsRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CreatePredictPodsRequest.Unmarshal(m, b)
-}
-func (m *CreatePredictPodsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CreatePredictPodsRequest.Marshal(b, m, deterministic)
-}
-func (dst *CreatePredictPodsRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreatePredictPodsRequest.Merge(dst, src)
-}
-func (m *CreatePredictPodsRequest) XXX_Size() int {
-	return xxx_messageInfo_CreatePredictPodsRequest.Size(m)
-}
-func (m *CreatePredictPodsRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_CreatePredictPodsRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_CreatePredictPodsRequest proto.InternalMessageInfo
-
-func (m *CreatePredictPodsRequest) GetPredictPods() []*PredictPod {
-	if m != nil {
-		return m.PredictPods
-	}
-	return nil
-}
-
-type CreatePredictNodesRequest struct {
-	PredictNodes         []*PredictNode `protobuf:"bytes,1,rep,name=predict_nodes,json=predictNodes,proto3" json:"predict_nodes,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
-}
-
-func (m *CreatePredictNodesRequest) Reset()         { *m = CreatePredictNodesRequest{} }
-func (m *CreatePredictNodesRequest) String() string { return proto.CompactTextString(m) }
-func (*CreatePredictNodesRequest) ProtoMessage()    {}
-func (*CreatePredictNodesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{15}
-}
-func (m *CreatePredictNodesRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CreatePredictNodesRequest.Unmarshal(m, b)
-}
-func (m *CreatePredictNodesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CreatePredictNodesRequest.Marshal(b, m, deterministic)
-}
-func (dst *CreatePredictNodesRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreatePredictNodesRequest.Merge(dst, src)
-}
-func (m *CreatePredictNodesRequest) XXX_Size() int {
-	return xxx_messageInfo_CreatePredictNodesRequest.Size(m)
-}
-func (m *CreatePredictNodesRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_CreatePredictNodesRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_CreatePredictNodesRequest proto.InternalMessageInfo
-
-func (m *CreatePredictNodesRequest) GetPredictNodes() []*PredictNode {
-	if m != nil {
-		return m.PredictNodes
-	}
-	return nil
-}
-
 type GetAlamedaPodResourceInfoRequest struct {
 	// Types that are valid to be assigned to Target:
 	//	*GetAlamedaPodResourceInfoRequest_Pod
@@ -735,7 +39,7 @@ func (m *GetAlamedaPodResourceInfoRequest) Reset()         { *m = GetAlamedaPodR
 func (m *GetAlamedaPodResourceInfoRequest) String() string { return proto.CompactTextString(m) }
 func (*GetAlamedaPodResourceInfoRequest) ProtoMessage()    {}
 func (*GetAlamedaPodResourceInfoRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{16}
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{0}
 }
 func (m *GetAlamedaPodResourceInfoRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetAlamedaPodResourceInfoRequest.Unmarshal(m, b)
@@ -866,8 +170,560 @@ func _GetAlamedaPodResourceInfoRequest_OneofSizer(msg proto.Message) (n int) {
 	return n
 }
 
+type ListPodMetricsRequest struct {
+	NamespacedName       *NamespacedName `protobuf:"bytes,1,opt,name=namespaced_name,json=namespacedName,proto3" json:"namespaced_name,omitempty"`
+	TimeRange            *TimeRange      `protobuf:"bytes,2,opt,name=time_range,json=timeRange,proto3" json:"time_range,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *ListPodMetricsRequest) Reset()         { *m = ListPodMetricsRequest{} }
+func (m *ListPodMetricsRequest) String() string { return proto.CompactTextString(m) }
+func (*ListPodMetricsRequest) ProtoMessage()    {}
+func (*ListPodMetricsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{1}
+}
+func (m *ListPodMetricsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListPodMetricsRequest.Unmarshal(m, b)
+}
+func (m *ListPodMetricsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListPodMetricsRequest.Marshal(b, m, deterministic)
+}
+func (dst *ListPodMetricsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListPodMetricsRequest.Merge(dst, src)
+}
+func (m *ListPodMetricsRequest) XXX_Size() int {
+	return xxx_messageInfo_ListPodMetricsRequest.Size(m)
+}
+func (m *ListPodMetricsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListPodMetricsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListPodMetricsRequest proto.InternalMessageInfo
+
+func (m *ListPodMetricsRequest) GetNamespacedName() *NamespacedName {
+	if m != nil {
+		return m.NamespacedName
+	}
+	return nil
+}
+
+func (m *ListPodMetricsRequest) GetTimeRange() *TimeRange {
+	if m != nil {
+		return m.TimeRange
+	}
+	return nil
+}
+
+type ListPodMetricsResponse struct {
+	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	PodMetrics           []*PodMetric   `protobuf:"bytes,2,rep,name=pod_metrics,json=podMetrics,proto3" json:"pod_metrics,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *ListPodMetricsResponse) Reset()         { *m = ListPodMetricsResponse{} }
+func (m *ListPodMetricsResponse) String() string { return proto.CompactTextString(m) }
+func (*ListPodMetricsResponse) ProtoMessage()    {}
+func (*ListPodMetricsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{2}
+}
+func (m *ListPodMetricsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListPodMetricsResponse.Unmarshal(m, b)
+}
+func (m *ListPodMetricsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListPodMetricsResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListPodMetricsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListPodMetricsResponse.Merge(dst, src)
+}
+func (m *ListPodMetricsResponse) XXX_Size() int {
+	return xxx_messageInfo_ListPodMetricsResponse.Size(m)
+}
+func (m *ListPodMetricsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListPodMetricsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListPodMetricsResponse proto.InternalMessageInfo
+
+func (m *ListPodMetricsResponse) GetStatus() *status.Status {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
+func (m *ListPodMetricsResponse) GetPodMetrics() []*PodMetric {
+	if m != nil {
+		return m.PodMetrics
+	}
+	return nil
+}
+
+type ListNodeMetricsRequest struct {
+	NodeNames            []string   `protobuf:"bytes,1,rep,name=node_names,json=nodeNames,proto3" json:"node_names,omitempty"`
+	TimeRange            *TimeRange `protobuf:"bytes,2,opt,name=time_range,json=timeRange,proto3" json:"time_range,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
+}
+
+func (m *ListNodeMetricsRequest) Reset()         { *m = ListNodeMetricsRequest{} }
+func (m *ListNodeMetricsRequest) String() string { return proto.CompactTextString(m) }
+func (*ListNodeMetricsRequest) ProtoMessage()    {}
+func (*ListNodeMetricsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{3}
+}
+func (m *ListNodeMetricsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListNodeMetricsRequest.Unmarshal(m, b)
+}
+func (m *ListNodeMetricsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListNodeMetricsRequest.Marshal(b, m, deterministic)
+}
+func (dst *ListNodeMetricsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListNodeMetricsRequest.Merge(dst, src)
+}
+func (m *ListNodeMetricsRequest) XXX_Size() int {
+	return xxx_messageInfo_ListNodeMetricsRequest.Size(m)
+}
+func (m *ListNodeMetricsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListNodeMetricsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListNodeMetricsRequest proto.InternalMessageInfo
+
+func (m *ListNodeMetricsRequest) GetNodeNames() []string {
+	if m != nil {
+		return m.NodeNames
+	}
+	return nil
+}
+
+func (m *ListNodeMetricsRequest) GetTimeRange() *TimeRange {
+	if m != nil {
+		return m.TimeRange
+	}
+	return nil
+}
+
+type ListNodeMetricsResponse struct {
+	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	NodeMetrics          []*NodeMetric  `protobuf:"bytes,2,rep,name=node_metrics,json=nodeMetrics,proto3" json:"node_metrics,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *ListNodeMetricsResponse) Reset()         { *m = ListNodeMetricsResponse{} }
+func (m *ListNodeMetricsResponse) String() string { return proto.CompactTextString(m) }
+func (*ListNodeMetricsResponse) ProtoMessage()    {}
+func (*ListNodeMetricsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{4}
+}
+func (m *ListNodeMetricsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListNodeMetricsResponse.Unmarshal(m, b)
+}
+func (m *ListNodeMetricsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListNodeMetricsResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListNodeMetricsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListNodeMetricsResponse.Merge(dst, src)
+}
+func (m *ListNodeMetricsResponse) XXX_Size() int {
+	return xxx_messageInfo_ListNodeMetricsResponse.Size(m)
+}
+func (m *ListNodeMetricsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListNodeMetricsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListNodeMetricsResponse proto.InternalMessageInfo
+
+func (m *ListNodeMetricsResponse) GetStatus() *status.Status {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
+func (m *ListNodeMetricsResponse) GetNodeMetrics() []*NodeMetric {
+	if m != nil {
+		return m.NodeMetrics
+	}
+	return nil
+}
+
+type ListPodsResponse struct {
+	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	Pods                 []*Pod         `protobuf:"bytes,2,rep,name=pods,proto3" json:"pods,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *ListPodsResponse) Reset()         { *m = ListPodsResponse{} }
+func (m *ListPodsResponse) String() string { return proto.CompactTextString(m) }
+func (*ListPodsResponse) ProtoMessage()    {}
+func (*ListPodsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{5}
+}
+func (m *ListPodsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListPodsResponse.Unmarshal(m, b)
+}
+func (m *ListPodsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListPodsResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListPodsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListPodsResponse.Merge(dst, src)
+}
+func (m *ListPodsResponse) XXX_Size() int {
+	return xxx_messageInfo_ListPodsResponse.Size(m)
+}
+func (m *ListPodsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListPodsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListPodsResponse proto.InternalMessageInfo
+
+func (m *ListPodsResponse) GetStatus() *status.Status {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
+func (m *ListPodsResponse) GetPods() []*Pod {
+	if m != nil {
+		return m.Pods
+	}
+	return nil
+}
+
+type ListNodesResponse struct {
+	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	Nodes                []*Node        `protobuf:"bytes,2,rep,name=nodes,proto3" json:"nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *ListNodesResponse) Reset()         { *m = ListNodesResponse{} }
+func (m *ListNodesResponse) String() string { return proto.CompactTextString(m) }
+func (*ListNodesResponse) ProtoMessage()    {}
+func (*ListNodesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{6}
+}
+func (m *ListNodesResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListNodesResponse.Unmarshal(m, b)
+}
+func (m *ListNodesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListNodesResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListNodesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListNodesResponse.Merge(dst, src)
+}
+func (m *ListNodesResponse) XXX_Size() int {
+	return xxx_messageInfo_ListNodesResponse.Size(m)
+}
+func (m *ListNodesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListNodesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListNodesResponse proto.InternalMessageInfo
+
+func (m *ListNodesResponse) GetStatus() *status.Status {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
+func (m *ListNodesResponse) GetNodes() []*Node {
+	if m != nil {
+		return m.Nodes
+	}
+	return nil
+}
+
+type ListPodPredictionRequest struct {
+	NamespacedName       *NamespacedName `protobuf:"bytes,1,opt,name=namespaced_name,json=namespacedName,proto3" json:"namespaced_name,omitempty"`
+	TimeRange            *TimeRange      `protobuf:"bytes,2,opt,name=time_range,json=timeRange,proto3" json:"time_range,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *ListPodPredictionRequest) Reset()         { *m = ListPodPredictionRequest{} }
+func (m *ListPodPredictionRequest) String() string { return proto.CompactTextString(m) }
+func (*ListPodPredictionRequest) ProtoMessage()    {}
+func (*ListPodPredictionRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{7}
+}
+func (m *ListPodPredictionRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListPodPredictionRequest.Unmarshal(m, b)
+}
+func (m *ListPodPredictionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListPodPredictionRequest.Marshal(b, m, deterministic)
+}
+func (dst *ListPodPredictionRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListPodPredictionRequest.Merge(dst, src)
+}
+func (m *ListPodPredictionRequest) XXX_Size() int {
+	return xxx_messageInfo_ListPodPredictionRequest.Size(m)
+}
+func (m *ListPodPredictionRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListPodPredictionRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListPodPredictionRequest proto.InternalMessageInfo
+
+func (m *ListPodPredictionRequest) GetNamespacedName() *NamespacedName {
+	if m != nil {
+		return m.NamespacedName
+	}
+	return nil
+}
+
+func (m *ListPodPredictionRequest) GetTimeRange() *TimeRange {
+	if m != nil {
+		return m.TimeRange
+	}
+	return nil
+}
+
+type ListPodPredictionResponse struct {
+	Status               *status.Status  `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	PredictedPod         []*PredictedPod `protobuf:"bytes,2,rep,name=predicted_pod,json=predictedPod,proto3" json:"predicted_pod,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *ListPodPredictionResponse) Reset()         { *m = ListPodPredictionResponse{} }
+func (m *ListPodPredictionResponse) String() string { return proto.CompactTextString(m) }
+func (*ListPodPredictionResponse) ProtoMessage()    {}
+func (*ListPodPredictionResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{8}
+}
+func (m *ListPodPredictionResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListPodPredictionResponse.Unmarshal(m, b)
+}
+func (m *ListPodPredictionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListPodPredictionResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListPodPredictionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListPodPredictionResponse.Merge(dst, src)
+}
+func (m *ListPodPredictionResponse) XXX_Size() int {
+	return xxx_messageInfo_ListPodPredictionResponse.Size(m)
+}
+func (m *ListPodPredictionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListPodPredictionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListPodPredictionResponse proto.InternalMessageInfo
+
+func (m *ListPodPredictionResponse) GetStatus() *status.Status {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
+func (m *ListPodPredictionResponse) GetPredictedPod() []*PredictedPod {
+	if m != nil {
+		return m.PredictedPod
+	}
+	return nil
+}
+
+type ListNodePredictionRequest struct {
+	NodeName             []string   `protobuf:"bytes,1,rep,name=node_name,json=nodeName,proto3" json:"node_name,omitempty"`
+	TimeRange            *TimeRange `protobuf:"bytes,2,opt,name=time_range,json=timeRange,proto3" json:"time_range,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
+}
+
+func (m *ListNodePredictionRequest) Reset()         { *m = ListNodePredictionRequest{} }
+func (m *ListNodePredictionRequest) String() string { return proto.CompactTextString(m) }
+func (*ListNodePredictionRequest) ProtoMessage()    {}
+func (*ListNodePredictionRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{9}
+}
+func (m *ListNodePredictionRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListNodePredictionRequest.Unmarshal(m, b)
+}
+func (m *ListNodePredictionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListNodePredictionRequest.Marshal(b, m, deterministic)
+}
+func (dst *ListNodePredictionRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListNodePredictionRequest.Merge(dst, src)
+}
+func (m *ListNodePredictionRequest) XXX_Size() int {
+	return xxx_messageInfo_ListNodePredictionRequest.Size(m)
+}
+func (m *ListNodePredictionRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListNodePredictionRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListNodePredictionRequest proto.InternalMessageInfo
+
+func (m *ListNodePredictionRequest) GetNodeName() []string {
+	if m != nil {
+		return m.NodeName
+	}
+	return nil
+}
+
+func (m *ListNodePredictionRequest) GetTimeRange() *TimeRange {
+	if m != nil {
+		return m.TimeRange
+	}
+	return nil
+}
+
+type ListNodePredictionResponse struct {
+	Status               *status.Status   `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	PredictedNode        []*PredictedNode `protobuf:"bytes,2,rep,name=predicted_node,json=predictedNode,proto3" json:"predicted_node,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
+}
+
+func (m *ListNodePredictionResponse) Reset()         { *m = ListNodePredictionResponse{} }
+func (m *ListNodePredictionResponse) String() string { return proto.CompactTextString(m) }
+func (*ListNodePredictionResponse) ProtoMessage()    {}
+func (*ListNodePredictionResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{10}
+}
+func (m *ListNodePredictionResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListNodePredictionResponse.Unmarshal(m, b)
+}
+func (m *ListNodePredictionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListNodePredictionResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListNodePredictionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListNodePredictionResponse.Merge(dst, src)
+}
+func (m *ListNodePredictionResponse) XXX_Size() int {
+	return xxx_messageInfo_ListNodePredictionResponse.Size(m)
+}
+func (m *ListNodePredictionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListNodePredictionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListNodePredictionResponse proto.InternalMessageInfo
+
+func (m *ListNodePredictionResponse) GetStatus() *status.Status {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
+func (m *ListNodePredictionResponse) GetPredictedNode() []*PredictedNode {
+	if m != nil {
+		return m.PredictedNode
+	}
+	return nil
+}
+
+type ListPodRecommendationRequest struct {
+	NamespacedName       *NamespacedName `protobuf:"bytes,1,opt,name=namespaced_name,json=namespacedName,proto3" json:"namespaced_name,omitempty"`
+	TimeRange            *TimeRange      `protobuf:"bytes,2,opt,name=time_range,json=timeRange,proto3" json:"time_range,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *ListPodRecommendationRequest) Reset()         { *m = ListPodRecommendationRequest{} }
+func (m *ListPodRecommendationRequest) String() string { return proto.CompactTextString(m) }
+func (*ListPodRecommendationRequest) ProtoMessage()    {}
+func (*ListPodRecommendationRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{11}
+}
+func (m *ListPodRecommendationRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListPodRecommendationRequest.Unmarshal(m, b)
+}
+func (m *ListPodRecommendationRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListPodRecommendationRequest.Marshal(b, m, deterministic)
+}
+func (dst *ListPodRecommendationRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListPodRecommendationRequest.Merge(dst, src)
+}
+func (m *ListPodRecommendationRequest) XXX_Size() int {
+	return xxx_messageInfo_ListPodRecommendationRequest.Size(m)
+}
+func (m *ListPodRecommendationRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListPodRecommendationRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListPodRecommendationRequest proto.InternalMessageInfo
+
+func (m *ListPodRecommendationRequest) GetNamespacedName() *NamespacedName {
+	if m != nil {
+		return m.NamespacedName
+	}
+	return nil
+}
+
+func (m *ListPodRecommendationRequest) GetTimeRange() *TimeRange {
+	if m != nil {
+		return m.TimeRange
+	}
+	return nil
+}
+
+type ListPodRecommendationResponse struct {
+	Status               *status.Status    `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	RecommendedPods      []*RecommendedPod `protobuf:"bytes,2,rep,name=recommended_pods,json=recommendedPods,proto3" json:"recommended_pods,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
+}
+
+func (m *ListPodRecommendationResponse) Reset()         { *m = ListPodRecommendationResponse{} }
+func (m *ListPodRecommendationResponse) String() string { return proto.CompactTextString(m) }
+func (*ListPodRecommendationResponse) ProtoMessage()    {}
+func (*ListPodRecommendationResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{12}
+}
+func (m *ListPodRecommendationResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListPodRecommendationResponse.Unmarshal(m, b)
+}
+func (m *ListPodRecommendationResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListPodRecommendationResponse.Marshal(b, m, deterministic)
+}
+func (dst *ListPodRecommendationResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListPodRecommendationResponse.Merge(dst, src)
+}
+func (m *ListPodRecommendationResponse) XXX_Size() int {
+	return xxx_messageInfo_ListPodRecommendationResponse.Size(m)
+}
+func (m *ListPodRecommendationResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListPodRecommendationResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListPodRecommendationResponse proto.InternalMessageInfo
+
+func (m *ListPodRecommendationResponse) GetStatus() *status.Status {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
+func (m *ListPodRecommendationResponse) GetRecommendedPods() []*RecommendedPod {
+	if m != nil {
+		return m.RecommendedPods
+	}
+	return nil
+}
+
 type ListPodsByNodeNameRequest struct {
-	NodeName             string   `protobuf:"bytes,1,opt,name=node_name,json=nodeName,proto3" json:"node_name,omitempty"`
+	NodeName             []string `protobuf:"bytes,1,rep,name=node_name,json=nodeName,proto3" json:"node_name,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -877,7 +733,7 @@ func (m *ListPodsByNodeNameRequest) Reset()         { *m = ListPodsByNodeNameReq
 func (m *ListPodsByNodeNameRequest) String() string { return proto.CompactTextString(m) }
 func (*ListPodsByNodeNameRequest) ProtoMessage()    {}
 func (*ListPodsByNodeNameRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_4e5f0bf39b7712c0, []int{17}
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{13}
 }
 func (m *ListPodsByNodeNameRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodsByNodeNameRequest.Unmarshal(m, b)
@@ -897,32 +753,309 @@ func (m *ListPodsByNodeNameRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_ListPodsByNodeNameRequest proto.InternalMessageInfo
 
-func (m *ListPodsByNodeNameRequest) GetNodeName() string {
+func (m *ListPodsByNodeNameRequest) GetNodeName() []string {
 	if m != nil {
 		return m.NodeName
 	}
-	return ""
+	return nil
+}
+
+type CreatePodPredictionRequest struct {
+	PredictedPods        []*PredictedPod `protobuf:"bytes,1,rep,name=predicted_pods,json=predictedPods,proto3" json:"predicted_pods,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *CreatePodPredictionRequest) Reset()         { *m = CreatePodPredictionRequest{} }
+func (m *CreatePodPredictionRequest) String() string { return proto.CompactTextString(m) }
+func (*CreatePodPredictionRequest) ProtoMessage()    {}
+func (*CreatePodPredictionRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{14}
+}
+func (m *CreatePodPredictionRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreatePodPredictionRequest.Unmarshal(m, b)
+}
+func (m *CreatePodPredictionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreatePodPredictionRequest.Marshal(b, m, deterministic)
+}
+func (dst *CreatePodPredictionRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreatePodPredictionRequest.Merge(dst, src)
+}
+func (m *CreatePodPredictionRequest) XXX_Size() int {
+	return xxx_messageInfo_CreatePodPredictionRequest.Size(m)
+}
+func (m *CreatePodPredictionRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreatePodPredictionRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreatePodPredictionRequest proto.InternalMessageInfo
+
+func (m *CreatePodPredictionRequest) GetPredictedPods() []*PredictedPod {
+	if m != nil {
+		return m.PredictedPods
+	}
+	return nil
+}
+
+type CreateNodePredictionRequest struct {
+	PredictedNodes       []*PredictedNode `protobuf:"bytes,1,rep,name=predicted_nodes,json=predictedNodes,proto3" json:"predicted_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
+}
+
+func (m *CreateNodePredictionRequest) Reset()         { *m = CreateNodePredictionRequest{} }
+func (m *CreateNodePredictionRequest) String() string { return proto.CompactTextString(m) }
+func (*CreateNodePredictionRequest) ProtoMessage()    {}
+func (*CreateNodePredictionRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{15}
+}
+func (m *CreateNodePredictionRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateNodePredictionRequest.Unmarshal(m, b)
+}
+func (m *CreateNodePredictionRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateNodePredictionRequest.Marshal(b, m, deterministic)
+}
+func (dst *CreateNodePredictionRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateNodePredictionRequest.Merge(dst, src)
+}
+func (m *CreateNodePredictionRequest) XXX_Size() int {
+	return xxx_messageInfo_CreateNodePredictionRequest.Size(m)
+}
+func (m *CreateNodePredictionRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateNodePredictionRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateNodePredictionRequest proto.InternalMessageInfo
+
+func (m *CreateNodePredictionRequest) GetPredictedNodes() []*PredictedNode {
+	if m != nil {
+		return m.PredictedNodes
+	}
+	return nil
+}
+
+type CreatePodRecommendationRequest struct {
+	RecommendedPods      []*RecommendedPod `protobuf:"bytes,1,rep,name=recommended_pods,json=recommendedPods,proto3" json:"recommended_pods,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
+}
+
+func (m *CreatePodRecommendationRequest) Reset()         { *m = CreatePodRecommendationRequest{} }
+func (m *CreatePodRecommendationRequest) String() string { return proto.CompactTextString(m) }
+func (*CreatePodRecommendationRequest) ProtoMessage()    {}
+func (*CreatePodRecommendationRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{16}
+}
+func (m *CreatePodRecommendationRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreatePodRecommendationRequest.Unmarshal(m, b)
+}
+func (m *CreatePodRecommendationRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreatePodRecommendationRequest.Marshal(b, m, deterministic)
+}
+func (dst *CreatePodRecommendationRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreatePodRecommendationRequest.Merge(dst, src)
+}
+func (m *CreatePodRecommendationRequest) XXX_Size() int {
+	return xxx_messageInfo_CreatePodRecommendationRequest.Size(m)
+}
+func (m *CreatePodRecommendationRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreatePodRecommendationRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreatePodRecommendationRequest proto.InternalMessageInfo
+
+func (m *CreatePodRecommendationRequest) GetRecommendedPods() []*RecommendedPod {
+	if m != nil {
+		return m.RecommendedPods
+	}
+	return nil
+}
+
+type CreateAlamedaPodRequest struct {
+	Policy               RecommendationPolicy `protobuf:"varint,1,opt,name=policy,proto3,enum=containers_ai.alameda.v1alpha1.datahub.RecommendationPolicy" json:"policy,omitempty"`
+	AlamedaPods          []*Pod               `protobuf:"bytes,2,rep,name=alameda_pods,json=alamedaPods,proto3" json:"alameda_pods,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
+}
+
+func (m *CreateAlamedaPodRequest) Reset()         { *m = CreateAlamedaPodRequest{} }
+func (m *CreateAlamedaPodRequest) String() string { return proto.CompactTextString(m) }
+func (*CreateAlamedaPodRequest) ProtoMessage()    {}
+func (*CreateAlamedaPodRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{17}
+}
+func (m *CreateAlamedaPodRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateAlamedaPodRequest.Unmarshal(m, b)
+}
+func (m *CreateAlamedaPodRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateAlamedaPodRequest.Marshal(b, m, deterministic)
+}
+func (dst *CreateAlamedaPodRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateAlamedaPodRequest.Merge(dst, src)
+}
+func (m *CreateAlamedaPodRequest) XXX_Size() int {
+	return xxx_messageInfo_CreateAlamedaPodRequest.Size(m)
+}
+func (m *CreateAlamedaPodRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateAlamedaPodRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateAlamedaPodRequest proto.InternalMessageInfo
+
+func (m *CreateAlamedaPodRequest) GetPolicy() RecommendationPolicy {
+	if m != nil {
+		return m.Policy
+	}
+	return RecommendationPolicy_RECOMMENDATIONPOLICY_UNDEFINED
+}
+
+func (m *CreateAlamedaPodRequest) GetAlamedaPods() []*Pod {
+	if m != nil {
+		return m.AlamedaPods
+	}
+	return nil
+}
+
+type CreateAlamedaNodeRequest struct {
+	AlamedaNodes         []*Node  `protobuf:"bytes,1,rep,name=alameda_nodes,json=alamedaNodes,proto3" json:"alameda_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CreateAlamedaNodeRequest) Reset()         { *m = CreateAlamedaNodeRequest{} }
+func (m *CreateAlamedaNodeRequest) String() string { return proto.CompactTextString(m) }
+func (*CreateAlamedaNodeRequest) ProtoMessage()    {}
+func (*CreateAlamedaNodeRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{18}
+}
+func (m *CreateAlamedaNodeRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateAlamedaNodeRequest.Unmarshal(m, b)
+}
+func (m *CreateAlamedaNodeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateAlamedaNodeRequest.Marshal(b, m, deterministic)
+}
+func (dst *CreateAlamedaNodeRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateAlamedaNodeRequest.Merge(dst, src)
+}
+func (m *CreateAlamedaNodeRequest) XXX_Size() int {
+	return xxx_messageInfo_CreateAlamedaNodeRequest.Size(m)
+}
+func (m *CreateAlamedaNodeRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateAlamedaNodeRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateAlamedaNodeRequest proto.InternalMessageInfo
+
+func (m *CreateAlamedaNodeRequest) GetAlamedaNodes() []*Node {
+	if m != nil {
+		return m.AlamedaNodes
+	}
+	return nil
+}
+
+type DeleteAlamedaPodRequest struct {
+	AlamedaPods          []*Pod   `protobuf:"bytes,1,rep,name=alameda_pods,json=alamedaPods,proto3" json:"alameda_pods,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DeleteAlamedaPodRequest) Reset()         { *m = DeleteAlamedaPodRequest{} }
+func (m *DeleteAlamedaPodRequest) String() string { return proto.CompactTextString(m) }
+func (*DeleteAlamedaPodRequest) ProtoMessage()    {}
+func (*DeleteAlamedaPodRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{19}
+}
+func (m *DeleteAlamedaPodRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteAlamedaPodRequest.Unmarshal(m, b)
+}
+func (m *DeleteAlamedaPodRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteAlamedaPodRequest.Marshal(b, m, deterministic)
+}
+func (dst *DeleteAlamedaPodRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteAlamedaPodRequest.Merge(dst, src)
+}
+func (m *DeleteAlamedaPodRequest) XXX_Size() int {
+	return xxx_messageInfo_DeleteAlamedaPodRequest.Size(m)
+}
+func (m *DeleteAlamedaPodRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteAlamedaPodRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteAlamedaPodRequest proto.InternalMessageInfo
+
+func (m *DeleteAlamedaPodRequest) GetAlamedaPods() []*Pod {
+	if m != nil {
+		return m.AlamedaPods
+	}
+	return nil
+}
+
+type DeleteAlamedaNodeRequest struct {
+	AlamedaNodes         []*Node  `protobuf:"bytes,1,rep,name=alameda_nodes,json=alamedaNodes,proto3" json:"alameda_nodes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DeleteAlamedaNodeRequest) Reset()         { *m = DeleteAlamedaNodeRequest{} }
+func (m *DeleteAlamedaNodeRequest) String() string { return proto.CompactTextString(m) }
+func (*DeleteAlamedaNodeRequest) ProtoMessage()    {}
+func (*DeleteAlamedaNodeRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_f4ddebef26c6f1dd, []int{20}
+}
+func (m *DeleteAlamedaNodeRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteAlamedaNodeRequest.Unmarshal(m, b)
+}
+func (m *DeleteAlamedaNodeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteAlamedaNodeRequest.Marshal(b, m, deterministic)
+}
+func (dst *DeleteAlamedaNodeRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteAlamedaNodeRequest.Merge(dst, src)
+}
+func (m *DeleteAlamedaNodeRequest) XXX_Size() int {
+	return xxx_messageInfo_DeleteAlamedaNodeRequest.Size(m)
+}
+func (m *DeleteAlamedaNodeRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteAlamedaNodeRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteAlamedaNodeRequest proto.InternalMessageInfo
+
+func (m *DeleteAlamedaNodeRequest) GetAlamedaNodes() []*Node {
+	if m != nil {
+		return m.AlamedaNodes
+	}
+	return nil
 }
 
 func init() {
+	proto.RegisterType((*GetAlamedaPodResourceInfoRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.GetAlamedaPodResourceInfoRequest")
 	proto.RegisterType((*ListPodMetricsRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListPodMetricsRequest")
 	proto.RegisterType((*ListPodMetricsResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.ListPodMetricsResponse")
 	proto.RegisterType((*ListNodeMetricsRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListNodeMetricsRequest")
 	proto.RegisterType((*ListNodeMetricsResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.ListNodeMetricsResponse")
-	proto.RegisterType((*CreateAlamedaPodRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.CreateAlamedaPodRequest")
-	proto.RegisterType((*DeleteAlamedaPodRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.DeleteAlamedaPodRequest")
-	proto.RegisterType((*CreateAlamedaNodeRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.CreateAlamedaNodeRequest")
-	proto.RegisterType((*DeleteAlamedaNodeRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.DeleteAlamedaNodeRequest")
 	proto.RegisterType((*ListPodsResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.ListPodsResponse")
 	proto.RegisterType((*ListNodesResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.ListNodesResponse")
-	proto.RegisterType((*GetPodPredictRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.GetPodPredictRequest")
-	proto.RegisterType((*GetPodPredictResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.GetPodPredictResponse")
-	proto.RegisterType((*GetNodePredictRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.GetNodePredictRequest")
-	proto.RegisterType((*GetNodePredictResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.GetNodePredictResponse")
-	proto.RegisterType((*CreatePredictPodsRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.CreatePredictPodsRequest")
-	proto.RegisterType((*CreatePredictNodesRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.CreatePredictNodesRequest")
-	proto.RegisterType((*GetAlamedaPodResourceInfoRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.GetAlamedaPodResourceInfoRequest")
+	proto.RegisterType((*ListPodPredictionRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListPodPredictionRequest")
+	proto.RegisterType((*ListPodPredictionResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.ListPodPredictionResponse")
+	proto.RegisterType((*ListNodePredictionRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListNodePredictionRequest")
+	proto.RegisterType((*ListNodePredictionResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.ListNodePredictionResponse")
+	proto.RegisterType((*ListPodRecommendationRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListPodRecommendationRequest")
+	proto.RegisterType((*ListPodRecommendationResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.ListPodRecommendationResponse")
 	proto.RegisterType((*ListPodsByNodeNameRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListPodsByNodeNameRequest")
+	proto.RegisterType((*CreatePodPredictionRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.CreatePodPredictionRequest")
+	proto.RegisterType((*CreateNodePredictionRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.CreateNodePredictionRequest")
+	proto.RegisterType((*CreatePodRecommendationRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.CreatePodRecommendationRequest")
+	proto.RegisterType((*CreateAlamedaPodRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.CreateAlamedaPodRequest")
+	proto.RegisterType((*CreateAlamedaNodeRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.CreateAlamedaNodeRequest")
+	proto.RegisterType((*DeleteAlamedaPodRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.DeleteAlamedaPodRequest")
+	proto.RegisterType((*DeleteAlamedaNodeRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.DeleteAlamedaNodeRequest")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -937,20 +1070,24 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type DatahubServiceClient interface {
+	GetAlamedaPodResourceInfo(ctx context.Context, in *GetAlamedaPodResourceInfoRequest, opts ...grpc.CallOption) (*ListPodsResponse, error)
 	ListPodMetrics(ctx context.Context, in *ListPodMetricsRequest, opts ...grpc.CallOption) (*ListPodMetricsResponse, error)
 	ListNodeMetrics(ctx context.Context, in *ListNodeMetricsRequest, opts ...grpc.CallOption) (*ListNodeMetricsResponse, error)
-	CreateAlamedaPod(ctx context.Context, in *CreateAlamedaPodRequest, opts ...grpc.CallOption) (*status.Status, error)
-	DeleteAlamedaPod(ctx context.Context, in *DeleteAlamedaPodRequest, opts ...grpc.CallOption) (*status.Status, error)
-	CreateAlamedaNode(ctx context.Context, in *CreateAlamedaNodeRequest, opts ...grpc.CallOption) (*status.Status, error)
-	DeleteAlamedaNode(ctx context.Context, in *DeleteAlamedaNodeRequest, opts ...grpc.CallOption) (*status.Status, error)
+	// List pods need to be predicted
 	ListAlamedaPods(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*ListPodsResponse, error)
+	// List nodes need to be predicted
 	ListAlamedaNodes(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*ListNodesResponse, error)
-	CreatePredictPods(ctx context.Context, in *CreatePredictPodsRequest, opts ...grpc.CallOption) (*status.Status, error)
-	CreatePredictNodes(ctx context.Context, in *CreatePredictNodesRequest, opts ...grpc.CallOption) (*status.Status, error)
-	GetPodPredictResult(ctx context.Context, in *GetPodPredictRequest, opts ...grpc.CallOption) (*GetPodPredictResponse, error)
-	GetNodePredictResult(ctx context.Context, in *GetNodePredictRequest, opts ...grpc.CallOption) (*GetNodePredictResponse, error)
-	GetAlamedaPodResourceInfo(ctx context.Context, in *GetAlamedaPodResourceInfoRequest, opts ...grpc.CallOption) (*ListPodsResponse, error)
+	ListPodPrediction(ctx context.Context, in *ListPodPredictionRequest, opts ...grpc.CallOption) (*ListPodPredictionResponse, error)
+	ListNodePrediction(ctx context.Context, in *ListNodePredictionRequest, opts ...grpc.CallOption) (*ListNodePredictionResponse, error)
+	ListPodRecommendation(ctx context.Context, in *ListPodRecommendationRequest, opts ...grpc.CallOption) (*ListPodRecommendationResponse, error)
 	ListPodsByNodeName(ctx context.Context, in *ListPodsByNodeNameRequest, opts ...grpc.CallOption) (*ListPodsResponse, error)
+	CreateAlamedaPod(ctx context.Context, in *CreateAlamedaPodRequest, opts ...grpc.CallOption) (*status.Status, error)
+	CreateAlamedaNode(ctx context.Context, in *CreateAlamedaNodeRequest, opts ...grpc.CallOption) (*status.Status, error)
+	CreatePodPrediction(ctx context.Context, in *CreatePodPredictionRequest, opts ...grpc.CallOption) (*status.Status, error)
+	CreateNodePrediction(ctx context.Context, in *CreateNodePredictionRequest, opts ...grpc.CallOption) (*status.Status, error)
+	CreatePodRecommendation(ctx context.Context, in *CreatePodRecommendationRequest, opts ...grpc.CallOption) (*status.Status, error)
+	DeleteAlamedaPod(ctx context.Context, in *DeleteAlamedaPodRequest, opts ...grpc.CallOption) (*status.Status, error)
+	DeleteAlamedaNode(ctx context.Context, in *DeleteAlamedaNodeRequest, opts ...grpc.CallOption) (*status.Status, error)
 }
 
 type datahubServiceClient struct {
@@ -959,6 +1096,15 @@ type datahubServiceClient struct {
 
 func NewDatahubServiceClient(cc *grpc.ClientConn) DatahubServiceClient {
 	return &datahubServiceClient{cc}
+}
+
+func (c *datahubServiceClient) GetAlamedaPodResourceInfo(ctx context.Context, in *GetAlamedaPodResourceInfoRequest, opts ...grpc.CallOption) (*ListPodsResponse, error) {
+	out := new(ListPodsResponse)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetAlamedaPodResourceInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *datahubServiceClient) ListPodMetrics(ctx context.Context, in *ListPodMetricsRequest, opts ...grpc.CallOption) (*ListPodMetricsResponse, error) {
@@ -973,42 +1119,6 @@ func (c *datahubServiceClient) ListPodMetrics(ctx context.Context, in *ListPodMe
 func (c *datahubServiceClient) ListNodeMetrics(ctx context.Context, in *ListNodeMetricsRequest, opts ...grpc.CallOption) (*ListNodeMetricsResponse, error) {
 	out := new(ListNodeMetricsResponse)
 	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListNodeMetrics", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *datahubServiceClient) CreateAlamedaPod(ctx context.Context, in *CreateAlamedaPodRequest, opts ...grpc.CallOption) (*status.Status, error) {
-	out := new(status.Status)
-	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateAlamedaPod", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *datahubServiceClient) DeleteAlamedaPod(ctx context.Context, in *DeleteAlamedaPodRequest, opts ...grpc.CallOption) (*status.Status, error) {
-	out := new(status.Status)
-	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeleteAlamedaPod", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *datahubServiceClient) CreateAlamedaNode(ctx context.Context, in *CreateAlamedaNodeRequest, opts ...grpc.CallOption) (*status.Status, error) {
-	out := new(status.Status)
-	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateAlamedaNode", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *datahubServiceClient) DeleteAlamedaNode(ctx context.Context, in *DeleteAlamedaNodeRequest, opts ...grpc.CallOption) (*status.Status, error) {
-	out := new(status.Status)
-	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeleteAlamedaNode", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1033,45 +1143,27 @@ func (c *datahubServiceClient) ListAlamedaNodes(ctx context.Context, in *empty.E
 	return out, nil
 }
 
-func (c *datahubServiceClient) CreatePredictPods(ctx context.Context, in *CreatePredictPodsRequest, opts ...grpc.CallOption) (*status.Status, error) {
-	out := new(status.Status)
-	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePredictPods", in, out, opts...)
+func (c *datahubServiceClient) ListPodPrediction(ctx context.Context, in *ListPodPredictionRequest, opts ...grpc.CallOption) (*ListPodPredictionResponse, error) {
+	out := new(ListPodPredictionResponse)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListPodPrediction", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *datahubServiceClient) CreatePredictNodes(ctx context.Context, in *CreatePredictNodesRequest, opts ...grpc.CallOption) (*status.Status, error) {
-	out := new(status.Status)
-	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePredictNodes", in, out, opts...)
+func (c *datahubServiceClient) ListNodePrediction(ctx context.Context, in *ListNodePredictionRequest, opts ...grpc.CallOption) (*ListNodePredictionResponse, error) {
+	out := new(ListNodePredictionResponse)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListNodePrediction", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *datahubServiceClient) GetPodPredictResult(ctx context.Context, in *GetPodPredictRequest, opts ...grpc.CallOption) (*GetPodPredictResponse, error) {
-	out := new(GetPodPredictResponse)
-	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetPodPredictResult", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *datahubServiceClient) GetNodePredictResult(ctx context.Context, in *GetNodePredictRequest, opts ...grpc.CallOption) (*GetNodePredictResponse, error) {
-	out := new(GetNodePredictResponse)
-	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetNodePredictResult", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *datahubServiceClient) GetAlamedaPodResourceInfo(ctx context.Context, in *GetAlamedaPodResourceInfoRequest, opts ...grpc.CallOption) (*ListPodsResponse, error) {
-	out := new(ListPodsResponse)
-	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetAlamedaPodResourceInfo", in, out, opts...)
+func (c *datahubServiceClient) ListPodRecommendation(ctx context.Context, in *ListPodRecommendationRequest, opts ...grpc.CallOption) (*ListPodRecommendationResponse, error) {
+	out := new(ListPodRecommendationResponse)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListPodRecommendation", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1087,26 +1179,111 @@ func (c *datahubServiceClient) ListPodsByNodeName(ctx context.Context, in *ListP
 	return out, nil
 }
 
+func (c *datahubServiceClient) CreateAlamedaPod(ctx context.Context, in *CreateAlamedaPodRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateAlamedaPod", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *datahubServiceClient) CreateAlamedaNode(ctx context.Context, in *CreateAlamedaNodeRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateAlamedaNode", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *datahubServiceClient) CreatePodPrediction(ctx context.Context, in *CreatePodPredictionRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePodPrediction", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *datahubServiceClient) CreateNodePrediction(ctx context.Context, in *CreateNodePredictionRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateNodePrediction", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *datahubServiceClient) CreatePodRecommendation(ctx context.Context, in *CreatePodRecommendationRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePodRecommendation", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *datahubServiceClient) DeleteAlamedaPod(ctx context.Context, in *DeleteAlamedaPodRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeleteAlamedaPod", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *datahubServiceClient) DeleteAlamedaNode(ctx context.Context, in *DeleteAlamedaNodeRequest, opts ...grpc.CallOption) (*status.Status, error) {
+	out := new(status.Status)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeleteAlamedaNode", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // DatahubServiceServer is the server API for DatahubService service.
 type DatahubServiceServer interface {
+	GetAlamedaPodResourceInfo(context.Context, *GetAlamedaPodResourceInfoRequest) (*ListPodsResponse, error)
 	ListPodMetrics(context.Context, *ListPodMetricsRequest) (*ListPodMetricsResponse, error)
 	ListNodeMetrics(context.Context, *ListNodeMetricsRequest) (*ListNodeMetricsResponse, error)
-	CreateAlamedaPod(context.Context, *CreateAlamedaPodRequest) (*status.Status, error)
-	DeleteAlamedaPod(context.Context, *DeleteAlamedaPodRequest) (*status.Status, error)
-	CreateAlamedaNode(context.Context, *CreateAlamedaNodeRequest) (*status.Status, error)
-	DeleteAlamedaNode(context.Context, *DeleteAlamedaNodeRequest) (*status.Status, error)
+	// List pods need to be predicted
 	ListAlamedaPods(context.Context, *empty.Empty) (*ListPodsResponse, error)
+	// List nodes need to be predicted
 	ListAlamedaNodes(context.Context, *empty.Empty) (*ListNodesResponse, error)
-	CreatePredictPods(context.Context, *CreatePredictPodsRequest) (*status.Status, error)
-	CreatePredictNodes(context.Context, *CreatePredictNodesRequest) (*status.Status, error)
-	GetPodPredictResult(context.Context, *GetPodPredictRequest) (*GetPodPredictResponse, error)
-	GetNodePredictResult(context.Context, *GetNodePredictRequest) (*GetNodePredictResponse, error)
-	GetAlamedaPodResourceInfo(context.Context, *GetAlamedaPodResourceInfoRequest) (*ListPodsResponse, error)
+	ListPodPrediction(context.Context, *ListPodPredictionRequest) (*ListPodPredictionResponse, error)
+	ListNodePrediction(context.Context, *ListNodePredictionRequest) (*ListNodePredictionResponse, error)
+	ListPodRecommendation(context.Context, *ListPodRecommendationRequest) (*ListPodRecommendationResponse, error)
 	ListPodsByNodeName(context.Context, *ListPodsByNodeNameRequest) (*ListPodsResponse, error)
+	CreateAlamedaPod(context.Context, *CreateAlamedaPodRequest) (*status.Status, error)
+	CreateAlamedaNode(context.Context, *CreateAlamedaNodeRequest) (*status.Status, error)
+	CreatePodPrediction(context.Context, *CreatePodPredictionRequest) (*status.Status, error)
+	CreateNodePrediction(context.Context, *CreateNodePredictionRequest) (*status.Status, error)
+	CreatePodRecommendation(context.Context, *CreatePodRecommendationRequest) (*status.Status, error)
+	DeleteAlamedaPod(context.Context, *DeleteAlamedaPodRequest) (*status.Status, error)
+	DeleteAlamedaNode(context.Context, *DeleteAlamedaNodeRequest) (*status.Status, error)
 }
 
 func RegisterDatahubServiceServer(s *grpc.Server, srv DatahubServiceServer) {
 	s.RegisterService(&_DatahubService_serviceDesc, srv)
+}
+
+func _DatahubService_GetAlamedaPodResourceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAlamedaPodResourceInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DatahubServiceServer).GetAlamedaPodResourceInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetAlamedaPodResourceInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DatahubServiceServer).GetAlamedaPodResourceInfo(ctx, req.(*GetAlamedaPodResourceInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _DatahubService_ListPodMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -1141,78 +1318,6 @@ func _DatahubService_ListNodeMetrics_Handler(srv interface{}, ctx context.Contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DatahubServiceServer).ListNodeMetrics(ctx, req.(*ListNodeMetricsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DatahubService_CreateAlamedaPod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateAlamedaPodRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DatahubServiceServer).CreateAlamedaPod(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateAlamedaPod",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatahubServiceServer).CreateAlamedaPod(ctx, req.(*CreateAlamedaPodRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DatahubService_DeleteAlamedaPod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteAlamedaPodRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DatahubServiceServer).DeleteAlamedaPod(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeleteAlamedaPod",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatahubServiceServer).DeleteAlamedaPod(ctx, req.(*DeleteAlamedaPodRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DatahubService_CreateAlamedaNode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateAlamedaNodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DatahubServiceServer).CreateAlamedaNode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateAlamedaNode",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatahubServiceServer).CreateAlamedaNode(ctx, req.(*CreateAlamedaNodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DatahubService_DeleteAlamedaNode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteAlamedaNodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DatahubServiceServer).DeleteAlamedaNode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeleteAlamedaNode",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatahubServiceServer).DeleteAlamedaNode(ctx, req.(*DeleteAlamedaNodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1253,92 +1358,56 @@ func _DatahubService_ListAlamedaNodes_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DatahubService_CreatePredictPods_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreatePredictPodsRequest)
+func _DatahubService_ListPodPrediction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListPodPredictionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DatahubServiceServer).CreatePredictPods(ctx, in)
+		return srv.(DatahubServiceServer).ListPodPrediction(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePredictPods",
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListPodPrediction",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatahubServiceServer).CreatePredictPods(ctx, req.(*CreatePredictPodsRequest))
+		return srv.(DatahubServiceServer).ListPodPrediction(ctx, req.(*ListPodPredictionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DatahubService_CreatePredictNodes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreatePredictNodesRequest)
+func _DatahubService_ListNodePrediction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListNodePredictionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DatahubServiceServer).CreatePredictNodes(ctx, in)
+		return srv.(DatahubServiceServer).ListNodePrediction(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePredictNodes",
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListNodePrediction",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatahubServiceServer).CreatePredictNodes(ctx, req.(*CreatePredictNodesRequest))
+		return srv.(DatahubServiceServer).ListNodePrediction(ctx, req.(*ListNodePredictionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DatahubService_GetPodPredictResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPodPredictRequest)
+func _DatahubService_ListPodRecommendation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListPodRecommendationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DatahubServiceServer).GetPodPredictResult(ctx, in)
+		return srv.(DatahubServiceServer).ListPodRecommendation(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetPodPredictResult",
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListPodRecommendation",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatahubServiceServer).GetPodPredictResult(ctx, req.(*GetPodPredictRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DatahubService_GetNodePredictResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNodePredictRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DatahubServiceServer).GetNodePredictResult(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetNodePredictResult",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatahubServiceServer).GetNodePredictResult(ctx, req.(*GetNodePredictRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DatahubService_GetAlamedaPodResourceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAlamedaPodResourceInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DatahubServiceServer).GetAlamedaPodResourceInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetAlamedaPodResourceInfo",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatahubServiceServer).GetAlamedaPodResourceInfo(ctx, req.(*GetAlamedaPodResourceInfoRequest))
+		return srv.(DatahubServiceServer).ListPodRecommendation(ctx, req.(*ListPodRecommendationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1361,10 +1430,140 @@ func _DatahubService_ListPodsByNodeName_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DatahubService_CreateAlamedaPod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateAlamedaPodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DatahubServiceServer).CreateAlamedaPod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateAlamedaPod",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DatahubServiceServer).CreateAlamedaPod(ctx, req.(*CreateAlamedaPodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DatahubService_CreateAlamedaNode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateAlamedaNodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DatahubServiceServer).CreateAlamedaNode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateAlamedaNode",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DatahubServiceServer).CreateAlamedaNode(ctx, req.(*CreateAlamedaNodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DatahubService_CreatePodPrediction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePodPredictionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DatahubServiceServer).CreatePodPrediction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePodPrediction",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DatahubServiceServer).CreatePodPrediction(ctx, req.(*CreatePodPredictionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DatahubService_CreateNodePrediction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateNodePredictionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DatahubServiceServer).CreateNodePrediction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreateNodePrediction",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DatahubServiceServer).CreateNodePrediction(ctx, req.(*CreateNodePredictionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DatahubService_CreatePodRecommendation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreatePodRecommendationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DatahubServiceServer).CreatePodRecommendation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/CreatePodRecommendation",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DatahubServiceServer).CreatePodRecommendation(ctx, req.(*CreatePodRecommendationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DatahubService_DeleteAlamedaPod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAlamedaPodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DatahubServiceServer).DeleteAlamedaPod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeleteAlamedaPod",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DatahubServiceServer).DeleteAlamedaPod(ctx, req.(*DeleteAlamedaPodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DatahubService_DeleteAlamedaNode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAlamedaNodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DatahubServiceServer).DeleteAlamedaNode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/DeleteAlamedaNode",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DatahubServiceServer).DeleteAlamedaNode(ctx, req.(*DeleteAlamedaNodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _DatahubService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "containers_ai.alameda.v1alpha1.datahub.DatahubService",
 	HandlerType: (*DatahubServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAlamedaPodResourceInfo",
+			Handler:    _DatahubService_GetAlamedaPodResourceInfo_Handler,
+		},
 		{
 			MethodName: "ListPodMetrics",
 			Handler:    _DatahubService_ListPodMetrics_Handler,
@@ -1372,22 +1571,6 @@ var _DatahubService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListNodeMetrics",
 			Handler:    _DatahubService_ListNodeMetrics_Handler,
-		},
-		{
-			MethodName: "CreateAlamedaPod",
-			Handler:    _DatahubService_CreateAlamedaPod_Handler,
-		},
-		{
-			MethodName: "DeleteAlamedaPod",
-			Handler:    _DatahubService_DeleteAlamedaPod_Handler,
-		},
-		{
-			MethodName: "CreateAlamedaNode",
-			Handler:    _DatahubService_CreateAlamedaNode_Handler,
-		},
-		{
-			MethodName: "DeleteAlamedaNode",
-			Handler:    _DatahubService_DeleteAlamedaNode_Handler,
 		},
 		{
 			MethodName: "ListAlamedaPods",
@@ -1398,28 +1581,48 @@ var _DatahubService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _DatahubService_ListAlamedaNodes_Handler,
 		},
 		{
-			MethodName: "CreatePredictPods",
-			Handler:    _DatahubService_CreatePredictPods_Handler,
+			MethodName: "ListPodPrediction",
+			Handler:    _DatahubService_ListPodPrediction_Handler,
 		},
 		{
-			MethodName: "CreatePredictNodes",
-			Handler:    _DatahubService_CreatePredictNodes_Handler,
+			MethodName: "ListNodePrediction",
+			Handler:    _DatahubService_ListNodePrediction_Handler,
 		},
 		{
-			MethodName: "GetPodPredictResult",
-			Handler:    _DatahubService_GetPodPredictResult_Handler,
-		},
-		{
-			MethodName: "GetNodePredictResult",
-			Handler:    _DatahubService_GetNodePredictResult_Handler,
-		},
-		{
-			MethodName: "GetAlamedaPodResourceInfo",
-			Handler:    _DatahubService_GetAlamedaPodResourceInfo_Handler,
+			MethodName: "ListPodRecommendation",
+			Handler:    _DatahubService_ListPodRecommendation_Handler,
 		},
 		{
 			MethodName: "ListPodsByNodeName",
 			Handler:    _DatahubService_ListPodsByNodeName_Handler,
+		},
+		{
+			MethodName: "CreateAlamedaPod",
+			Handler:    _DatahubService_CreateAlamedaPod_Handler,
+		},
+		{
+			MethodName: "CreateAlamedaNode",
+			Handler:    _DatahubService_CreateAlamedaNode_Handler,
+		},
+		{
+			MethodName: "CreatePodPrediction",
+			Handler:    _DatahubService_CreatePodPrediction_Handler,
+		},
+		{
+			MethodName: "CreateNodePrediction",
+			Handler:    _DatahubService_CreateNodePrediction_Handler,
+		},
+		{
+			MethodName: "CreatePodRecommendation",
+			Handler:    _DatahubService_CreatePodRecommendation_Handler,
+		},
+		{
+			MethodName: "DeleteAlamedaPod",
+			Handler:    _DatahubService_DeleteAlamedaPod_Handler,
+		},
+		{
+			MethodName: "DeleteAlamedaNode",
+			Handler:    _DatahubService_DeleteAlamedaNode_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1427,71 +1630,77 @@ var _DatahubService_serviceDesc = grpc.ServiceDesc{
 }
 
 func init() {
-	proto.RegisterFile("alameda_api/v1alpha1/datahub/server.proto", fileDescriptor_server_4e5f0bf39b7712c0)
+	proto.RegisterFile("alameda_api/v1alpha1/datahub/server.proto", fileDescriptor_server_f4ddebef26c6f1dd)
 }
 
-var fileDescriptor_server_4e5f0bf39b7712c0 = []byte{
-	// 981 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xd4, 0x57, 0xcf, 0x6f, 0xdc, 0x44,
-	0x14, 0x8e, 0x13, 0x88, 0xba, 0x6f, 0xd3, 0x4d, 0x3a, 0xd0, 0xfc, 0xd8, 0x0a, 0x29, 0xf2, 0x01,
-	0xf5, 0x07, 0xf2, 0x2a, 0xa9, 0x84, 0x8a, 0x44, 0x29, 0x0d, 0x45, 0x2d, 0x08, 0xa2, 0xc5, 0x69,
-	0x11, 0xb7, 0xd5, 0xc4, 0x7e, 0xdd, 0x5a, 0xac, 0x3d, 0xae, 0x67, 0x36, 0x52, 0x4e, 0x48, 0x20,
-	0x21, 0x71, 0x44, 0x44, 0x82, 0x03, 0x17, 0xfe, 0x12, 0xce, 0xf0, 0x3f, 0xf0, 0xbf, 0xa0, 0xf1,
-	0xcc, 0x78, 0xbd, 0xf6, 0x3a, 0xd8, 0x5e, 0xe5, 0xc0, 0xcd, 0xde, 0x9d, 0xf7, 0xbe, 0x6f, 0xbe,
-	0xf7, 0xe6, 0xcd, 0x67, 0xb8, 0x43, 0x27, 0x34, 0x44, 0x9f, 0x8e, 0x68, 0x1c, 0x0c, 0xce, 0x0e,
-	0xe8, 0x24, 0x7e, 0x45, 0x0f, 0x06, 0x3e, 0x15, 0xf4, 0xd5, 0xf4, 0x74, 0xc0, 0x31, 0x39, 0xc3,
-	0xc4, 0x89, 0x13, 0x26, 0x18, 0x79, 0xd7, 0x63, 0x91, 0xa0, 0x41, 0x84, 0x09, 0x1f, 0xd1, 0xc0,
-	0xd1, 0x81, 0x8e, 0x09, 0x72, 0x74, 0x50, 0x7f, 0x67, 0xcc, 0xd8, 0x78, 0x82, 0x83, 0x24, 0xf6,
-	0x06, 0x5c, 0x50, 0x31, 0xe5, 0x2a, 0x41, 0xff, 0x96, 0xfe, 0x23, 0x7d, 0x3b, 0x9d, 0xbe, 0x1c,
-	0x60, 0x18, 0x8b, 0x73, 0xfd, 0xe7, 0xbd, 0x4b, 0x89, 0x84, 0x28, 0xa8, 0x7c, 0xd6, 0x8b, 0xef,
-	0x5e, 0xba, 0x38, 0x4e, 0xd0, 0x0f, 0x3c, 0xa1, 0xd7, 0xde, 0xf9, 0xaf, 0xc4, 0x49, 0xe0, 0xd5,
-	0xe2, 0x90, 0x20, 0x67, 0xd3, 0xc4, 0x43, 0xb5, 0xd8, 0xfe, 0xdb, 0x82, 0x9b, 0x5f, 0x04, 0x5c,
-	0x0c, 0x99, 0xff, 0x65, 0x9a, 0x84, 0xbb, 0xf8, 0x7a, 0x8a, 0x5c, 0x90, 0x11, 0x6c, 0x46, 0x34,
-	0x44, 0x1e, 0x53, 0x0f, 0xfd, 0x91, 0x7c, 0xdc, 0xb5, 0xf6, 0xad, 0xdb, 0xdd, 0xc3, 0xf7, 0x9d,
-	0x7a, 0x12, 0x3a, 0xc7, 0x59, 0xb8, 0x7c, 0x72, 0x7b, 0xd1, 0xdc, 0x3b, 0x19, 0x02, 0x88, 0x20,
-	0xc4, 0x51, 0x42, 0xa3, 0x31, 0xee, 0xae, 0xa6, 0xb9, 0x0f, 0xea, 0xe6, 0x7e, 0x1e, 0x84, 0xe8,
-	0xca, 0x40, 0xb7, 0x23, 0xcc, 0xa3, 0xfd, 0x9b, 0x05, 0xdb, 0xc5, 0xcd, 0xf0, 0x98, 0x45, 0x1c,
-	0xc9, 0x5d, 0x58, 0x57, 0x55, 0xd4, 0x9b, 0x20, 0x8e, 0x2a, 0xa3, 0x93, 0xc4, 0x9e, 0x73, 0x92,
-	0xfe, 0xe3, 0xea, 0x15, 0xc4, 0x85, 0x6e, 0xcc, 0xfc, 0x91, 0x12, 0x95, 0xef, 0xae, 0xee, 0xaf,
-	0x35, 0x61, 0x96, 0x81, 0xbb, 0x10, 0x67, 0x3c, 0xec, 0x9f, 0x34, 0xb5, 0x63, 0xe6, 0x63, 0x41,
-	0xe8, 0x77, 0x00, 0x22, 0xe6, 0x63, 0x2a, 0xb1, 0xa4, 0xb7, 0x76, 0xbb, 0xe3, 0x76, 0xe4, 0x2f,
-	0xa9, 0x7e, 0x57, 0x20, 0xd3, 0xef, 0x16, 0xec, 0x94, 0xb8, 0xb4, 0xd0, 0xe9, 0x05, 0x6c, 0xa4,
-	0xc4, 0xe7, 0x85, 0x3a, 0xac, 0xdd, 0x1e, 0x19, 0xbc, 0xdb, 0x8d, 0x66, 0x54, 0xec, 0x3f, 0x2d,
-	0xd8, 0xf9, 0x24, 0x41, 0x2a, 0xf0, 0xb1, 0x0a, 0x1d, 0x32, 0xdf, 0x68, 0xf5, 0x1c, 0xd6, 0x63,
-	0x36, 0x09, 0xbc, 0xf3, 0x94, 0x5e, 0xef, 0xf0, 0xc3, 0xba, 0x60, 0x2e, 0x7a, 0x2c, 0x0c, 0x31,
-	0xf2, 0xa9, 0x08, 0x58, 0x34, 0x4c, 0x73, 0xb8, 0x3a, 0x17, 0x39, 0x86, 0x0d, 0x73, 0x66, 0x62,
-	0xe6, 0x9b, 0x8d, 0xdc, 0x6b, 0x50, 0x71, 0xb7, 0x4b, 0x33, 0xae, 0xdc, 0x0e, 0x60, 0xe7, 0x09,
-	0x4e, 0x70, 0xd1, 0x06, 0x8a, 0x50, 0xd6, 0x92, 0x50, 0x21, 0xec, 0xce, 0x69, 0x25, 0x45, 0x35,
-	0x58, 0x5f, 0xc1, 0x75, 0x83, 0x25, 0xf5, 0x35, 0x60, 0xef, 0x35, 0x29, 0x90, 0x6b, 0xe8, 0xca,
-	0x97, 0x14, 0x6e, 0x6e, 0x67, 0x57, 0x0c, 0xf7, 0x1d, 0x6c, 0xe9, 0xf3, 0xdc, 0xae, 0x43, 0x1f,
-	0xc1, 0x1b, 0x6d, 0x0b, 0x9a, 0x06, 0xda, 0x3f, 0x58, 0x70, 0xc3, 0x1c, 0x95, 0x76, 0x14, 0x8e,
-	0xe0, 0x4d, 0xa5, 0xc6, 0x6a, 0x0b, 0x35, 0x54, 0xa8, 0xfd, 0x97, 0x05, 0x6f, 0x3f, 0x45, 0x29,
-	0xc3, 0x50, 0x5d, 0x0a, 0xff, 0xef, 0x19, 0x7d, 0xb3, 0xb0, 0x97, 0x16, 0xaa, 0x9e, 0x40, 0x57,
-	0xdf, 0x8f, 0xf2, 0x18, 0x69, 0x62, 0xb5, 0x27, 0x8f, 0x46, 0x96, 0x65, 0x86, 0x38, 0x7b, 0xb6,
-	0x7f, 0x54, 0xd4, 0xa4, 0xf2, 0x05, 0x9d, 0x6f, 0x41, 0x27, 0x1b, 0xd1, 0x29, 0xbb, 0x8e, 0x7b,
-	0xcd, 0x4c, 0xe8, 0xab, 0x19, 0xd0, 0xdb, 0x45, 0x22, 0x2d, 0x44, 0xfa, 0x1a, 0x36, 0x8c, 0x48,
-	0x92, 0xac, 0xa6, 0x76, 0xbf, 0xa1, 0x4a, 0x69, 0x23, 0x1a, 0xb5, 0xe5, 0x8b, 0xfd, 0xda, 0xcc,
-	0x9c, 0x99, 0x8e, 0xd9, 0x65, 0xf6, 0x62, 0x86, 0x99, 0x9b, 0x6f, 0x6d, 0x2a, 0xd3, 0x9d, 0x55,
-	0x86, 0xdb, 0x53, 0xd8, 0x9b, 0x83, 0xd4, 0xe7, 0x51, 0x61, 0x7e, 0x03, 0xd7, 0xf3, 0xfb, 0x34,
-	0xa0, 0xad, 0x36, 0xba, 0x91, 0xdb, 0x28, 0xb7, 0xff, 0xb1, 0x60, 0xff, 0x29, 0x8a, 0xfc, 0x18,
-	0x57, 0xee, 0xe9, 0xb3, 0xe8, 0x25, 0x33, 0xf0, 0x9f, 0xc3, 0x9a, 0xec, 0xc1, 0xa5, 0x0e, 0xde,
-	0xb3, 0x15, 0x57, 0x26, 0x21, 0x1e, 0x6c, 0x99, 0x19, 0x6a, 0x8c, 0x9a, 0x2e, 0x5b, 0xfb, 0xc4,
-	0x9b, 0x7a, 0xa9, 0xe1, 0x7e, 0x74, 0x0d, 0xd6, 0x05, 0x4d, 0xc6, 0x28, 0xec, 0x07, 0xb0, 0x67,
-	0xe6, 0xeb, 0xd1, 0xf9, 0xb1, 0x6e, 0xe8, 0x3a, 0x4d, 0x7f, 0xf8, 0x7d, 0x0f, 0x7a, 0x4f, 0x14,
-	0xe2, 0x09, 0x26, 0x67, 0x81, 0x87, 0xe4, 0x67, 0x0b, 0x7a, 0xf3, 0xee, 0x8b, 0x3c, 0xac, 0x4b,
-	0x7a, 0xa1, 0x05, 0xed, 0x7f, 0xd4, 0x36, 0x5c, 0x1d, 0x16, 0x7b, 0x85, 0x5c, 0x58, 0xb0, 0x59,
-	0xb0, 0x3a, 0xa4, 0x51, 0xd6, 0xb2, 0x5f, 0xeb, 0x3f, 0x6a, 0x1d, 0x9f, 0xd1, 0x0a, 0x60, 0xab,
-	0xe8, 0x70, 0x48, 0xed, 0xb4, 0x15, 0xde, 0xa8, 0xbf, 0x60, 0x14, 0x28, 0xa8, 0xa2, 0x17, 0xa9,
-	0x0f, 0x55, 0xe1, 0x62, 0x2a, 0xa0, 0xbe, 0x85, 0x1b, 0x25, 0x2f, 0x42, 0x3e, 0x6e, 0xb5, 0xad,
-	0x9c, 0xaf, 0xa8, 0x06, 0x2b, 0x39, 0x91, 0xfa, 0x60, 0x55, 0x26, 0xa6, 0x02, 0x0c, 0x55, 0x17,
-	0xcd, 0x84, 0xe0, 0x64, 0xdb, 0x2c, 0x34, 0xdf, 0x81, 0xce, 0xa7, 0xf2, 0x3b, 0xb0, 0xff, 0xa0,
-	0x61, 0xcf, 0xe6, 0xdb, 0x62, 0xac, 0xec, 0x4e, 0x8e, 0x56, 0x35, 0xce, 0x07, 0x4d, 0xbb, 0x30,
-	0x0f, 0x94, 0x55, 0x2a, 0x37, 0xc1, 0x9b, 0x56, 0xaa, 0x3c, 0xfc, 0x2b, 0xc4, 0x0b, 0x81, 0x94,
-	0x67, 0x37, 0x79, 0xdc, 0x0a, 0x2d, 0x3f, 0xf7, 0x2b, 0xe0, 0x2e, 0x2c, 0x78, 0xab, 0x68, 0x30,
-	0xa6, 0x13, 0x41, 0x6a, 0x7f, 0x2a, 0x2c, 0x72, 0x5a, 0xfd, 0x87, 0x2d, 0xa3, 0x33, 0xc9, 0x7f,
-	0x55, 0x1e, 0x6e, 0xfe, 0x4e, 0x97, 0xbc, 0x9a, 0x64, 0x2e, 0x5b, 0x93, 0xfa, 0x33, 0x72, 0xb1,
-	0xa1, 0xb0, 0x57, 0xc8, 0x1f, 0x16, 0xec, 0x55, 0x5e, 0x72, 0xe4, 0x59, 0x83, 0xfc, 0x97, 0xde,
-	0x93, 0x4b, 0x9d, 0x8c, 0x5f, 0x2c, 0x20, 0xe5, 0x9b, 0xaa, 0x7e, 0x13, 0x55, 0xde, 0x72, 0xcb,
-	0xb0, 0x3a, 0x5d, 0x4f, 0xcf, 0xe4, 0xfd, 0x7f, 0x03, 0x00, 0x00, 0xff, 0xff, 0xce, 0x7c, 0x77,
-	0xbd, 0x7f, 0x12, 0x00, 0x00,
+var fileDescriptor_server_f4ddebef26c6f1dd = []byte{
+	// 1086 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xd4, 0x57, 0xcd, 0x6f, 0xdc, 0x44,
+	0x14, 0xcf, 0x34, 0x10, 0x35, 0x2f, 0xc9, 0xee, 0x76, 0x80, 0x66, 0xeb, 0x50, 0x14, 0xf9, 0x80,
+	0xfa, 0x81, 0xbc, 0x4a, 0xf8, 0x50, 0x91, 0x80, 0x92, 0x6d, 0x0a, 0x05, 0x41, 0xb4, 0xb8, 0xe5,
+	0x80, 0x40, 0xac, 0x26, 0xf6, 0x74, 0x6b, 0xb1, 0xeb, 0x71, 0xed, 0xd9, 0xa0, 0x1c, 0x10, 0x07,
+	0x4e, 0x70, 0x43, 0x70, 0x40, 0x08, 0x0e, 0x70, 0xe8, 0x91, 0x33, 0x37, 0xee, 0x48, 0x1c, 0xf8,
+	0x03, 0xf8, 0x5f, 0x90, 0x3d, 0x33, 0xde, 0xf5, 0x7a, 0xdc, 0xf8, 0xa3, 0x39, 0xe4, 0xb6, 0x5e,
+	0xcf, 0x7b, 0xef, 0xf7, 0x7e, 0xef, 0xf7, 0xe6, 0x3d, 0xc3, 0x55, 0x32, 0x26, 0x13, 0xea, 0x92,
+	0x21, 0x09, 0xbc, 0xde, 0xd1, 0x0e, 0x19, 0x07, 0x0f, 0xc8, 0x4e, 0xcf, 0x25, 0x9c, 0x3c, 0x98,
+	0x1e, 0xf6, 0x22, 0x1a, 0x1e, 0xd1, 0xd0, 0x0a, 0x42, 0xc6, 0x19, 0x7e, 0xd1, 0x61, 0x3e, 0x27,
+	0x9e, 0x4f, 0xc3, 0x68, 0x48, 0x3c, 0x4b, 0x1a, 0x5a, 0xca, 0xc8, 0x92, 0x46, 0xc6, 0xe6, 0x88,
+	0xb1, 0xd1, 0x98, 0xf6, 0xc2, 0xc0, 0xe9, 0x45, 0x9c, 0xf0, 0x69, 0x24, 0x1c, 0x18, 0x5b, 0xf2,
+	0x45, 0xf2, 0x74, 0x38, 0xbd, 0xdf, 0xa3, 0x93, 0x80, 0x1f, 0xcb, 0x97, 0xd7, 0x1f, 0x0b, 0x64,
+	0x42, 0x39, 0x89, 0x7f, 0xcb, 0xc3, 0xd7, 0x1e, 0x7b, 0x38, 0x08, 0xa9, 0xeb, 0x39, 0x5c, 0x9e,
+	0xbd, 0x7a, 0x92, 0xe3, 0xd0, 0x73, 0x4a, 0x61, 0x08, 0x69, 0xc4, 0xa6, 0xa1, 0x43, 0xe5, 0xe1,
+	0x9d, 0x13, 0x0e, 0x3b, 0x6c, 0x32, 0xa1, 0xbe, 0x4b, 0xb8, 0xc7, 0x7c, 0x61, 0x62, 0xfe, 0x87,
+	0x60, 0xfb, 0x5d, 0xca, 0xf7, 0x84, 0xe1, 0x80, 0xb9, 0xb6, 0x74, 0xf9, 0x9e, 0x7f, 0x9f, 0xd9,
+	0xf4, 0xe1, 0x94, 0x46, 0x1c, 0xbf, 0x0f, 0xcb, 0x01, 0x73, 0xbb, 0x68, 0x1b, 0x5d, 0x59, 0xdb,
+	0x7d, 0xcd, 0x2a, 0x47, 0xba, 0x75, 0x40, 0x26, 0x34, 0x0a, 0x88, 0x43, 0xdd, 0xf8, 0xd7, 0x9d,
+	0x25, 0x3b, 0x76, 0x82, 0x1d, 0xe8, 0x28, 0x94, 0x0a, 0x7d, 0xf7, 0x5c, 0x43, 0xc7, 0x6d, 0x79,
+	0x54, 0x61, 0xef, 0x9f, 0x87, 0x15, 0x4e, 0xc2, 0x11, 0xe5, 0xe6, 0xdf, 0x08, 0x9e, 0xfb, 0xc0,
+	0x8b, 0xf8, 0x80, 0xb9, 0x1f, 0x26, 0xbc, 0x46, 0x2a, 0xa9, 0x21, 0xb4, 0xfd, 0xd4, 0xd1, 0x30,
+	0xfe, 0xd9, 0x2c, 0x41, 0xbb, 0xe5, 0x67, 0x9e, 0xf1, 0x00, 0x80, 0x7b, 0x13, 0x3a, 0x0c, 0x89,
+	0x3f, 0x52, 0x39, 0xee, 0x94, 0xf5, 0x7d, 0xcf, 0x9b, 0x50, 0x3b, 0x36, 0xb4, 0x57, 0xb9, 0xfa,
+	0x69, 0xfe, 0x84, 0xe0, 0xe2, 0x62, 0x32, 0x51, 0xc0, 0xfc, 0x88, 0xe2, 0x6b, 0xb0, 0x22, 0x84,
+	0x2d, 0x93, 0xc0, 0x96, 0x50, 0xb6, 0x15, 0x06, 0x8e, 0x75, 0x37, 0x79, 0x63, 0xcb, 0x13, 0xd8,
+	0x86, 0xb5, 0x80, 0xb9, 0x43, 0xa1, 0xb3, 0xa8, 0x7b, 0x6e, 0x7b, 0xb9, 0x0a, 0xb2, 0x34, 0xb8,
+	0x0d, 0x41, 0x8a, 0xc3, 0xfc, 0x56, 0x42, 0x3b, 0x60, 0x2e, 0x5d, 0x20, 0xfa, 0x32, 0x80, 0xcf,
+	0x5c, 0x9a, 0x50, 0x1c, 0xc3, 0x5b, 0xbe, 0xb2, 0x6a, 0xaf, 0xc6, 0xff, 0x24, 0xfc, 0x9d, 0x02,
+	0x4d, 0xbf, 0x20, 0xd8, 0xcc, 0x61, 0xa9, 0xc1, 0xd3, 0xc7, 0xb0, 0x9e, 0x00, 0xcf, 0x12, 0xb5,
+	0x5b, 0x5a, 0x1e, 0x69, 0x78, 0x7b, 0xcd, 0x9f, 0x41, 0x31, 0xbf, 0x86, 0x8e, 0x2c, 0x62, 0x3d,
+	0x58, 0x37, 0xe1, 0xa9, 0x80, 0xb9, 0x0a, 0xce, 0xf5, 0x0a, 0x75, 0xb3, 0x13, 0x43, 0xf3, 0x1b,
+	0x04, 0x17, 0x14, 0x3f, 0xf5, 0x20, 0xf4, 0xe1, 0xe9, 0x38, 0x23, 0x85, 0xe1, 0xa5, 0x2a, 0x94,
+	0xd8, 0xc2, 0xd4, 0xfc, 0x07, 0x41, 0x57, 0xf2, 0x30, 0x10, 0xb7, 0xa3, 0xc7, 0xfc, 0x33, 0xdc,
+	0x9c, 0xbf, 0x23, 0xb8, 0xa4, 0xc9, 0xa7, 0x06, 0xbb, 0x9f, 0xc0, 0x86, 0x9c, 0x17, 0xd4, 0x1d,
+	0xc6, 0x17, 0xaf, 0x60, 0xf9, 0x95, 0xd2, 0x95, 0x56, 0xc6, 0x71, 0xc9, 0xd7, 0x83, 0xb9, 0x27,
+	0xf3, 0x3b, 0x09, 0x32, 0x2e, 0x44, 0x9e, 0xf5, 0x2d, 0x58, 0x4d, 0x3b, 0x55, 0x36, 0xea, 0x79,
+	0xd5, 0xa8, 0xa7, 0xc0, 0xd8, 0x23, 0x04, 0x86, 0x0e, 0x4c, 0x0d, 0xca, 0x3e, 0x83, 0xd6, 0x8c,
+	0xb2, 0x18, 0xb2, 0xe4, 0xec, 0xd5, 0xca, 0x9c, 0x25, 0x12, 0x9d, 0xf1, 0x1f, 0x3f, 0x9a, 0xff,
+	0x22, 0x78, 0x5e, 0x96, 0xd6, 0xce, 0x0c, 0xd1, 0x33, 0x2c, 0xd7, 0x3f, 0x10, 0x5c, 0x2e, 0xc8,
+	0xa9, 0x06, 0xff, 0x04, 0x3a, 0xe9, 0x7a, 0x21, 0x44, 0xab, 0xee, 0x86, 0xd2, 0x0c, 0xd8, 0x33,
+	0xfb, 0x18, 0x53, 0x3b, 0xcc, 0x3c, 0x47, 0xe6, 0x8d, 0xb4, 0xbd, 0xa2, 0xfe, 0xf1, 0x81, 0x54,
+	0x65, 0x19, 0xe5, 0x9a, 0xc7, 0x60, 0xdc, 0x0a, 0x29, 0xe1, 0x54, 0x7b, 0xd5, 0x7c, 0x3a, 0x2f,
+	0x9d, 0x04, 0x38, 0x6a, 0xd0, 0x6e, 0x1b, 0xf3, 0xed, 0x16, 0x99, 0x5f, 0xc1, 0x96, 0x08, 0xad,
+	0x6f, 0xb8, 0xcf, 0xa1, 0x9d, 0x95, 0xad, 0x0a, 0x5e, 0x53, 0xb7, 0xad, 0x8c, 0x6e, 0x93, 0x9b,
+	0xfe, 0x85, 0x34, 0x75, 0xbd, 0x74, 0x75, 0x95, 0x43, 0x4f, 0xb6, 0x72, 0x7f, 0x21, 0xd8, 0x14,
+	0x28, 0xe6, 0xd7, 0x4c, 0x11, 0xfe, 0x1e, 0xac, 0x04, 0x6c, 0xec, 0x39, 0xc7, 0x89, 0xc8, 0x5a,
+	0xbb, 0x6f, 0x54, 0x0e, 0x9a, 0x64, 0x33, 0x48, 0x7c, 0xd8, 0xd2, 0x17, 0x3e, 0x80, 0x75, 0xb5,
+	0x64, 0xd6, 0x1d, 0x95, 0x6b, 0x24, 0xc5, 0x1a, 0x99, 0x13, 0xe8, 0x66, 0x12, 0x48, 0xc8, 0x96,
+	0x19, 0x7c, 0x04, 0x1b, 0x2a, 0xd6, 0x7c, 0x05, 0xab, 0xcd, 0x44, 0x05, 0x57, 0x94, 0xcd, 0x83,
+	0xcd, 0x7d, 0x3a, 0xa6, 0x3a, 0xbe, 0x16, 0x33, 0x43, 0xcd, 0x33, 0xcb, 0x84, 0x3a, 0xdd, 0xcc,
+	0x76, 0xff, 0xec, 0x40, 0x6b, 0x5f, 0xbc, 0xbe, 0x4b, 0xc3, 0x23, 0xcf, 0xa1, 0xf8, 0x37, 0x04,
+	0x97, 0x0a, 0xbf, 0x40, 0xf0, 0x9d, 0xb2, 0xc1, 0x4e, 0xfa, 0x88, 0x31, 0x6e, 0x94, 0xf5, 0xb4,
+	0xb8, 0x9c, 0x99, 0x4b, 0xf8, 0x7b, 0x04, 0xad, 0xec, 0xe2, 0x8d, 0xdf, 0xac, 0xe8, 0x2e, 0xbb,
+	0x14, 0x1b, 0x6f, 0xd5, 0x35, 0x4f, 0x31, 0xfd, 0x88, 0xa0, 0xbd, 0xb0, 0xe5, 0xe2, 0x4a, 0x5e,
+	0xf3, 0xab, 0xba, 0x71, 0xb3, 0xb6, 0x7d, 0x0a, 0x8b, 0x0a, 0x54, 0xb3, 0x5a, 0x44, 0xf8, 0xa2,
+	0x1a, 0x1c, 0xea, 0x2b, 0xdb, 0xba, 0x1d, 0x7f, 0x65, 0x37, 0xaa, 0xc8, 0x48, 0x2c, 0xd1, 0x73,
+	0xaa, 0x2d, 0x8e, 0xf3, 0x7a, 0xd5, 0xac, 0xe6, 0x03, 0xfd, 0x2c, 0x97, 0xe5, 0xcc, 0xec, 0xc0,
+	0x6f, 0x57, 0x84, 0x9e, 0xbb, 0xfa, 0x8d, 0xbd, 0x06, 0x1e, 0x52, 0x70, 0xbf, 0x22, 0xc0, 0xf9,
+	0x0d, 0x0a, 0xef, 0x55, 0x4d, 0x38, 0x0f, 0xaf, 0xdf, 0xc4, 0x45, 0x8a, 0xef, 0xd1, 0xec, 0xeb,
+	0x3b, 0x7b, 0x5f, 0xe3, 0xfd, 0x8a, 0xe9, 0x6b, 0x87, 0x97, 0x71, 0xbb, 0xa1, 0x97, 0x14, 0xe8,
+	0x0f, 0x92, 0xc8, 0xec, 0x76, 0x81, 0xab, 0x16, 0x29, 0xbf, 0x99, 0x34, 0x12, 0xb9, 0x07, 0x9d,
+	0xc5, 0xb9, 0x89, 0x4b, 0xb7, 0x68, 0xc1, 0xc4, 0x35, 0x34, 0x6b, 0x9c, 0xb9, 0x84, 0xbf, 0x80,
+	0x0b, 0xb9, 0x09, 0x57, 0x5e, 0xe5, 0x45, 0xc3, 0xb1, 0x20, 0x18, 0x83, 0x67, 0x34, 0x0b, 0x19,
+	0xee, 0x57, 0x0b, 0xa7, 0x6d, 0x2b, 0x7d, 0xc0, 0x87, 0xf0, 0xac, 0x6e, 0x0d, 0xc3, 0xb7, 0xaa,
+	0x45, 0xd4, 0xb7, 0x8a, 0x3e, 0xe4, 0x97, 0x6a, 0xe7, 0xc9, 0x6b, 0xff, 0x9d, 0xca, 0x79, 0xea,
+	0xd5, 0xaf, 0x0f, 0xec, 0x41, 0x67, 0x71, 0x79, 0x28, 0x2f, 0x9a, 0x82, 0xb5, 0xa3, 0x58, 0x34,
+	0xb9, 0xe5, 0xa1, 0xbc, 0x68, 0x8a, 0xf6, 0x0e, 0x7d, 0xb0, 0xc3, 0x95, 0xe4, 0x56, 0x7f, 0xf9,
+	0xff, 0x00, 0x00, 0x00, 0xff, 0xff, 0x0e, 0xd2, 0x34, 0x0a, 0x1f, 0x16, 0x00, 0x00,
 }
