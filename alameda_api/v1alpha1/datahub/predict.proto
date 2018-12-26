@@ -11,7 +11,7 @@ enum RecommendationPolicy {
     COMPACT = 2;
 }
 
-message PredictedContainer {
+message ContainerPrediction {
     string name = 1;
     repeated MetricData predicted_raw_data = 2;
     repeated MetricData predicted_limit_data = 3;
@@ -20,12 +20,12 @@ message PredictedContainer {
     repeated MetricData predicted_initial_request_resource = 6;
 }
 
-message PredictedPod {
+message PodPrediction {
     NamespacedName namespaced_name = 1;
-    repeated PredictedContainer predicted_containers = 2;
+    repeated ContainerPrediction container_predictions = 2;
 }
 
-message PredictedNode {
+message NodePrediction {
     string name = 1;
     repeated MetricData predicted_raw_data = 2;
 }

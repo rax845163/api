@@ -10,11 +10,8 @@ import "alameda_api/v1alpha1/datahub/metric.proto";
 import "alameda_api/v1alpha1/datahub/resource.proto";
 import "alameda_api/v1alpha1/datahub/recommendation.proto";
 
-message GetAlamedaPodResourceInfoRequest {
-    oneof target {
-        NamespacedName pod = 1;
-        NamespacedName alameda_resource = 2;
-    }
+message ListAlamedaPodResourceInfoRequest {
+    NamespacedName alameda_resource = 1;
 }
 
 message ListPodMetricsRequest {
@@ -54,7 +51,7 @@ message ListPodPredictionRequest {
 
 message ListPodPredictionResponse {
     google.rpc.Status status = 1;
-    repeated PredictedPod predicted_pod = 2;
+    repeated PodPrediction pod_predictions = 2;
 }
 
 message ListNodePredictionRequest {
@@ -64,7 +61,7 @@ message ListNodePredictionRequest {
 
 message ListNodePredictionResponse {
     google.rpc.Status status = 1;
-    repeated PredictedNode predicted_node = 2;
+    repeated NodePrediction node_predictions = 2;
 }
 
 message ListPodRecommendationRequest {
@@ -74,7 +71,7 @@ message ListPodRecommendationRequest {
 
 message ListPodRecommendationResponse {
     google.rpc.Status status = 1;
-    repeated RecommendedPod recommended_pods = 2;
+    repeated PodRecommendation pod_recommendations = 2;
 }
 
 message ListPodsByNodeNameRequest {
@@ -82,15 +79,15 @@ message ListPodsByNodeNameRequest {
 }
 
 message CreatePodPredictionRequest {
-    repeated PredictedPod predicted_pods = 1;
+    repeated PodPrediction pod_predictions = 1;
 }
 
 message CreateNodePredictionRequest {
-    repeated PredictedNode predicted_nodes = 1;
+    repeated NodePrediction node_predictions = 1;
 }
 
 message CreatePodRecommendationRequest {
-    repeated RecommendedPod recommended_pods = 1;
+    repeated PodRecommendation pod_recommendations = 1;
 }
 
 message CreateAlamedaPodRequest {
@@ -111,7 +108,7 @@ message DeleteAlamedaNodeRequest {
 }
 
 service DatahubService {
-    rpc GetAlamedaPodResourceInfo(GetAlamedaPodResourceInfoRequest)
+    rpc ListAlamedaPodResourceInfo(ListAlamedaPodResourceInfoRequest)
         returns (ListPodsResponse) {}
     rpc ListPodMetrics(ListPodMetricsRequest)
         returns (ListPodMetricsResponse) {}

@@ -16,9 +16,9 @@ class DatahubServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.GetAlamedaPodResourceInfo = channel.unary_unary(
-        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetAlamedaPodResourceInfo',
-        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetAlamedaPodResourceInfoRequest.SerializeToString,
+    self.ListAlamedaPodResourceInfo = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListAlamedaPodResourceInfo',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListAlamedaPodResourceInfoRequest.SerializeToString,
         response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsResponse.FromString,
         )
     self.ListPodMetrics = channel.unary_unary(
@@ -102,7 +102,7 @@ class DatahubServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def GetAlamedaPodResourceInfo(self, request, context):
+  def ListAlamedaPodResourceInfo(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -217,9 +217,9 @@ class DatahubServiceServicer(object):
 
 def add_DatahubServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'GetAlamedaPodResourceInfo': grpc.unary_unary_rpc_method_handler(
-          servicer.GetAlamedaPodResourceInfo,
-          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.GetAlamedaPodResourceInfoRequest.FromString,
+      'ListAlamedaPodResourceInfo': grpc.unary_unary_rpc_method_handler(
+          servicer.ListAlamedaPodResourceInfo,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListAlamedaPodResourceInfoRequest.FromString,
           response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsResponse.SerializeToString,
       ),
       'ListPodMetrics': grpc.unary_unary_rpc_method_handler(

@@ -25,149 +25,42 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type GetAlamedaPodResourceInfoRequest struct {
-	// Types that are valid to be assigned to Target:
-	//	*GetAlamedaPodResourceInfoRequest_Pod
-	//	*GetAlamedaPodResourceInfoRequest_AlamedaResource
-	Target               isGetAlamedaPodResourceInfoRequest_Target `protobuf_oneof:"target"`
-	XXX_NoUnkeyedLiteral struct{}                                  `json:"-"`
-	XXX_unrecognized     []byte                                    `json:"-"`
-	XXX_sizecache        int32                                     `json:"-"`
+type ListAlamedaPodResourceInfoRequest struct {
+	AlamedaResource      *NamespacedName `protobuf:"bytes,1,opt,name=alameda_resource,json=alamedaResource,proto3" json:"alameda_resource,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
 }
 
-func (m *GetAlamedaPodResourceInfoRequest) Reset()         { *m = GetAlamedaPodResourceInfoRequest{} }
-func (m *GetAlamedaPodResourceInfoRequest) String() string { return proto.CompactTextString(m) }
-func (*GetAlamedaPodResourceInfoRequest) ProtoMessage()    {}
-func (*GetAlamedaPodResourceInfoRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{0}
+func (m *ListAlamedaPodResourceInfoRequest) Reset()         { *m = ListAlamedaPodResourceInfoRequest{} }
+func (m *ListAlamedaPodResourceInfoRequest) String() string { return proto.CompactTextString(m) }
+func (*ListAlamedaPodResourceInfoRequest) ProtoMessage()    {}
+func (*ListAlamedaPodResourceInfoRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{0}
 }
-func (m *GetAlamedaPodResourceInfoRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetAlamedaPodResourceInfoRequest.Unmarshal(m, b)
+func (m *ListAlamedaPodResourceInfoRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListAlamedaPodResourceInfoRequest.Unmarshal(m, b)
 }
-func (m *GetAlamedaPodResourceInfoRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetAlamedaPodResourceInfoRequest.Marshal(b, m, deterministic)
+func (m *ListAlamedaPodResourceInfoRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListAlamedaPodResourceInfoRequest.Marshal(b, m, deterministic)
 }
-func (dst *GetAlamedaPodResourceInfoRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetAlamedaPodResourceInfoRequest.Merge(dst, src)
+func (dst *ListAlamedaPodResourceInfoRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListAlamedaPodResourceInfoRequest.Merge(dst, src)
 }
-func (m *GetAlamedaPodResourceInfoRequest) XXX_Size() int {
-	return xxx_messageInfo_GetAlamedaPodResourceInfoRequest.Size(m)
+func (m *ListAlamedaPodResourceInfoRequest) XXX_Size() int {
+	return xxx_messageInfo_ListAlamedaPodResourceInfoRequest.Size(m)
 }
-func (m *GetAlamedaPodResourceInfoRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetAlamedaPodResourceInfoRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetAlamedaPodResourceInfoRequest proto.InternalMessageInfo
-
-type isGetAlamedaPodResourceInfoRequest_Target interface {
-	isGetAlamedaPodResourceInfoRequest_Target()
+func (m *ListAlamedaPodResourceInfoRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListAlamedaPodResourceInfoRequest.DiscardUnknown(m)
 }
 
-type GetAlamedaPodResourceInfoRequest_Pod struct {
-	Pod *NamespacedName `protobuf:"bytes,1,opt,name=pod,proto3,oneof"`
-}
+var xxx_messageInfo_ListAlamedaPodResourceInfoRequest proto.InternalMessageInfo
 
-type GetAlamedaPodResourceInfoRequest_AlamedaResource struct {
-	AlamedaResource *NamespacedName `protobuf:"bytes,2,opt,name=alameda_resource,json=alamedaResource,proto3,oneof"`
-}
-
-func (*GetAlamedaPodResourceInfoRequest_Pod) isGetAlamedaPodResourceInfoRequest_Target() {}
-
-func (*GetAlamedaPodResourceInfoRequest_AlamedaResource) isGetAlamedaPodResourceInfoRequest_Target() {}
-
-func (m *GetAlamedaPodResourceInfoRequest) GetTarget() isGetAlamedaPodResourceInfoRequest_Target {
+func (m *ListAlamedaPodResourceInfoRequest) GetAlamedaResource() *NamespacedName {
 	if m != nil {
-		return m.Target
+		return m.AlamedaResource
 	}
 	return nil
-}
-
-func (m *GetAlamedaPodResourceInfoRequest) GetPod() *NamespacedName {
-	if x, ok := m.GetTarget().(*GetAlamedaPodResourceInfoRequest_Pod); ok {
-		return x.Pod
-	}
-	return nil
-}
-
-func (m *GetAlamedaPodResourceInfoRequest) GetAlamedaResource() *NamespacedName {
-	if x, ok := m.GetTarget().(*GetAlamedaPodResourceInfoRequest_AlamedaResource); ok {
-		return x.AlamedaResource
-	}
-	return nil
-}
-
-// XXX_OneofFuncs is for the internal use of the proto package.
-func (*GetAlamedaPodResourceInfoRequest) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
-	return _GetAlamedaPodResourceInfoRequest_OneofMarshaler, _GetAlamedaPodResourceInfoRequest_OneofUnmarshaler, _GetAlamedaPodResourceInfoRequest_OneofSizer, []interface{}{
-		(*GetAlamedaPodResourceInfoRequest_Pod)(nil),
-		(*GetAlamedaPodResourceInfoRequest_AlamedaResource)(nil),
-	}
-}
-
-func _GetAlamedaPodResourceInfoRequest_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
-	m := msg.(*GetAlamedaPodResourceInfoRequest)
-	// target
-	switch x := m.Target.(type) {
-	case *GetAlamedaPodResourceInfoRequest_Pod:
-		b.EncodeVarint(1<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.Pod); err != nil {
-			return err
-		}
-	case *GetAlamedaPodResourceInfoRequest_AlamedaResource:
-		b.EncodeVarint(2<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.AlamedaResource); err != nil {
-			return err
-		}
-	case nil:
-	default:
-		return fmt.Errorf("GetAlamedaPodResourceInfoRequest.Target has unexpected type %T", x)
-	}
-	return nil
-}
-
-func _GetAlamedaPodResourceInfoRequest_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
-	m := msg.(*GetAlamedaPodResourceInfoRequest)
-	switch tag {
-	case 1: // target.pod
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(NamespacedName)
-		err := b.DecodeMessage(msg)
-		m.Target = &GetAlamedaPodResourceInfoRequest_Pod{msg}
-		return true, err
-	case 2: // target.alameda_resource
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(NamespacedName)
-		err := b.DecodeMessage(msg)
-		m.Target = &GetAlamedaPodResourceInfoRequest_AlamedaResource{msg}
-		return true, err
-	default:
-		return false, nil
-	}
-}
-
-func _GetAlamedaPodResourceInfoRequest_OneofSizer(msg proto.Message) (n int) {
-	m := msg.(*GetAlamedaPodResourceInfoRequest)
-	// target
-	switch x := m.Target.(type) {
-	case *GetAlamedaPodResourceInfoRequest_Pod:
-		s := proto.Size(x.Pod)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *GetAlamedaPodResourceInfoRequest_AlamedaResource:
-		s := proto.Size(x.AlamedaResource)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case nil:
-	default:
-		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
-	}
-	return n
 }
 
 type ListPodMetricsRequest struct {
@@ -182,7 +75,7 @@ func (m *ListPodMetricsRequest) Reset()         { *m = ListPodMetricsRequest{} }
 func (m *ListPodMetricsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListPodMetricsRequest) ProtoMessage()    {}
 func (*ListPodMetricsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{1}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{1}
 }
 func (m *ListPodMetricsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodMetricsRequest.Unmarshal(m, b)
@@ -228,7 +121,7 @@ func (m *ListPodMetricsResponse) Reset()         { *m = ListPodMetricsResponse{}
 func (m *ListPodMetricsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListPodMetricsResponse) ProtoMessage()    {}
 func (*ListPodMetricsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{2}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{2}
 }
 func (m *ListPodMetricsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodMetricsResponse.Unmarshal(m, b)
@@ -274,7 +167,7 @@ func (m *ListNodeMetricsRequest) Reset()         { *m = ListNodeMetricsRequest{}
 func (m *ListNodeMetricsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListNodeMetricsRequest) ProtoMessage()    {}
 func (*ListNodeMetricsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{3}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{3}
 }
 func (m *ListNodeMetricsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListNodeMetricsRequest.Unmarshal(m, b)
@@ -320,7 +213,7 @@ func (m *ListNodeMetricsResponse) Reset()         { *m = ListNodeMetricsResponse
 func (m *ListNodeMetricsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListNodeMetricsResponse) ProtoMessage()    {}
 func (*ListNodeMetricsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{4}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{4}
 }
 func (m *ListNodeMetricsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListNodeMetricsResponse.Unmarshal(m, b)
@@ -366,7 +259,7 @@ func (m *ListPodsResponse) Reset()         { *m = ListPodsResponse{} }
 func (m *ListPodsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListPodsResponse) ProtoMessage()    {}
 func (*ListPodsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{5}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{5}
 }
 func (m *ListPodsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodsResponse.Unmarshal(m, b)
@@ -412,7 +305,7 @@ func (m *ListNodesResponse) Reset()         { *m = ListNodesResponse{} }
 func (m *ListNodesResponse) String() string { return proto.CompactTextString(m) }
 func (*ListNodesResponse) ProtoMessage()    {}
 func (*ListNodesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{6}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{6}
 }
 func (m *ListNodesResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListNodesResponse.Unmarshal(m, b)
@@ -458,7 +351,7 @@ func (m *ListPodPredictionRequest) Reset()         { *m = ListPodPredictionReque
 func (m *ListPodPredictionRequest) String() string { return proto.CompactTextString(m) }
 func (*ListPodPredictionRequest) ProtoMessage()    {}
 func (*ListPodPredictionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{7}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{7}
 }
 func (m *ListPodPredictionRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodPredictionRequest.Unmarshal(m, b)
@@ -493,18 +386,18 @@ func (m *ListPodPredictionRequest) GetTimeRange() *TimeRange {
 }
 
 type ListPodPredictionResponse struct {
-	Status               *status.Status  `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	PredictedPod         []*PredictedPod `protobuf:"bytes,2,rep,name=predicted_pod,json=predictedPod,proto3" json:"predicted_pod,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Status               *status.Status   `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	PodPredictions       []*PodPrediction `protobuf:"bytes,2,rep,name=pod_predictions,json=podPredictions,proto3" json:"pod_predictions,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
 }
 
 func (m *ListPodPredictionResponse) Reset()         { *m = ListPodPredictionResponse{} }
 func (m *ListPodPredictionResponse) String() string { return proto.CompactTextString(m) }
 func (*ListPodPredictionResponse) ProtoMessage()    {}
 func (*ListPodPredictionResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{8}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{8}
 }
 func (m *ListPodPredictionResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodPredictionResponse.Unmarshal(m, b)
@@ -531,9 +424,9 @@ func (m *ListPodPredictionResponse) GetStatus() *status.Status {
 	return nil
 }
 
-func (m *ListPodPredictionResponse) GetPredictedPod() []*PredictedPod {
+func (m *ListPodPredictionResponse) GetPodPredictions() []*PodPrediction {
 	if m != nil {
-		return m.PredictedPod
+		return m.PodPredictions
 	}
 	return nil
 }
@@ -550,7 +443,7 @@ func (m *ListNodePredictionRequest) Reset()         { *m = ListNodePredictionReq
 func (m *ListNodePredictionRequest) String() string { return proto.CompactTextString(m) }
 func (*ListNodePredictionRequest) ProtoMessage()    {}
 func (*ListNodePredictionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{9}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{9}
 }
 func (m *ListNodePredictionRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListNodePredictionRequest.Unmarshal(m, b)
@@ -585,18 +478,18 @@ func (m *ListNodePredictionRequest) GetTimeRange() *TimeRange {
 }
 
 type ListNodePredictionResponse struct {
-	Status               *status.Status   `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	PredictedNode        []*PredictedNode `protobuf:"bytes,2,rep,name=predicted_node,json=predictedNode,proto3" json:"predicted_node,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	Status               *status.Status    `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	NodePredictions      []*NodePrediction `protobuf:"bytes,2,rep,name=node_predictions,json=nodePredictions,proto3" json:"node_predictions,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *ListNodePredictionResponse) Reset()         { *m = ListNodePredictionResponse{} }
 func (m *ListNodePredictionResponse) String() string { return proto.CompactTextString(m) }
 func (*ListNodePredictionResponse) ProtoMessage()    {}
 func (*ListNodePredictionResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{10}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{10}
 }
 func (m *ListNodePredictionResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListNodePredictionResponse.Unmarshal(m, b)
@@ -623,9 +516,9 @@ func (m *ListNodePredictionResponse) GetStatus() *status.Status {
 	return nil
 }
 
-func (m *ListNodePredictionResponse) GetPredictedNode() []*PredictedNode {
+func (m *ListNodePredictionResponse) GetNodePredictions() []*NodePrediction {
 	if m != nil {
-		return m.PredictedNode
+		return m.NodePredictions
 	}
 	return nil
 }
@@ -642,7 +535,7 @@ func (m *ListPodRecommendationRequest) Reset()         { *m = ListPodRecommendat
 func (m *ListPodRecommendationRequest) String() string { return proto.CompactTextString(m) }
 func (*ListPodRecommendationRequest) ProtoMessage()    {}
 func (*ListPodRecommendationRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{11}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{11}
 }
 func (m *ListPodRecommendationRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodRecommendationRequest.Unmarshal(m, b)
@@ -677,18 +570,18 @@ func (m *ListPodRecommendationRequest) GetTimeRange() *TimeRange {
 }
 
 type ListPodRecommendationResponse struct {
-	Status               *status.Status    `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
-	RecommendedPods      []*RecommendedPod `protobuf:"bytes,2,rep,name=recommended_pods,json=recommendedPods,proto3" json:"recommended_pods,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+	Status               *status.Status       `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	PodRecommendations   []*PodRecommendation `protobuf:"bytes,2,rep,name=pod_recommendations,json=podRecommendations,proto3" json:"pod_recommendations,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *ListPodRecommendationResponse) Reset()         { *m = ListPodRecommendationResponse{} }
 func (m *ListPodRecommendationResponse) String() string { return proto.CompactTextString(m) }
 func (*ListPodRecommendationResponse) ProtoMessage()    {}
 func (*ListPodRecommendationResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{12}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{12}
 }
 func (m *ListPodRecommendationResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodRecommendationResponse.Unmarshal(m, b)
@@ -715,9 +608,9 @@ func (m *ListPodRecommendationResponse) GetStatus() *status.Status {
 	return nil
 }
 
-func (m *ListPodRecommendationResponse) GetRecommendedPods() []*RecommendedPod {
+func (m *ListPodRecommendationResponse) GetPodRecommendations() []*PodRecommendation {
 	if m != nil {
-		return m.RecommendedPods
+		return m.PodRecommendations
 	}
 	return nil
 }
@@ -733,7 +626,7 @@ func (m *ListPodsByNodeNameRequest) Reset()         { *m = ListPodsByNodeNameReq
 func (m *ListPodsByNodeNameRequest) String() string { return proto.CompactTextString(m) }
 func (*ListPodsByNodeNameRequest) ProtoMessage()    {}
 func (*ListPodsByNodeNameRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{13}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{13}
 }
 func (m *ListPodsByNodeNameRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodsByNodeNameRequest.Unmarshal(m, b)
@@ -761,17 +654,17 @@ func (m *ListPodsByNodeNameRequest) GetNodeName() []string {
 }
 
 type CreatePodPredictionRequest struct {
-	PredictedPods        []*PredictedPod `protobuf:"bytes,1,rep,name=predicted_pods,json=predictedPods,proto3" json:"predicted_pods,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	PodPredictions       []*PodPrediction `protobuf:"bytes,1,rep,name=pod_predictions,json=podPredictions,proto3" json:"pod_predictions,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
 }
 
 func (m *CreatePodPredictionRequest) Reset()         { *m = CreatePodPredictionRequest{} }
 func (m *CreatePodPredictionRequest) String() string { return proto.CompactTextString(m) }
 func (*CreatePodPredictionRequest) ProtoMessage()    {}
 func (*CreatePodPredictionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{14}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{14}
 }
 func (m *CreatePodPredictionRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreatePodPredictionRequest.Unmarshal(m, b)
@@ -791,25 +684,25 @@ func (m *CreatePodPredictionRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_CreatePodPredictionRequest proto.InternalMessageInfo
 
-func (m *CreatePodPredictionRequest) GetPredictedPods() []*PredictedPod {
+func (m *CreatePodPredictionRequest) GetPodPredictions() []*PodPrediction {
 	if m != nil {
-		return m.PredictedPods
+		return m.PodPredictions
 	}
 	return nil
 }
 
 type CreateNodePredictionRequest struct {
-	PredictedNodes       []*PredictedNode `protobuf:"bytes,1,rep,name=predicted_nodes,json=predictedNodes,proto3" json:"predicted_nodes,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	NodePredictions      []*NodePrediction `protobuf:"bytes,1,rep,name=node_predictions,json=nodePredictions,proto3" json:"node_predictions,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *CreateNodePredictionRequest) Reset()         { *m = CreateNodePredictionRequest{} }
 func (m *CreateNodePredictionRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateNodePredictionRequest) ProtoMessage()    {}
 func (*CreateNodePredictionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{15}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{15}
 }
 func (m *CreateNodePredictionRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreateNodePredictionRequest.Unmarshal(m, b)
@@ -829,25 +722,25 @@ func (m *CreateNodePredictionRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_CreateNodePredictionRequest proto.InternalMessageInfo
 
-func (m *CreateNodePredictionRequest) GetPredictedNodes() []*PredictedNode {
+func (m *CreateNodePredictionRequest) GetNodePredictions() []*NodePrediction {
 	if m != nil {
-		return m.PredictedNodes
+		return m.NodePredictions
 	}
 	return nil
 }
 
 type CreatePodRecommendationRequest struct {
-	RecommendedPods      []*RecommendedPod `protobuf:"bytes,1,rep,name=recommended_pods,json=recommendedPods,proto3" json:"recommended_pods,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+	PodRecommendations   []*PodRecommendation `protobuf:"bytes,1,rep,name=pod_recommendations,json=podRecommendations,proto3" json:"pod_recommendations,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
 }
 
 func (m *CreatePodRecommendationRequest) Reset()         { *m = CreatePodRecommendationRequest{} }
 func (m *CreatePodRecommendationRequest) String() string { return proto.CompactTextString(m) }
 func (*CreatePodRecommendationRequest) ProtoMessage()    {}
 func (*CreatePodRecommendationRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{16}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{16}
 }
 func (m *CreatePodRecommendationRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreatePodRecommendationRequest.Unmarshal(m, b)
@@ -867,9 +760,9 @@ func (m *CreatePodRecommendationRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_CreatePodRecommendationRequest proto.InternalMessageInfo
 
-func (m *CreatePodRecommendationRequest) GetRecommendedPods() []*RecommendedPod {
+func (m *CreatePodRecommendationRequest) GetPodRecommendations() []*PodRecommendation {
 	if m != nil {
-		return m.RecommendedPods
+		return m.PodRecommendations
 	}
 	return nil
 }
@@ -886,7 +779,7 @@ func (m *CreateAlamedaPodRequest) Reset()         { *m = CreateAlamedaPodRequest
 func (m *CreateAlamedaPodRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateAlamedaPodRequest) ProtoMessage()    {}
 func (*CreateAlamedaPodRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{17}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{17}
 }
 func (m *CreateAlamedaPodRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreateAlamedaPodRequest.Unmarshal(m, b)
@@ -931,7 +824,7 @@ func (m *CreateAlamedaNodeRequest) Reset()         { *m = CreateAlamedaNodeReque
 func (m *CreateAlamedaNodeRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateAlamedaNodeRequest) ProtoMessage()    {}
 func (*CreateAlamedaNodeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{18}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{18}
 }
 func (m *CreateAlamedaNodeRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreateAlamedaNodeRequest.Unmarshal(m, b)
@@ -969,7 +862,7 @@ func (m *DeleteAlamedaPodRequest) Reset()         { *m = DeleteAlamedaPodRequest
 func (m *DeleteAlamedaPodRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteAlamedaPodRequest) ProtoMessage()    {}
 func (*DeleteAlamedaPodRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{19}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{19}
 }
 func (m *DeleteAlamedaPodRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeleteAlamedaPodRequest.Unmarshal(m, b)
@@ -1007,7 +900,7 @@ func (m *DeleteAlamedaNodeRequest) Reset()         { *m = DeleteAlamedaNodeReque
 func (m *DeleteAlamedaNodeRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteAlamedaNodeRequest) ProtoMessage()    {}
 func (*DeleteAlamedaNodeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_f4ddebef26c6f1dd, []int{20}
+	return fileDescriptor_server_2cb97ee7ea3b7622, []int{20}
 }
 func (m *DeleteAlamedaNodeRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeleteAlamedaNodeRequest.Unmarshal(m, b)
@@ -1035,7 +928,7 @@ func (m *DeleteAlamedaNodeRequest) GetAlamedaNodes() []*Node {
 }
 
 func init() {
-	proto.RegisterType((*GetAlamedaPodResourceInfoRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.GetAlamedaPodResourceInfoRequest")
+	proto.RegisterType((*ListAlamedaPodResourceInfoRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListAlamedaPodResourceInfoRequest")
 	proto.RegisterType((*ListPodMetricsRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListPodMetricsRequest")
 	proto.RegisterType((*ListPodMetricsResponse)(nil), "containers_ai.alameda.v1alpha1.datahub.ListPodMetricsResponse")
 	proto.RegisterType((*ListNodeMetricsRequest)(nil), "containers_ai.alameda.v1alpha1.datahub.ListNodeMetricsRequest")
@@ -1070,7 +963,7 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type DatahubServiceClient interface {
-	GetAlamedaPodResourceInfo(ctx context.Context, in *GetAlamedaPodResourceInfoRequest, opts ...grpc.CallOption) (*ListPodsResponse, error)
+	ListAlamedaPodResourceInfo(ctx context.Context, in *ListAlamedaPodResourceInfoRequest, opts ...grpc.CallOption) (*ListPodsResponse, error)
 	ListPodMetrics(ctx context.Context, in *ListPodMetricsRequest, opts ...grpc.CallOption) (*ListPodMetricsResponse, error)
 	ListNodeMetrics(ctx context.Context, in *ListNodeMetricsRequest, opts ...grpc.CallOption) (*ListNodeMetricsResponse, error)
 	// List pods need to be predicted
@@ -1098,9 +991,9 @@ func NewDatahubServiceClient(cc *grpc.ClientConn) DatahubServiceClient {
 	return &datahubServiceClient{cc}
 }
 
-func (c *datahubServiceClient) GetAlamedaPodResourceInfo(ctx context.Context, in *GetAlamedaPodResourceInfoRequest, opts ...grpc.CallOption) (*ListPodsResponse, error) {
+func (c *datahubServiceClient) ListAlamedaPodResourceInfo(ctx context.Context, in *ListAlamedaPodResourceInfoRequest, opts ...grpc.CallOption) (*ListPodsResponse, error) {
 	out := new(ListPodsResponse)
-	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetAlamedaPodResourceInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListAlamedaPodResourceInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1244,7 +1137,7 @@ func (c *datahubServiceClient) DeleteAlamedaNode(ctx context.Context, in *Delete
 
 // DatahubServiceServer is the server API for DatahubService service.
 type DatahubServiceServer interface {
-	GetAlamedaPodResourceInfo(context.Context, *GetAlamedaPodResourceInfoRequest) (*ListPodsResponse, error)
+	ListAlamedaPodResourceInfo(context.Context, *ListAlamedaPodResourceInfoRequest) (*ListPodsResponse, error)
 	ListPodMetrics(context.Context, *ListPodMetricsRequest) (*ListPodMetricsResponse, error)
 	ListNodeMetrics(context.Context, *ListNodeMetricsRequest) (*ListNodeMetricsResponse, error)
 	// List pods need to be predicted
@@ -1268,20 +1161,20 @@ func RegisterDatahubServiceServer(s *grpc.Server, srv DatahubServiceServer) {
 	s.RegisterService(&_DatahubService_serviceDesc, srv)
 }
 
-func _DatahubService_GetAlamedaPodResourceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAlamedaPodResourceInfoRequest)
+func _DatahubService_ListAlamedaPodResourceInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListAlamedaPodResourceInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DatahubServiceServer).GetAlamedaPodResourceInfo(ctx, in)
+		return srv.(DatahubServiceServer).ListAlamedaPodResourceInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetAlamedaPodResourceInfo",
+		FullMethod: "/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListAlamedaPodResourceInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatahubServiceServer).GetAlamedaPodResourceInfo(ctx, req.(*GetAlamedaPodResourceInfoRequest))
+		return srv.(DatahubServiceServer).ListAlamedaPodResourceInfo(ctx, req.(*ListAlamedaPodResourceInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1561,8 +1454,8 @@ var _DatahubService_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*DatahubServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetAlamedaPodResourceInfo",
-			Handler:    _DatahubService_GetAlamedaPodResourceInfo_Handler,
+			MethodName: "ListAlamedaPodResourceInfo",
+			Handler:    _DatahubService_ListAlamedaPodResourceInfo_Handler,
 		},
 		{
 			MethodName: "ListPodMetrics",
@@ -1630,77 +1523,75 @@ var _DatahubService_serviceDesc = grpc.ServiceDesc{
 }
 
 func init() {
-	proto.RegisterFile("alameda_api/v1alpha1/datahub/server.proto", fileDescriptor_server_f4ddebef26c6f1dd)
+	proto.RegisterFile("alameda_api/v1alpha1/datahub/server.proto", fileDescriptor_server_2cb97ee7ea3b7622)
 }
 
-var fileDescriptor_server_f4ddebef26c6f1dd = []byte{
-	// 1086 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xd4, 0x57, 0xcd, 0x6f, 0xdc, 0x44,
-	0x14, 0xcf, 0x34, 0x10, 0x35, 0x2f, 0xc9, 0xee, 0x76, 0x80, 0x66, 0xeb, 0x50, 0x14, 0xf9, 0x80,
-	0xfa, 0x81, 0xbc, 0x4a, 0xf8, 0x50, 0x91, 0x80, 0x92, 0x6d, 0x0a, 0x05, 0x41, 0xb4, 0xb8, 0xe5,
-	0x80, 0x40, 0xac, 0x26, 0xf6, 0x74, 0x6b, 0xb1, 0xeb, 0x71, 0xed, 0xd9, 0xa0, 0x1c, 0x10, 0x07,
-	0x4e, 0x70, 0x43, 0x70, 0x40, 0x08, 0x0e, 0x70, 0xe8, 0x91, 0x33, 0x37, 0xee, 0x48, 0x1c, 0xf8,
-	0x03, 0xf8, 0x5f, 0x90, 0x3d, 0x33, 0xde, 0xf5, 0x7a, 0xdc, 0xf8, 0xa3, 0x39, 0xe4, 0xb6, 0x5e,
-	0xcf, 0x7b, 0xef, 0xf7, 0x7e, 0xef, 0xf7, 0xe6, 0x3d, 0xc3, 0x55, 0x32, 0x26, 0x13, 0xea, 0x92,
-	0x21, 0x09, 0xbc, 0xde, 0xd1, 0x0e, 0x19, 0x07, 0x0f, 0xc8, 0x4e, 0xcf, 0x25, 0x9c, 0x3c, 0x98,
-	0x1e, 0xf6, 0x22, 0x1a, 0x1e, 0xd1, 0xd0, 0x0a, 0x42, 0xc6, 0x19, 0x7e, 0xd1, 0x61, 0x3e, 0x27,
-	0x9e, 0x4f, 0xc3, 0x68, 0x48, 0x3c, 0x4b, 0x1a, 0x5a, 0xca, 0xc8, 0x92, 0x46, 0xc6, 0xe6, 0x88,
-	0xb1, 0xd1, 0x98, 0xf6, 0xc2, 0xc0, 0xe9, 0x45, 0x9c, 0xf0, 0x69, 0x24, 0x1c, 0x18, 0x5b, 0xf2,
-	0x45, 0xf2, 0x74, 0x38, 0xbd, 0xdf, 0xa3, 0x93, 0x80, 0x1f, 0xcb, 0x97, 0xd7, 0x1f, 0x0b, 0x64,
-	0x42, 0x39, 0x89, 0x7f, 0xcb, 0xc3, 0xd7, 0x1e, 0x7b, 0x38, 0x08, 0xa9, 0xeb, 0x39, 0x5c, 0x9e,
-	0xbd, 0x7a, 0x92, 0xe3, 0xd0, 0x73, 0x4a, 0x61, 0x08, 0x69, 0xc4, 0xa6, 0xa1, 0x43, 0xe5, 0xe1,
-	0x9d, 0x13, 0x0e, 0x3b, 0x6c, 0x32, 0xa1, 0xbe, 0x4b, 0xb8, 0xc7, 0x7c, 0x61, 0x62, 0xfe, 0x87,
-	0x60, 0xfb, 0x5d, 0xca, 0xf7, 0x84, 0xe1, 0x80, 0xb9, 0xb6, 0x74, 0xf9, 0x9e, 0x7f, 0x9f, 0xd9,
-	0xf4, 0xe1, 0x94, 0x46, 0x1c, 0xbf, 0x0f, 0xcb, 0x01, 0x73, 0xbb, 0x68, 0x1b, 0x5d, 0x59, 0xdb,
-	0x7d, 0xcd, 0x2a, 0x47, 0xba, 0x75, 0x40, 0x26, 0x34, 0x0a, 0x88, 0x43, 0xdd, 0xf8, 0xd7, 0x9d,
-	0x25, 0x3b, 0x76, 0x82, 0x1d, 0xe8, 0x28, 0x94, 0x0a, 0x7d, 0xf7, 0x5c, 0x43, 0xc7, 0x6d, 0x79,
-	0x54, 0x61, 0xef, 0x9f, 0x87, 0x15, 0x4e, 0xc2, 0x11, 0xe5, 0xe6, 0xdf, 0x08, 0x9e, 0xfb, 0xc0,
-	0x8b, 0xf8, 0x80, 0xb9, 0x1f, 0x26, 0xbc, 0x46, 0x2a, 0xa9, 0x21, 0xb4, 0xfd, 0xd4, 0xd1, 0x30,
-	0xfe, 0xd9, 0x2c, 0x41, 0xbb, 0xe5, 0x67, 0x9e, 0xf1, 0x00, 0x80, 0x7b, 0x13, 0x3a, 0x0c, 0x89,
-	0x3f, 0x52, 0x39, 0xee, 0x94, 0xf5, 0x7d, 0xcf, 0x9b, 0x50, 0x3b, 0x36, 0xb4, 0x57, 0xb9, 0xfa,
-	0x69, 0xfe, 0x84, 0xe0, 0xe2, 0x62, 0x32, 0x51, 0xc0, 0xfc, 0x88, 0xe2, 0x6b, 0xb0, 0x22, 0x84,
-	0x2d, 0x93, 0xc0, 0x96, 0x50, 0xb6, 0x15, 0x06, 0x8e, 0x75, 0x37, 0x79, 0x63, 0xcb, 0x13, 0xd8,
-	0x86, 0xb5, 0x80, 0xb9, 0x43, 0xa1, 0xb3, 0xa8, 0x7b, 0x6e, 0x7b, 0xb9, 0x0a, 0xb2, 0x34, 0xb8,
-	0x0d, 0x41, 0x8a, 0xc3, 0xfc, 0x56, 0x42, 0x3b, 0x60, 0x2e, 0x5d, 0x20, 0xfa, 0x32, 0x80, 0xcf,
-	0x5c, 0x9a, 0x50, 0x1c, 0xc3, 0x5b, 0xbe, 0xb2, 0x6a, 0xaf, 0xc6, 0xff, 0x24, 0xfc, 0x9d, 0x02,
-	0x4d, 0xbf, 0x20, 0xd8, 0xcc, 0x61, 0xa9, 0xc1, 0xd3, 0xc7, 0xb0, 0x9e, 0x00, 0xcf, 0x12, 0xb5,
-	0x5b, 0x5a, 0x1e, 0x69, 0x78, 0x7b, 0xcd, 0x9f, 0x41, 0x31, 0xbf, 0x86, 0x8e, 0x2c, 0x62, 0x3d,
-	0x58, 0x37, 0xe1, 0xa9, 0x80, 0xb9, 0x0a, 0xce, 0xf5, 0x0a, 0x75, 0xb3, 0x13, 0x43, 0xf3, 0x1b,
-	0x04, 0x17, 0x14, 0x3f, 0xf5, 0x20, 0xf4, 0xe1, 0xe9, 0x38, 0x23, 0x85, 0xe1, 0xa5, 0x2a, 0x94,
-	0xd8, 0xc2, 0xd4, 0xfc, 0x07, 0x41, 0x57, 0xf2, 0x30, 0x10, 0xb7, 0xa3, 0xc7, 0xfc, 0x33, 0xdc,
-	0x9c, 0xbf, 0x23, 0xb8, 0xa4, 0xc9, 0xa7, 0x06, 0xbb, 0x9f, 0xc0, 0x86, 0x9c, 0x17, 0xd4, 0x1d,
-	0xc6, 0x17, 0xaf, 0x60, 0xf9, 0x95, 0xd2, 0x95, 0x56, 0xc6, 0x71, 0xc9, 0xd7, 0x83, 0xb9, 0x27,
-	0xf3, 0x3b, 0x09, 0x32, 0x2e, 0x44, 0x9e, 0xf5, 0x2d, 0x58, 0x4d, 0x3b, 0x55, 0x36, 0xea, 0x79,
-	0xd5, 0xa8, 0xa7, 0xc0, 0xd8, 0x23, 0x04, 0x86, 0x0e, 0x4c, 0x0d, 0xca, 0x3e, 0x83, 0xd6, 0x8c,
-	0xb2, 0x18, 0xb2, 0xe4, 0xec, 0xd5, 0xca, 0x9c, 0x25, 0x12, 0x9d, 0xf1, 0x1f, 0x3f, 0x9a, 0xff,
-	0x22, 0x78, 0x5e, 0x96, 0xd6, 0xce, 0x0c, 0xd1, 0x33, 0x2c, 0xd7, 0x3f, 0x10, 0x5c, 0x2e, 0xc8,
-	0xa9, 0x06, 0xff, 0x04, 0x3a, 0xe9, 0x7a, 0x21, 0x44, 0xab, 0xee, 0x86, 0xd2, 0x0c, 0xd8, 0x33,
-	0xfb, 0x18, 0x53, 0x3b, 0xcc, 0x3c, 0x47, 0xe6, 0x8d, 0xb4, 0xbd, 0xa2, 0xfe, 0xf1, 0x81, 0x54,
-	0x65, 0x19, 0xe5, 0x9a, 0xc7, 0x60, 0xdc, 0x0a, 0x29, 0xe1, 0x54, 0x7b, 0xd5, 0x7c, 0x3a, 0x2f,
-	0x9d, 0x04, 0x38, 0x6a, 0xd0, 0x6e, 0x1b, 0xf3, 0xed, 0x16, 0x99, 0x5f, 0xc1, 0x96, 0x08, 0xad,
-	0x6f, 0xb8, 0xcf, 0xa1, 0x9d, 0x95, 0xad, 0x0a, 0x5e, 0x53, 0xb7, 0xad, 0x8c, 0x6e, 0x93, 0x9b,
-	0xfe, 0x85, 0x34, 0x75, 0xbd, 0x74, 0x75, 0x95, 0x43, 0x4f, 0xb6, 0x72, 0x7f, 0x21, 0xd8, 0x14,
-	0x28, 0xe6, 0xd7, 0x4c, 0x11, 0xfe, 0x1e, 0xac, 0x04, 0x6c, 0xec, 0x39, 0xc7, 0x89, 0xc8, 0x5a,
-	0xbb, 0x6f, 0x54, 0x0e, 0x9a, 0x64, 0x33, 0x48, 0x7c, 0xd8, 0xd2, 0x17, 0x3e, 0x80, 0x75, 0xb5,
-	0x64, 0xd6, 0x1d, 0x95, 0x6b, 0x24, 0xc5, 0x1a, 0x99, 0x13, 0xe8, 0x66, 0x12, 0x48, 0xc8, 0x96,
-	0x19, 0x7c, 0x04, 0x1b, 0x2a, 0xd6, 0x7c, 0x05, 0xab, 0xcd, 0x44, 0x05, 0x57, 0x94, 0xcd, 0x83,
-	0xcd, 0x7d, 0x3a, 0xa6, 0x3a, 0xbe, 0x16, 0x33, 0x43, 0xcd, 0x33, 0xcb, 0x84, 0x3a, 0xdd, 0xcc,
-	0x76, 0xff, 0xec, 0x40, 0x6b, 0x5f, 0xbc, 0xbe, 0x4b, 0xc3, 0x23, 0xcf, 0xa1, 0xf8, 0x37, 0x04,
-	0x97, 0x0a, 0xbf, 0x40, 0xf0, 0x9d, 0xb2, 0xc1, 0x4e, 0xfa, 0x88, 0x31, 0x6e, 0x94, 0xf5, 0xb4,
-	0xb8, 0x9c, 0x99, 0x4b, 0xf8, 0x7b, 0x04, 0xad, 0xec, 0xe2, 0x8d, 0xdf, 0xac, 0xe8, 0x2e, 0xbb,
-	0x14, 0x1b, 0x6f, 0xd5, 0x35, 0x4f, 0x31, 0xfd, 0x88, 0xa0, 0xbd, 0xb0, 0xe5, 0xe2, 0x4a, 0x5e,
-	0xf3, 0xab, 0xba, 0x71, 0xb3, 0xb6, 0x7d, 0x0a, 0x8b, 0x0a, 0x54, 0xb3, 0x5a, 0x44, 0xf8, 0xa2,
-	0x1a, 0x1c, 0xea, 0x2b, 0xdb, 0xba, 0x1d, 0x7f, 0x65, 0x37, 0xaa, 0xc8, 0x48, 0x2c, 0xd1, 0x73,
-	0xaa, 0x2d, 0x8e, 0xf3, 0x7a, 0xd5, 0xac, 0xe6, 0x03, 0xfd, 0x2c, 0x97, 0xe5, 0xcc, 0xec, 0xc0,
-	0x6f, 0x57, 0x84, 0x9e, 0xbb, 0xfa, 0x8d, 0xbd, 0x06, 0x1e, 0x52, 0x70, 0xbf, 0x22, 0xc0, 0xf9,
-	0x0d, 0x0a, 0xef, 0x55, 0x4d, 0x38, 0x0f, 0xaf, 0xdf, 0xc4, 0x45, 0x8a, 0xef, 0xd1, 0xec, 0xeb,
-	0x3b, 0x7b, 0x5f, 0xe3, 0xfd, 0x8a, 0xe9, 0x6b, 0x87, 0x97, 0x71, 0xbb, 0xa1, 0x97, 0x14, 0xe8,
-	0x0f, 0x92, 0xc8, 0xec, 0x76, 0x81, 0xab, 0x16, 0x29, 0xbf, 0x99, 0x34, 0x12, 0xb9, 0x07, 0x9d,
-	0xc5, 0xb9, 0x89, 0x4b, 0xb7, 0x68, 0xc1, 0xc4, 0x35, 0x34, 0x6b, 0x9c, 0xb9, 0x84, 0xbf, 0x80,
-	0x0b, 0xb9, 0x09, 0x57, 0x5e, 0xe5, 0x45, 0xc3, 0xb1, 0x20, 0x18, 0x83, 0x67, 0x34, 0x0b, 0x19,
-	0xee, 0x57, 0x0b, 0xa7, 0x6d, 0x2b, 0x7d, 0xc0, 0x87, 0xf0, 0xac, 0x6e, 0x0d, 0xc3, 0xb7, 0xaa,
-	0x45, 0xd4, 0xb7, 0x8a, 0x3e, 0xe4, 0x97, 0x6a, 0xe7, 0xc9, 0x6b, 0xff, 0x9d, 0xca, 0x79, 0xea,
-	0xd5, 0xaf, 0x0f, 0xec, 0x41, 0x67, 0x71, 0x79, 0x28, 0x2f, 0x9a, 0x82, 0xb5, 0xa3, 0x58, 0x34,
-	0xb9, 0xe5, 0xa1, 0xbc, 0x68, 0x8a, 0xf6, 0x0e, 0x7d, 0xb0, 0xc3, 0x95, 0xe4, 0x56, 0x7f, 0xf9,
-	0xff, 0x00, 0x00, 0x00, 0xff, 0xff, 0x0e, 0xd2, 0x34, 0x0a, 0x1f, 0x16, 0x00, 0x00,
+var fileDescriptor_server_2cb97ee7ea3b7622 = []byte{
+	// 1047 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xd4, 0x57, 0xcf, 0x6f, 0xdc, 0x44,
+	0x14, 0xee, 0xb4, 0x10, 0x91, 0x97, 0xb2, 0xbb, 0x9d, 0x42, 0xb3, 0x38, 0x14, 0x15, 0x1f, 0x50,
+	0x7f, 0x20, 0xaf, 0x12, 0x44, 0xd5, 0x4a, 0x40, 0x49, 0x9a, 0x22, 0x55, 0x82, 0x68, 0x71, 0xcb,
+	0x95, 0xd5, 0xc4, 0x9e, 0x6e, 0x0d, 0x6b, 0xcf, 0xd4, 0xe3, 0x0d, 0x8a, 0x84, 0x04, 0x12, 0x12,
+	0x12, 0x88, 0x0b, 0x82, 0x03, 0x42, 0x70, 0x42, 0x82, 0x03, 0x7f, 0x00, 0x12, 0x17, 0xee, 0x48,
+	0x1c, 0xf8, 0x8f, 0x2a, 0xdb, 0x33, 0xce, 0x7a, 0x3d, 0x6e, 0x3c, 0xde, 0xee, 0x21, 0xb7, 0xf5,
+	0x7a, 0xde, 0x7b, 0xdf, 0x7b, 0xef, 0x7b, 0xf3, 0x3e, 0xc3, 0x15, 0x32, 0x21, 0x21, 0xf5, 0xc9,
+	0x88, 0xf0, 0x60, 0x70, 0xb0, 0x49, 0x26, 0xfc, 0x21, 0xd9, 0x1c, 0xf8, 0x24, 0x21, 0x0f, 0xa7,
+	0xfb, 0x03, 0x41, 0xe3, 0x03, 0x1a, 0x3b, 0x3c, 0x66, 0x09, 0xc3, 0xaf, 0x79, 0x2c, 0x4a, 0x48,
+	0x10, 0xd1, 0x58, 0x8c, 0x48, 0xe0, 0x48, 0x43, 0x47, 0x19, 0x39, 0xd2, 0xc8, 0x5a, 0x1f, 0x33,
+	0x36, 0x9e, 0xd0, 0x41, 0xcc, 0xbd, 0x81, 0x48, 0x48, 0x32, 0x15, 0xb9, 0x03, 0x6b, 0x43, 0xbe,
+	0xc8, 0x9e, 0xf6, 0xa7, 0x0f, 0x06, 0x34, 0xe4, 0xc9, 0xa1, 0x7c, 0x79, 0xed, 0x89, 0x40, 0x42,
+	0x9a, 0x90, 0xf4, 0xb7, 0x3c, 0x7c, 0xf5, 0x89, 0x87, 0x79, 0x4c, 0xfd, 0xc0, 0x4b, 0xe4, 0xd9,
+	0x2b, 0xc7, 0x39, 0x8e, 0x03, 0xaf, 0x11, 0x86, 0x98, 0x0a, 0x36, 0x8d, 0x3d, 0x2a, 0x0f, 0x6f,
+	0x1e, 0x73, 0xd8, 0x63, 0x61, 0x48, 0x23, 0x9f, 0x24, 0x01, 0x8b, 0x72, 0x13, 0xfb, 0x6b, 0x04,
+	0xaf, 0xbe, 0x1f, 0x88, 0x64, 0x3b, 0xb7, 0x1c, 0x32, 0xdf, 0x95, 0x3e, 0xef, 0x46, 0x0f, 0x98,
+	0x4b, 0x1f, 0x4d, 0xa9, 0x48, 0x30, 0x81, 0x9e, 0x72, 0xad, 0x42, 0xf6, 0xd1, 0x25, 0x74, 0x79,
+	0x6d, 0xeb, 0xba, 0xd3, 0xac, 0x05, 0xce, 0x1e, 0x09, 0xa9, 0xe0, 0xc4, 0xa3, 0x7e, 0xfa, 0xcb,
+	0xed, 0xca, 0x83, 0x2a, 0x9a, 0xfd, 0x2f, 0x82, 0x17, 0x53, 0x20, 0x43, 0xe6, 0x7f, 0x90, 0x15,
+	0x40, 0xa8, 0xe0, 0x23, 0xe8, 0x46, 0x85, 0xf1, 0x28, 0xfd, 0xb9, 0x60, 0xec, 0x4e, 0x54, 0x7a,
+	0xc6, 0x43, 0x80, 0x24, 0x08, 0xe9, 0x28, 0x26, 0xd1, 0x98, 0xf6, 0x4f, 0x67, 0xbe, 0x37, 0x9b,
+	0xfa, 0xbe, 0x1f, 0x84, 0xd4, 0x4d, 0x0d, 0xdd, 0xd5, 0x44, 0xfd, 0xb4, 0x7f, 0x42, 0x70, 0x61,
+	0x3e, 0x19, 0xc1, 0x59, 0x24, 0x28, 0xbe, 0x0a, 0x2b, 0x39, 0x03, 0x65, 0x12, 0xd8, 0xc9, 0x29,
+	0xe8, 0xc4, 0xdc, 0x73, 0xee, 0x65, 0x6f, 0x5c, 0x79, 0x02, 0xbb, 0xb0, 0xc6, 0x99, 0x3f, 0xca,
+	0x09, 0x21, 0xfa, 0xa7, 0x2f, 0x9d, 0x31, 0x41, 0x56, 0x04, 0x77, 0x81, 0x17, 0x38, 0xec, 0x6f,
+	0x24, 0xb4, 0x3d, 0xe6, 0xd3, 0xb9, 0x42, 0x5f, 0x04, 0x88, 0x98, 0x4f, 0xb3, 0x12, 0xa7, 0xf0,
+	0xce, 0x5c, 0x5e, 0x75, 0x57, 0xd3, 0x7f, 0xb2, 0xfa, 0x2d, 0xa1, 0x4c, 0xbf, 0x20, 0x58, 0xaf,
+	0x60, 0x69, 0x51, 0xa7, 0x8f, 0xe0, 0x6c, 0x06, 0xbc, 0x5c, 0xa8, 0xad, 0xc6, 0xf4, 0x28, 0xc2,
+	0xbb, 0x6b, 0xd1, 0x11, 0x14, 0xfb, 0x0b, 0xe8, 0xc9, 0x26, 0xb6, 0x83, 0x75, 0x0b, 0x9e, 0xe1,
+	0xcc, 0x57, 0x70, 0xae, 0x19, 0xf4, 0xcd, 0xcd, 0x0c, 0xed, 0xaf, 0x10, 0x9c, 0x53, 0xf5, 0x69,
+	0x07, 0x61, 0x07, 0x9e, 0x4d, 0x33, 0x52, 0x18, 0x5e, 0x37, 0x29, 0x89, 0x9b, 0x9b, 0xda, 0xff,
+	0x21, 0xe8, 0xcb, 0x3a, 0x0c, 0xf3, 0x6b, 0x2c, 0x60, 0xd1, 0x09, 0x1e, 0xce, 0x3f, 0x10, 0xbc,
+	0xa4, 0xc9, 0xa7, 0x45, 0x75, 0x3f, 0x86, 0x6e, 0x3a, 0x9f, 0xbc, 0xf0, 0xa2, 0xea, 0xfc, 0xa6,
+	0x41, 0xaf, 0x67, 0x30, 0x74, 0xf8, 0xec, 0xa3, 0xb0, 0xbf, 0x95, 0x48, 0xd3, 0x6e, 0x54, 0x4b,
+	0xbf, 0x01, 0xab, 0xc5, 0xb8, 0xca, 0x69, 0x7d, 0x4e, 0x4d, 0xeb, 0x12, 0xca, 0xf6, 0x27, 0x02,
+	0x4b, 0x07, 0xa6, 0x45, 0xdd, 0x08, 0xf4, 0x32, 0xe4, 0xd5, 0xc2, 0x5d, 0x37, 0x21, 0xe8, 0x0c,
+	0x8a, 0x6e, 0x54, 0x7a, 0x16, 0xf6, 0xff, 0x08, 0x5e, 0x96, 0x4d, 0x76, 0x4b, 0x7b, 0xef, 0x04,
+	0x13, 0xf7, 0x2f, 0x04, 0x17, 0x6b, 0x72, 0x6a, 0xd1, 0x84, 0x4f, 0xe0, 0x7c, 0x4a, 0xde, 0xb2,
+	0x2a, 0x50, 0x7d, 0xb8, 0x69, 0x72, 0x59, 0x95, 0xb1, 0x60, 0x3e, 0xff, 0x97, 0xb0, 0x6f, 0x14,
+	0x13, 0x27, 0x76, 0x0e, 0xf7, 0x24, 0x47, 0x9b, 0xf0, 0xd8, 0xfe, 0x1c, 0xac, 0xdb, 0x31, 0x25,
+	0x09, 0xd5, 0xde, 0x3e, 0x9a, 0x01, 0x44, 0x4f, 0x73, 0x00, 0xbf, 0x44, 0xb0, 0x91, 0x87, 0xd7,
+	0x8f, 0xa0, 0x8e, 0xc8, 0xe8, 0xe9, 0x12, 0xf9, 0x3b, 0x04, 0xaf, 0x14, 0x15, 0xd0, 0x53, 0xb9,
+	0xa6, 0x93, 0x68, 0x19, 0x9d, 0xfc, 0x07, 0xc1, 0x7a, 0x0e, 0x67, 0x56, 0x31, 0xe6, 0x38, 0xee,
+	0xc3, 0x0a, 0x67, 0x93, 0xc0, 0x3b, 0xcc, 0xd8, 0xd7, 0xd9, 0x7a, 0xab, 0x69, 0xe8, 0x72, 0x90,
+	0x61, 0xe6, 0xc3, 0x95, 0xbe, 0xf0, 0x1e, 0x9c, 0x55, 0xda, 0xb3, 0xed, 0x36, 0x5d, 0x23, 0x05,
+	0x56, 0x61, 0x87, 0xd0, 0x2f, 0x25, 0x90, 0xad, 0x3a, 0x99, 0xc1, 0x87, 0xf0, 0xbc, 0x8a, 0x95,
+	0xaf, 0x4d, 0xd4, 0x62, 0x6d, 0x2a, 0xb8, 0xd9, 0xd6, 0xb6, 0x03, 0x58, 0xdf, 0xa5, 0x13, 0xaa,
+	0xab, 0xd7, 0x7c, 0x66, 0x68, 0xf1, 0xcc, 0x4a, 0xa1, 0x96, 0x9b, 0xd9, 0xd6, 0xdf, 0x3d, 0xe8,
+	0xec, 0xe6, 0xaf, 0xef, 0xd1, 0xf8, 0x20, 0xf0, 0x28, 0xfe, 0x4d, 0xee, 0x08, 0xfd, 0xd7, 0x04,
+	0xbe, 0xdb, 0x34, 0xda, 0xb1, 0x5f, 0x24, 0xd6, 0x0d, 0x13, 0x57, 0xb3, 0x0a, 0xce, 0x3e, 0x85,
+	0xbf, 0x47, 0xd0, 0x29, 0xab, 0x73, 0xfc, 0xb6, 0xa1, 0xbb, 0xb2, 0x72, 0xb6, 0xde, 0x69, 0x6b,
+	0x5e, 0x60, 0xfa, 0x11, 0x41, 0x77, 0x4e, 0x0a, 0x63, 0x23, 0xaf, 0x55, 0x3d, 0x6f, 0xdd, 0x6a,
+	0x6d, 0x5f, 0xc0, 0xa2, 0x39, 0xaa, 0xa3, 0x5e, 0x08, 0x7c, 0x41, 0xed, 0x14, 0xf5, 0xcd, 0xec,
+	0xdc, 0x49, 0xbf, 0x99, 0x17, 0xea, 0xc8, 0x38, 0x57, 0xda, 0x33, 0xbc, 0xad, 0x8f, 0x73, 0xd3,
+	0x34, 0xab, 0xd9, 0x40, 0x3f, 0x4b, 0x45, 0x5d, 0xba, 0xf6, 0xf1, 0xbb, 0x86, 0xd0, 0x2b, 0x8b,
+	0xc0, 0xda, 0x5e, 0xc0, 0x43, 0x01, 0xee, 0x57, 0x04, 0xb8, 0xaa, 0xb0, 0xf0, 0xb6, 0x69, 0xc2,
+	0x55, 0x78, 0x3b, 0x8b, 0xb8, 0x28, 0xf0, 0xfd, 0x7e, 0xf4, 0x89, 0x5e, 0xbe, 0xb1, 0xf1, 0xae,
+	0x61, 0xfa, 0xda, 0x3d, 0x66, 0xdd, 0x59, 0xd0, 0x4b, 0x01, 0xf4, 0x07, 0x59, 0xc8, 0xb2, 0xde,
+	0xc0, 0xa6, 0x4d, 0xaa, 0x6a, 0x95, 0x85, 0x48, 0x1e, 0x40, 0x6f, 0x7e, 0x73, 0xe2, 0xc6, 0x23,
+	0x5a, 0xb3, 0x73, 0x2d, 0x8d, 0xc2, 0xb3, 0x4f, 0xe1, 0x4f, 0xe1, 0x5c, 0x65, 0xc7, 0x35, 0x67,
+	0x79, 0xdd, 0x7a, 0xac, 0x09, 0xc6, 0xe0, 0xbc, 0x46, 0xa2, 0xe1, 0x1d, 0xb3, 0x70, 0xda, 0xb1,
+	0xd2, 0x07, 0x7c, 0x04, 0x2f, 0xe8, 0x44, 0x19, 0xbe, 0x6d, 0x16, 0x51, 0x3f, 0x2a, 0xfa, 0x90,
+	0x9f, 0x29, 0xd5, 0x53, 0xe5, 0xfe, 0x7b, 0xc6, 0x79, 0xea, 0xd9, 0xaf, 0x0f, 0x1c, 0x40, 0x6f,
+	0x5e, 0x3e, 0x34, 0x27, 0x4d, 0x8d, 0xf0, 0xa8, 0x27, 0x4d, 0x45, 0x3e, 0x34, 0x27, 0x4d, 0x9d,
+	0xf2, 0xd0, 0x07, 0xdb, 0x5f, 0xc9, 0x6e, 0xf5, 0x37, 0x1e, 0x07, 0x00, 0x00, 0xff, 0xff, 0xca,
+	0x8f, 0xac, 0x16, 0xed, 0x15, 0x00, 0x00,
 }
