@@ -6,10 +6,10 @@ import "google/protobuf/timestamp.proto";
 import "alameda_api/v1alpha1/datahub/pod_assignment.proto";
 import "alameda_api/v1alpha1/datahub/metric.proto";
 
-message RecommendedContainer {
+message ContainerRecommendation {
     string name = 1;    
-    repeated MetricData recommended_limit = 2;
-    repeated MetricData recommended_request = 3;
+    repeated MetricData limit_recommendations = 2;
+    repeated MetricData request_recommendations = 3;
 }
 
 message AssignPodPolicy {
@@ -21,8 +21,8 @@ message AssignPodPolicy {
     };
 }
 
-message RecommendedPod {
+message PodRecommendation {
     bool apply_recommendation_now = 1;
     AssignPodPolicy assign_pod_policy = 2;
-    repeated RecommendedContainer recommended_containers = 3;
+    repeated ContainerRecommendation container_recommendations = 3;
 }
