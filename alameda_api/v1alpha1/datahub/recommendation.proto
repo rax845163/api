@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package containers_ai.alameda.v1alpha1.datahub;
+
+import "google/protobuf/timestamp.proto";
+import "alameda_api/v1alpha1/datahub/pod_assignment.proto";
+import "alameda_api/v1alpha1/datahub/metric.proto";
+
+message RecommendedContainer {
+    string name = 1;    
+    repeated MetricData recommended_limit = 2;
+    repeated MetricData recommended_request = 3;
+}
+
+message AssignPodPolicy {
+    google.protobuf.Timestamp time = 1;
+    oneof policy {
+        NodePriority node_priority = 2;
+        Selector node_selector = 3;
+        string node_name = 4;
+    };
+}
+
+message RecommendedPod {
+    bool apply_recommendation_now = 1;
+    AssignPodPolicy assign_pod_policy = 2;
+    repeated RecommendedContainer recommended_containers = 3;
+}

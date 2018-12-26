@@ -33,384 +33,226 @@ var RecommendationPolicy_name = map[int32]string{
 }
 var RecommendationPolicy_value = map[string]int32{
 	"RECOMMENDATIONPOLICY_UNDEFINED": 0,
-	"STABLE":  1,
-	"COMPACT": 2,
+	"STABLE":                         1,
+	"COMPACT":                        2,
 }
 
 func (x RecommendationPolicy) String() string {
 	return proto.EnumName(RecommendationPolicy_name, int32(x))
 }
 func (RecommendationPolicy) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_predict_e681b31ed73a987c, []int{0}
+	return fileDescriptor_predict_4c0ce2f64d2cff23, []int{0}
 }
 
-type PredictContainer struct {
-	Name                          string        `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	RowPredictData                []*MetricData `protobuf:"bytes,2,rep,name=row_predict_data,json=rowPredictData,proto3" json:"row_predict_data,omitempty"`
-	LimitPredictData              []*MetricData `protobuf:"bytes,3,rep,name=limit_predict_data,json=limitPredictData,proto3" json:"limit_predict_data,omitempty"`
-	RequestPredictData            []*MetricData `protobuf:"bytes,4,rep,name=request_predict_data,json=requestPredictData,proto3" json:"request_predict_data,omitempty"`
-	InitialLimitPredictResource   []*MetricData `protobuf:"bytes,5,rep,name=initial_limit_predict_resource,json=initialLimitPredictResource,proto3" json:"initial_limit_predict_resource,omitempty"`
-	InitialRequestPredictResource []*MetricData `protobuf:"bytes,6,rep,name=initial_request_predict_resource,json=initialRequestPredictResource,proto3" json:"initial_request_predict_resource,omitempty"`
-	XXX_NoUnkeyedLiteral          struct{}      `json:"-"`
-	XXX_unrecognized              []byte        `json:"-"`
-	XXX_sizecache                 int32         `json:"-"`
+type PredictedContainer struct {
+	Name                            string        `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	PredictedRawData                []*MetricData `protobuf:"bytes,2,rep,name=predicted_raw_data,json=predictedRawData,proto3" json:"predicted_raw_data,omitempty"`
+	PredictedLimitData              []*MetricData `protobuf:"bytes,3,rep,name=predicted_limit_data,json=predictedLimitData,proto3" json:"predicted_limit_data,omitempty"`
+	PredictedRequestData            []*MetricData `protobuf:"bytes,4,rep,name=predicted_request_data,json=predictedRequestData,proto3" json:"predicted_request_data,omitempty"`
+	PredictedInitialLimitResource   []*MetricData `protobuf:"bytes,5,rep,name=predicted_initial_limit_resource,json=predictedInitialLimitResource,proto3" json:"predicted_initial_limit_resource,omitempty"`
+	PredictedInitialRequestResource []*MetricData `protobuf:"bytes,6,rep,name=predicted_initial_request_resource,json=predictedInitialRequestResource,proto3" json:"predicted_initial_request_resource,omitempty"`
+	XXX_NoUnkeyedLiteral            struct{}      `json:"-"`
+	XXX_unrecognized                []byte        `json:"-"`
+	XXX_sizecache                   int32         `json:"-"`
 }
 
-func (m *PredictContainer) Reset()         { *m = PredictContainer{} }
-func (m *PredictContainer) String() string { return proto.CompactTextString(m) }
-func (*PredictContainer) ProtoMessage()    {}
-func (*PredictContainer) Descriptor() ([]byte, []int) {
-	return fileDescriptor_predict_e681b31ed73a987c, []int{0}
+func (m *PredictedContainer) Reset()         { *m = PredictedContainer{} }
+func (m *PredictedContainer) String() string { return proto.CompactTextString(m) }
+func (*PredictedContainer) ProtoMessage()    {}
+func (*PredictedContainer) Descriptor() ([]byte, []int) {
+	return fileDescriptor_predict_4c0ce2f64d2cff23, []int{0}
 }
-func (m *PredictContainer) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PredictContainer.Unmarshal(m, b)
+func (m *PredictedContainer) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PredictedContainer.Unmarshal(m, b)
 }
-func (m *PredictContainer) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PredictContainer.Marshal(b, m, deterministic)
+func (m *PredictedContainer) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PredictedContainer.Marshal(b, m, deterministic)
 }
-func (dst *PredictContainer) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PredictContainer.Merge(dst, src)
+func (dst *PredictedContainer) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PredictedContainer.Merge(dst, src)
 }
-func (m *PredictContainer) XXX_Size() int {
-	return xxx_messageInfo_PredictContainer.Size(m)
+func (m *PredictedContainer) XXX_Size() int {
+	return xxx_messageInfo_PredictedContainer.Size(m)
 }
-func (m *PredictContainer) XXX_DiscardUnknown() {
-	xxx_messageInfo_PredictContainer.DiscardUnknown(m)
+func (m *PredictedContainer) XXX_DiscardUnknown() {
+	xxx_messageInfo_PredictedContainer.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_PredictContainer proto.InternalMessageInfo
+var xxx_messageInfo_PredictedContainer proto.InternalMessageInfo
 
-func (m *PredictContainer) GetName() string {
+func (m *PredictedContainer) GetName() string {
 	if m != nil {
 		return m.Name
 	}
 	return ""
 }
 
-func (m *PredictContainer) GetRowPredictData() []*MetricData {
+func (m *PredictedContainer) GetPredictedRawData() []*MetricData {
 	if m != nil {
-		return m.RowPredictData
+		return m.PredictedRawData
 	}
 	return nil
 }
 
-func (m *PredictContainer) GetLimitPredictData() []*MetricData {
+func (m *PredictedContainer) GetPredictedLimitData() []*MetricData {
 	if m != nil {
-		return m.LimitPredictData
+		return m.PredictedLimitData
 	}
 	return nil
 }
 
-func (m *PredictContainer) GetRequestPredictData() []*MetricData {
+func (m *PredictedContainer) GetPredictedRequestData() []*MetricData {
 	if m != nil {
-		return m.RequestPredictData
+		return m.PredictedRequestData
 	}
 	return nil
 }
 
-func (m *PredictContainer) GetInitialLimitPredictResource() []*MetricData {
+func (m *PredictedContainer) GetPredictedInitialLimitResource() []*MetricData {
 	if m != nil {
-		return m.InitialLimitPredictResource
+		return m.PredictedInitialLimitResource
 	}
 	return nil
 }
 
-func (m *PredictContainer) GetInitialRequestPredictResource() []*MetricData {
+func (m *PredictedContainer) GetPredictedInitialRequestResource() []*MetricData {
 	if m != nil {
-		return m.InitialRequestPredictResource
+		return m.PredictedInitialRequestResource
 	}
 	return nil
 }
 
-type PredictPod struct {
-	Uid               string              `protobuf:"bytes,1,opt,name=uid,proto3" json:"uid,omitempty"`
-	NamespacedName    *NamespacedName     `protobuf:"bytes,2,opt,name=namespaced_name,json=namespacedName,proto3" json:"namespaced_name,omitempty"`
-	PredictContainers []*PredictContainer `protobuf:"bytes,3,rep,name=predict_containers,json=predictContainers,proto3" json:"predict_containers,omitempty"`
-	// Types that are valid to be assigned to AssignPodPolicy:
-	//	*PredictPod_NodePriority
-	//	*PredictPod_NodeSelector
-	//	*PredictPod_NodeName
-	AssignPodPolicy      isPredictPod_AssignPodPolicy `protobuf_oneof:"assign_pod_policy"`
-	XXX_NoUnkeyedLiteral struct{}                     `json:"-"`
-	XXX_unrecognized     []byte                       `json:"-"`
-	XXX_sizecache        int32                        `json:"-"`
+type PredictedPod struct {
+	NamespacedName       *NamespacedName       `protobuf:"bytes,1,opt,name=namespaced_name,json=namespacedName,proto3" json:"namespaced_name,omitempty"`
+	PredictedContainers  []*PredictedContainer `protobuf:"bytes,2,rep,name=predicted_containers,json=predictedContainers,proto3" json:"predicted_containers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
-func (m *PredictPod) Reset()         { *m = PredictPod{} }
-func (m *PredictPod) String() string { return proto.CompactTextString(m) }
-func (*PredictPod) ProtoMessage()    {}
-func (*PredictPod) Descriptor() ([]byte, []int) {
-	return fileDescriptor_predict_e681b31ed73a987c, []int{1}
+func (m *PredictedPod) Reset()         { *m = PredictedPod{} }
+func (m *PredictedPod) String() string { return proto.CompactTextString(m) }
+func (*PredictedPod) ProtoMessage()    {}
+func (*PredictedPod) Descriptor() ([]byte, []int) {
+	return fileDescriptor_predict_4c0ce2f64d2cff23, []int{1}
 }
-func (m *PredictPod) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PredictPod.Unmarshal(m, b)
+func (m *PredictedPod) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PredictedPod.Unmarshal(m, b)
 }
-func (m *PredictPod) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PredictPod.Marshal(b, m, deterministic)
+func (m *PredictedPod) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PredictedPod.Marshal(b, m, deterministic)
 }
-func (dst *PredictPod) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PredictPod.Merge(dst, src)
+func (dst *PredictedPod) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PredictedPod.Merge(dst, src)
 }
-func (m *PredictPod) XXX_Size() int {
-	return xxx_messageInfo_PredictPod.Size(m)
+func (m *PredictedPod) XXX_Size() int {
+	return xxx_messageInfo_PredictedPod.Size(m)
 }
-func (m *PredictPod) XXX_DiscardUnknown() {
-	xxx_messageInfo_PredictPod.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_PredictPod proto.InternalMessageInfo
-
-func (m *PredictPod) GetUid() string {
-	if m != nil {
-		return m.Uid
-	}
-	return ""
+func (m *PredictedPod) XXX_DiscardUnknown() {
+	xxx_messageInfo_PredictedPod.DiscardUnknown(m)
 }
 
-func (m *PredictPod) GetNamespacedName() *NamespacedName {
+var xxx_messageInfo_PredictedPod proto.InternalMessageInfo
+
+func (m *PredictedPod) GetNamespacedName() *NamespacedName {
 	if m != nil {
 		return m.NamespacedName
 	}
 	return nil
 }
 
-func (m *PredictPod) GetPredictContainers() []*PredictContainer {
+func (m *PredictedPod) GetPredictedContainers() []*PredictedContainer {
 	if m != nil {
-		return m.PredictContainers
+		return m.PredictedContainers
 	}
 	return nil
 }
 
-type isPredictPod_AssignPodPolicy interface {
-	isPredictPod_AssignPodPolicy()
-}
-
-type PredictPod_NodePriority struct {
-	NodePriority *NodePriority `protobuf:"bytes,4,opt,name=node_priority,json=nodePriority,proto3,oneof"`
-}
-
-type PredictPod_NodeSelector struct {
-	NodeSelector *Selector `protobuf:"bytes,5,opt,name=node_selector,json=nodeSelector,proto3,oneof"`
-}
-
-type PredictPod_NodeName struct {
-	NodeName string `protobuf:"bytes,6,opt,name=node_name,json=nodeName,proto3,oneof"`
-}
-
-func (*PredictPod_NodePriority) isPredictPod_AssignPodPolicy() {}
-
-func (*PredictPod_NodeSelector) isPredictPod_AssignPodPolicy() {}
-
-func (*PredictPod_NodeName) isPredictPod_AssignPodPolicy() {}
-
-func (m *PredictPod) GetAssignPodPolicy() isPredictPod_AssignPodPolicy {
-	if m != nil {
-		return m.AssignPodPolicy
-	}
-	return nil
-}
-
-func (m *PredictPod) GetNodePriority() *NodePriority {
-	if x, ok := m.GetAssignPodPolicy().(*PredictPod_NodePriority); ok {
-		return x.NodePriority
-	}
-	return nil
-}
-
-func (m *PredictPod) GetNodeSelector() *Selector {
-	if x, ok := m.GetAssignPodPolicy().(*PredictPod_NodeSelector); ok {
-		return x.NodeSelector
-	}
-	return nil
-}
-
-func (m *PredictPod) GetNodeName() string {
-	if x, ok := m.GetAssignPodPolicy().(*PredictPod_NodeName); ok {
-		return x.NodeName
-	}
-	return ""
-}
-
-// XXX_OneofFuncs is for the internal use of the proto package.
-func (*PredictPod) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
-	return _PredictPod_OneofMarshaler, _PredictPod_OneofUnmarshaler, _PredictPod_OneofSizer, []interface{}{
-		(*PredictPod_NodePriority)(nil),
-		(*PredictPod_NodeSelector)(nil),
-		(*PredictPod_NodeName)(nil),
-	}
-}
-
-func _PredictPod_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
-	m := msg.(*PredictPod)
-	// assign_pod_policy
-	switch x := m.AssignPodPolicy.(type) {
-	case *PredictPod_NodePriority:
-		b.EncodeVarint(4<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.NodePriority); err != nil {
-			return err
-		}
-	case *PredictPod_NodeSelector:
-		b.EncodeVarint(5<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.NodeSelector); err != nil {
-			return err
-		}
-	case *PredictPod_NodeName:
-		b.EncodeVarint(6<<3 | proto.WireBytes)
-		b.EncodeStringBytes(x.NodeName)
-	case nil:
-	default:
-		return fmt.Errorf("PredictPod.AssignPodPolicy has unexpected type %T", x)
-	}
-	return nil
-}
-
-func _PredictPod_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
-	m := msg.(*PredictPod)
-	switch tag {
-	case 4: // assign_pod_policy.node_priority
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(NodePriority)
-		err := b.DecodeMessage(msg)
-		m.AssignPodPolicy = &PredictPod_NodePriority{msg}
-		return true, err
-	case 5: // assign_pod_policy.node_selector
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(Selector)
-		err := b.DecodeMessage(msg)
-		m.AssignPodPolicy = &PredictPod_NodeSelector{msg}
-		return true, err
-	case 6: // assign_pod_policy.node_name
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		x, err := b.DecodeStringBytes()
-		m.AssignPodPolicy = &PredictPod_NodeName{x}
-		return true, err
-	default:
-		return false, nil
-	}
-}
-
-func _PredictPod_OneofSizer(msg proto.Message) (n int) {
-	m := msg.(*PredictPod)
-	// assign_pod_policy
-	switch x := m.AssignPodPolicy.(type) {
-	case *PredictPod_NodePriority:
-		s := proto.Size(x.NodePriority)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *PredictPod_NodeSelector:
-		s := proto.Size(x.NodeSelector)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *PredictPod_NodeName:
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(len(x.NodeName)))
-		n += len(x.NodeName)
-	case nil:
-	default:
-		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
-	}
-	return n
-}
-
-type PredictNode struct {
+type PredictedNode struct {
 	Name                 string        `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	RowPredictData       []*MetricData `protobuf:"bytes,2,rep,name=row_predict_data,json=rowPredictData,proto3" json:"row_predict_data,omitempty"`
+	PredictedRawData     []*MetricData `protobuf:"bytes,2,rep,name=predicted_raw_data,json=predictedRawData,proto3" json:"predicted_raw_data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
 	XXX_unrecognized     []byte        `json:"-"`
 	XXX_sizecache        int32         `json:"-"`
 }
 
-func (m *PredictNode) Reset()         { *m = PredictNode{} }
-func (m *PredictNode) String() string { return proto.CompactTextString(m) }
-func (*PredictNode) ProtoMessage()    {}
-func (*PredictNode) Descriptor() ([]byte, []int) {
-	return fileDescriptor_predict_e681b31ed73a987c, []int{2}
+func (m *PredictedNode) Reset()         { *m = PredictedNode{} }
+func (m *PredictedNode) String() string { return proto.CompactTextString(m) }
+func (*PredictedNode) ProtoMessage()    {}
+func (*PredictedNode) Descriptor() ([]byte, []int) {
+	return fileDescriptor_predict_4c0ce2f64d2cff23, []int{2}
 }
-func (m *PredictNode) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PredictNode.Unmarshal(m, b)
+func (m *PredictedNode) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_PredictedNode.Unmarshal(m, b)
 }
-func (m *PredictNode) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PredictNode.Marshal(b, m, deterministic)
+func (m *PredictedNode) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_PredictedNode.Marshal(b, m, deterministic)
 }
-func (dst *PredictNode) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PredictNode.Merge(dst, src)
+func (dst *PredictedNode) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PredictedNode.Merge(dst, src)
 }
-func (m *PredictNode) XXX_Size() int {
-	return xxx_messageInfo_PredictNode.Size(m)
+func (m *PredictedNode) XXX_Size() int {
+	return xxx_messageInfo_PredictedNode.Size(m)
 }
-func (m *PredictNode) XXX_DiscardUnknown() {
-	xxx_messageInfo_PredictNode.DiscardUnknown(m)
+func (m *PredictedNode) XXX_DiscardUnknown() {
+	xxx_messageInfo_PredictedNode.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_PredictNode proto.InternalMessageInfo
+var xxx_messageInfo_PredictedNode proto.InternalMessageInfo
 
-func (m *PredictNode) GetName() string {
+func (m *PredictedNode) GetName() string {
 	if m != nil {
 		return m.Name
 	}
 	return ""
 }
 
-func (m *PredictNode) GetRowPredictData() []*MetricData {
+func (m *PredictedNode) GetPredictedRawData() []*MetricData {
 	if m != nil {
-		return m.RowPredictData
+		return m.PredictedRawData
 	}
 	return nil
 }
 
 func init() {
-	proto.RegisterType((*PredictContainer)(nil), "containers_ai.alameda.v1alpha1.datahub.PredictContainer")
-	proto.RegisterType((*PredictPod)(nil), "containers_ai.alameda.v1alpha1.datahub.PredictPod")
-	proto.RegisterType((*PredictNode)(nil), "containers_ai.alameda.v1alpha1.datahub.PredictNode")
+	proto.RegisterType((*PredictedContainer)(nil), "containers_ai.alameda.v1alpha1.datahub.PredictedContainer")
+	proto.RegisterType((*PredictedPod)(nil), "containers_ai.alameda.v1alpha1.datahub.PredictedPod")
+	proto.RegisterType((*PredictedNode)(nil), "containers_ai.alameda.v1alpha1.datahub.PredictedNode")
 	proto.RegisterEnum("containers_ai.alameda.v1alpha1.datahub.RecommendationPolicy", RecommendationPolicy_name, RecommendationPolicy_value)
 }
 
 func init() {
-	proto.RegisterFile("alameda_api/v1alpha1/datahub/predict.proto", fileDescriptor_predict_e681b31ed73a987c)
+	proto.RegisterFile("alameda_api/v1alpha1/datahub/predict.proto", fileDescriptor_predict_4c0ce2f64d2cff23)
 }
 
-var fileDescriptor_predict_e681b31ed73a987c = []byte{
-	// 541 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x94, 0xdd, 0x6e, 0xd3, 0x30,
-	0x14, 0xc7, 0xd7, 0x8f, 0x15, 0x76, 0x0a, 0x23, 0x33, 0xbb, 0xa8, 0x86, 0x36, 0x55, 0xbd, 0x40,
-	0x65, 0x48, 0x29, 0x2d, 0x08, 0x71, 0xdb, 0xb5, 0x45, 0xab, 0xd4, 0x8f, 0x28, 0x2d, 0x42, 0x08,
-	0x24, 0xe3, 0xc5, 0xd6, 0x66, 0x29, 0xb1, 0x83, 0xe3, 0x52, 0x4d, 0x5c, 0xf0, 0x6e, 0x3c, 0x02,
-	0x4f, 0x84, 0x9c, 0x3a, 0xa3, 0xed, 0xc5, 0x88, 0x7a, 0xc1, 0xdd, 0x39, 0x96, 0xcf, 0xef, 0x7f,
-	0xfe, 0xce, 0xc9, 0x81, 0x73, 0x12, 0x92, 0x88, 0x51, 0x82, 0x49, 0xcc, 0x5b, 0xdf, 0xdb, 0x24,
-	0x8c, 0x6f, 0x48, 0xbb, 0x45, 0x89, 0x26, 0x37, 0x8b, 0xab, 0x56, 0xac, 0x18, 0xe5, 0x81, 0x76,
-	0x63, 0x25, 0xb5, 0x44, 0xcf, 0x03, 0x29, 0x34, 0xe1, 0x82, 0xa9, 0x04, 0x13, 0xee, 0xda, 0x4a,
-	0x37, 0xab, 0x72, 0x6d, 0xd5, 0xc9, 0xcb, 0x7b, 0x99, 0x11, 0xd3, 0xc4, 0xc4, 0x2b, 0xe8, 0xc9,
-	0x8b, 0x7f, 0x5d, 0x56, 0x3c, 0xb0, 0x57, 0xdb, 0xf7, 0xf7, 0x2a, 0x29, 0x26, 0x49, 0xc2, 0xaf,
-	0x45, 0xc4, 0x84, 0x6d, 0xb9, 0xf1, 0xab, 0x0c, 0x8e, 0xb7, 0x32, 0xd1, 0xcb, 0x9a, 0x47, 0x08,
-	0xca, 0x82, 0x44, 0xac, 0x56, 0xa8, 0x17, 0x9a, 0x07, 0x7e, 0x1a, 0xa3, 0x2f, 0xe0, 0x28, 0xb9,
-	0xc4, 0xd6, 0x30, 0x36, 0xd0, 0x5a, 0xb1, 0x5e, 0x6a, 0x56, 0x3b, 0x1d, 0x37, 0x9f, 0x6d, 0x77,
-	0x9c, 0xf6, 0xda, 0x27, 0x9a, 0xf8, 0x87, 0x4a, 0x2e, 0xad, 0xac, 0xc9, 0xd1, 0x57, 0x40, 0x21,
-	0x8f, 0xb8, 0xde, 0xe4, 0x97, 0x76, 0xe6, 0x3b, 0x29, 0x6d, 0x5d, 0x81, 0xc2, 0xb1, 0x62, 0xdf,
-	0x16, 0x2c, 0xd9, 0xd2, 0x28, 0xef, 0xac, 0x81, 0x2c, 0x6f, 0x5d, 0x65, 0x09, 0x67, 0x5c, 0x70,
-	0xcd, 0x49, 0x88, 0x37, 0xfd, 0x28, 0x96, 0xc8, 0x85, 0x0a, 0x58, 0x6d, 0x7f, 0x67, 0xbd, 0x67,
-	0x96, 0x3c, 0x5a, 0xb3, 0xe6, 0x5b, 0x2c, 0xfa, 0x01, 0xf5, 0x4c, 0x78, 0xdb, 0xe6, 0x9d, 0x74,
-	0x65, 0x67, 0xe9, 0x53, 0xcb, 0xf6, 0x37, 0x1c, 0x67, 0xe2, 0x8d, 0xdf, 0x25, 0x00, 0x7b, 0xe6,
-	0x49, 0x8a, 0x1c, 0x28, 0x2d, 0x38, 0xb5, 0xd3, 0x63, 0x42, 0x84, 0xe1, 0x89, 0x19, 0xa2, 0x24,
-	0x26, 0x01, 0xa3, 0x38, 0x9d, 0xad, 0x62, 0xbd, 0xd0, 0xac, 0x76, 0xde, 0xe6, 0x6d, 0x66, 0x72,
-	0x57, 0x6e, 0x22, 0xff, 0x50, 0x6c, 0xe4, 0xe8, 0x1a, 0x50, 0x66, 0xf7, 0x2f, 0xd0, 0xce, 0xcf,
-	0xbb, 0xbc, 0x1a, 0xdb, 0xff, 0x81, 0x7f, 0x14, 0x6f, 0x9d, 0x24, 0xe8, 0x33, 0x3c, 0x16, 0x92,
-	0x32, 0x1c, 0x2b, 0x2e, 0x15, 0xd7, 0xb7, 0xb5, 0x72, 0xea, 0xe3, 0x4d, 0x6e, 0x1f, 0x92, 0x32,
-	0xcf, 0xd6, 0x5e, 0xee, 0xf9, 0x8f, 0xc4, 0x5a, 0x8e, 0x3e, 0x5a, 0x78, 0xc2, 0x42, 0x16, 0x68,
-	0xa9, 0x6a, 0xfb, 0x29, 0xfc, 0x55, 0x5e, 0xf8, 0xcc, 0xd6, 0x65, 0xe0, 0x2c, 0x47, 0xa7, 0x70,
-	0x90, 0x82, 0xd3, 0x97, 0xaf, 0x98, 0xef, 0x72, 0xb9, 0xe7, 0x3f, 0x34, 0x47, 0xe6, 0xf5, 0x2e,
-	0x9e, 0xc2, 0xd1, 0x6a, 0x31, 0x60, 0xb3, 0x23, 0x62, 0x19, 0xf2, 0xe0, 0xb6, 0xf1, 0x13, 0xaa,
-	0xf6, 0x41, 0x4c, 0xcf, 0xff, 0x7f, 0x27, 0x9c, 0xcf, 0xe0, 0xd8, 0x67, 0x81, 0x8c, 0x22, 0x26,
-	0x28, 0xd1, 0x5c, 0x0a, 0x2f, 0x6d, 0x0c, 0x35, 0xe0, 0xcc, 0x1f, 0xf4, 0xa6, 0xe3, 0xf1, 0x60,
-	0xd2, 0xef, 0xce, 0x87, 0xd3, 0x89, 0x37, 0x1d, 0x0d, 0x7b, 0x9f, 0xf0, 0x87, 0x49, 0x7f, 0xf0,
-	0x7e, 0x38, 0x19, 0xf4, 0x9d, 0x3d, 0x04, 0x50, 0x99, 0xcd, 0xbb, 0x17, 0xa3, 0x81, 0x53, 0x40,
-	0x55, 0x78, 0xd0, 0x9b, 0x8e, 0xbd, 0x6e, 0x6f, 0xee, 0x14, 0xaf, 0x2a, 0xe9, 0xda, 0x7b, 0xfd,
-	0x27, 0x00, 0x00, 0xff, 0xff, 0xbc, 0x1f, 0x54, 0x84, 0xd7, 0x05, 0x00, 0x00,
+var fileDescriptor_predict_4c0ce2f64d2cff23 = []byte{
+	// 442 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xc4, 0x94, 0xcf, 0x8b, 0xd3, 0x40,
+	0x14, 0xc7, 0xcd, 0x6e, 0xad, 0xf8, 0xea, 0x8f, 0x32, 0x2e, 0x52, 0x16, 0xd4, 0x92, 0x83, 0xac,
+	0x2b, 0xa4, 0x6c, 0x05, 0x0f, 0xde, 0x6a, 0x12, 0x21, 0xd0, 0xfc, 0x60, 0xb6, 0x1e, 0x3c, 0xc5,
+	0xb7, 0x99, 0x81, 0x0e, 0x24, 0x99, 0x98, 0x4c, 0x5d, 0xc4, 0x83, 0x27, 0xff, 0x47, 0x4f, 0xfe,
+	0x2d, 0x92, 0xdf, 0xab, 0x05, 0x2d, 0xb9, 0x78, 0x9b, 0x0c, 0xef, 0x7d, 0x3e, 0xef, 0x0b, 0x6f,
+	0x02, 0xe7, 0x18, 0x63, 0xc2, 0x19, 0x86, 0x98, 0x89, 0xc5, 0xe7, 0x0b, 0x8c, 0xb3, 0x2d, 0x5e,
+	0x2c, 0x18, 0x2a, 0xdc, 0xee, 0xae, 0x16, 0x59, 0xce, 0x99, 0x88, 0x94, 0x91, 0xe5, 0x52, 0x49,
+	0xf2, 0x3c, 0x92, 0xa9, 0x42, 0x91, 0xf2, 0xbc, 0x08, 0x51, 0x18, 0x4d, 0xa7, 0xd1, 0x76, 0x19,
+	0x4d, 0xd7, 0xe9, 0xcb, 0xbf, 0x32, 0x13, 0xae, 0xb0, 0x3c, 0xd7, 0xd0, 0xd3, 0x17, 0xff, 0x2a,
+	0xce, 0x45, 0x54, 0x97, 0xea, 0x3f, 0x46, 0x40, 0x82, 0x7a, 0x22, 0xce, 0xcc, 0x76, 0x16, 0x42,
+	0x60, 0x94, 0x62, 0xc2, 0x67, 0xda, 0x5c, 0x3b, 0xbb, 0x4b, 0xab, 0x33, 0xf9, 0x08, 0x24, 0x6b,
+	0x2b, 0xc3, 0x1c, 0xaf, 0xc3, 0x12, 0x38, 0x3b, 0x9a, 0x1f, 0x9f, 0x4d, 0x96, 0x4b, 0xe3, 0xb0,
+	0x1c, 0x86, 0x5b, 0xc9, 0x2d, 0x54, 0x48, 0xa7, 0x1d, 0x8d, 0xe2, 0x75, 0x79, 0x43, 0x18, 0x9c,
+	0xf4, 0x86, 0x58, 0x24, 0x42, 0xd5, 0x8e, 0xe3, 0xc1, 0x8e, 0x7e, 0xe2, 0x75, 0x89, 0xab, 0x2c,
+	0x5b, 0x78, 0x7c, 0x23, 0x07, 0xff, 0xb4, 0xe3, 0x45, 0xe3, 0x19, 0x0d, 0xf6, 0xf4, 0x73, 0xd3,
+	0x1a, 0x58, 0x99, 0xbe, 0xc2, 0xbc, 0x37, 0x89, 0x54, 0x28, 0x81, 0x71, 0x93, 0x2b, 0xe7, 0x85,
+	0xdc, 0xe5, 0x11, 0x9f, 0xdd, 0x1e, 0xec, 0x7c, 0xd2, 0xb1, 0x9d, 0x1a, 0x5d, 0x45, 0xa4, 0x0d,
+	0x98, 0x7c, 0x03, 0x7d, 0x5f, 0xde, 0xc6, 0xed, 0xf4, 0xe3, 0xc1, 0xfa, 0x67, 0x7f, 0xea, 0x9b,
+	0xe4, 0xed, 0x00, 0xfa, 0x4f, 0x0d, 0xee, 0x75, 0xab, 0x15, 0x48, 0x46, 0x42, 0x78, 0x58, 0x2e,
+	0x52, 0x91, 0x61, 0xc4, 0x59, 0xd8, 0xed, 0xd7, 0x64, 0xf9, 0xfa, 0x50, 0xbd, 0xd7, 0xb5, 0x97,
+	0x27, 0xfa, 0x20, 0xfd, 0xed, 0x9b, 0x24, 0x37, 0xf7, 0xa7, 0x47, 0x36, 0x3b, 0xfa, 0xe6, 0x50,
+	0xcb, 0xfe, 0x7b, 0xa0, 0x8f, 0xb2, 0xbd, 0xbb, 0x42, 0xff, 0xae, 0xc1, 0xfd, 0xae, 0xd6, 0x93,
+	0x8c, 0xff, 0x9f, 0x67, 0x73, 0x7e, 0x09, 0x27, 0x94, 0x47, 0x32, 0x49, 0x78, 0xca, 0x50, 0x09,
+	0x99, 0x06, 0x32, 0x16, 0xd1, 0x17, 0xa2, 0xc3, 0x53, 0x6a, 0x9b, 0xbe, 0xeb, 0xda, 0x9e, 0xb5,
+	0xda, 0x38, 0xbe, 0x17, 0xf8, 0x6b, 0xc7, 0xfc, 0x10, 0xbe, 0xf7, 0x2c, 0xfb, 0x9d, 0xe3, 0xd9,
+	0xd6, 0xf4, 0x16, 0x01, 0x18, 0x5f, 0x6e, 0x56, 0x6f, 0xd7, 0xf6, 0x54, 0x23, 0x13, 0xb8, 0x63,
+	0xfa, 0x6e, 0xb0, 0x32, 0x37, 0xd3, 0xa3, 0xab, 0x71, 0xf5, 0x7f, 0x78, 0xf5, 0x2b, 0x00, 0x00,
+	0xff, 0xff, 0x6d, 0x3c, 0xbb, 0x80, 0xcd, 0x04, 0x00, 0x00,
 }
