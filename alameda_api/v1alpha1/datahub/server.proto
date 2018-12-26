@@ -10,10 +10,6 @@ import "alameda_api/v1alpha1/datahub/metric.proto";
 import "alameda_api/v1alpha1/datahub/resource.proto";
 import "alameda_api/v1alpha1/datahub/recommendation.proto";
 
-message ListAlamedaPodResourceInfoRequest {
-    NamespacedName alameda_resource = 1;
-}
-
 message ListPodMetricsRequest {
     NamespacedName namespaced_name = 1;
     TimeRange time_range = 2;
@@ -39,37 +35,41 @@ message ListPodsResponse {
     repeated Pod pods = 2;
 }
 
+message ListAlamedaPodsRequest {
+    NamespacedName alameda_resource = 1;
+}
+
 message ListNodesResponse {
     google.rpc.Status status = 1;
     repeated Node nodes = 2;
 }
 
-message ListPodPredictionRequest {
+message ListPodPredictionsRequest {
     NamespacedName namespaced_name = 1;
     TimeRange time_range = 2;
 }
 
-message ListPodPredictionResponse {
+message ListPodPredictionsResponse {
     google.rpc.Status status = 1;
     repeated PodPrediction pod_predictions = 2;
 }
 
-message ListNodePredictionRequest {
+message ListNodePredictionsRequest {
     repeated string node_name = 1;
     TimeRange time_range = 2;
 }
 
-message ListNodePredictionResponse {
+message ListNodePredictionsResponse {
     google.rpc.Status status = 1;
     repeated NodePrediction node_predictions = 2;
 }
 
-message ListPodRecommendationRequest {
+message ListPodRecommendationsRequest {
     NamespacedName namespaced_name = 1;
     TimeRange time_range = 2;
 }
 
-message ListPodRecommendationResponse {
+message ListPodRecommendationsResponse {
     google.rpc.Status status = 1;
     repeated PodRecommendation pod_recommendations = 2;
 }
@@ -78,68 +78,66 @@ message ListPodsByNodeNameRequest {
     repeated string node_name = 1;
 }
 
-message CreatePodPredictionRequest {
+message CreatePodPredictionsRequest {
     repeated PodPrediction pod_predictions = 1;
 }
 
-message CreateNodePredictionRequest {
+message CreateNodePredictionsRequest {
     repeated NodePrediction node_predictions = 1;
 }
 
-message CreatePodRecommendationRequest {
+message CreatePodRecommendationsRequest {
     repeated PodRecommendation pod_recommendations = 1;
 }
 
-message CreateAlamedaPodRequest {
+message CreateAlamedaPodsRequest {
     RecommendationPolicy policy = 1;
     repeated Pod alameda_pods = 2;
 }
 
-message CreateAlamedaNodeRequest {
+message CreateAlamedaNodesRequest {
     repeated Node alameda_nodes = 1;
 }
 
-message DeleteAlamedaPodRequest {
+message DeleteAlamedaPodsRequest {
     repeated Pod alameda_pods = 1;
 }
 
-message DeleteAlamedaNodeRequest {
+message DeleteAlamedaNodesRequest {
     repeated Node alameda_nodes = 1;
 }
 
 service DatahubService {
-    rpc ListAlamedaPodResourceInfo(ListAlamedaPodResourceInfoRequest)
-        returns (ListPodsResponse) {}
     rpc ListPodMetrics(ListPodMetricsRequest)
         returns (ListPodMetricsResponse) {}
     rpc ListNodeMetrics(ListNodeMetricsRequest)
         returns (ListNodeMetricsResponse) {}
     // List pods need to be predicted
-    rpc ListAlamedaPods(google.protobuf.Empty)
+    rpc ListAlamedaPods(ListAlamedaPodsRequest)
         returns (ListPodsResponse){}
     // List nodes need to be predicted
     rpc ListAlamedaNodes(google.protobuf.Empty)
         returns (ListNodesResponse){}
-    rpc ListPodPrediction(ListPodPredictionRequest)
-        returns (ListPodPredictionResponse) {}
-    rpc ListNodePrediction(ListNodePredictionRequest)
-        returns (ListNodePredictionResponse) {}
-    rpc ListPodRecommendation(ListPodRecommendationRequest)
-        returns (ListPodRecommendationResponse) {}
+    rpc ListPodPredictions(ListPodPredictionsRequest)
+        returns (ListPodPredictionsResponse) {}
+    rpc ListNodePredictions(ListNodePredictionsRequest)
+        returns (ListNodePredictionsResponse) {}
+    rpc ListPodRecommendations(ListPodRecommendationsRequest)
+        returns (ListPodRecommendationsResponse) {}
     rpc ListPodsByNodeName(ListPodsByNodeNameRequest)
         returns (ListPodsResponse) {}        
-    rpc CreateAlamedaPod(CreateAlamedaPodRequest)
+    rpc CreateAlamedaPods(CreateAlamedaPodsRequest)
         returns (google.rpc.Status){}    
-    rpc CreateAlamedaNode(CreateAlamedaNodeRequest)
+    rpc CreateAlamedaNodes(CreateAlamedaNodesRequest)
         returns (google.rpc.Status){}    
-    rpc CreatePodPrediction(CreatePodPredictionRequest)
+    rpc CreatePodPredictions(CreatePodPredictionsRequest)
         returns (google.rpc.Status) {}
-    rpc CreateNodePrediction(CreateNodePredictionRequest)
+    rpc CreateNodePredictions(CreateNodePredictionsRequest)
         returns (google.rpc.Status) {}
-    rpc CreatePodRecommendation(CreatePodRecommendationRequest)
+    rpc CreatePodRecommendations(CreatePodRecommendationsRequest)
         returns (google.rpc.Status) {}    
-    rpc DeleteAlamedaPod(DeleteAlamedaPodRequest)
+    rpc DeleteAlamedaPods(DeleteAlamedaPodsRequest)
         returns (google.rpc.Status){}        
-    rpc DeleteAlamedaNode(DeleteAlamedaNodeRequest)
+    rpc DeleteAlamedaNodes(DeleteAlamedaNodesRequest)
         returns (google.rpc.Status){}            
 }

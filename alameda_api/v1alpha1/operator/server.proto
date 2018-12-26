@@ -30,8 +30,8 @@ enum ResourceType {
 }
 
 enum StrOp {
-    Equal = 0;
-    NotEqual = 1;
+    EQUAL = 0;
+    NOT_EQUAL = 1;
 }
 
 message TimeRange {
