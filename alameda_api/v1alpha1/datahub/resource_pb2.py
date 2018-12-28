@@ -12,6 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from alameda_api.v1alpha1.datahub import metadata_pb2 as alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2
 from alameda_api.v1alpha1.datahub import metric_pb2 as alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2
 
@@ -21,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containers_ai.alameda.v1alpha1.datahub',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n+alameda_api/v1alpha1/datahub/resource.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a+alameda_api/v1alpha1/datahub/metadata.proto\x1a)alameda_api/v1alpha1/datahub/metric.proto\"\xb3\x04\n\tContainer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12J\n\x0elimit_resource\x18\x02 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12L\n\x10request_resource\x18\x03 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12Y\n\x1dlimit_resource_recommendation\x18\x04 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12[\n\x1frequest_resource_recommendation\x18\x05 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12\x61\n%initial_limit_resource_recommendation\x18\x06 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12\x63\n\'initial_request_resource_recommendation\x18\x07 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\"\xad\x02\n\x03Pod\x12O\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12\x15\n\rresource_link\x18\x02 \x01(\t\x12\x45\n\ncontainers\x18\x03 \x03(\x0b\x32\x31.containers_ai.alameda.v1alpha1.datahub.Container\x12\x12\n\nis_alameda\x18\x04 \x01(\x08\x12P\n\x10\x61lameda_resource\x18\x05 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12\x11\n\tnode_name\x18\x06 \x01(\t\"\x14\n\x04Node\x12\x0c\n\x04name\x18\x01 \x01(\tb\x06proto3')
+  serialized_pb=_b('\n+alameda_api/v1alpha1/datahub/resource.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a\x1fgoogle/protobuf/timestamp.proto\x1a+alameda_api/v1alpha1/datahub/metadata.proto\x1a)alameda_api/v1alpha1/datahub/metric.proto\"\xb3\x04\n\tContainer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12J\n\x0elimit_resource\x18\x02 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12L\n\x10request_resource\x18\x03 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12Y\n\x1dlimit_resource_recommendation\x18\x04 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12[\n\x1frequest_resource_recommendation\x18\x05 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12\x61\n%initial_limit_resource_recommendation\x18\x06 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12\x63\n\'initial_request_resource_recommendation\x18\x07 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\"\xdd\x02\n\x03Pod\x12O\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12\x15\n\rresource_link\x18\x02 \x01(\t\x12\x45\n\ncontainers\x18\x03 \x03(\x0b\x32\x31.containers_ai.alameda.v1alpha1.datahub.Container\x12\x12\n\nis_alameda\x18\x04 \x01(\x08\x12P\n\x10\x61lameda_resource\x18\x05 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12\x11\n\tnode_name\x18\x06 \x01(\t\x12.\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x14\n\x04Node\x12\x0c\n\x04name\x18\x01 \x01(\tb\x06proto3')
   ,
-  dependencies=[alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2.DESCRIPTOR,])
 
 
 
@@ -96,8 +97,8 @@ _CONTAINER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=176,
-  serialized_end=739,
+  serialized_start=209,
+  serialized_end=772,
 )
 
 
@@ -150,6 +151,13 @@ _POD = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='containers_ai.alameda.v1alpha1.datahub.Pod.start_time', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -162,8 +170,8 @@ _POD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=742,
-  serialized_end=1043,
+  serialized_start=775,
+  serialized_end=1124,
 )
 
 
@@ -193,8 +201,8 @@ _NODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1045,
-  serialized_end=1065,
+  serialized_start=1126,
+  serialized_end=1146,
 )
 
 _CONTAINER.fields_by_name['limit_resource'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2._METRICDATA
@@ -206,6 +214,7 @@ _CONTAINER.fields_by_name['initial_request_resource_recommendation'].message_typ
 _POD.fields_by_name['namespaced_name'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2._NAMESPACEDNAME
 _POD.fields_by_name['containers'].message_type = _CONTAINER
 _POD.fields_by_name['alameda_resource'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2._NAMESPACEDNAME
+_POD.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 DESCRIPTOR.message_types_by_name['Container'] = _CONTAINER
 DESCRIPTOR.message_types_by_name['Pod'] = _POD
 DESCRIPTOR.message_types_by_name['Node'] = _NODE
