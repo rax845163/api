@@ -2,10 +2,10 @@ syntax = "proto3";
 
 package containers_ai.alameda.v1alpha1.datahub;
 
+import "alameda_api/v1alpha1/datahub/predict.proto";
 import "google/protobuf/timestamp.proto";
 import "alameda_api/v1alpha1/datahub/metadata.proto";
 import "alameda_api/v1alpha1/datahub/metric.proto";
-
 
 message Container {
     string name = 1;
@@ -25,6 +25,7 @@ message Pod {
     NamespacedName alameda_resource = 5;
     string node_name = 6;
     google.protobuf.Timestamp start_time = 7;
+    RecommendationPolicy policy = 8;
 }
 
 message Node {
