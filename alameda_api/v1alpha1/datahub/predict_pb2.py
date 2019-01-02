@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containers_ai.alameda.v1alpha1.datahub',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n*alameda_api/v1alpha1/datahub/predict.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a+alameda_api/v1alpha1/datahub/metadata.proto\x1a)alameda_api/v1alpha1/datahub/metric.proto\"\xd7\x03\n\x13\x43ontainerPrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12N\n\x12predicted_raw_data\x18\x02 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12P\n\x14predicted_limit_data\x18\x03 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12R\n\x16predicted_request_data\x18\x04 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12\\\n predicted_initial_limit_resource\x18\x05 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12^\n\"predicted_initial_request_resource\x18\x06 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\"\xbc\x01\n\rPodPrediction\x12O\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12Z\n\x15\x63ontainer_predictions\x18\x02 \x03(\x0b\x32;.containers_ai.alameda.v1alpha1.datahub.ContainerPrediction\"n\n\x0eNodePrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12N\n\x12predicted_raw_data\x18\x02 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData*S\n\x14RecommendationPolicy\x12\"\n\x1eRECOMMENDATIONPOLICY_UNDEFINED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0b\n\x07\x43OMPACT\x10\x02\x62\x06proto3')
+  serialized_pb=_b('\n*alameda_api/v1alpha1/datahub/predict.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a+alameda_api/v1alpha1/datahub/metadata.proto\x1a)alameda_api/v1alpha1/datahub/metric.proto\"\xd7\x03\n\x13\x43ontainerPrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12N\n\x12predicted_raw_data\x18\x02 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12P\n\x14predicted_limit_data\x18\x03 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12R\n\x16predicted_request_data\x18\x04 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12\\\n predicted_initial_limit_resource\x18\x05 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12^\n\"predicted_initial_request_resource\x18\x06 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\"\xbc\x01\n\rPodPrediction\x12O\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12Z\n\x15\x63ontainer_predictions\x18\x02 \x03(\x0b\x32;.containers_ai.alameda.v1alpha1.datahub.ContainerPrediction\"\x84\x01\n\x0eNodePrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12N\n\x12predicted_raw_data\x18\x02 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12\x14\n\x0cis_scheduled\x18\x03 \x01(\x08*S\n\x14RecommendationPolicy\x12\"\n\x1eRECOMMENDATIONPOLICY_UNDEFINED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0b\n\x07\x43OMPACT\x10\x02\x62\x06proto3')
   ,
   dependencies=[alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2.DESCRIPTOR,])
 
@@ -47,8 +47,8 @@ _RECOMMENDATIONPOLICY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=951,
-  serialized_end=1034,
+  serialized_start=974,
+  serialized_end=1057,
 )
 _sym_db.RegisterEnumDescriptor(_RECOMMENDATIONPOLICY)
 
@@ -184,6 +184,13 @@ _NODEPREDICTION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='is_scheduled', full_name='containers_ai.alameda.v1alpha1.datahub.NodePrediction.is_scheduled', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -196,8 +203,8 @@ _NODEPREDICTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=839,
-  serialized_end=949,
+  serialized_start=840,
+  serialized_end=972,
 )
 
 _CONTAINERPREDICTION.fields_by_name['predicted_raw_data'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2._METRICDATA
