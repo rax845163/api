@@ -175,10 +175,10 @@ message CreateAlamedaNodesRequest {
 }
 
 /**
- * Represents a request for upodating pods data
+ * Represents a request for deleting pods data
  * 
  */
-message UpdatePodsRequest {
+message DeletePodsRequest {
     repeated Pod pods = 1;
 }
 
@@ -246,8 +246,8 @@ service DatahubService {
     rpc CreatePodRecommendations(CreatePodRecommendationsRequest)
         returns (google.rpc.Status) {}
 
-    /// Used to update info of pods
-    rpc UpdatePods(UpdatePodsRequest)
+    /// Used to delete info of pods
+    rpc DeletePods(DeletePodsRequest)
         returns (google.rpc.Status){}
 
     /// Used to stop generating predictions for the nodes
