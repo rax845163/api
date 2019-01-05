@@ -149,7 +149,7 @@ class DatahubServiceServicer(object):
     raise NotImplementedError('Method not implemented!')
 
   def ListPodsByNodeName(self, request, context):
-    """/ Used to list pods need to be predicted by a node name
+    """/ Used to list pods by a node name
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
