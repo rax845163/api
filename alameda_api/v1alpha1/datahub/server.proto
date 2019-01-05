@@ -30,7 +30,7 @@ message ListPodMetricsResponse {
 }
 
 /**
- * Represents a request for listing metric data of a pod
+ * Represents a request for listing metric data of a node
  * 
  */
 message ListNodeMetricsRequest {
@@ -128,7 +128,7 @@ message ListPodRecommendationsResponse {
 }
 
 /**
- * Represents a request for listing nodes
+ * Represents a request for listing pods by a node name
  * 
  */
 message ListPodsByNodeNameRequest {
@@ -222,7 +222,7 @@ service DatahubService {
     rpc ListPodRecommendations(ListPodRecommendationsRequest)
         returns (ListPodRecommendationsResponse) {}
 
-    /// Used to list pods need to be predicted by a node name
+    /// Used to list pods by a node name
     rpc ListPodsByNodeName(ListPodsByNodeNameRequest)
         returns (ListPodsResponse) {} 
         

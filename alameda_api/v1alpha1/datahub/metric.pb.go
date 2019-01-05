@@ -20,6 +20,8 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
+// *
+// Metric type. A metric may be either CPU or memory.
 type MetricType int32
 
 const (
@@ -43,7 +45,7 @@ func (x MetricType) String() string {
 	return proto.EnumName(MetricType_name, int32(x))
 }
 func (MetricType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_metric_be80da4421a5f128, []int{0}
+	return fileDescriptor_metric_c7e7a966514b8b14, []int{0}
 }
 
 type StrOp int32
@@ -66,9 +68,11 @@ func (x StrOp) String() string {
 	return proto.EnumName(StrOp_name, int32(x))
 }
 func (StrOp) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_metric_be80da4421a5f128, []int{1}
+	return fileDescriptor_metric_c7e7a966514b8b14, []int{1}
 }
 
+// *
+// Represents metric data of a container
 type ContainerMetric struct {
 	Name                 string        `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	MetricData           []*MetricData `protobuf:"bytes,2,rep,name=metric_data,json=metricData,proto3" json:"metric_data,omitempty"`
@@ -81,7 +85,7 @@ func (m *ContainerMetric) Reset()         { *m = ContainerMetric{} }
 func (m *ContainerMetric) String() string { return proto.CompactTextString(m) }
 func (*ContainerMetric) ProtoMessage()    {}
 func (*ContainerMetric) Descriptor() ([]byte, []int) {
-	return fileDescriptor_metric_be80da4421a5f128, []int{0}
+	return fileDescriptor_metric_c7e7a966514b8b14, []int{0}
 }
 func (m *ContainerMetric) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ContainerMetric.Unmarshal(m, b)
@@ -115,6 +119,8 @@ func (m *ContainerMetric) GetMetricData() []*MetricData {
 	return nil
 }
 
+// *
+// Represents metric data of a pod
 type PodMetric struct {
 	NamespacedName       *NamespacedName    `protobuf:"bytes,1,opt,name=namespaced_name,json=namespacedName,proto3" json:"namespaced_name,omitempty"`
 	ContainerMetrics     []*ContainerMetric `protobuf:"bytes,2,rep,name=container_metrics,json=containerMetrics,proto3" json:"container_metrics,omitempty"`
@@ -127,7 +133,7 @@ func (m *PodMetric) Reset()         { *m = PodMetric{} }
 func (m *PodMetric) String() string { return proto.CompactTextString(m) }
 func (*PodMetric) ProtoMessage()    {}
 func (*PodMetric) Descriptor() ([]byte, []int) {
-	return fileDescriptor_metric_be80da4421a5f128, []int{1}
+	return fileDescriptor_metric_c7e7a966514b8b14, []int{1}
 }
 func (m *PodMetric) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PodMetric.Unmarshal(m, b)
@@ -161,6 +167,8 @@ func (m *PodMetric) GetContainerMetrics() []*ContainerMetric {
 	return nil
 }
 
+// *
+// Represents metric data of a node
 type NodeMetric struct {
 	Name                 string        `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	MetricData           []*MetricData `protobuf:"bytes,2,rep,name=metric_data,json=metricData,proto3" json:"metric_data,omitempty"`
@@ -173,7 +181,7 @@ func (m *NodeMetric) Reset()         { *m = NodeMetric{} }
 func (m *NodeMetric) String() string { return proto.CompactTextString(m) }
 func (*NodeMetric) ProtoMessage()    {}
 func (*NodeMetric) Descriptor() ([]byte, []int) {
-	return fileDescriptor_metric_be80da4421a5f128, []int{2}
+	return fileDescriptor_metric_c7e7a966514b8b14, []int{2}
 }
 func (m *NodeMetric) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_NodeMetric.Unmarshal(m, b)
@@ -207,6 +215,8 @@ func (m *NodeMetric) GetMetricData() []*MetricData {
 	return nil
 }
 
+// *
+// Represents a data point of time-series metric data
 type Sample struct {
 	Time                 *timestamp.Timestamp `protobuf:"bytes,1,opt,name=time,proto3" json:"time,omitempty"`
 	NumValue             string               `protobuf:"bytes,2,opt,name=num_value,json=numValue,proto3" json:"num_value,omitempty"`
@@ -219,7 +229,7 @@ func (m *Sample) Reset()         { *m = Sample{} }
 func (m *Sample) String() string { return proto.CompactTextString(m) }
 func (*Sample) ProtoMessage()    {}
 func (*Sample) Descriptor() ([]byte, []int) {
-	return fileDescriptor_metric_be80da4421a5f128, []int{3}
+	return fileDescriptor_metric_c7e7a966514b8b14, []int{3}
 }
 func (m *Sample) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Sample.Unmarshal(m, b)
@@ -265,7 +275,7 @@ func (m *MetricResult) Reset()         { *m = MetricResult{} }
 func (m *MetricResult) String() string { return proto.CompactTextString(m) }
 func (*MetricResult) ProtoMessage()    {}
 func (*MetricResult) Descriptor() ([]byte, []int) {
-	return fileDescriptor_metric_be80da4421a5f128, []int{4}
+	return fileDescriptor_metric_c7e7a966514b8b14, []int{4}
 }
 func (m *MetricResult) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_MetricResult.Unmarshal(m, b)
@@ -312,7 +322,7 @@ func (m *TimeRange) Reset()         { *m = TimeRange{} }
 func (m *TimeRange) String() string { return proto.CompactTextString(m) }
 func (*TimeRange) ProtoMessage()    {}
 func (*TimeRange) Descriptor() ([]byte, []int) {
-	return fileDescriptor_metric_be80da4421a5f128, []int{5}
+	return fileDescriptor_metric_c7e7a966514b8b14, []int{5}
 }
 func (m *TimeRange) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TimeRange.Unmarshal(m, b)
@@ -366,7 +376,7 @@ func (m *LabelSelector) Reset()         { *m = LabelSelector{} }
 func (m *LabelSelector) String() string { return proto.CompactTextString(m) }
 func (*LabelSelector) ProtoMessage()    {}
 func (*LabelSelector) Descriptor() ([]byte, []int) {
-	return fileDescriptor_metric_be80da4421a5f128, []int{6}
+	return fileDescriptor_metric_c7e7a966514b8b14, []int{6}
 }
 func (m *LabelSelector) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_LabelSelector.Unmarshal(m, b)
@@ -407,6 +417,8 @@ func (m *LabelSelector) GetValue() string {
 	return ""
 }
 
+// *
+// Represents a piece of metreic data
 type MetricData struct {
 	MetricType MetricType `protobuf:"varint,1,opt,name=metric_type,json=metricType,proto3,enum=containers_ai.alameda.v1alpha1.datahub.MetricType" json:"metric_type,omitempty"`
 	// data can be time series or non-time series
@@ -420,7 +432,7 @@ func (m *MetricData) Reset()         { *m = MetricData{} }
 func (m *MetricData) String() string { return proto.CompactTextString(m) }
 func (*MetricData) ProtoMessage()    {}
 func (*MetricData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_metric_be80da4421a5f128, []int{7}
+	return fileDescriptor_metric_c7e7a966514b8b14, []int{7}
 }
 func (m *MetricData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_MetricData.Unmarshal(m, b)
@@ -469,10 +481,10 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("alameda_api/v1alpha1/datahub/metric.proto", fileDescriptor_metric_be80da4421a5f128)
+	proto.RegisterFile("alameda_api/v1alpha1/datahub/metric.proto", fileDescriptor_metric_c7e7a966514b8b14)
 }
 
-var fileDescriptor_metric_be80da4421a5f128 = []byte{
+var fileDescriptor_metric_c7e7a966514b8b14 = []byte{
 	// 628 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x53, 0xdb, 0x6e, 0xd3, 0x40,
 	0x10, 0xad, 0x9d, 0xf4, 0xe2, 0x09, 0x6d, 0xc3, 0x0a, 0xa1, 0x10, 0x10, 0x14, 0x3f, 0xa0, 0x52,
