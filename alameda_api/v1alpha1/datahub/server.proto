@@ -1,4 +1,4 @@
-/// This file has messages and services related to Containers.ai
+/// This file has messages and services related to Federator.ai
 syntax = "proto3";
 
 package containers_ai.alameda.v1alpha1.datahub;
