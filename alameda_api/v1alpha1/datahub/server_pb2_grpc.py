@@ -54,7 +54,7 @@ class DatahubServiceStub(object):
         )
     self.ListPodsByNodeName = channel.unary_unary(
         '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListPodsByNodeName',
-        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsByNodeNameRequest.SerializeToString,
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsByNodeNamesRequest.SerializeToString,
         response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsResponse.FromString,
         )
     self.ListSimulatedSchedulingScores = channel.unary_unary(
@@ -268,7 +268,7 @@ def add_DatahubServiceServicer_to_server(servicer, server):
       ),
       'ListPodsByNodeName': grpc.unary_unary_rpc_method_handler(
           servicer.ListPodsByNodeName,
-          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsByNodeNameRequest.FromString,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsByNodeNamesRequest.FromString,
           response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListPodsResponse.SerializeToString,
       ),
       'ListSimulatedSchedulingScores': grpc.unary_unary_rpc_method_handler(
