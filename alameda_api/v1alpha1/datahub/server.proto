@@ -10,6 +10,7 @@ import "alameda_api/v1alpha1/datahub/predict.proto";
 import "alameda_api/v1alpha1/datahub/metric.proto";
 import "alameda_api/v1alpha1/datahub/resource.proto";
 import "alameda_api/v1alpha1/datahub/recommendation.proto";
+import "alameda_api/v1alpha1/datahub/score.proto";
 
 /**
  * Represents a request for listing metric data of a pod
@@ -136,6 +137,22 @@ message ListPodsByNodeNameRequest {
 }
 
 /**
+ * Represents a request for listing system scores of pod scheduled on node
+ * 
+ */
+message ListPodScheduledOnNodeScoresRequest {
+    TimeRange time_range = 1;
+}
+
+/**
+ * Represents a response for listing system scores request
+ * 
+ */
+message ListPodScheduledOnNodeScoresResponse {
+    repeated PodScheduledOnNodeScore scores = 1;
+} 
+
+/**
  * Represents a request for creating predictions of containers' metric data belonging to a pod
  */
 message CreatePodPredictionsRequest {
@@ -172,6 +189,14 @@ message CreatePodsRequest {
  */
 message CreateAlamedaNodesRequest {
     repeated Node alameda_nodes = 1;
+}
+
+/**
+ * Represents a request for adding scheduling scores produced by ai engine
+ * 
+ */
+message CreatePodScheduledOnNodeScoresRequest {
+    repeated PodScheduledOnNodeScore scores = 1;
 }
 
 /**
@@ -226,6 +251,10 @@ service DatahubService {
     rpc ListPodsByNodeName(ListPodsByNodeNameRequest)
         returns (ListPodsResponse) {} 
         
+    /// Used to list system scores
+    rpc ListPodScheduledOnNodeScores(ListPodScheduledOnNodeScoresRequest)
+        returns (ListPodScheduledOnNodeScoresResponse) {} 
+
     /// Used to add pods that need to be predicted
     rpc CreatePods(CreatePodsRequest)
         returns (google.rpc.Status){}
@@ -245,6 +274,10 @@ service DatahubService {
     /// Used to create recommendations of pods
     rpc CreatePodRecommendations(CreatePodRecommendationsRequest)
         returns (google.rpc.Status) {}
+
+    /// Used to create scores of system 
+    rpc CreatePodScheduledOnNodeScores(CreatePodScheduledOnNodeScoresRequest)
+        returns (google.rpc.Status) {} 
 
     /// Used to delete info of pods
     rpc DeletePods(DeletePodsRequest)
