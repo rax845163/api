@@ -140,7 +140,7 @@ message ListPodsByNodeNameRequest {
  * Represents a request for listing system scores of pod scheduled on node
  * 
  */
-message ListPodScheduledOnNodeScoresRequest {
+message ListSimulatedSchedulingScoresRequest {
     TimeRange time_range = 1;
 }
 
@@ -148,8 +148,8 @@ message ListPodScheduledOnNodeScoresRequest {
  * Represents a response for listing system scores request
  * 
  */
-message ListPodScheduledOnNodeScoresResponse {
-    repeated PodScheduledOnNodeScore scores = 1;
+message ListSimulatedSchedulingScoresResponse {
+    repeated SimulatedSchedulingScore scores = 1;
 } 
 
 /**
@@ -195,8 +195,8 @@ message CreateAlamedaNodesRequest {
  * Represents a request for adding scheduling scores produced by ai engine
  * 
  */
-message CreatePodScheduledOnNodeScoresRequest {
-    repeated PodScheduledOnNodeScore scores = 1;
+message CreateSimulatedSchedulingScoresRequest {
+    repeated SimulatedSchedulingScore scores = 1;
 }
 
 /**
@@ -252,8 +252,8 @@ service DatahubService {
         returns (ListPodsResponse) {} 
         
     /// Used to list system scores
-    rpc ListPodScheduledOnNodeScores(ListPodScheduledOnNodeScoresRequest)
-        returns (ListPodScheduledOnNodeScoresResponse) {} 
+    rpc ListSimulatedSchedulingScores(ListSimulatedSchedulingScoresRequest)
+        returns (ListSimulatedSchedulingScoresResponse) {} 
 
     /// Used to add pods that need to be predicted
     rpc CreatePods(CreatePodsRequest)
@@ -276,7 +276,7 @@ service DatahubService {
         returns (google.rpc.Status) {}
 
     /// Used to create scores of system 
-    rpc CreatePodScheduledOnNodeScores(CreatePodScheduledOnNodeScoresRequest)
+    rpc CreateSimulatedSchedulingScores(CreateSimulatedSchedulingScoresRequest)
         returns (google.rpc.Status) {} 
 
     /// Used to delete info of pods

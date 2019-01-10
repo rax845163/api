@@ -20,36 +20,36 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containers_ai.alameda.v1alpha1.datahub',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n(alameda_api/v1alpha1/datahub/score.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a\x1fgoogle/protobuf/timestamp.proto\"n\n\x17PodScheduledOnNodeScore\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x14\n\x0cscore_before\x18\x02 \x01(\x02\x12\x13\n\x0bscore_after\x18\x03 \x01(\x02\x62\x06proto3')
+  serialized_pb=_b('\n(alameda_api/v1alpha1/datahub/score.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a\x1fgoogle/protobuf/timestamp.proto\"o\n\x18SimulatedSchedulingScore\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x14\n\x0cscore_before\x18\x02 \x01(\x02\x12\x13\n\x0bscore_after\x18\x03 \x01(\x02\x62\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
 
 
-_PODSCHEDULEDONNODESCORE = _descriptor.Descriptor(
-  name='PodScheduledOnNodeScore',
-  full_name='containers_ai.alameda.v1alpha1.datahub.PodScheduledOnNodeScore',
+_SIMULATEDSCHEDULINGSCORE = _descriptor.Descriptor(
+  name='SimulatedSchedulingScore',
+  full_name='containers_ai.alameda.v1alpha1.datahub.SimulatedSchedulingScore',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='time', full_name='containers_ai.alameda.v1alpha1.datahub.PodScheduledOnNodeScore.time', index=0,
+      name='time', full_name='containers_ai.alameda.v1alpha1.datahub.SimulatedSchedulingScore.time', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='score_before', full_name='containers_ai.alameda.v1alpha1.datahub.PodScheduledOnNodeScore.score_before', index=1,
+      name='score_before', full_name='containers_ai.alameda.v1alpha1.datahub.SimulatedSchedulingScore.score_before', index=1,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='score_after', full_name='containers_ai.alameda.v1alpha1.datahub.PodScheduledOnNodeScore.score_after', index=2,
+      name='score_after', full_name='containers_ai.alameda.v1alpha1.datahub.SimulatedSchedulingScore.score_after', index=2,
       number=3, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -68,19 +68,19 @@ _PODSCHEDULEDONNODESCORE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=117,
-  serialized_end=227,
+  serialized_end=228,
 )
 
-_PODSCHEDULEDONNODESCORE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-DESCRIPTOR.message_types_by_name['PodScheduledOnNodeScore'] = _PODSCHEDULEDONNODESCORE
+_SIMULATEDSCHEDULINGSCORE.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+DESCRIPTOR.message_types_by_name['SimulatedSchedulingScore'] = _SIMULATEDSCHEDULINGSCORE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-PodScheduledOnNodeScore = _reflection.GeneratedProtocolMessageType('PodScheduledOnNodeScore', (_message.Message,), dict(
-  DESCRIPTOR = _PODSCHEDULEDONNODESCORE,
+SimulatedSchedulingScore = _reflection.GeneratedProtocolMessageType('SimulatedSchedulingScore', (_message.Message,), dict(
+  DESCRIPTOR = _SIMULATEDSCHEDULINGSCORE,
   __module__ = 'alameda_api.v1alpha1.datahub.score_pb2'
-  # @@protoc_insertion_point(class_scope:containers_ai.alameda.v1alpha1.datahub.PodScheduledOnNodeScore)
+  # @@protoc_insertion_point(class_scope:containers_ai.alameda.v1alpha1.datahub.SimulatedSchedulingScore)
   ))
-_sym_db.RegisterMessage(PodScheduledOnNodeScore)
+_sym_db.RegisterMessage(SimulatedSchedulingScore)
 
 
 # @@protoc_insertion_point(module_scope)
