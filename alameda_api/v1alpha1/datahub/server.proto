@@ -149,7 +149,8 @@ message ListSimulatedSchedulingScoresRequest {
  * 
  */
 message ListSimulatedSchedulingScoresResponse {
-    repeated SimulatedSchedulingScore scores = 1;
+    google.rpc.Status status = 1;
+    repeated SimulatedSchedulingScore scores = 2;
 } 
 
 /**
