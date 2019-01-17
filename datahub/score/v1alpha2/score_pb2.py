@@ -19,8 +19,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='datahub/score/v1alpha2/score.proto',
   package='containersai.datahub.score.v1alpha2',
   syntax='proto3',
-  serialized_options=None,
-  serialized_pb=_b('\n\"datahub/score/v1alpha2/score.proto\x12#containersai.datahub.score.v1alpha2\x1a\x1fgoogle/protobuf/timestamp.proto\"o\n\x18SimulatedSchedulingScore\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x14\n\x0cscore_before\x18\x02 \x01(\x01\x12\x13\n\x0bscore_after\x18\x03 \x01(\x01\x62\x06proto3')
+  serialized_options=_b('Z3github.com/containers-ai/api/datahub/score/v1alpha2'),
+  serialized_pb=_b('\n\"datahub/score/v1alpha2/score.proto\x12#containersai.datahub.score.v1alpha2\x1a\x1fgoogle/protobuf/timestamp.proto\"o\n\x18SimulatedSchedulingScore\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x14\n\x0cscore_before\x18\x02 \x01(\x01\x12\x13\n\x0bscore_after\x18\x03 \x01(\x01\x42\x35Z3github.com/containers-ai/api/datahub/score/v1alpha2b\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -83,4 +83,5 @@ SimulatedSchedulingScore = _reflection.GeneratedProtocolMessageType('SimulatedSc
 _sym_db.RegisterMessage(SimulatedSchedulingScore)
 
 
+DESCRIPTOR._options = None
 # @@protoc_insertion_point(module_scope)

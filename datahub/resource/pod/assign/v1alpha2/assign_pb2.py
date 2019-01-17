@@ -18,8 +18,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='datahub/resource/pod/assign/v1alpha2/assign.proto',
   package='containersai.datahub.resource.pod.assign.v1alpha2',
   syntax='proto3',
-  serialized_options=None,
-  serialized_pb=_b('\n1datahub/resource/pod/assign/v1alpha2/assign.proto\x12\x31\x63ontainersai.datahub.resource.pod.assign.v1alpha2\"\x1d\n\x0cNodePriority\x12\r\n\x05nodes\x18\x01 \x03(\t\"\x98\x01\n\x08Selector\x12[\n\x08selector\x18\x01 \x03(\x0b\x32I.containersai.datahub.resource.pod.assign.v1alpha2.Selector.SelectorEntry\x1a/\n\rSelectorEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x62\x06proto3')
+  serialized_options=_b('ZAgithub.com/containers-ai/api/datahub/resource/pod/assign/v1alpha2'),
+  serialized_pb=_b('\n1datahub/resource/pod/assign/v1alpha2/assign.proto\x12\x31\x63ontainersai.datahub.resource.pod.assign.v1alpha2\"\x1d\n\x0cNodePriority\x12\r\n\x05nodes\x18\x01 \x03(\t\"\x98\x01\n\x08Selector\x12[\n\x08selector\x18\x01 \x03(\x0b\x32I.containersai.datahub.resource.pod.assign.v1alpha2.Selector.SelectorEntry\x1a/\n\rSelectorEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x43ZAgithub.com/containers-ai/api/datahub/resource/pod/assign/v1alpha2b\x06proto3')
 )
 
 
@@ -152,5 +152,6 @@ _sym_db.RegisterMessage(Selector)
 _sym_db.RegisterMessage(Selector.SelectorEntry)
 
 
+DESCRIPTOR._options = None
 _SELECTOR_SELECTORENTRY._options = None
 # @@protoc_insertion_point(module_scope)

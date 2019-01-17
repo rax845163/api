@@ -6,6 +6,8 @@ package containersai.datahub.prediction.v1alpha2;
 import "datahub/resource/metadata/v1alpha2/metadata.proto";
 import "datahub/metric/v1alpha2/metric.proto";
 
+option go_package = "github.com/containers-ai/api/datahub/prediction/v1alpha2";
+
 /**
  *  Recommendation policy. A policy may be either stable or compact.
  */

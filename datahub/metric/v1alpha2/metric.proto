@@ -7,6 +7,8 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "datahub/resource/metadata/v1alpha2/metadata.proto";
 
+option go_package = "github.com/containers-ai/api/datahub/metric/v1alpha2";
+
 /**
  * Metric type. A metric may be either CPU or memory.
  */
