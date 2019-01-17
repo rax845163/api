@@ -202,7 +202,7 @@ message CreatePodsRequest {
  */
 message CreateNodesRequest {
     repeated containersai.datahub.resource.v1alpha2.Node nodes = 1;
-    bool predict = 2;
+    bool is_predicted = 2;
 }
 
 /**
@@ -219,7 +219,7 @@ message CreateSimulatedSchedulingScoresRequest {
  */
 message UpdatePodsRequest {
     message PodInfo {
-        bool predict = 1;
+        bool is_predicted = 1;
     }
     repeated PodInfo pod_infos = 1;
 }
@@ -230,7 +230,7 @@ message UpdatePodsRequest {
  */
 message UpdateNodesRequest {
     message NodeInfo {
-        bool predict = 1;
+        bool is_predicted = 1;
     }
     repeated NodeInfo node_infos = 1;
 }
