@@ -22,7 +22,7 @@ enum RecommendationPolicy {
  */
 message ContainerPrediction {
     string name = 1;
-    map<string, containersai.datahub.metric.v1alpha2.MetricData> predicted_raw_data = 2;
+    map<int32, containersai.datahub.metric.v1alpha2.MetricData> predicted_raw_data = 2;
 }
 
 /**
@@ -38,6 +38,6 @@ message PodPrediction {
  */
 message NodePrediction {
     string name = 1;
-    map<string, containersai.datahub.metric.v1alpha2.MetricData> predicted_raw_data = 2;
+    map<int32, containersai.datahub.metric.v1alpha2.MetricData> predicted_raw_data = 2;
     bool is_scheduled =3;
 }

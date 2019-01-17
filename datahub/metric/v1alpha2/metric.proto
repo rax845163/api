@@ -23,7 +23,7 @@ enum MetricType {
  */
 message ContainerMetric {
     string name = 1;
-    map<string, MetricData> metric_data = 2;
+    map<int32, MetricData> metric_data = 2;
 }
 
 /**
@@ -39,7 +39,7 @@ message PodMetric  {
  */
 message NodeMetric {
     string name = 1;
-    map<string, MetricData> metric_data = 2;
+    map<int32, MetricData> metric_data = 2;
 }
 
 /**

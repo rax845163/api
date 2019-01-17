@@ -16,8 +16,8 @@ option go_package = "github.com/containers-ai/api/datahub/resource/v1alpha2";
  */
 message Container {
     string name = 1;
-    map<string, containersai.datahub.metric.v1alpha2.MetricData> limit_resource = 2;
-    map<string, containersai.datahub.metric.v1alpha2.MetricData> request_resource = 3;
+    map<int32, containersai.datahub.metric.v1alpha2.MetricData> limit_resource = 2;
+    map<int32, containersai.datahub.metric.v1alpha2.MetricData> request_resource = 3;
 }
 
 /**

@@ -18,10 +18,10 @@ option go_package = "github.com/containers-ai/api/datahub/recommendation/v1alpha
  */
 message ContainerRecommendation {
     string name = 1;
-    map<string, containersai.datahub.metric.v1alpha2.MetricData> limit_recommendations = 2;
-    map<string, containersai.datahub.metric.v1alpha2.MetricData> request_recommendations = 3;
-    map<string, containersai.datahub.metric.v1alpha2.MetricData> initial_limit_recommendations = 4;
-    map<string, containersai.datahub.metric.v1alpha2.MetricData> initial_request_recommendations = 5;
+    map<int32, containersai.datahub.metric.v1alpha2.MetricData> limit_recommendations = 2;
+    map<int32, containersai.datahub.metric.v1alpha2.MetricData> request_recommendations = 3;
+    map<int32, containersai.datahub.metric.v1alpha2.MetricData> initial_limit_recommendations = 4;
+    map<int32, containersai.datahub.metric.v1alpha2.MetricData> initial_request_recommendations = 5;
 }
 
 /**
