@@ -18,8 +18,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='datahub/resource/metadata/v1alpha2/metadata.proto',
   package='containersai.datahub.resource.metadata.v1alpha2',
   syntax='proto3',
-  serialized_options=None,
-  serialized_pb=_b('\n1datahub/resource/metadata/v1alpha2/metadata.proto\x12/containersai.datahub.resource.metadata.v1alpha2\"1\n\x0eNamespacedName\x12\x11\n\tnamespace\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\tb\x06proto3')
+  serialized_options=_b('Z?github.com/containers-ai/api/datahub/resource/metadata/v1alpha2'),
+  serialized_pb=_b('\n1datahub/resource/metadata/v1alpha2/metadata.proto\x12/containersai.datahub.resource.metadata.v1alpha2\"1\n\x0eNamespacedName\x12\x11\n\tnamespace\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\tBAZ?github.com/containers-ai/api/datahub/resource/metadata/v1alpha2b\x06proto3')
 )
 
 
@@ -73,4 +73,5 @@ NamespacedName = _reflection.GeneratedProtocolMessageType('NamespacedName', (_me
 _sym_db.RegisterMessage(NamespacedName)
 
 
+DESCRIPTOR._options = None
 # @@protoc_insertion_point(module_scope)

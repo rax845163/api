@@ -21,8 +21,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='datahub/prediction/v1alpha2/prediction.proto',
   package='containersai.datahub.prediction.v1alpha2',
   syntax='proto3',
-  serialized_options=None,
-  serialized_pb=_b('\n,datahub/prediction/v1alpha2/prediction.proto\x12(containersai.datahub.prediction.v1alpha2\x1a\x31\x64\x61tahub/resource/metadata/v1alpha2/metadata.proto\x1a$datahub/metric/v1alpha2/metric.proto\"\xff\x01\n\x13\x43ontainerPrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12o\n\x12predicted_raw_data\x18\x02 \x03(\x0b\x32S.containersai.datahub.prediction.v1alpha2.ContainerPrediction.PredictedRawDataEntry\x1ai\n\x15PredictedRawDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\"\xc7\x01\n\rPodPrediction\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\\\n\x15\x63ontainer_predictions\x18\x02 \x03(\x0b\x32=.containersai.datahub.prediction.v1alpha2.ContainerPrediction\"\x8b\x02\n\x0eNodePrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12j\n\x12predicted_raw_data\x18\x02 \x03(\x0b\x32N.containersai.datahub.prediction.v1alpha2.NodePrediction.PredictedRawDataEntry\x12\x14\n\x0cis_scheduled\x18\x03 \x01(\x08\x1ai\n\x15PredictedRawDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01*S\n\x14RecommendationPolicy\x12\"\n\x1eRECOMMENDATIONPOLICY_UNDEFINED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0b\n\x07\x43OMPACT\x10\x02\x62\x06proto3')
+  serialized_options=_b('Z8github.com/containers-ai/api/datahub/prediction/v1alpha2'),
+  serialized_pb=_b('\n,datahub/prediction/v1alpha2/prediction.proto\x12(containersai.datahub.prediction.v1alpha2\x1a\x31\x64\x61tahub/resource/metadata/v1alpha2/metadata.proto\x1a$datahub/metric/v1alpha2/metric.proto\"\xff\x01\n\x13\x43ontainerPrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12o\n\x12predicted_raw_data\x18\x02 \x03(\x0b\x32S.containersai.datahub.prediction.v1alpha2.ContainerPrediction.PredictedRawDataEntry\x1ai\n\x15PredictedRawDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\"\xc7\x01\n\rPodPrediction\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\\\n\x15\x63ontainer_predictions\x18\x02 \x03(\x0b\x32=.containersai.datahub.prediction.v1alpha2.ContainerPrediction\"\x8b\x02\n\x0eNodePrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12j\n\x12predicted_raw_data\x18\x02 \x03(\x0b\x32N.containersai.datahub.prediction.v1alpha2.NodePrediction.PredictedRawDataEntry\x12\x14\n\x0cis_scheduled\x18\x03 \x01(\x08\x1ai\n\x15PredictedRawDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01*S\n\x14RecommendationPolicy\x12\"\n\x1eRECOMMENDATIONPOLICY_UNDEFINED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0b\n\x07\x43OMPACT\x10\x02\x42:Z8github.com/containers-ai/api/datahub/prediction/v1alpha2b\x06proto3')
   ,
   dependencies=[datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2.DESCRIPTOR,datahub_dot_metric_dot_v1alpha2_dot_metric__pb2.DESCRIPTOR,])
 
@@ -305,6 +305,7 @@ _sym_db.RegisterMessage(NodePrediction)
 _sym_db.RegisterMessage(NodePrediction.PredictedRawDataEntry)
 
 
+DESCRIPTOR._options = None
 _CONTAINERPREDICTION_PREDICTEDRAWDATAENTRY._options = None
 _NODEPREDICTION_PREDICTEDRAWDATAENTRY._options = None
 # @@protoc_insertion_point(module_scope)
