@@ -4,7 +4,7 @@ syntax = "proto3";
 package containersai.datahub.resource.v1alpha2;
 
 import "datahub/resource/metadata/v1alpha2/metadata.proto";
-import "datahub/prediction/v1alpha2/prediction.proto";
+import "datahub/recommendation/v1alpha2/recommendation.proto";
 import "google/protobuf/timestamp.proto";
 import "datahub/metric/v1alpha2/metric.proto";
 
@@ -16,7 +16,9 @@ option go_package = "github.com/containers-ai/api/datahub/resource/v1alpha2";
  */
 message Container {
     string name = 1;
+    // use containersai.datahub.metric.v1alpha2.MetricType as key
     map<int32, containersai.datahub.metric.v1alpha2.MetricData> limit_resource = 2;
+    // use containersai.datahub.metric.v1alpha2.MetricType as key
     map<int32, containersai.datahub.metric.v1alpha2.MetricData> request_resource = 3;
 }
 
@@ -32,7 +34,7 @@ message Pod {
     containersai.datahub.resource.metadata.v1alpha2.NamespacedName scaler = 5;
     string node_name = 6;
     google.protobuf.Timestamp start_time = 7;
-    containersai.datahub.prediction.v1alpha2.RecommendationPolicy policy = 8;
+    containersai.datahub.recommendation.v1alpha2.RecommendationPolicy policy = 8;
 }
 
 /**

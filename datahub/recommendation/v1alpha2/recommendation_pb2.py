@@ -3,6 +3,7 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -23,10 +24,40 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containersai.datahub.recommendation.v1alpha2',
   syntax='proto3',
   serialized_options=_b('Z<github.com/containers-ai/api/datahub/recommendation/v1alpha2'),
-  serialized_pb=_b('\n4datahub/recommendation/v1alpha2/recommendation.proto\x12,containersai.datahub.recommendation.v1alpha2\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x31\x64\x61tahub/resource/metadata/v1alpha2/metadata.proto\x1a\x31\x64\x61tahub/resource/pod/assign/v1alpha2/assign.proto\x1a$datahub/metric/v1alpha2/metric.proto\"\x9e\x08\n\x17\x43ontainerRecommendation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12~\n\x15limit_recommendations\x18\x02 \x03(\x0b\x32_.containersai.datahub.recommendation.v1alpha2.ContainerRecommendation.LimitRecommendationsEntry\x12\x82\x01\n\x17request_recommendations\x18\x03 \x03(\x0b\x32\x61.containersai.datahub.recommendation.v1alpha2.ContainerRecommendation.RequestRecommendationsEntry\x12\x8d\x01\n\x1dinitial_limit_recommendations\x18\x04 \x03(\x0b\x32\x66.containersai.datahub.recommendation.v1alpha2.ContainerRecommendation.InitialLimitRecommendationsEntry\x12\x91\x01\n\x1finitial_request_recommendations\x18\x05 \x03(\x0b\x32h.containersai.datahub.recommendation.v1alpha2.ContainerRecommendation.InitialRequestRecommendationsEntry\x1am\n\x19LimitRecommendationsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\x1ao\n\x1bRequestRecommendationsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\x1at\n InitialLimitRecommendationsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\x1av\n\"InitialRequestRecommendationsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\"\x8a\x02\n\x0f\x41ssignPodPolicy\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12X\n\rnode_priority\x18\x02 \x01(\x0b\x32?.containersai.datahub.resource.pod.assign.v1alpha2.NodePriorityH\x00\x12T\n\rnode_selector\x18\x03 \x01(\x0b\x32;.containersai.datahub.resource.pod.assign.v1alpha2.SelectorH\x00\x12\x13\n\tnode_name\x18\x04 \x01(\tH\x00\x42\x08\n\x06policy\"\xd3\x02\n\x11PodRecommendation\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12 \n\x18\x61pply_recommendation_now\x18\x02 \x01(\x08\x12X\n\x11\x61ssign_pod_policy\x18\x03 \x01(\x0b\x32=.containersai.datahub.recommendation.v1alpha2.AssignPodPolicy\x12h\n\x19\x63ontainer_recommendations\x18\x04 \x03(\x0b\x32\x45.containersai.datahub.recommendation.v1alpha2.ContainerRecommendationB>Z<github.com/containers-ai/api/datahub/recommendation/v1alpha2b\x06proto3')
+  serialized_pb=_b('\n4datahub/recommendation/v1alpha2/recommendation.proto\x12,containersai.datahub.recommendation.v1alpha2\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x31\x64\x61tahub/resource/metadata/v1alpha2/metadata.proto\x1a\x31\x64\x61tahub/resource/pod/assign/v1alpha2/assign.proto\x1a$datahub/metric/v1alpha2/metric.proto\"\x9e\x08\n\x17\x43ontainerRecommendation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12~\n\x15limit_recommendations\x18\x02 \x03(\x0b\x32_.containersai.datahub.recommendation.v1alpha2.ContainerRecommendation.LimitRecommendationsEntry\x12\x82\x01\n\x17request_recommendations\x18\x03 \x03(\x0b\x32\x61.containersai.datahub.recommendation.v1alpha2.ContainerRecommendation.RequestRecommendationsEntry\x12\x8d\x01\n\x1dinitial_limit_recommendations\x18\x04 \x03(\x0b\x32\x66.containersai.datahub.recommendation.v1alpha2.ContainerRecommendation.InitialLimitRecommendationsEntry\x12\x91\x01\n\x1finitial_request_recommendations\x18\x05 \x03(\x0b\x32h.containersai.datahub.recommendation.v1alpha2.ContainerRecommendation.InitialRequestRecommendationsEntry\x1am\n\x19LimitRecommendationsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\x1ao\n\x1bRequestRecommendationsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\x1at\n InitialLimitRecommendationsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\x1av\n\"InitialRequestRecommendationsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\"\x8a\x02\n\x0f\x41ssignPodPolicy\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12X\n\rnode_priority\x18\x02 \x01(\x0b\x32?.containersai.datahub.resource.pod.assign.v1alpha2.NodePriorityH\x00\x12T\n\rnode_selector\x18\x03 \x01(\x0b\x32;.containersai.datahub.resource.pod.assign.v1alpha2.SelectorH\x00\x12\x13\n\tnode_name\x18\x04 \x01(\tH\x00\x42\x08\n\x06policy\"\xd3\x02\n\x11PodRecommendation\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12 \n\x18\x61pply_recommendation_now\x18\x02 \x01(\x08\x12X\n\x11\x61ssign_pod_policy\x18\x03 \x01(\x0b\x32=.containersai.datahub.recommendation.v1alpha2.AssignPodPolicy\x12h\n\x19\x63ontainer_recommendations\x18\x04 \x03(\x0b\x32\x45.containersai.datahub.recommendation.v1alpha2.ContainerRecommendation*S\n\x14RecommendationPolicy\x12\"\n\x1eRECOMMENDATIONPOLICY_UNDEFINED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0b\n\x07\x43OMPACT\x10\x02\x42>Z<github.com/containers-ai/api/datahub/recommendation/v1alpha2b\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2.DESCRIPTOR,datahub_dot_resource_dot_pod_dot_assign_dot_v1alpha2_dot_assign__pb2.DESCRIPTOR,datahub_dot_metric_dot_v1alpha2_dot_metric__pb2.DESCRIPTOR,])
 
+_RECOMMENDATIONPOLICY = _descriptor.EnumDescriptor(
+  name='RecommendationPolicy',
+  full_name='containersai.datahub.recommendation.v1alpha2.RecommendationPolicy',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='RECOMMENDATIONPOLICY_UNDEFINED', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='STABLE', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='COMPACT', index=2, number=2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1943,
+  serialized_end=2026,
+)
+_sym_db.RegisterEnumDescriptor(_RECOMMENDATIONPOLICY)
+
+RecommendationPolicy = enum_type_wrapper.EnumTypeWrapper(_RECOMMENDATIONPOLICY)
+RECOMMENDATIONPOLICY_UNDEFINED = 0
+STABLE = 1
+COMPACT = 2
 
 
 
@@ -373,6 +404,7 @@ _PODRECOMMENDATION.fields_by_name['container_recommendations'].message_type = _C
 DESCRIPTOR.message_types_by_name['ContainerRecommendation'] = _CONTAINERRECOMMENDATION
 DESCRIPTOR.message_types_by_name['AssignPodPolicy'] = _ASSIGNPODPOLICY
 DESCRIPTOR.message_types_by_name['PodRecommendation'] = _PODRECOMMENDATION
+DESCRIPTOR.enum_types_by_name['RecommendationPolicy'] = _RECOMMENDATIONPOLICY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ContainerRecommendation = _reflection.GeneratedProtocolMessageType('ContainerRecommendation', (_message.Message,), dict(

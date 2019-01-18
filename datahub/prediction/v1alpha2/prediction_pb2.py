@@ -3,7 +3,6 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
-from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -22,40 +21,10 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containersai.datahub.prediction.v1alpha2',
   syntax='proto3',
   serialized_options=_b('Z8github.com/containers-ai/api/datahub/prediction/v1alpha2'),
-  serialized_pb=_b('\n,datahub/prediction/v1alpha2/prediction.proto\x12(containersai.datahub.prediction.v1alpha2\x1a\x31\x64\x61tahub/resource/metadata/v1alpha2/metadata.proto\x1a$datahub/metric/v1alpha2/metric.proto\"\xff\x01\n\x13\x43ontainerPrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12o\n\x12predicted_raw_data\x18\x02 \x03(\x0b\x32S.containersai.datahub.prediction.v1alpha2.ContainerPrediction.PredictedRawDataEntry\x1ai\n\x15PredictedRawDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\"\xc7\x01\n\rPodPrediction\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\\\n\x15\x63ontainer_predictions\x18\x02 \x03(\x0b\x32=.containersai.datahub.prediction.v1alpha2.ContainerPrediction\"\x8b\x02\n\x0eNodePrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12j\n\x12predicted_raw_data\x18\x02 \x03(\x0b\x32N.containersai.datahub.prediction.v1alpha2.NodePrediction.PredictedRawDataEntry\x12\x14\n\x0cis_scheduled\x18\x03 \x01(\x08\x1ai\n\x15PredictedRawDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01*S\n\x14RecommendationPolicy\x12\"\n\x1eRECOMMENDATIONPOLICY_UNDEFINED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0b\n\x07\x43OMPACT\x10\x02\x42:Z8github.com/containers-ai/api/datahub/prediction/v1alpha2b\x06proto3')
+  serialized_pb=_b('\n,datahub/prediction/v1alpha2/prediction.proto\x12(containersai.datahub.prediction.v1alpha2\x1a\x31\x64\x61tahub/resource/metadata/v1alpha2/metadata.proto\x1a$datahub/metric/v1alpha2/metric.proto\"\xff\x01\n\x13\x43ontainerPrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12o\n\x12predicted_raw_data\x18\x02 \x03(\x0b\x32S.containersai.datahub.prediction.v1alpha2.ContainerPrediction.PredictedRawDataEntry\x1ai\n\x15PredictedRawDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\"\xc7\x01\n\rPodPrediction\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\\\n\x15\x63ontainer_predictions\x18\x02 \x03(\x0b\x32=.containersai.datahub.prediction.v1alpha2.ContainerPrediction\"\x8b\x02\n\x0eNodePrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12j\n\x12predicted_raw_data\x18\x02 \x03(\x0b\x32N.containersai.datahub.prediction.v1alpha2.NodePrediction.PredictedRawDataEntry\x12\x14\n\x0cis_scheduled\x18\x03 \x01(\x08\x1ai\n\x15PredictedRawDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\x42:Z8github.com/containers-ai/api/datahub/prediction/v1alpha2b\x06proto3')
   ,
   dependencies=[datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2.DESCRIPTOR,datahub_dot_metric_dot_v1alpha2_dot_metric__pb2.DESCRIPTOR,])
 
-_RECOMMENDATIONPOLICY = _descriptor.EnumDescriptor(
-  name='RecommendationPolicy',
-  full_name='containersai.datahub.prediction.v1alpha2.RecommendationPolicy',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='RECOMMENDATIONPOLICY_UNDEFINED', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='STABLE', index=1, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='COMPACT', index=2, number=2,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=909,
-  serialized_end=992,
-)
-_sym_db.RegisterEnumDescriptor(_RECOMMENDATIONPOLICY)
-
-RecommendationPolicy = enum_type_wrapper.EnumTypeWrapper(_RECOMMENDATIONPOLICY)
-RECOMMENDATIONPOLICY_UNDEFINED = 0
-STABLE = 1
-COMPACT = 2
 
 
 
@@ -264,7 +233,6 @@ _NODEPREDICTION.fields_by_name['predicted_raw_data'].message_type = _NODEPREDICT
 DESCRIPTOR.message_types_by_name['ContainerPrediction'] = _CONTAINERPREDICTION
 DESCRIPTOR.message_types_by_name['PodPrediction'] = _PODPREDICTION
 DESCRIPTOR.message_types_by_name['NodePrediction'] = _NODEPREDICTION
-DESCRIPTOR.enum_types_by_name['RecommendationPolicy'] = _RECOMMENDATIONPOLICY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ContainerPrediction = _reflection.GeneratedProtocolMessageType('ContainerPrediction', (_message.Message,), dict(
