@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containersai.datahub.v1alpha2',
   syntax='proto3',
   serialized_options=_b('Z-github.com/containers-ai/api/datahub/v1alpha2'),
-  serialized_pb=_b('\n\x1e\x64\x61tahub/v1alpha2/datahub.proto\x12\x1d\x63ontainersai.datahub.v1alpha2\x1a\x17google/rpc/status.proto\x1a\x31\x64\x61tahub/resource/metadata/v1alpha2/metadata.proto\x1a(datahub/resource/v1alpha2/resource.proto\x1a,datahub/prediction/v1alpha2/prediction.proto\x1a$datahub/metric/v1alpha2/metric.proto\x1a\x34\x64\x61tahub/recommendation/v1alpha2/recommendation.proto\x1a\"datahub/score/v1alpha2/score.proto\"\xc4\x01\n\x0eQueryCondition\x12\x43\n\ntime_range\x18\x01 \x01(\x0b\x32/.containersai.datahub.metric.v1alpha2.TimeRange\x12\x42\n\x05order\x18\x02 \x01(\x0e\x32\x33.containersai.datahub.v1alpha2.QueryCondition.Order\x12\r\n\x05limit\x18\x03 \x01(\x04\"\x1a\n\x05Order\x12\x07\n\x03\x41SC\x10\x00\x12\x08\n\x04\x44\x45SC\x10\x01\"\xb9\x01\n\x15ListPodMetricsRequest\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x82\x01\n\x16ListPodMetricsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x44\n\x0bpod_metrics\x18\x02 \x03(\x0b\x32/.containersai.datahub.metric.v1alpha2.PodMetric\"t\n\x16ListNodeMetricsRequest\x12\x12\n\nnode_names\x18\x01 \x03(\t\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x85\x01\n\x17ListNodeMetricsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x46\n\x0cnode_metrics\x18\x02 \x03(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.NodeMetric\"q\n\x10ListPodsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x39\n\x04pods\x18\x02 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"x\n\x0fListPodsRequest\x12O\n\x06scaler\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x14\n\x0cis_predicted\x18\x02 \x01(\x08\"(\n\x10ListNodesRequest\x12\x14\n\x0cis_predicted\x18\x01 \x01(\x08\"t\n\x11ListNodesResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12;\n\x05nodes\x18\x02 \x03(\x0b\x32,.containersai.datahub.resource.v1alpha2.Node\"\xbd\x01\n\x19ListPodPredictionsRequest\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x92\x01\n\x1aListPodPredictionsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12P\n\x0fpod_predictions\x18\x02 \x03(\x0b\x32\x37.containersai.datahub.prediction.v1alpha2.PodPrediction\"x\n\x1aListNodePredictionsRequest\x12\x12\n\nnode_names\x18\x01 \x03(\t\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x95\x01\n\x1bListNodePredictionsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12R\n\x10node_predictions\x18\x02 \x03(\x0b\x32\x38.containersai.datahub.prediction.v1alpha2.NodePrediction\"\xc1\x01\n\x1dListPodRecommendationsRequest\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\xa2\x01\n\x1eListPodRecommendationsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\\\n\x13pod_recommendations\x18\x02 \x03(\x0b\x32?.containersai.datahub.recommendation.v1alpha2.PodRecommendation\"n\n$ListSimulatedSchedulingScoresRequest\x12\x46\n\x0fquery_condition\x18\x01 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x9a\x01\n%ListSimulatedSchedulingScoresResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12M\n\x06scores\x18\x02 \x03(\x0b\x32=.containersai.datahub.score.v1alpha2.SimulatedSchedulingScore\"o\n\x1b\x43reatePodPredictionsRequest\x12P\n\x0fpod_predictions\x18\x01 \x03(\x0b\x32\x37.containersai.datahub.prediction.v1alpha2.PodPrediction\"r\n\x1c\x43reateNodePredictionsRequest\x12R\n\x10node_predictions\x18\x01 \x03(\x0b\x32\x38.containersai.datahub.prediction.v1alpha2.NodePrediction\"\x7f\n\x1f\x43reatePodRecommendationsRequest\x12\\\n\x13pod_recommendations\x18\x01 \x03(\x0b\x32?.containersai.datahub.recommendation.v1alpha2.PodRecommendation\"N\n\x11\x43reatePodsRequest\x12\x39\n\x04pods\x18\x01 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"g\n\x12\x43reateNodesRequest\x12;\n\x05nodes\x18\x01 \x03(\x0b\x32,.containersai.datahub.resource.v1alpha2.Node\x12\x14\n\x0cis_predicted\x18\x02 \x01(\x08\"w\n&CreateSimulatedSchedulingScoresRequest\x12M\n\x06scores\x18\x01 \x03(\x0b\x32=.containersai.datahub.score.v1alpha2.SimulatedSchedulingScore\"\xf8\x01\n\x11UpdatePodsRequest\x12Q\n\x0cupdated_pods\x18\x01 \x03(\x0b\x32;.containersai.datahub.v1alpha2.UpdatePodsRequest.UpdatedPod\x1a\x8f\x01\n\nUpdatedPod\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x1a\'\n\x0fIsPredictedWrap\x12\x14\n\x0cis_predicted\x18\x01 \x01(\x08\"\xb0\x01\n\x12UpdateNodesRequest\x12T\n\rupdated_nodes\x18\x01 \x03(\x0b\x32=.containersai.datahub.v1alpha2.UpdateNodesRequest.UpdatedNode\x1a\x44\n\x0bUpdatedNode\x12\x0c\n\x04name\x18\x01 \x01(\t\x1a\'\n\x0fIsPredictedWrap\x12\x14\n\x0cis_predicted\x18\x01 \x01(\x08\"N\n\x11\x44\x65letePodsRequest\x12\x39\n\x04pods\x18\x01 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"Q\n\x12\x44\x65leteNodesRequest\x12;\n\x05nodes\x18\x01 \x03(\x0b\x32,.containersai.datahub.resource.v1alpha2.Node2\xb1\x10\n\x0e\x44\x61tahubService\x12\x7f\n\x0eListPodMetrics\x12\x34.containersai.datahub.v1alpha2.ListPodMetricsRequest\x1a\x35.containersai.datahub.v1alpha2.ListPodMetricsResponse\"\x00\x12\x82\x01\n\x0fListNodeMetrics\x12\x35.containersai.datahub.v1alpha2.ListNodeMetricsRequest\x1a\x36.containersai.datahub.v1alpha2.ListNodeMetricsResponse\"\x00\x12m\n\x08ListPods\x12..containersai.datahub.v1alpha2.ListPodsRequest\x1a/.containersai.datahub.v1alpha2.ListPodsResponse\"\x00\x12p\n\tListNodes\x12/.containersai.datahub.v1alpha2.ListNodesRequest\x1a\x30.containersai.datahub.v1alpha2.ListNodesResponse\"\x00\x12\x8b\x01\n\x12ListPodPredictions\x12\x38.containersai.datahub.v1alpha2.ListPodPredictionsRequest\x1a\x39.containersai.datahub.v1alpha2.ListPodPredictionsResponse\"\x00\x12\x8e\x01\n\x13ListNodePredictions\x12\x39.containersai.datahub.v1alpha2.ListNodePredictionsRequest\x1a:.containersai.datahub.v1alpha2.ListNodePredictionsResponse\"\x00\x12\x97\x01\n\x16ListPodRecommendations\x12<.containersai.datahub.v1alpha2.ListPodRecommendationsRequest\x1a=.containersai.datahub.v1alpha2.ListPodRecommendationsResponse\"\x00\x12\xac\x01\n\x1dListSimulatedSchedulingScores\x12\x43.containersai.datahub.v1alpha2.ListSimulatedSchedulingScoresRequest\x1a\x44.containersai.datahub.v1alpha2.ListSimulatedSchedulingScoresResponse\"\x00\x12T\n\nCreatePods\x12\x30.containersai.datahub.v1alpha2.CreatePodsRequest\x1a\x12.google.rpc.Status\"\x00\x12V\n\x0b\x43reateNodes\x12\x31.containersai.datahub.v1alpha2.CreateNodesRequest\x1a\x12.google.rpc.Status\"\x00\x12h\n\x14\x43reatePodPredictions\x12:.containersai.datahub.v1alpha2.CreatePodPredictionsRequest\x1a\x12.google.rpc.Status\"\x00\x12j\n\x15\x43reateNodePredictions\x12;.containersai.datahub.v1alpha2.CreateNodePredictionsRequest\x1a\x12.google.rpc.Status\"\x00\x12p\n\x18\x43reatePodRecommendations\x12>.containersai.datahub.v1alpha2.CreatePodRecommendationsRequest\x1a\x12.google.rpc.Status\"\x00\x12~\n\x1f\x43reateSimulatedSchedulingScores\x12\x45.containersai.datahub.v1alpha2.CreateSimulatedSchedulingScoresRequest\x1a\x12.google.rpc.Status\"\x00\x12T\n\nUpdatePods\x12\x30.containersai.datahub.v1alpha2.UpdatePodsRequest\x1a\x12.google.rpc.Status\"\x00\x12V\n\x0bUpdateNodes\x12\x31.containersai.datahub.v1alpha2.UpdateNodesRequest\x1a\x12.google.rpc.Status\"\x00\x12T\n\nDeletePods\x12\x30.containersai.datahub.v1alpha2.DeletePodsRequest\x1a\x12.google.rpc.Status\"\x00\x12V\n\x0b\x44\x65leteNodes\x12\x31.containersai.datahub.v1alpha2.DeleteNodesRequest\x1a\x12.google.rpc.Status\"\x00\x42/Z-github.com/containers-ai/api/datahub/v1alpha2b\x06proto3')
+  serialized_pb=_b('\n\x1e\x64\x61tahub/v1alpha2/datahub.proto\x12\x1d\x63ontainersai.datahub.v1alpha2\x1a\x17google/rpc/status.proto\x1a\x31\x64\x61tahub/resource/metadata/v1alpha2/metadata.proto\x1a(datahub/resource/v1alpha2/resource.proto\x1a,datahub/prediction/v1alpha2/prediction.proto\x1a$datahub/metric/v1alpha2/metric.proto\x1a\x34\x64\x61tahub/recommendation/v1alpha2/recommendation.proto\x1a\"datahub/score/v1alpha2/score.proto\"\xc4\x01\n\x0eQueryCondition\x12\x43\n\ntime_range\x18\x01 \x01(\x0b\x32/.containersai.datahub.metric.v1alpha2.TimeRange\x12\x42\n\x05order\x18\x02 \x01(\x0e\x32\x33.containersai.datahub.v1alpha2.QueryCondition.Order\x12\r\n\x05limit\x18\x03 \x01(\x04\"\x1a\n\x05Order\x12\x07\n\x03\x41SC\x10\x00\x12\x08\n\x04\x44\x45SC\x10\x01\"\xb9\x01\n\x15ListPodMetricsRequest\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x82\x01\n\x16ListPodMetricsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x44\n\x0bpod_metrics\x18\x02 \x03(\x0b\x32/.containersai.datahub.metric.v1alpha2.PodMetric\"t\n\x16ListNodeMetricsRequest\x12\x12\n\nnode_names\x18\x01 \x03(\t\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x85\x01\n\x17ListNodeMetricsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x46\n\x0cnode_metrics\x18\x02 \x03(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.NodeMetric\"q\n\x10ListPodsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x39\n\x04pods\x18\x02 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"x\n\x0fListPodsRequest\x12O\n\x06scaler\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x14\n\x0cis_predicted\x18\x02 \x01(\x08\"(\n\x10ListNodesRequest\x12\x14\n\x0cis_predicted\x18\x01 \x01(\x08\"t\n\x11ListNodesResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12;\n\x05nodes\x18\x02 \x03(\x0b\x32,.containersai.datahub.resource.v1alpha2.Node\"\xbd\x01\n\x19ListPodPredictionsRequest\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x92\x01\n\x1aListPodPredictionsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12P\n\x0fpod_predictions\x18\x02 \x03(\x0b\x32\x37.containersai.datahub.prediction.v1alpha2.PodPrediction\"x\n\x1aListNodePredictionsRequest\x12\x12\n\nnode_names\x18\x01 \x03(\t\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x95\x01\n\x1bListNodePredictionsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12R\n\x10node_predictions\x18\x02 \x03(\x0b\x32\x38.containersai.datahub.prediction.v1alpha2.NodePrediction\"\xc1\x01\n\x1dListPodRecommendationsRequest\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\xa2\x01\n\x1eListPodRecommendationsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\\\n\x13pod_recommendations\x18\x02 \x03(\x0b\x32?.containersai.datahub.recommendation.v1alpha2.PodRecommendation\"n\n$ListSimulatedSchedulingScoresRequest\x12\x46\n\x0fquery_condition\x18\x01 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x9a\x01\n%ListSimulatedSchedulingScoresResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12M\n\x06scores\x18\x02 \x03(\x0b\x32=.containersai.datahub.score.v1alpha2.SimulatedSchedulingScore\"o\n\x1b\x43reatePodPredictionsRequest\x12P\n\x0fpod_predictions\x18\x01 \x03(\x0b\x32\x37.containersai.datahub.prediction.v1alpha2.PodPrediction\"r\n\x1c\x43reateNodePredictionsRequest\x12R\n\x10node_predictions\x18\x01 \x03(\x0b\x32\x38.containersai.datahub.prediction.v1alpha2.NodePrediction\"\x7f\n\x1f\x43reatePodRecommendationsRequest\x12\\\n\x13pod_recommendations\x18\x01 \x03(\x0b\x32?.containersai.datahub.recommendation.v1alpha2.PodRecommendation\"N\n\x11\x43reatePodsRequest\x12\x39\n\x04pods\x18\x01 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"g\n\x12\x43reateNodesRequest\x12;\n\x05nodes\x18\x01 \x03(\x0b\x32,.containersai.datahub.resource.v1alpha2.Node\x12\x14\n\x0cis_predicted\x18\x02 \x01(\x08\"w\n&CreateSimulatedSchedulingScoresRequest\x12M\n\x06scores\x18\x01 \x03(\x0b\x32=.containersai.datahub.score.v1alpha2.SimulatedSchedulingScore\"\xdb\x02\n\x11UpdatePodsRequest\x12Q\n\x0cupdated_pods\x18\x01 \x03(\x0b\x32;.containersai.datahub.v1alpha2.UpdatePodsRequest.UpdatedPod\x1a\xf2\x01\n\nUpdatedPod\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x61\n\x0cis_predicted\x18\x02 \x01(\x0b\x32K.containersai.datahub.v1alpha2.UpdatePodsRequest.UpdatedPod.IsPredictedWrap\x1a\'\n\x0fIsPredictedWrap\x12\x14\n\x0cis_predicted\x18\x01 \x01(\x08\"\x96\x02\n\x12UpdateNodesRequest\x12T\n\rupdated_nodes\x18\x01 \x03(\x0b\x32=.containersai.datahub.v1alpha2.UpdateNodesRequest.UpdatedNode\x1a\xa9\x01\n\x0bUpdatedNode\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x63\n\x0cis_predicted\x18\x02 \x01(\x0b\x32M.containersai.datahub.v1alpha2.UpdateNodesRequest.UpdatedNode.IsPredictedWrap\x1a\'\n\x0fIsPredictedWrap\x12\x14\n\x0cis_predicted\x18\x01 \x01(\x08\"N\n\x11\x44\x65letePodsRequest\x12\x39\n\x04pods\x18\x01 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"Q\n\x12\x44\x65leteNodesRequest\x12;\n\x05nodes\x18\x01 \x03(\x0b\x32,.containersai.datahub.resource.v1alpha2.Node2\xb1\x10\n\x0e\x44\x61tahubService\x12\x7f\n\x0eListPodMetrics\x12\x34.containersai.datahub.v1alpha2.ListPodMetricsRequest\x1a\x35.containersai.datahub.v1alpha2.ListPodMetricsResponse\"\x00\x12\x82\x01\n\x0fListNodeMetrics\x12\x35.containersai.datahub.v1alpha2.ListNodeMetricsRequest\x1a\x36.containersai.datahub.v1alpha2.ListNodeMetricsResponse\"\x00\x12m\n\x08ListPods\x12..containersai.datahub.v1alpha2.ListPodsRequest\x1a/.containersai.datahub.v1alpha2.ListPodsResponse\"\x00\x12p\n\tListNodes\x12/.containersai.datahub.v1alpha2.ListNodesRequest\x1a\x30.containersai.datahub.v1alpha2.ListNodesResponse\"\x00\x12\x8b\x01\n\x12ListPodPredictions\x12\x38.containersai.datahub.v1alpha2.ListPodPredictionsRequest\x1a\x39.containersai.datahub.v1alpha2.ListPodPredictionsResponse\"\x00\x12\x8e\x01\n\x13ListNodePredictions\x12\x39.containersai.datahub.v1alpha2.ListNodePredictionsRequest\x1a:.containersai.datahub.v1alpha2.ListNodePredictionsResponse\"\x00\x12\x97\x01\n\x16ListPodRecommendations\x12<.containersai.datahub.v1alpha2.ListPodRecommendationsRequest\x1a=.containersai.datahub.v1alpha2.ListPodRecommendationsResponse\"\x00\x12\xac\x01\n\x1dListSimulatedSchedulingScores\x12\x43.containersai.datahub.v1alpha2.ListSimulatedSchedulingScoresRequest\x1a\x44.containersai.datahub.v1alpha2.ListSimulatedSchedulingScoresResponse\"\x00\x12T\n\nCreatePods\x12\x30.containersai.datahub.v1alpha2.CreatePodsRequest\x1a\x12.google.rpc.Status\"\x00\x12V\n\x0b\x43reateNodes\x12\x31.containersai.datahub.v1alpha2.CreateNodesRequest\x1a\x12.google.rpc.Status\"\x00\x12h\n\x14\x43reatePodPredictions\x12:.containersai.datahub.v1alpha2.CreatePodPredictionsRequest\x1a\x12.google.rpc.Status\"\x00\x12j\n\x15\x43reateNodePredictions\x12;.containersai.datahub.v1alpha2.CreateNodePredictionsRequest\x1a\x12.google.rpc.Status\"\x00\x12p\n\x18\x43reatePodRecommendations\x12>.containersai.datahub.v1alpha2.CreatePodRecommendationsRequest\x1a\x12.google.rpc.Status\"\x00\x12~\n\x1f\x43reateSimulatedSchedulingScores\x12\x45.containersai.datahub.v1alpha2.CreateSimulatedSchedulingScoresRequest\x1a\x12.google.rpc.Status\"\x00\x12T\n\nUpdatePods\x12\x30.containersai.datahub.v1alpha2.UpdatePodsRequest\x1a\x12.google.rpc.Status\"\x00\x12V\n\x0bUpdateNodes\x12\x31.containersai.datahub.v1alpha2.UpdateNodesRequest\x1a\x12.google.rpc.Status\"\x00\x12T\n\nDeletePods\x12\x30.containersai.datahub.v1alpha2.DeletePodsRequest\x1a\x12.google.rpc.Status\"\x00\x12V\n\x0b\x44\x65leteNodes\x12\x31.containersai.datahub.v1alpha2.DeleteNodesRequest\x1a\x12.google.rpc.Status\"\x00\x42/Z-github.com/containers-ai/api/datahub/v1alpha2b\x06proto3')
   ,
   dependencies=[google_dot_rpc_dot_status__pb2.DESCRIPTOR,datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2.DESCRIPTOR,datahub_dot_resource_dot_v1alpha2_dot_resource__pb2.DESCRIPTOR,datahub_dot_prediction_dot_v1alpha2_dot_prediction__pb2.DESCRIPTOR,datahub_dot_metric_dot_v1alpha2_dot_metric__pb2.DESCRIPTOR,datahub_dot_recommendation_dot_v1alpha2_dot_recommendation__pb2.DESCRIPTOR,datahub_dot_score_dot_v1alpha2_dot_score__pb2.DESCRIPTOR,])
 
@@ -914,8 +914,8 @@ _UPDATEPODSREQUEST_UPDATEDPOD_ISPREDICTEDWRAP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3647,
-  serialized_end=3686,
+  serialized_start=3746,
+  serialized_end=3785,
 )
 
 _UPDATEPODSREQUEST_UPDATEDPOD = _descriptor.Descriptor(
@@ -928,6 +928,13 @@ _UPDATEPODSREQUEST_UPDATEDPOD = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='namespaced_name', full_name='containersai.datahub.v1alpha2.UpdatePodsRequest.UpdatedPod.namespaced_name', index=0,
       number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='is_predicted', full_name='containersai.datahub.v1alpha2.UpdatePodsRequest.UpdatedPod.is_predicted', index=1,
+      number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -945,7 +952,7 @@ _UPDATEPODSREQUEST_UPDATEDPOD = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=3543,
-  serialized_end=3686,
+  serialized_end=3785,
 )
 
 _UPDATEPODSREQUEST = _descriptor.Descriptor(
@@ -975,7 +982,7 @@ _UPDATEPODSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=3438,
-  serialized_end=3686,
+  serialized_end=3785,
 )
 
 
@@ -1005,8 +1012,8 @@ _UPDATENODESREQUEST_UPDATEDNODE_ISPREDICTEDWRAP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3647,
-  serialized_end=3686,
+  serialized_start=3746,
+  serialized_end=3785,
 )
 
 _UPDATENODESREQUEST_UPDATEDNODE = _descriptor.Descriptor(
@@ -1023,6 +1030,13 @@ _UPDATENODESREQUEST_UPDATEDNODE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='is_predicted', full_name='containersai.datahub.v1alpha2.UpdateNodesRequest.UpdatedNode.is_predicted', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1035,8 +1049,8 @@ _UPDATENODESREQUEST_UPDATEDNODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3797,
-  serialized_end=3865,
+  serialized_start=3897,
+  serialized_end=4066,
 )
 
 _UPDATENODESREQUEST = _descriptor.Descriptor(
@@ -1065,8 +1079,8 @@ _UPDATENODESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3689,
-  serialized_end=3865,
+  serialized_start=3788,
+  serialized_end=4066,
 )
 
 
@@ -1096,8 +1110,8 @@ _DELETEPODSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3867,
-  serialized_end=3945,
+  serialized_start=4068,
+  serialized_end=4146,
 )
 
 
@@ -1127,8 +1141,8 @@ _DELETENODESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3947,
-  serialized_end=4028,
+  serialized_start=4148,
+  serialized_end=4229,
 )
 
 _QUERYCONDITION.fields_by_name['time_range'].message_type = datahub_dot_metric_dot_v1alpha2_dot_metric__pb2._TIMERANGE
@@ -1168,9 +1182,11 @@ _CREATENODESREQUEST.fields_by_name['nodes'].message_type = datahub_dot_resource_
 _CREATESIMULATEDSCHEDULINGSCORESREQUEST.fields_by_name['scores'].message_type = datahub_dot_score_dot_v1alpha2_dot_score__pb2._SIMULATEDSCHEDULINGSCORE
 _UPDATEPODSREQUEST_UPDATEDPOD_ISPREDICTEDWRAP.containing_type = _UPDATEPODSREQUEST_UPDATEDPOD
 _UPDATEPODSREQUEST_UPDATEDPOD.fields_by_name['namespaced_name'].message_type = datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2._NAMESPACEDNAME
+_UPDATEPODSREQUEST_UPDATEDPOD.fields_by_name['is_predicted'].message_type = _UPDATEPODSREQUEST_UPDATEDPOD_ISPREDICTEDWRAP
 _UPDATEPODSREQUEST_UPDATEDPOD.containing_type = _UPDATEPODSREQUEST
 _UPDATEPODSREQUEST.fields_by_name['updated_pods'].message_type = _UPDATEPODSREQUEST_UPDATEDPOD
 _UPDATENODESREQUEST_UPDATEDNODE_ISPREDICTEDWRAP.containing_type = _UPDATENODESREQUEST_UPDATEDNODE
+_UPDATENODESREQUEST_UPDATEDNODE.fields_by_name['is_predicted'].message_type = _UPDATENODESREQUEST_UPDATEDNODE_ISPREDICTEDWRAP
 _UPDATENODESREQUEST_UPDATEDNODE.containing_type = _UPDATENODESREQUEST
 _UPDATENODESREQUEST.fields_by_name['updated_nodes'].message_type = _UPDATENODESREQUEST_UPDATEDNODE
 _DELETEPODSREQUEST.fields_by_name['pods'].message_type = datahub_dot_resource_dot_v1alpha2_dot_resource__pb2._POD
@@ -1434,8 +1450,8 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=4031,
-  serialized_end=6128,
+  serialized_start=4232,
+  serialized_end=6329,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListPodMetrics',
