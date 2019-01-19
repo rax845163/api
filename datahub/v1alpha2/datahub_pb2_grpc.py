@@ -16,6 +16,36 @@ class DatahubServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
+    self.GetClusterPolicy = channel.unary_unary(
+        '/containersai.datahub.v1alpha2.DatahubService/GetClusterPolicy',
+        request_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetClusterPolicyRequest.SerializeToString,
+        response_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetClusterPolicyResponse.FromString,
+        )
+    self.GetClusterStatus = channel.unary_unary(
+        '/containersai.datahub.v1alpha2.DatahubService/GetClusterStatus',
+        request_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetClusterStatusRequest.SerializeToString,
+        response_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetClusterStatusResponse.FromString,
+        )
+    self.GetClusterConfig = channel.unary_unary(
+        '/containersai.datahub.v1alpha2.DatahubService/GetClusterConfig',
+        request_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetClusterConfigRequest.SerializeToString,
+        response_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetClusterConfigResponse.FromString,
+        )
+    self.GetCurrentPodSpec = channel.unary_unary(
+        '/containersai.datahub.v1alpha2.DatahubService/GetCurrentPodSpec',
+        request_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetCurrentPodSpecRequest.SerializeToString,
+        response_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetCurrentPodSpecResponse.FromString,
+        )
+    self.GetHistoricalPodCount = channel.unary_unary(
+        '/containersai.datahub.v1alpha2.DatahubService/GetHistoricalPodCount',
+        request_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetHistoricalPodCountRequest.SerializeToString,
+        response_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetHistoricalPodCountResponse.FromString,
+        )
+    self.GetUnscheduledPods = channel.unary_unary(
+        '/containersai.datahub.v1alpha2.DatahubService/GetUnscheduledPods',
+        request_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetUnscheduledPodsRequest.SerializeToString,
+        response_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetUnscheduledPodsResponse.FromString,
+        )
     self.ListPodMetrics = channel.unary_unary(
         '/containersai.datahub.v1alpha2.DatahubService/ListPodMetrics',
         request_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.ListPodMetricsRequest.SerializeToString,
@@ -113,15 +143,57 @@ class DatahubServiceServicer(object):
   Service for providing data stored in the backend
   """
 
+  def GetClusterPolicy(self, request, context):
+    """Used to get cluster policy
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def GetClusterStatus(self, request, context):
+    """Used to get cluster status
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def GetClusterConfig(self, request, context):
+    """Used to get cluster config
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def GetCurrentPodSpec(self, request, context):
+    """Used to get pod spec
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def GetHistoricalPodCount(self, request, context):
+    """Used to get historical pod count
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def GetUnscheduledPods(self, request, context):
+    """Used to get unschediled pods reside in cluster
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
   def ListPodMetrics(self, request, context):
-    """/ Used to list pod metric data
+    """Used to list pod metric data
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def ListNodeMetrics(self, request, context):
-    """/ Used to list node metric data
+    """Used to list node metric data
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
@@ -142,98 +214,98 @@ class DatahubServiceServicer(object):
     raise NotImplementedError('Method not implemented!')
 
   def ListPodPredictions(self, request, context):
-    """/ Used to list pod predictions
+    """Used to list pod predictions
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def ListNodePredictions(self, request, context):
-    """/ Used to list node predictions
+    """Used to list node predictions
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def ListPodRecommendations(self, request, context):
-    """/ Used to list pod recommenations
+    """Used to list pod recommenations
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def ListSimulatedSchedulingScores(self, request, context):
-    """/ Used to list system scores
+    """Used to list system scores
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def CreatePods(self, request, context):
-    """/ Used to add pods that need to be predicted
+    """Used to add pods that need to be predicted
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def CreateNodes(self, request, context):
-    """/ Used to add nodes
+    """Used to add nodes
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def CreatePodPredictions(self, request, context):
-    """/ Used to create predictions of pods
+    """Used to create predictions of pods
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def CreateNodePredictions(self, request, context):
-    """/ Used to create predictions of nodes
+    """Used to create predictions of nodes
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def CreatePodRecommendations(self, request, context):
-    """/ Used to create recommendations of pods
+    """Used to create recommendations of pods
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def CreateSimulatedSchedulingScores(self, request, context):
-    """/ Used to create scores of system 
+    """Used to create scores of system 
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def UpdatePods(self, request, context):
-    """/ Used to update info of pods
+    """Used to update info of pods
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def UpdateNodes(self, request, context):
-    """/ Used to update info of nodes
+    """Used to update info of nodes
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def DeletePods(self, request, context):
-    """/ Used to delete info of pods
+    """Used to delete info of pods
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def DeleteNodes(self, request, context):
-    """/ Used to delete info of nodes
+    """Used to delete info of nodes
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
@@ -242,6 +314,36 @@ class DatahubServiceServicer(object):
 
 def add_DatahubServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
+      'GetClusterPolicy': grpc.unary_unary_rpc_method_handler(
+          servicer.GetClusterPolicy,
+          request_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetClusterPolicyRequest.FromString,
+          response_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetClusterPolicyResponse.SerializeToString,
+      ),
+      'GetClusterStatus': grpc.unary_unary_rpc_method_handler(
+          servicer.GetClusterStatus,
+          request_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetClusterStatusRequest.FromString,
+          response_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetClusterStatusResponse.SerializeToString,
+      ),
+      'GetClusterConfig': grpc.unary_unary_rpc_method_handler(
+          servicer.GetClusterConfig,
+          request_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetClusterConfigRequest.FromString,
+          response_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetClusterConfigResponse.SerializeToString,
+      ),
+      'GetCurrentPodSpec': grpc.unary_unary_rpc_method_handler(
+          servicer.GetCurrentPodSpec,
+          request_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetCurrentPodSpecRequest.FromString,
+          response_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetCurrentPodSpecResponse.SerializeToString,
+      ),
+      'GetHistoricalPodCount': grpc.unary_unary_rpc_method_handler(
+          servicer.GetHistoricalPodCount,
+          request_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetHistoricalPodCountRequest.FromString,
+          response_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetHistoricalPodCountResponse.SerializeToString,
+      ),
+      'GetUnscheduledPods': grpc.unary_unary_rpc_method_handler(
+          servicer.GetUnscheduledPods,
+          request_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetUnscheduledPodsRequest.FromString,
+          response_serializer=datahub_dot_v1alpha2_dot_datahub__pb2.GetUnscheduledPodsResponse.SerializeToString,
+      ),
       'ListPodMetrics': grpc.unary_unary_rpc_method_handler(
           servicer.ListPodMetrics,
           request_deserializer=datahub_dot_v1alpha2_dot_datahub__pb2.ListPodMetricsRequest.FromString,

@@ -3,6 +3,7 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -15,7 +16,6 @@ _sym_db = _symbol_database.Default()
 from datahub.resource.metadata.v1alpha2 import metadata_pb2 as datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2
 from datahub.recommendation.v1alpha2 import recommendation_pb2 as datahub_dot_recommendation_dot_v1alpha2_dot_recommendation__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
-from datahub.metric.v1alpha2 import metric_pb2 as datahub_dot_metric_dot_v1alpha2_dot_metric__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,31 +23,87 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containersai.datahub.resource.v1alpha2',
   syntax='proto3',
   serialized_options=_b('Z6github.com/containers-ai/api/datahub/resource/v1alpha2'),
-  serialized_pb=_b('\n(datahub/resource/v1alpha2/resource.proto\x12&containersai.datahub.resource.v1alpha2\x1a\x31\x64\x61tahub/resource/metadata/v1alpha2/metadata.proto\x1a\x34\x64\x61tahub/recommendation/v1alpha2/recommendation.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a$datahub/metric/v1alpha2/metric.proto\"\xab\x03\n\tContainer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\\\n\x0elimit_resource\x18\x02 \x03(\x0b\x32\x44.containersai.datahub.resource.v1alpha2.Container.LimitResourceEntry\x12`\n\x10request_resource\x18\x03 \x03(\x0b\x32\x46.containersai.datahub.resource.v1alpha2.Container.RequestResourceEntry\x1a\x66\n\x12LimitResourceEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\x1ah\n\x14RequestResourceEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.MetricData:\x02\x38\x01\"\xbb\x03\n\x03Pod\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x15\n\rresource_link\x18\x02 \x01(\t\x12\x45\n\ncontainers\x18\x03 \x03(\x0b\x32\x31.containersai.datahub.resource.v1alpha2.Container\x12\x14\n\x0cis_predicted\x18\x04 \x01(\x08\x12O\n\x06scaler\x18\x05 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x11\n\tnode_name\x18\x06 \x01(\t\x12.\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12R\n\x06policy\x18\x08 \x01(\x0e\x32\x42.containersai.datahub.recommendation.v1alpha2.RecommendationPolicy\"\x14\n\x04Node\x12\x0c\n\x04name\x18\x01 \x01(\tB8Z6github.com/containers-ai/api/datahub/resource/v1alpha2b\x06proto3')
+  serialized_pb=_b('\n(datahub/resource/v1alpha2/resource.proto\x12&containersai.datahub.resource.v1alpha2\x1a\x31\x64\x61tahub/resource/metadata/v1alpha2/metadata.proto\x1a\x34\x64\x61tahub/recommendation/v1alpha2/recommendation.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\x03\n\rContainerSpec\x12]\n\tresources\x18\x01 \x01(\x0b\x32J.containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements\x1a\xca\x02\n\x14ResourceRequirements\x12\x66\n\x06limits\x18\x01 \x03(\x0b\x32V.containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements.LimitsEntry\x12j\n\x08requests\x18\x02 \x03(\x0b\x32X.containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements.RequestsEntry\x1a-\n\x0bLimitsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rRequestsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x11\n\x0f\x43ontainerStatus\"\xff\x01\n\tContainer\x12P\n\x0bobject_meta\x18\x01 \x01(\x0b\x32;.containersai.datahub.resource.metadata.v1alpha2.ObjectMeta\x12M\n\x0e\x63ontainer_spec\x18\x02 \x01(\x0b\x32\x35.containersai.datahub.resource.v1alpha2.ContainerSpec\x12Q\n\x10\x63ontainer_status\x18\x03 \x01(\x0b\x32\x37.containersai.datahub.resource.v1alpha2.ContainerStatus\"c\n\x07PodSpec\x12\x45\n\ncontainers\x18\x03 \x03(\x0b\x32\x31.containersai.datahub.resource.v1alpha2.Container\x12\x11\n\tnode_name\x18\x06 \x01(\t\"\x8d\x02\n\tPodStatus\x12\x15\n\rresource_link\x18\x02 \x01(\t\x12\x14\n\x0cis_predicted\x18\x04 \x01(\x08\x12O\n\x06scaler\x18\x05 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12.\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12R\n\x06policy\x18\x08 \x01(\x0e\x32\x42.containersai.datahub.recommendation.v1alpha2.RecommendationPolicy\"\xe1\x01\n\x03Pod\x12P\n\x0bobject_meta\x18\x01 \x01(\x0b\x32;.containersai.datahub.resource.metadata.v1alpha2.ObjectMeta\x12\x41\n\x08pod_spec\x18\x02 \x01(\x0b\x32/.containersai.datahub.resource.v1alpha2.PodSpec\x12\x45\n\npod_status\x18\x03 \x01(\x0b\x32\x31.containersai.datahub.resource.v1alpha2.PodStatus\"X\n\x04Node\x12P\n\x0bobject_meta\x18\x01 \x01(\x0b\x32;.containersai.datahub.resource.metadata.v1alpha2.ObjectMeta\"e\n\x11InstanceGroupSpec\x12\x16\n\x0e\x63loud_provider\x18\x01 \x01(\t\x12\x14\n\x0cmachine_type\x18\x02 \x01(\t\x12\x10\n\x08max_size\x18\x03 \x01(\x03\x12\x10\n\x08min_size\x18\x04 \x01(\x03\"\x98\x04\n\x13InstanceGroupStatus\x12\x1b\n\x13\x63urrent_target_size\x18\x01 \x01(\x03\x12V\n\x08\x63\x61pacity\x18\x02 \x01(\x0b\x32\x44.containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Capacity\x12T\n\x07pricing\x18\x03 \x01(\x0b\x32\x43.containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Pricing\x1aV\n\x08\x43\x61pacity\x12\x0b\n\x03\x63pu\x18\x01 \x01(\x03\x12\x18\n\x10memory_kilobytes\x18\x02 \x01(\x03\x12#\n\x1bnetwotk_megabits_per_second\x18\x03 \x01(\x03\x1a\xdd\x01\n\x07Pricing\x12V\n\x04type\x18\x01 \x01(\x0e\x32H.containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Pricing.Type\x12\x12\n\nper_second\x18\x02 \x01(\x02\x12\x10\n\x08per_hour\x18\x03 \x01(\x02\x12\x10\n\x08per_year\x18\x04 \x01(\x02\x12\x12\n\nper_3_year\x18\x05 \x01(\x02\".\n\x04Type\x12\x0c\n\x08Reserved\x10\x00\x12\x0c\n\x08Ondemand\x10\x01\x12\n\n\x06OnSpot\x10\x02\"\x95\x02\n\rInstanceGroup\x12P\n\x0bobject_meta\x18\x01 \x01(\x0b\x32;.containersai.datahub.resource.metadata.v1alpha2.ObjectMeta\x12V\n\x13instance_group_spec\x18\x02 \x01(\x0b\x32\x39.containersai.datahub.resource.v1alpha2.InstanceGroupSpec\x12Z\n\x15instance_group_status\x18\x03 \x01(\x0b\x32;.containersai.datahub.resource.v1alpha2.InstanceGroupStatus\"\xbf\x01\n\x0b\x43lusterSpec\x12\x64\n\x1a\x63luster_autoscaling_policy\x18\x01 \x01(\x0e\x32@.containersai.datahub.resource.v1alpha2.ClusterAutoscalingPolicy\x12J\n\x0bnode_groups\x18\x02 \x03(\x0b\x32\x35.containersai.datahub.resource.v1alpha2.InstanceGroup\"\x0f\n\rClusterStatus\"\xf5\x01\n\x07\x43luster\x12P\n\x0bobject_meta\x18\x01 \x01(\x0b\x32;.containersai.datahub.resource.metadata.v1alpha2.ObjectMeta\x12I\n\x0c\x63luster_spec\x18\x02 \x01(\x0b\x32\x33.containersai.datahub.resource.v1alpha2.ClusterSpec\x12M\n\x0e\x63luster_status\x18\x03 \x01(\x0b\x32\x35.containersai.datahub.resource.v1alpha2.ClusterStatus*B\n\x18\x43lusterAutoscalingPolicy\x12\r\n\tUNDEFINED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0b\n\x07\x43OMPACT\x10\x02\x42\x38Z6github.com/containers-ai/api/datahub/resource/v1alpha2b\x06proto3')
   ,
-  dependencies=[datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2.DESCRIPTOR,datahub_dot_recommendation_dot_v1alpha2_dot_recommendation__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,datahub_dot_metric_dot_v1alpha2_dot_metric__pb2.DESCRIPTOR,])
+  dependencies=[datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2.DESCRIPTOR,datahub_dot_recommendation_dot_v1alpha2_dot_recommendation__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+
+_CLUSTERAUTOSCALINGPOLICY = _descriptor.EnumDescriptor(
+  name='ClusterAutoscalingPolicy',
+  full_name='containersai.datahub.resource.v1alpha2.ClusterAutoscalingPolicy',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='UNDEFINED', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='STABLE', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='COMPACT', index=2, number=2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3017,
+  serialized_end=3083,
+)
+_sym_db.RegisterEnumDescriptor(_CLUSTERAUTOSCALINGPOLICY)
+
+ClusterAutoscalingPolicy = enum_type_wrapper.EnumTypeWrapper(_CLUSTERAUTOSCALINGPOLICY)
+UNDEFINED = 0
+STABLE = 1
+COMPACT = 2
 
 
+_INSTANCEGROUPSTATUS_PRICING_TYPE = _descriptor.EnumDescriptor(
+  name='Type',
+  full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Pricing.Type',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='Reserved', index=0, number=0,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='Ondemand', index=1, number=1,
+      serialized_options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='OnSpot', index=2, number=2,
+      serialized_options=None,
+      type=None),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2230,
+  serialized_end=2276,
+)
+_sym_db.RegisterEnumDescriptor(_INSTANCEGROUPSTATUS_PRICING_TYPE)
 
 
-_CONTAINER_LIMITRESOURCEENTRY = _descriptor.Descriptor(
-  name='LimitResourceEntry',
-  full_name='containersai.datahub.resource.v1alpha2.Container.LimitResourceEntry',
+_CONTAINERSPEC_RESOURCEREQUIREMENTS_LIMITSENTRY = _descriptor.Descriptor(
+  name='LimitsEntry',
+  full_name='containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements.LimitsEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='containersai.datahub.resource.v1alpha2.Container.LimitResourceEntry.key', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='key', full_name='containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements.LimitsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='containersai.datahub.resource.v1alpha2.Container.LimitResourceEntry.value', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='value', full_name='containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements.LimitsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -63,28 +119,28 @@ _CONTAINER_LIMITRESOURCEENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=480,
-  serialized_end=582,
+  serialized_start=572,
+  serialized_end=617,
 )
 
-_CONTAINER_REQUESTRESOURCEENTRY = _descriptor.Descriptor(
-  name='RequestResourceEntry',
-  full_name='containersai.datahub.resource.v1alpha2.Container.RequestResourceEntry',
+_CONTAINERSPEC_RESOURCEREQUIREMENTS_REQUESTSENTRY = _descriptor.Descriptor(
+  name='RequestsEntry',
+  full_name='containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements.RequestsEntry',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='containersai.datahub.resource.v1alpha2.Container.RequestResourceEntry.key', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='key', full_name='containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements.RequestsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='containersai.datahub.resource.v1alpha2.Container.RequestResourceEntry.value', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='value', full_name='containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements.RequestsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -100,9 +156,101 @@ _CONTAINER_REQUESTRESOURCEENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=584,
-  serialized_end=688,
+  serialized_start=619,
+  serialized_end=666,
 )
+
+_CONTAINERSPEC_RESOURCEREQUIREMENTS = _descriptor.Descriptor(
+  name='ResourceRequirements',
+  full_name='containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='limits', full_name='containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements.limits', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='requests', full_name='containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements.requests', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_CONTAINERSPEC_RESOURCEREQUIREMENTS_LIMITSENTRY, _CONTAINERSPEC_RESOURCEREQUIREMENTS_REQUESTSENTRY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=336,
+  serialized_end=666,
+)
+
+_CONTAINERSPEC = _descriptor.Descriptor(
+  name='ContainerSpec',
+  full_name='containersai.datahub.resource.v1alpha2.ContainerSpec',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='resources', full_name='containersai.datahub.resource.v1alpha2.ContainerSpec.resources', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_CONTAINERSPEC_RESOURCEREQUIREMENTS, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=223,
+  serialized_end=666,
+)
+
+
+_CONTAINERSTATUS = _descriptor.Descriptor(
+  name='ContainerStatus',
+  full_name='containersai.datahub.resource.v1alpha2.ContainerStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=668,
+  serialized_end=685,
+)
+
 
 _CONTAINER = _descriptor.Descriptor(
   name='Container',
@@ -112,30 +260,30 @@ _CONTAINER = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='containersai.datahub.resource.v1alpha2.Container.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='object_meta', full_name='containersai.datahub.resource.v1alpha2.Container.object_meta', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='limit_resource', full_name='containersai.datahub.resource.v1alpha2.Container.limit_resource', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='container_spec', full_name='containersai.datahub.resource.v1alpha2.Container.container_spec', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='request_resource', full_name='containersai.datahub.resource.v1alpha2.Container.request_resource', index=2,
-      number=3, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='container_status', full_name='containersai.datahub.resource.v1alpha2.Container.container_status', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
-  nested_types=[_CONTAINER_LIMITRESOURCEENTRY, _CONTAINER_REQUESTRESOURCEENTRY, ],
+  nested_types=[],
   enum_types=[
   ],
   serialized_options=None,
@@ -144,69 +292,86 @@ _CONTAINER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=261,
-  serialized_end=688,
+  serialized_start=688,
+  serialized_end=943,
 )
 
 
-_POD = _descriptor.Descriptor(
-  name='Pod',
-  full_name='containersai.datahub.resource.v1alpha2.Pod',
+_PODSPEC = _descriptor.Descriptor(
+  name='PodSpec',
+  full_name='containersai.datahub.resource.v1alpha2.PodSpec',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='namespaced_name', full_name='containersai.datahub.resource.v1alpha2.Pod.namespaced_name', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='resource_link', full_name='containersai.datahub.resource.v1alpha2.Pod.resource_link', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='containers', full_name='containersai.datahub.resource.v1alpha2.Pod.containers', index=2,
+      name='containers', full_name='containersai.datahub.resource.v1alpha2.PodSpec.containers', index=0,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='is_predicted', full_name='containersai.datahub.resource.v1alpha2.Pod.is_predicted', index=3,
+      name='node_name', full_name='containersai.datahub.resource.v1alpha2.PodSpec.node_name', index=1,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=945,
+  serialized_end=1044,
+)
+
+
+_PODSTATUS = _descriptor.Descriptor(
+  name='PodStatus',
+  full_name='containersai.datahub.resource.v1alpha2.PodStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='resource_link', full_name='containersai.datahub.resource.v1alpha2.PodStatus.resource_link', index=0,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='is_predicted', full_name='containersai.datahub.resource.v1alpha2.PodStatus.is_predicted', index=1,
       number=4, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='scaler', full_name='containersai.datahub.resource.v1alpha2.Pod.scaler', index=4,
+      name='scaler', full_name='containersai.datahub.resource.v1alpha2.PodStatus.scaler', index=2,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='node_name', full_name='containersai.datahub.resource.v1alpha2.Pod.node_name', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='start_time', full_name='containersai.datahub.resource.v1alpha2.Pod.start_time', index=6,
+      name='start_time', full_name='containersai.datahub.resource.v1alpha2.PodStatus.start_time', index=3,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='policy', full_name='containersai.datahub.resource.v1alpha2.Pod.policy', index=7,
+      name='policy', full_name='containersai.datahub.resource.v1alpha2.PodStatus.policy', index=4,
       number=8, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -224,22 +389,36 @@ _POD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=691,
-  serialized_end=1134,
+  serialized_start=1047,
+  serialized_end=1316,
 )
 
 
-_NODE = _descriptor.Descriptor(
-  name='Node',
-  full_name='containersai.datahub.resource.v1alpha2.Node',
+_POD = _descriptor.Descriptor(
+  name='Pod',
+  full_name='containersai.datahub.resource.v1alpha2.Pod',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='containersai.datahub.resource.v1alpha2.Node.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='object_meta', full_name='containersai.datahub.resource.v1alpha2.Pod.object_meta', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pod_spec', full_name='containersai.datahub.resource.v1alpha2.Pod.pod_spec', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pod_status', full_name='containersai.datahub.resource.v1alpha2.Pod.pod_status', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -255,48 +434,498 @@ _NODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1136,
-  serialized_end=1156,
+  serialized_start=1319,
+  serialized_end=1544,
 )
 
-_CONTAINER_LIMITRESOURCEENTRY.fields_by_name['value'].message_type = datahub_dot_metric_dot_v1alpha2_dot_metric__pb2._METRICDATA
-_CONTAINER_LIMITRESOURCEENTRY.containing_type = _CONTAINER
-_CONTAINER_REQUESTRESOURCEENTRY.fields_by_name['value'].message_type = datahub_dot_metric_dot_v1alpha2_dot_metric__pb2._METRICDATA
-_CONTAINER_REQUESTRESOURCEENTRY.containing_type = _CONTAINER
-_CONTAINER.fields_by_name['limit_resource'].message_type = _CONTAINER_LIMITRESOURCEENTRY
-_CONTAINER.fields_by_name['request_resource'].message_type = _CONTAINER_REQUESTRESOURCEENTRY
-_POD.fields_by_name['namespaced_name'].message_type = datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2._NAMESPACEDNAME
-_POD.fields_by_name['containers'].message_type = _CONTAINER
-_POD.fields_by_name['scaler'].message_type = datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2._NAMESPACEDNAME
-_POD.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-_POD.fields_by_name['policy'].enum_type = datahub_dot_recommendation_dot_v1alpha2_dot_recommendation__pb2._RECOMMENDATIONPOLICY
+
+_NODE = _descriptor.Descriptor(
+  name='Node',
+  full_name='containersai.datahub.resource.v1alpha2.Node',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='object_meta', full_name='containersai.datahub.resource.v1alpha2.Node.object_meta', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1546,
+  serialized_end=1634,
+)
+
+
+_INSTANCEGROUPSPEC = _descriptor.Descriptor(
+  name='InstanceGroupSpec',
+  full_name='containersai.datahub.resource.v1alpha2.InstanceGroupSpec',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cloud_provider', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupSpec.cloud_provider', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='machine_type', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupSpec.machine_type', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='max_size', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupSpec.max_size', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='min_size', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupSpec.min_size', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1636,
+  serialized_end=1737,
+)
+
+
+_INSTANCEGROUPSTATUS_CAPACITY = _descriptor.Descriptor(
+  name='Capacity',
+  full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Capacity',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cpu', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Capacity.cpu', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='memory_kilobytes', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Capacity.memory_kilobytes', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='netwotk_megabits_per_second', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Capacity.netwotk_megabits_per_second', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1966,
+  serialized_end=2052,
+)
+
+_INSTANCEGROUPSTATUS_PRICING = _descriptor.Descriptor(
+  name='Pricing',
+  full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Pricing',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Pricing.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='per_second', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Pricing.per_second', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='per_hour', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Pricing.per_hour', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='per_year', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Pricing.per_year', index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='per_3_year', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Pricing.per_3_year', index=4,
+      number=5, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _INSTANCEGROUPSTATUS_PRICING_TYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2055,
+  serialized_end=2276,
+)
+
+_INSTANCEGROUPSTATUS = _descriptor.Descriptor(
+  name='InstanceGroupStatus',
+  full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='current_target_size', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.current_target_size', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='capacity', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.capacity', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pricing', full_name='containersai.datahub.resource.v1alpha2.InstanceGroupStatus.pricing', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_INSTANCEGROUPSTATUS_CAPACITY, _INSTANCEGROUPSTATUS_PRICING, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1740,
+  serialized_end=2276,
+)
+
+
+_INSTANCEGROUP = _descriptor.Descriptor(
+  name='InstanceGroup',
+  full_name='containersai.datahub.resource.v1alpha2.InstanceGroup',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='object_meta', full_name='containersai.datahub.resource.v1alpha2.InstanceGroup.object_meta', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='instance_group_spec', full_name='containersai.datahub.resource.v1alpha2.InstanceGroup.instance_group_spec', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='instance_group_status', full_name='containersai.datahub.resource.v1alpha2.InstanceGroup.instance_group_status', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2279,
+  serialized_end=2556,
+)
+
+
+_CLUSTERSPEC = _descriptor.Descriptor(
+  name='ClusterSpec',
+  full_name='containersai.datahub.resource.v1alpha2.ClusterSpec',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cluster_autoscaling_policy', full_name='containersai.datahub.resource.v1alpha2.ClusterSpec.cluster_autoscaling_policy', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='node_groups', full_name='containersai.datahub.resource.v1alpha2.ClusterSpec.node_groups', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2559,
+  serialized_end=2750,
+)
+
+
+_CLUSTERSTATUS = _descriptor.Descriptor(
+  name='ClusterStatus',
+  full_name='containersai.datahub.resource.v1alpha2.ClusterStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2752,
+  serialized_end=2767,
+)
+
+
+_CLUSTER = _descriptor.Descriptor(
+  name='Cluster',
+  full_name='containersai.datahub.resource.v1alpha2.Cluster',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='object_meta', full_name='containersai.datahub.resource.v1alpha2.Cluster.object_meta', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cluster_spec', full_name='containersai.datahub.resource.v1alpha2.Cluster.cluster_spec', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cluster_status', full_name='containersai.datahub.resource.v1alpha2.Cluster.cluster_status', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2770,
+  serialized_end=3015,
+)
+
+_CONTAINERSPEC_RESOURCEREQUIREMENTS_LIMITSENTRY.containing_type = _CONTAINERSPEC_RESOURCEREQUIREMENTS
+_CONTAINERSPEC_RESOURCEREQUIREMENTS_REQUESTSENTRY.containing_type = _CONTAINERSPEC_RESOURCEREQUIREMENTS
+_CONTAINERSPEC_RESOURCEREQUIREMENTS.fields_by_name['limits'].message_type = _CONTAINERSPEC_RESOURCEREQUIREMENTS_LIMITSENTRY
+_CONTAINERSPEC_RESOURCEREQUIREMENTS.fields_by_name['requests'].message_type = _CONTAINERSPEC_RESOURCEREQUIREMENTS_REQUESTSENTRY
+_CONTAINERSPEC_RESOURCEREQUIREMENTS.containing_type = _CONTAINERSPEC
+_CONTAINERSPEC.fields_by_name['resources'].message_type = _CONTAINERSPEC_RESOURCEREQUIREMENTS
+_CONTAINER.fields_by_name['object_meta'].message_type = datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2._OBJECTMETA
+_CONTAINER.fields_by_name['container_spec'].message_type = _CONTAINERSPEC
+_CONTAINER.fields_by_name['container_status'].message_type = _CONTAINERSTATUS
+_PODSPEC.fields_by_name['containers'].message_type = _CONTAINER
+_PODSTATUS.fields_by_name['scaler'].message_type = datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2._NAMESPACEDNAME
+_PODSTATUS.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_PODSTATUS.fields_by_name['policy'].enum_type = datahub_dot_recommendation_dot_v1alpha2_dot_recommendation__pb2._RECOMMENDATIONPOLICY
+_POD.fields_by_name['object_meta'].message_type = datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2._OBJECTMETA
+_POD.fields_by_name['pod_spec'].message_type = _PODSPEC
+_POD.fields_by_name['pod_status'].message_type = _PODSTATUS
+_NODE.fields_by_name['object_meta'].message_type = datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2._OBJECTMETA
+_INSTANCEGROUPSTATUS_CAPACITY.containing_type = _INSTANCEGROUPSTATUS
+_INSTANCEGROUPSTATUS_PRICING.fields_by_name['type'].enum_type = _INSTANCEGROUPSTATUS_PRICING_TYPE
+_INSTANCEGROUPSTATUS_PRICING.containing_type = _INSTANCEGROUPSTATUS
+_INSTANCEGROUPSTATUS_PRICING_TYPE.containing_type = _INSTANCEGROUPSTATUS_PRICING
+_INSTANCEGROUPSTATUS.fields_by_name['capacity'].message_type = _INSTANCEGROUPSTATUS_CAPACITY
+_INSTANCEGROUPSTATUS.fields_by_name['pricing'].message_type = _INSTANCEGROUPSTATUS_PRICING
+_INSTANCEGROUP.fields_by_name['object_meta'].message_type = datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2._OBJECTMETA
+_INSTANCEGROUP.fields_by_name['instance_group_spec'].message_type = _INSTANCEGROUPSPEC
+_INSTANCEGROUP.fields_by_name['instance_group_status'].message_type = _INSTANCEGROUPSTATUS
+_CLUSTERSPEC.fields_by_name['cluster_autoscaling_policy'].enum_type = _CLUSTERAUTOSCALINGPOLICY
+_CLUSTERSPEC.fields_by_name['node_groups'].message_type = _INSTANCEGROUP
+_CLUSTER.fields_by_name['object_meta'].message_type = datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2._OBJECTMETA
+_CLUSTER.fields_by_name['cluster_spec'].message_type = _CLUSTERSPEC
+_CLUSTER.fields_by_name['cluster_status'].message_type = _CLUSTERSTATUS
+DESCRIPTOR.message_types_by_name['ContainerSpec'] = _CONTAINERSPEC
+DESCRIPTOR.message_types_by_name['ContainerStatus'] = _CONTAINERSTATUS
 DESCRIPTOR.message_types_by_name['Container'] = _CONTAINER
+DESCRIPTOR.message_types_by_name['PodSpec'] = _PODSPEC
+DESCRIPTOR.message_types_by_name['PodStatus'] = _PODSTATUS
 DESCRIPTOR.message_types_by_name['Pod'] = _POD
 DESCRIPTOR.message_types_by_name['Node'] = _NODE
+DESCRIPTOR.message_types_by_name['InstanceGroupSpec'] = _INSTANCEGROUPSPEC
+DESCRIPTOR.message_types_by_name['InstanceGroupStatus'] = _INSTANCEGROUPSTATUS
+DESCRIPTOR.message_types_by_name['InstanceGroup'] = _INSTANCEGROUP
+DESCRIPTOR.message_types_by_name['ClusterSpec'] = _CLUSTERSPEC
+DESCRIPTOR.message_types_by_name['ClusterStatus'] = _CLUSTERSTATUS
+DESCRIPTOR.message_types_by_name['Cluster'] = _CLUSTER
+DESCRIPTOR.enum_types_by_name['ClusterAutoscalingPolicy'] = _CLUSTERAUTOSCALINGPOLICY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
+ContainerSpec = _reflection.GeneratedProtocolMessageType('ContainerSpec', (_message.Message,), dict(
+
+  ResourceRequirements = _reflection.GeneratedProtocolMessageType('ResourceRequirements', (_message.Message,), dict(
+
+    LimitsEntry = _reflection.GeneratedProtocolMessageType('LimitsEntry', (_message.Message,), dict(
+      DESCRIPTOR = _CONTAINERSPEC_RESOURCEREQUIREMENTS_LIMITSENTRY,
+      __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+      # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements.LimitsEntry)
+      ))
+    ,
+
+    RequestsEntry = _reflection.GeneratedProtocolMessageType('RequestsEntry', (_message.Message,), dict(
+      DESCRIPTOR = _CONTAINERSPEC_RESOURCEREQUIREMENTS_REQUESTSENTRY,
+      __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+      # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements.RequestsEntry)
+      ))
+    ,
+    DESCRIPTOR = _CONTAINERSPEC_RESOURCEREQUIREMENTS,
+    __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+    # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.ContainerSpec.ResourceRequirements)
+    ))
+  ,
+  DESCRIPTOR = _CONTAINERSPEC,
+  __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.ContainerSpec)
+  ))
+_sym_db.RegisterMessage(ContainerSpec)
+_sym_db.RegisterMessage(ContainerSpec.ResourceRequirements)
+_sym_db.RegisterMessage(ContainerSpec.ResourceRequirements.LimitsEntry)
+_sym_db.RegisterMessage(ContainerSpec.ResourceRequirements.RequestsEntry)
+
+ContainerStatus = _reflection.GeneratedProtocolMessageType('ContainerStatus', (_message.Message,), dict(
+  DESCRIPTOR = _CONTAINERSTATUS,
+  __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.ContainerStatus)
+  ))
+_sym_db.RegisterMessage(ContainerStatus)
+
 Container = _reflection.GeneratedProtocolMessageType('Container', (_message.Message,), dict(
-
-  LimitResourceEntry = _reflection.GeneratedProtocolMessageType('LimitResourceEntry', (_message.Message,), dict(
-    DESCRIPTOR = _CONTAINER_LIMITRESOURCEENTRY,
-    __module__ = 'datahub.resource.v1alpha2.resource_pb2'
-    # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.Container.LimitResourceEntry)
-    ))
-  ,
-
-  RequestResourceEntry = _reflection.GeneratedProtocolMessageType('RequestResourceEntry', (_message.Message,), dict(
-    DESCRIPTOR = _CONTAINER_REQUESTRESOURCEENTRY,
-    __module__ = 'datahub.resource.v1alpha2.resource_pb2'
-    # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.Container.RequestResourceEntry)
-    ))
-  ,
   DESCRIPTOR = _CONTAINER,
   __module__ = 'datahub.resource.v1alpha2.resource_pb2'
   # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.Container)
   ))
 _sym_db.RegisterMessage(Container)
-_sym_db.RegisterMessage(Container.LimitResourceEntry)
-_sym_db.RegisterMessage(Container.RequestResourceEntry)
+
+PodSpec = _reflection.GeneratedProtocolMessageType('PodSpec', (_message.Message,), dict(
+  DESCRIPTOR = _PODSPEC,
+  __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.PodSpec)
+  ))
+_sym_db.RegisterMessage(PodSpec)
+
+PodStatus = _reflection.GeneratedProtocolMessageType('PodStatus', (_message.Message,), dict(
+  DESCRIPTOR = _PODSTATUS,
+  __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.PodStatus)
+  ))
+_sym_db.RegisterMessage(PodStatus)
 
 Pod = _reflection.GeneratedProtocolMessageType('Pod', (_message.Message,), dict(
   DESCRIPTOR = _POD,
@@ -312,8 +941,66 @@ Node = _reflection.GeneratedProtocolMessageType('Node', (_message.Message,), dic
   ))
 _sym_db.RegisterMessage(Node)
 
+InstanceGroupSpec = _reflection.GeneratedProtocolMessageType('InstanceGroupSpec', (_message.Message,), dict(
+  DESCRIPTOR = _INSTANCEGROUPSPEC,
+  __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.InstanceGroupSpec)
+  ))
+_sym_db.RegisterMessage(InstanceGroupSpec)
+
+InstanceGroupStatus = _reflection.GeneratedProtocolMessageType('InstanceGroupStatus', (_message.Message,), dict(
+
+  Capacity = _reflection.GeneratedProtocolMessageType('Capacity', (_message.Message,), dict(
+    DESCRIPTOR = _INSTANCEGROUPSTATUS_CAPACITY,
+    __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+    # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Capacity)
+    ))
+  ,
+
+  Pricing = _reflection.GeneratedProtocolMessageType('Pricing', (_message.Message,), dict(
+    DESCRIPTOR = _INSTANCEGROUPSTATUS_PRICING,
+    __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+    # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.InstanceGroupStatus.Pricing)
+    ))
+  ,
+  DESCRIPTOR = _INSTANCEGROUPSTATUS,
+  __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.InstanceGroupStatus)
+  ))
+_sym_db.RegisterMessage(InstanceGroupStatus)
+_sym_db.RegisterMessage(InstanceGroupStatus.Capacity)
+_sym_db.RegisterMessage(InstanceGroupStatus.Pricing)
+
+InstanceGroup = _reflection.GeneratedProtocolMessageType('InstanceGroup', (_message.Message,), dict(
+  DESCRIPTOR = _INSTANCEGROUP,
+  __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.InstanceGroup)
+  ))
+_sym_db.RegisterMessage(InstanceGroup)
+
+ClusterSpec = _reflection.GeneratedProtocolMessageType('ClusterSpec', (_message.Message,), dict(
+  DESCRIPTOR = _CLUSTERSPEC,
+  __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.ClusterSpec)
+  ))
+_sym_db.RegisterMessage(ClusterSpec)
+
+ClusterStatus = _reflection.GeneratedProtocolMessageType('ClusterStatus', (_message.Message,), dict(
+  DESCRIPTOR = _CLUSTERSTATUS,
+  __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.ClusterStatus)
+  ))
+_sym_db.RegisterMessage(ClusterStatus)
+
+Cluster = _reflection.GeneratedProtocolMessageType('Cluster', (_message.Message,), dict(
+  DESCRIPTOR = _CLUSTER,
+  __module__ = 'datahub.resource.v1alpha2.resource_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.resource.v1alpha2.Cluster)
+  ))
+_sym_db.RegisterMessage(Cluster)
+
 
 DESCRIPTOR._options = None
-_CONTAINER_LIMITRESOURCEENTRY._options = None
-_CONTAINER_REQUESTRESOURCEENTRY._options = None
+_CONTAINERSPEC_RESOURCEREQUIREMENTS_LIMITSENTRY._options = None
+_CONTAINERSPEC_RESOURCEREQUIREMENTS_REQUESTSENTRY._options = None
 # @@protoc_insertion_point(module_scope)

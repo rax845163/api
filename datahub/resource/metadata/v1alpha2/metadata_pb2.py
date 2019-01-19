@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containersai.datahub.resource.metadata.v1alpha2',
   syntax='proto3',
   serialized_options=_b('Z?github.com/containers-ai/api/datahub/resource/metadata/v1alpha2'),
-  serialized_pb=_b('\n1datahub/resource/metadata/v1alpha2/metadata.proto\x12/containersai.datahub.resource.metadata.v1alpha2\"1\n\x0eNamespacedName\x12\x11\n\tnamespace\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\tBAZ?github.com/containers-ai/api/datahub/resource/metadata/v1alpha2b\x06proto3')
+  serialized_pb=_b('\n1datahub/resource/metadata/v1alpha2/metadata.proto\x12/containersai.datahub.resource.metadata.v1alpha2\"1\n\x0eNamespacedName\x12\x11\n\tnamespace\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"\x87\x01\n\nObjectMeta\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x0b\n\x03uid\x18\x02 \x01(\t\x12\x12\n\ncluster_id\x18\x03 \x01(\tBAZ?github.com/containers-ai/api/datahub/resource/metadata/v1alpha2b\x06proto3')
 )
 
 
@@ -62,7 +62,54 @@ _NAMESPACEDNAME = _descriptor.Descriptor(
   serialized_end=151,
 )
 
+
+_OBJECTMETA = _descriptor.Descriptor(
+  name='ObjectMeta',
+  full_name='containersai.datahub.resource.metadata.v1alpha2.ObjectMeta',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='namespaced_name', full_name='containersai.datahub.resource.metadata.v1alpha2.ObjectMeta.namespaced_name', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='uid', full_name='containersai.datahub.resource.metadata.v1alpha2.ObjectMeta.uid', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cluster_id', full_name='containersai.datahub.resource.metadata.v1alpha2.ObjectMeta.cluster_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=154,
+  serialized_end=289,
+)
+
+_OBJECTMETA.fields_by_name['namespaced_name'].message_type = _NAMESPACEDNAME
 DESCRIPTOR.message_types_by_name['NamespacedName'] = _NAMESPACEDNAME
+DESCRIPTOR.message_types_by_name['ObjectMeta'] = _OBJECTMETA
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 NamespacedName = _reflection.GeneratedProtocolMessageType('NamespacedName', (_message.Message,), dict(
@@ -71,6 +118,13 @@ NamespacedName = _reflection.GeneratedProtocolMessageType('NamespacedName', (_me
   # @@protoc_insertion_point(class_scope:containersai.datahub.resource.metadata.v1alpha2.NamespacedName)
   ))
 _sym_db.RegisterMessage(NamespacedName)
+
+ObjectMeta = _reflection.GeneratedProtocolMessageType('ObjectMeta', (_message.Message,), dict(
+  DESCRIPTOR = _OBJECTMETA,
+  __module__ = 'datahub.resource.metadata.v1alpha2.metadata_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.resource.metadata.v1alpha2.ObjectMeta)
+  ))
+_sym_db.RegisterMessage(ObjectMeta)
 
 
 DESCRIPTOR._options = None

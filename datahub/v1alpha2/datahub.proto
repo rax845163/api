@@ -1,4 +1,4 @@
-/// This file has messages related to Kubernetes metadata
+// This file has messages related to Kubernetes metadata
 syntax = "proto3";
 
 package containersai.datahub.v1alpha2;
@@ -21,6 +21,103 @@ message QueryCondition {
     }
     Order order = 2;
     uint64 limit = 3;
+}
+ 
+/**
+ * Represents a request for getting autoscaling policy of a cluster
+ * 
+ */
+ message GetClusterPolicyRequest {
+    int64 cluster_uid = 1;
+}
+
+/**
+ * Represents a response for a getting autoscaling policy of a cluster request
+ * 
+ */
+message GetClusterPolicyResponse {
+    containersai.datahub.resource.v1alpha2.ClusterAutoscalingPolicy policy = 1;
+}
+
+/**
+ * Represents a request for getting status of a cluster
+ * 
+ */
+message GetClusterStatusRequest {
+    string cluster_uid = 1;
+}
+/**
+ * Represents a response for a getting status of a cluster request
+ * 
+ */
+message GetClusterStatusResponse {
+    string nodes = 1;  // TODO:
+}
+
+/**
+ * Represents a request for getting configuration of a cluster
+ * 
+ */
+message GetClusterConfigRequest {
+    string cluster_uid = 1;
+}
+
+/**
+ * Represents a response for a getting configuration of a cluster request
+ * 
+ */
+message GetClusterConfigResponse {
+    repeated containersai.datahub.resource.v1alpha2.InstanceGroup node_groups = 1;
+}
+
+/**
+ * Represents a request for getting specification of a pod
+ * 
+ */
+message GetCurrentPodSpecRequest {
+    string cluster_uid = 1;
+    string pod_uid = 2;
+}
+/**
+ * Represents a response for a getting getting specification of a pod request
+ * 
+ */
+message GetCurrentPodSpecResponse {
+    repeated containersai.datahub.resource.v1alpha2.PodSpec pod_spec = 1;
+}
+
+/**
+ * Represents a request for getting historical count of a pod
+ * 
+ */
+message GetHistoricalPodCountRequest {
+    int64 cluster_uid = 1;
+    string pod_uuid = 2;
+    containersai.datahub.metric.v1alpha2.TimeRange time_range = 3;
+}
+
+/**
+ * Represents a response for a getting historical count of a pod request
+ * 
+ */
+message GetHistoricalPodCountResponse {
+    containersai.datahub.metric.v1alpha2.Sample data = 1;
+}
+
+/**
+ * Represents a request for getting unscheduled pods reside in a cluster
+ * 
+ */
+message GetUnscheduledPodsRequest{
+    string cluster_uid = 1;
+}
+
+/**
+ * Represents a response for a getting unscheduled pods reside in a cluster request
+ * 
+ */
+message GetUnscheduledPodsResponse{
+    repeated containersai.datahub.resource.v1alpha2.Pod pods = 1;
 }
 
 /**
@@ -263,11 +360,36 @@ message DeleteNodesRequest {
  * Service for providing data stored in the backend
  */
 service DatahubService {
-    /// Used to list pod metric data
+
+    // Used to get cluster policy
+    rpc GetClusterPolicy(GetClusterPolicyRequest)
+        returns (GetClusterPolicyResponse){}
+
+    // Used to get cluster status
+    rpc GetClusterStatus(GetClusterStatusRequest)
+        returns (GetClusterStatusResponse){}
+
+    // Used to get cluster config
+    rpc GetClusterConfig(GetClusterConfigRequest)
+        returns (GetClusterConfigResponse){}
+
+    // Used to get pod spec
+    rpc GetCurrentPodSpec(GetCurrentPodSpecRequest)
+        returns (GetCurrentPodSpecResponse){}
+
+    // Used to get historical pod count
+    rpc GetHistoricalPodCount(GetHistoricalPodCountRequest)
+        returns (GetHistoricalPodCountResponse){}
+
+    // Used to get unschediled pods reside in cluster
+    rpc GetUnscheduledPods(GetUnscheduledPodsRequest)
+      returns (GetUnscheduledPodsResponse){}
+
+    // Used to list pod metric data
     rpc ListPodMetrics(ListPodMetricsRequest)
         returns (ListPodMetricsResponse) {}
 
-    /// Used to list node metric data
+    // Used to list node metric data
     rpc ListNodeMetrics(ListNodeMetricsRequest)
         returns (ListNodeMetricsResponse) {}
 
@@ -279,59 +401,59 @@ service DatahubService {
     rpc ListNodes(ListNodesRequest)
         returns (ListNodesResponse){}
 
-    /// Used to list pod predictions
+    // Used to list pod predictions
     rpc ListPodPredictions(ListPodPredictionsRequest)
         returns (ListPodPredictionsResponse) {}
 
-    /// Used to list node predictions
+    // Used to list node predictions
     rpc ListNodePredictions(ListNodePredictionsRequest)
         returns (ListNodePredictionsResponse) {}
 
-    /// Used to list pod recommenations
+    // Used to list pod recommenations
     rpc ListPodRecommendations(ListPodRecommendationsRequest)
         returns (ListPodRecommendationsResponse) {}
         
-    /// Used to list system scores
+    // Used to list system scores
     rpc ListSimulatedSchedulingScores(ListSimulatedSchedulingScoresRequest)
         returns (ListSimulatedSchedulingScoresResponse) {} 
 
-    /// Used to add pods that need to be predicted
+    // Used to add pods that need to be predicted
     rpc CreatePods(CreatePodsRequest)
         returns (google.rpc.Status){}
     
-    /// Used to add nodes
+    // Used to add nodes
     rpc CreateNodes(CreateNodesRequest)
         returns (google.rpc.Status){}
 
-    /// Used to create predictions of pods
+    // Used to create predictions of pods
     rpc CreatePodPredictions(CreatePodPredictionsRequest)
         returns (google.rpc.Status) {}
 
-    /// Used to create predictions of nodes
+    // Used to create predictions of nodes
     rpc CreateNodePredictions(CreateNodePredictionsRequest)
         returns (google.rpc.Status) {}
 
-    /// Used to create recommendations of pods
+    // Used to create recommendations of pods
     rpc CreatePodRecommendations(CreatePodRecommendationsRequest)
         returns (google.rpc.Status) {}
 
-    /// Used to create scores of system 
+    // Used to create scores of system 
     rpc CreateSimulatedSchedulingScores(CreateSimulatedSchedulingScoresRequest)
         returns (google.rpc.Status) {} 
 
-    /// Used to update info of pods
+    // Used to update info of pods
     rpc UpdatePods(UpdatePodsRequest)
         returns (google.rpc.Status){}
 
-    /// Used to update info of nodes
+    // Used to update info of nodes
     rpc UpdateNodes(UpdateNodesRequest)
         returns (google.rpc.Status){}
 
-    /// Used to delete info of pods
+    // Used to delete info of pods
     rpc DeletePods(DeletePodsRequest)
         returns (google.rpc.Status){}
 
-    /// Used to delete info of nodes
+    // Used to delete info of nodes
     rpc DeleteNodes(DeleteNodesRequest)
         returns (google.rpc.Status){}            
 }

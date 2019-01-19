@@ -6,20 +6,57 @@ package containersai.datahub.resource.v1alpha2;
 import "datahub/resource/metadata/v1alpha2/metadata.proto";
 import "datahub/recommendation/v1alpha2/recommendation.proto";
 import "google/protobuf/timestamp.proto";
-import "datahub/metric/v1alpha2/metric.proto";
 
 option go_package = "github.com/containers-ai/api/datahub/resource/v1alpha2";
+
+/**
+ * Represents a Kubernetes container specification
+ * 
+ */
+message ContainerSpec {
+    message ResourceRequirements {
+        map<string, string> limits = 1;
+        map<string, string> requests = 2;
+    }
+    ResourceRequirements resources = 1;
+}
+
+/**
+ * Represents a Kubernetes container status
+ * 
+ */
+message ContainerStatus {
+}
 
 /**
  * Represents a container and its containing limit and requeset configurations
  * 
  */
 message Container {
-    string name = 1;
-    // use containersai.datahub.metric.v1alpha2.MetricType as key
-    map<int32, containersai.datahub.metric.v1alpha2.MetricData> limit_resource = 2;
-    // use containersai.datahub.metric.v1alpha2.MetricType as key
-    map<int32, containersai.datahub.metric.v1alpha2.MetricData> request_resource = 3;
+    containersai.datahub.resource.metadata.v1alpha2.ObjectMeta object_meta = 1;
+    ContainerSpec container_spec = 2;
+    ContainerStatus container_status = 3;
+}
+
+/**
+ * Represents a Kubernetes pod specification
+ * 
+ */
+message PodSpec {
+    repeated Container containers = 3;
+    string node_name = 6;
+}
+
+/**
+ * Represents a Kubernetes pod status
+ * 
+ */
+message PodStatus {
+    string resource_link = 2;
+    bool is_predicted = 4;
+    containersai.datahub.resource.metadata.v1alpha2.NamespacedName scaler = 5;
+    google.protobuf.Timestamp start_time = 7;
+    containersai.datahub.recommendation.v1alpha2.RecommendationPolicy policy = 8;
 }
 
 /**
@@ -27,14 +64,9 @@ message Container {
  * 
  */
 message Pod {
-    containersai.datahub.resource.metadata.v1alpha2.NamespacedName namespaced_name = 1;
-    string resource_link = 2;
-    repeated Container containers = 3;
-    bool is_predicted = 4;
-    containersai.datahub.resource.metadata.v1alpha2.NamespacedName scaler = 5;
-    string node_name = 6;
-    google.protobuf.Timestamp start_time = 7;
-    containersai.datahub.recommendation.v1alpha2.RecommendationPolicy policy = 8;
+    containersai.datahub.resource.metadata.v1alpha2.ObjectMeta object_meta = 1;
+    PodSpec pod_spec = 2;
+    PodStatus pod_status = 3;
 }
 
 /**
@@ -42,5 +74,61 @@ message Pod {
  * 
  */
 message Node {
-    string name = 1;
+    containersai.datahub.resource.metadata.v1alpha2.ObjectMeta object_meta = 1;
+}
+
+message InstanceGroupSpec {
+    string cloud_provider = 1;
+    string machine_type = 2;
+    int64 max_size = 3;
+    int64 min_size = 4;
+}
+
+message InstanceGroupStatus {
+    message Capacity {
+        int64 cpu = 1;
+        int64 memory_kilobytes = 2;
+        int64 netwotk_megabits_per_second = 3;
+    }
+    message Pricing {
+        enum Type {
+            Reserved = 0;
+            Ondemand = 1;
+            OnSpot = 2;
+        }
+        Type type = 1;
+        float per_second = 2;
+        float per_hour = 3;
+        float per_year = 4;
+        float per_3_year = 5;
+    }
+    int64 current_target_size = 1;
+    Capacity capacity = 2;
+    Pricing pricing = 3;
+}
+
+message InstanceGroup {
+    containersai.datahub.resource.metadata.v1alpha2.ObjectMeta object_meta = 1;
+    InstanceGroupSpec instance_group_spec = 2;
+    InstanceGroupStatus instance_group_status = 3;
+}
+
+enum ClusterAutoscalingPolicy {
+    UNDEFINED = 0;
+    STABLE = 1;
+    COMPACT = 2;
+}
+
+message ClusterSpec {
+    ClusterAutoscalingPolicy cluster_autoscaling_policy = 1;
+    repeated InstanceGroup node_groups = 2; 
+}
+
+message ClusterStatus {
+}
+
+message Cluster {
+    containersai.datahub.resource.metadata.v1alpha2.ObjectMeta object_meta = 1;
+    ClusterSpec cluster_spec = 2;
+    ClusterStatus cluster_status = 3;
 }

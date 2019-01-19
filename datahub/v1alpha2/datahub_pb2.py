@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containersai.datahub.v1alpha2',
   syntax='proto3',
   serialized_options=_b('Z-github.com/containers-ai/api/datahub/v1alpha2'),
-  serialized_pb=_b('\n\x1e\x64\x61tahub/v1alpha2/datahub.proto\x12\x1d\x63ontainersai.datahub.v1alpha2\x1a\x17google/rpc/status.proto\x1a\x31\x64\x61tahub/resource/metadata/v1alpha2/metadata.proto\x1a(datahub/resource/v1alpha2/resource.proto\x1a,datahub/prediction/v1alpha2/prediction.proto\x1a$datahub/metric/v1alpha2/metric.proto\x1a\x34\x64\x61tahub/recommendation/v1alpha2/recommendation.proto\x1a\"datahub/score/v1alpha2/score.proto\"\xc4\x01\n\x0eQueryCondition\x12\x43\n\ntime_range\x18\x01 \x01(\x0b\x32/.containersai.datahub.metric.v1alpha2.TimeRange\x12\x42\n\x05order\x18\x02 \x01(\x0e\x32\x33.containersai.datahub.v1alpha2.QueryCondition.Order\x12\r\n\x05limit\x18\x03 \x01(\x04\"\x1a\n\x05Order\x12\x07\n\x03\x41SC\x10\x00\x12\x08\n\x04\x44\x45SC\x10\x01\"\xb9\x01\n\x15ListPodMetricsRequest\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x82\x01\n\x16ListPodMetricsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x44\n\x0bpod_metrics\x18\x02 \x03(\x0b\x32/.containersai.datahub.metric.v1alpha2.PodMetric\"t\n\x16ListNodeMetricsRequest\x12\x12\n\nnode_names\x18\x01 \x03(\t\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x85\x01\n\x17ListNodeMetricsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x46\n\x0cnode_metrics\x18\x02 \x03(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.NodeMetric\"q\n\x10ListPodsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x39\n\x04pods\x18\x02 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"x\n\x0fListPodsRequest\x12O\n\x06scaler\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x14\n\x0cis_predicted\x18\x02 \x01(\x08\"(\n\x10ListNodesRequest\x12\x14\n\x0cis_predicted\x18\x01 \x01(\x08\"t\n\x11ListNodesResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12;\n\x05nodes\x18\x02 \x03(\x0b\x32,.containersai.datahub.resource.v1alpha2.Node\"\xbd\x01\n\x19ListPodPredictionsRequest\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x92\x01\n\x1aListPodPredictionsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12P\n\x0fpod_predictions\x18\x02 \x03(\x0b\x32\x37.containersai.datahub.prediction.v1alpha2.PodPrediction\"x\n\x1aListNodePredictionsRequest\x12\x12\n\nnode_names\x18\x01 \x03(\t\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x95\x01\n\x1bListNodePredictionsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12R\n\x10node_predictions\x18\x02 \x03(\x0b\x32\x38.containersai.datahub.prediction.v1alpha2.NodePrediction\"\xc1\x01\n\x1dListPodRecommendationsRequest\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\xa2\x01\n\x1eListPodRecommendationsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\\\n\x13pod_recommendations\x18\x02 \x03(\x0b\x32?.containersai.datahub.recommendation.v1alpha2.PodRecommendation\"n\n$ListSimulatedSchedulingScoresRequest\x12\x46\n\x0fquery_condition\x18\x01 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x9a\x01\n%ListSimulatedSchedulingScoresResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12M\n\x06scores\x18\x02 \x03(\x0b\x32=.containersai.datahub.score.v1alpha2.SimulatedSchedulingScore\"o\n\x1b\x43reatePodPredictionsRequest\x12P\n\x0fpod_predictions\x18\x01 \x03(\x0b\x32\x37.containersai.datahub.prediction.v1alpha2.PodPrediction\"r\n\x1c\x43reateNodePredictionsRequest\x12R\n\x10node_predictions\x18\x01 \x03(\x0b\x32\x38.containersai.datahub.prediction.v1alpha2.NodePrediction\"\x7f\n\x1f\x43reatePodRecommendationsRequest\x12\\\n\x13pod_recommendations\x18\x01 \x03(\x0b\x32?.containersai.datahub.recommendation.v1alpha2.PodRecommendation\"N\n\x11\x43reatePodsRequest\x12\x39\n\x04pods\x18\x01 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"g\n\x12\x43reateNodesRequest\x12;\n\x05nodes\x18\x01 \x03(\x0b\x32,.containersai.datahub.resource.v1alpha2.Node\x12\x14\n\x0cis_predicted\x18\x02 \x01(\x08\"w\n&CreateSimulatedSchedulingScoresRequest\x12M\n\x06scores\x18\x01 \x03(\x0b\x32=.containersai.datahub.score.v1alpha2.SimulatedSchedulingScore\"\xf8\x01\n\x11UpdatePodsRequest\x12Q\n\x0cupdated_pods\x18\x01 \x03(\x0b\x32;.containersai.datahub.v1alpha2.UpdatePodsRequest.UpdatedPod\x1a\x8f\x01\n\nUpdatedPod\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x1a\'\n\x0fIsPredictedWrap\x12\x14\n\x0cis_predicted\x18\x01 \x01(\x08\"\xb0\x01\n\x12UpdateNodesRequest\x12T\n\rupdated_nodes\x18\x01 \x03(\x0b\x32=.containersai.datahub.v1alpha2.UpdateNodesRequest.UpdatedNode\x1a\x44\n\x0bUpdatedNode\x12\x0c\n\x04name\x18\x01 \x01(\t\x1a\'\n\x0fIsPredictedWrap\x12\x14\n\x0cis_predicted\x18\x01 \x01(\x08\"N\n\x11\x44\x65letePodsRequest\x12\x39\n\x04pods\x18\x01 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"Q\n\x12\x44\x65leteNodesRequest\x12;\n\x05nodes\x18\x01 \x03(\x0b\x32,.containersai.datahub.resource.v1alpha2.Node2\xb1\x10\n\x0e\x44\x61tahubService\x12\x7f\n\x0eListPodMetrics\x12\x34.containersai.datahub.v1alpha2.ListPodMetricsRequest\x1a\x35.containersai.datahub.v1alpha2.ListPodMetricsResponse\"\x00\x12\x82\x01\n\x0fListNodeMetrics\x12\x35.containersai.datahub.v1alpha2.ListNodeMetricsRequest\x1a\x36.containersai.datahub.v1alpha2.ListNodeMetricsResponse\"\x00\x12m\n\x08ListPods\x12..containersai.datahub.v1alpha2.ListPodsRequest\x1a/.containersai.datahub.v1alpha2.ListPodsResponse\"\x00\x12p\n\tListNodes\x12/.containersai.datahub.v1alpha2.ListNodesRequest\x1a\x30.containersai.datahub.v1alpha2.ListNodesResponse\"\x00\x12\x8b\x01\n\x12ListPodPredictions\x12\x38.containersai.datahub.v1alpha2.ListPodPredictionsRequest\x1a\x39.containersai.datahub.v1alpha2.ListPodPredictionsResponse\"\x00\x12\x8e\x01\n\x13ListNodePredictions\x12\x39.containersai.datahub.v1alpha2.ListNodePredictionsRequest\x1a:.containersai.datahub.v1alpha2.ListNodePredictionsResponse\"\x00\x12\x97\x01\n\x16ListPodRecommendations\x12<.containersai.datahub.v1alpha2.ListPodRecommendationsRequest\x1a=.containersai.datahub.v1alpha2.ListPodRecommendationsResponse\"\x00\x12\xac\x01\n\x1dListSimulatedSchedulingScores\x12\x43.containersai.datahub.v1alpha2.ListSimulatedSchedulingScoresRequest\x1a\x44.containersai.datahub.v1alpha2.ListSimulatedSchedulingScoresResponse\"\x00\x12T\n\nCreatePods\x12\x30.containersai.datahub.v1alpha2.CreatePodsRequest\x1a\x12.google.rpc.Status\"\x00\x12V\n\x0b\x43reateNodes\x12\x31.containersai.datahub.v1alpha2.CreateNodesRequest\x1a\x12.google.rpc.Status\"\x00\x12h\n\x14\x43reatePodPredictions\x12:.containersai.datahub.v1alpha2.CreatePodPredictionsRequest\x1a\x12.google.rpc.Status\"\x00\x12j\n\x15\x43reateNodePredictions\x12;.containersai.datahub.v1alpha2.CreateNodePredictionsRequest\x1a\x12.google.rpc.Status\"\x00\x12p\n\x18\x43reatePodRecommendations\x12>.containersai.datahub.v1alpha2.CreatePodRecommendationsRequest\x1a\x12.google.rpc.Status\"\x00\x12~\n\x1f\x43reateSimulatedSchedulingScores\x12\x45.containersai.datahub.v1alpha2.CreateSimulatedSchedulingScoresRequest\x1a\x12.google.rpc.Status\"\x00\x12T\n\nUpdatePods\x12\x30.containersai.datahub.v1alpha2.UpdatePodsRequest\x1a\x12.google.rpc.Status\"\x00\x12V\n\x0bUpdateNodes\x12\x31.containersai.datahub.v1alpha2.UpdateNodesRequest\x1a\x12.google.rpc.Status\"\x00\x12T\n\nDeletePods\x12\x30.containersai.datahub.v1alpha2.DeletePodsRequest\x1a\x12.google.rpc.Status\"\x00\x12V\n\x0b\x44\x65leteNodes\x12\x31.containersai.datahub.v1alpha2.DeleteNodesRequest\x1a\x12.google.rpc.Status\"\x00\x42/Z-github.com/containers-ai/api/datahub/v1alpha2b\x06proto3')
+  serialized_pb=_b('\n\x1e\x64\x61tahub/v1alpha2/datahub.proto\x12\x1d\x63ontainersai.datahub.v1alpha2\x1a\x17google/rpc/status.proto\x1a\x31\x64\x61tahub/resource/metadata/v1alpha2/metadata.proto\x1a(datahub/resource/v1alpha2/resource.proto\x1a,datahub/prediction/v1alpha2/prediction.proto\x1a$datahub/metric/v1alpha2/metric.proto\x1a\x34\x64\x61tahub/recommendation/v1alpha2/recommendation.proto\x1a\"datahub/score/v1alpha2/score.proto\"\xc4\x01\n\x0eQueryCondition\x12\x43\n\ntime_range\x18\x01 \x01(\x0b\x32/.containersai.datahub.metric.v1alpha2.TimeRange\x12\x42\n\x05order\x18\x02 \x01(\x0e\x32\x33.containersai.datahub.v1alpha2.QueryCondition.Order\x12\r\n\x05limit\x18\x03 \x01(\x04\"\x1a\n\x05Order\x12\x07\n\x03\x41SC\x10\x00\x12\x08\n\x04\x44\x45SC\x10\x01\".\n\x17GetClusterPolicyRequest\x12\x13\n\x0b\x63luster_uid\x18\x01 \x01(\x03\"l\n\x18GetClusterPolicyResponse\x12P\n\x06policy\x18\x01 \x01(\x0e\x32@.containersai.datahub.resource.v1alpha2.ClusterAutoscalingPolicy\".\n\x17GetClusterStatusRequest\x12\x13\n\x0b\x63luster_uid\x18\x01 \x01(\t\")\n\x18GetClusterStatusResponse\x12\r\n\x05nodes\x18\x01 \x01(\t\".\n\x17GetClusterConfigRequest\x12\x13\n\x0b\x63luster_uid\x18\x01 \x01(\t\"f\n\x18GetClusterConfigResponse\x12J\n\x0bnode_groups\x18\x01 \x03(\x0b\x32\x35.containersai.datahub.resource.v1alpha2.InstanceGroup\"@\n\x18GetCurrentPodSpecRequest\x12\x13\n\x0b\x63luster_uid\x18\x01 \x01(\t\x12\x0f\n\x07pod_uid\x18\x02 \x01(\t\"^\n\x19GetCurrentPodSpecResponse\x12\x41\n\x08pod_spec\x18\x01 \x03(\x0b\x32/.containersai.datahub.resource.v1alpha2.PodSpec\"\x8a\x01\n\x1cGetHistoricalPodCountRequest\x12\x13\n\x0b\x63luster_uid\x18\x01 \x01(\x03\x12\x10\n\x08pod_uuid\x18\x02 \x01(\t\x12\x43\n\ntime_range\x18\x03 \x01(\x0b\x32/.containersai.datahub.metric.v1alpha2.TimeRange\"[\n\x1dGetHistoricalPodCountResponse\x12:\n\x04\x64\x61ta\x18\x01 \x01(\x0b\x32,.containersai.datahub.metric.v1alpha2.Sample\"0\n\x19GetUnscheduledPodsRequest\x12\x13\n\x0b\x63luster_uid\x18\x01 \x01(\t\"W\n\x1aGetUnscheduledPodsResponse\x12\x39\n\x04pods\x18\x01 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"\xb9\x01\n\x15ListPodMetricsRequest\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x82\x01\n\x16ListPodMetricsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x44\n\x0bpod_metrics\x18\x02 \x03(\x0b\x32/.containersai.datahub.metric.v1alpha2.PodMetric\"t\n\x16ListNodeMetricsRequest\x12\x12\n\nnode_names\x18\x01 \x03(\t\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x85\x01\n\x17ListNodeMetricsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x46\n\x0cnode_metrics\x18\x02 \x03(\x0b\x32\x30.containersai.datahub.metric.v1alpha2.NodeMetric\"q\n\x10ListPodsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x39\n\x04pods\x18\x02 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"x\n\x0fListPodsRequest\x12O\n\x06scaler\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x14\n\x0cis_predicted\x18\x02 \x01(\x08\"(\n\x10ListNodesRequest\x12\x14\n\x0cis_predicted\x18\x01 \x01(\x08\"t\n\x11ListNodesResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12;\n\x05nodes\x18\x02 \x03(\x0b\x32,.containersai.datahub.resource.v1alpha2.Node\"\xbd\x01\n\x19ListPodPredictionsRequest\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x92\x01\n\x1aListPodPredictionsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12P\n\x0fpod_predictions\x18\x02 \x03(\x0b\x32\x37.containersai.datahub.prediction.v1alpha2.PodPrediction\"x\n\x1aListNodePredictionsRequest\x12\x12\n\nnode_names\x18\x01 \x03(\t\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x95\x01\n\x1bListNodePredictionsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12R\n\x10node_predictions\x18\x02 \x03(\x0b\x32\x38.containersai.datahub.prediction.v1alpha2.NodePrediction\"\xc1\x01\n\x1dListPodRecommendationsRequest\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x12\x46\n\x0fquery_condition\x18\x02 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\xa2\x01\n\x1eListPodRecommendationsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\\\n\x13pod_recommendations\x18\x02 \x03(\x0b\x32?.containersai.datahub.recommendation.v1alpha2.PodRecommendation\"n\n$ListSimulatedSchedulingScoresRequest\x12\x46\n\x0fquery_condition\x18\x01 \x01(\x0b\x32-.containersai.datahub.v1alpha2.QueryCondition\"\x9a\x01\n%ListSimulatedSchedulingScoresResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12M\n\x06scores\x18\x02 \x03(\x0b\x32=.containersai.datahub.score.v1alpha2.SimulatedSchedulingScore\"o\n\x1b\x43reatePodPredictionsRequest\x12P\n\x0fpod_predictions\x18\x01 \x03(\x0b\x32\x37.containersai.datahub.prediction.v1alpha2.PodPrediction\"r\n\x1c\x43reateNodePredictionsRequest\x12R\n\x10node_predictions\x18\x01 \x03(\x0b\x32\x38.containersai.datahub.prediction.v1alpha2.NodePrediction\"\x7f\n\x1f\x43reatePodRecommendationsRequest\x12\\\n\x13pod_recommendations\x18\x01 \x03(\x0b\x32?.containersai.datahub.recommendation.v1alpha2.PodRecommendation\"N\n\x11\x43reatePodsRequest\x12\x39\n\x04pods\x18\x01 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"g\n\x12\x43reateNodesRequest\x12;\n\x05nodes\x18\x01 \x03(\x0b\x32,.containersai.datahub.resource.v1alpha2.Node\x12\x14\n\x0cis_predicted\x18\x02 \x01(\x08\"w\n&CreateSimulatedSchedulingScoresRequest\x12M\n\x06scores\x18\x01 \x03(\x0b\x32=.containersai.datahub.score.v1alpha2.SimulatedSchedulingScore\"\xf8\x01\n\x11UpdatePodsRequest\x12Q\n\x0cupdated_pods\x18\x01 \x03(\x0b\x32;.containersai.datahub.v1alpha2.UpdatePodsRequest.UpdatedPod\x1a\x8f\x01\n\nUpdatedPod\x12X\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32?.containersai.datahub.resource.metadata.v1alpha2.NamespacedName\x1a\'\n\x0fIsPredictedWrap\x12\x14\n\x0cis_predicted\x18\x01 \x01(\x08\"\xb0\x01\n\x12UpdateNodesRequest\x12T\n\rupdated_nodes\x18\x01 \x03(\x0b\x32=.containersai.datahub.v1alpha2.UpdateNodesRequest.UpdatedNode\x1a\x44\n\x0bUpdatedNode\x12\x0c\n\x04name\x18\x01 \x01(\t\x1a\'\n\x0fIsPredictedWrap\x12\x14\n\x0cis_predicted\x18\x01 \x01(\x08\"N\n\x11\x44\x65letePodsRequest\x12\x39\n\x04pods\x18\x01 \x03(\x0b\x32+.containersai.datahub.resource.v1alpha2.Pod\"Q\n\x12\x44\x65leteNodesRequest\x12;\n\x05nodes\x18\x01 \x03(\x0b\x32,.containersai.datahub.resource.v1alpha2.Node2\xf9\x16\n\x0e\x44\x61tahubService\x12\x85\x01\n\x10GetClusterPolicy\x12\x36.containersai.datahub.v1alpha2.GetClusterPolicyRequest\x1a\x37.containersai.datahub.v1alpha2.GetClusterPolicyResponse\"\x00\x12\x85\x01\n\x10GetClusterStatus\x12\x36.containersai.datahub.v1alpha2.GetClusterStatusRequest\x1a\x37.containersai.datahub.v1alpha2.GetClusterStatusResponse\"\x00\x12\x85\x01\n\x10GetClusterConfig\x12\x36.containersai.datahub.v1alpha2.GetClusterConfigRequest\x1a\x37.containersai.datahub.v1alpha2.GetClusterConfigResponse\"\x00\x12\x88\x01\n\x11GetCurrentPodSpec\x12\x37.containersai.datahub.v1alpha2.GetCurrentPodSpecRequest\x1a\x38.containersai.datahub.v1alpha2.GetCurrentPodSpecResponse\"\x00\x12\x94\x01\n\x15GetHistoricalPodCount\x12;.containersai.datahub.v1alpha2.GetHistoricalPodCountRequest\x1a<.containersai.datahub.v1alpha2.GetHistoricalPodCountResponse\"\x00\x12\x8b\x01\n\x12GetUnscheduledPods\x12\x38.containersai.datahub.v1alpha2.GetUnscheduledPodsRequest\x1a\x39.containersai.datahub.v1alpha2.GetUnscheduledPodsResponse\"\x00\x12\x7f\n\x0eListPodMetrics\x12\x34.containersai.datahub.v1alpha2.ListPodMetricsRequest\x1a\x35.containersai.datahub.v1alpha2.ListPodMetricsResponse\"\x00\x12\x82\x01\n\x0fListNodeMetrics\x12\x35.containersai.datahub.v1alpha2.ListNodeMetricsRequest\x1a\x36.containersai.datahub.v1alpha2.ListNodeMetricsResponse\"\x00\x12m\n\x08ListPods\x12..containersai.datahub.v1alpha2.ListPodsRequest\x1a/.containersai.datahub.v1alpha2.ListPodsResponse\"\x00\x12p\n\tListNodes\x12/.containersai.datahub.v1alpha2.ListNodesRequest\x1a\x30.containersai.datahub.v1alpha2.ListNodesResponse\"\x00\x12\x8b\x01\n\x12ListPodPredictions\x12\x38.containersai.datahub.v1alpha2.ListPodPredictionsRequest\x1a\x39.containersai.datahub.v1alpha2.ListPodPredictionsResponse\"\x00\x12\x8e\x01\n\x13ListNodePredictions\x12\x39.containersai.datahub.v1alpha2.ListNodePredictionsRequest\x1a:.containersai.datahub.v1alpha2.ListNodePredictionsResponse\"\x00\x12\x97\x01\n\x16ListPodRecommendations\x12<.containersai.datahub.v1alpha2.ListPodRecommendationsRequest\x1a=.containersai.datahub.v1alpha2.ListPodRecommendationsResponse\"\x00\x12\xac\x01\n\x1dListSimulatedSchedulingScores\x12\x43.containersai.datahub.v1alpha2.ListSimulatedSchedulingScoresRequest\x1a\x44.containersai.datahub.v1alpha2.ListSimulatedSchedulingScoresResponse\"\x00\x12T\n\nCreatePods\x12\x30.containersai.datahub.v1alpha2.CreatePodsRequest\x1a\x12.google.rpc.Status\"\x00\x12V\n\x0b\x43reateNodes\x12\x31.containersai.datahub.v1alpha2.CreateNodesRequest\x1a\x12.google.rpc.Status\"\x00\x12h\n\x14\x43reatePodPredictions\x12:.containersai.datahub.v1alpha2.CreatePodPredictionsRequest\x1a\x12.google.rpc.Status\"\x00\x12j\n\x15\x43reateNodePredictions\x12;.containersai.datahub.v1alpha2.CreateNodePredictionsRequest\x1a\x12.google.rpc.Status\"\x00\x12p\n\x18\x43reatePodRecommendations\x12>.containersai.datahub.v1alpha2.CreatePodRecommendationsRequest\x1a\x12.google.rpc.Status\"\x00\x12~\n\x1f\x43reateSimulatedSchedulingScores\x12\x45.containersai.datahub.v1alpha2.CreateSimulatedSchedulingScoresRequest\x1a\x12.google.rpc.Status\"\x00\x12T\n\nUpdatePods\x12\x30.containersai.datahub.v1alpha2.UpdatePodsRequest\x1a\x12.google.rpc.Status\"\x00\x12V\n\x0bUpdateNodes\x12\x31.containersai.datahub.v1alpha2.UpdateNodesRequest\x1a\x12.google.rpc.Status\"\x00\x12T\n\nDeletePods\x12\x30.containersai.datahub.v1alpha2.DeletePodsRequest\x1a\x12.google.rpc.Status\"\x00\x12V\n\x0b\x44\x65leteNodes\x12\x31.containersai.datahub.v1alpha2.DeleteNodesRequest\x1a\x12.google.rpc.Status\"\x00\x42/Z-github.com/containers-ai/api/datahub/v1alpha2b\x06proto3')
   ,
   dependencies=[google_dot_rpc_dot_status__pb2.DESCRIPTOR,datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2.DESCRIPTOR,datahub_dot_resource_dot_v1alpha2_dot_resource__pb2.DESCRIPTOR,datahub_dot_prediction_dot_v1alpha2_dot_prediction__pb2.DESCRIPTOR,datahub_dot_metric_dot_v1alpha2_dot_metric__pb2.DESCRIPTOR,datahub_dot_recommendation_dot_v1alpha2_dot_recommendation__pb2.DESCRIPTOR,datahub_dot_score_dot_v1alpha2_dot_score__pb2.DESCRIPTOR,])
 
@@ -101,6 +101,399 @@ _QUERYCONDITION = _descriptor.Descriptor(
 )
 
 
+_GETCLUSTERPOLICYREQUEST = _descriptor.Descriptor(
+  name='GetClusterPolicyRequest',
+  full_name='containersai.datahub.v1alpha2.GetClusterPolicyRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cluster_uid', full_name='containersai.datahub.v1alpha2.GetClusterPolicyRequest.cluster_uid', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=556,
+  serialized_end=602,
+)
+
+
+_GETCLUSTERPOLICYRESPONSE = _descriptor.Descriptor(
+  name='GetClusterPolicyResponse',
+  full_name='containersai.datahub.v1alpha2.GetClusterPolicyResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='policy', full_name='containersai.datahub.v1alpha2.GetClusterPolicyResponse.policy', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=604,
+  serialized_end=712,
+)
+
+
+_GETCLUSTERSTATUSREQUEST = _descriptor.Descriptor(
+  name='GetClusterStatusRequest',
+  full_name='containersai.datahub.v1alpha2.GetClusterStatusRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cluster_uid', full_name='containersai.datahub.v1alpha2.GetClusterStatusRequest.cluster_uid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=714,
+  serialized_end=760,
+)
+
+
+_GETCLUSTERSTATUSRESPONSE = _descriptor.Descriptor(
+  name='GetClusterStatusResponse',
+  full_name='containersai.datahub.v1alpha2.GetClusterStatusResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='nodes', full_name='containersai.datahub.v1alpha2.GetClusterStatusResponse.nodes', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=762,
+  serialized_end=803,
+)
+
+
+_GETCLUSTERCONFIGREQUEST = _descriptor.Descriptor(
+  name='GetClusterConfigRequest',
+  full_name='containersai.datahub.v1alpha2.GetClusterConfigRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cluster_uid', full_name='containersai.datahub.v1alpha2.GetClusterConfigRequest.cluster_uid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=805,
+  serialized_end=851,
+)
+
+
+_GETCLUSTERCONFIGRESPONSE = _descriptor.Descriptor(
+  name='GetClusterConfigResponse',
+  full_name='containersai.datahub.v1alpha2.GetClusterConfigResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='node_groups', full_name='containersai.datahub.v1alpha2.GetClusterConfigResponse.node_groups', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=853,
+  serialized_end=955,
+)
+
+
+_GETCURRENTPODSPECREQUEST = _descriptor.Descriptor(
+  name='GetCurrentPodSpecRequest',
+  full_name='containersai.datahub.v1alpha2.GetCurrentPodSpecRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cluster_uid', full_name='containersai.datahub.v1alpha2.GetCurrentPodSpecRequest.cluster_uid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pod_uid', full_name='containersai.datahub.v1alpha2.GetCurrentPodSpecRequest.pod_uid', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=957,
+  serialized_end=1021,
+)
+
+
+_GETCURRENTPODSPECRESPONSE = _descriptor.Descriptor(
+  name='GetCurrentPodSpecResponse',
+  full_name='containersai.datahub.v1alpha2.GetCurrentPodSpecResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='pod_spec', full_name='containersai.datahub.v1alpha2.GetCurrentPodSpecResponse.pod_spec', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1023,
+  serialized_end=1117,
+)
+
+
+_GETHISTORICALPODCOUNTREQUEST = _descriptor.Descriptor(
+  name='GetHistoricalPodCountRequest',
+  full_name='containersai.datahub.v1alpha2.GetHistoricalPodCountRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cluster_uid', full_name='containersai.datahub.v1alpha2.GetHistoricalPodCountRequest.cluster_uid', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pod_uuid', full_name='containersai.datahub.v1alpha2.GetHistoricalPodCountRequest.pod_uuid', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='time_range', full_name='containersai.datahub.v1alpha2.GetHistoricalPodCountRequest.time_range', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1120,
+  serialized_end=1258,
+)
+
+
+_GETHISTORICALPODCOUNTRESPONSE = _descriptor.Descriptor(
+  name='GetHistoricalPodCountResponse',
+  full_name='containersai.datahub.v1alpha2.GetHistoricalPodCountResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='data', full_name='containersai.datahub.v1alpha2.GetHistoricalPodCountResponse.data', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1260,
+  serialized_end=1351,
+)
+
+
+_GETUNSCHEDULEDPODSREQUEST = _descriptor.Descriptor(
+  name='GetUnscheduledPodsRequest',
+  full_name='containersai.datahub.v1alpha2.GetUnscheduledPodsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cluster_uid', full_name='containersai.datahub.v1alpha2.GetUnscheduledPodsRequest.cluster_uid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1353,
+  serialized_end=1401,
+)
+
+
+_GETUNSCHEDULEDPODSRESPONSE = _descriptor.Descriptor(
+  name='GetUnscheduledPodsResponse',
+  full_name='containersai.datahub.v1alpha2.GetUnscheduledPodsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='pods', full_name='containersai.datahub.v1alpha2.GetUnscheduledPodsResponse.pods', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1403,
+  serialized_end=1490,
+)
+
+
 _LISTPODMETRICSREQUEST = _descriptor.Descriptor(
   name='ListPodMetricsRequest',
   full_name='containersai.datahub.v1alpha2.ListPodMetricsRequest',
@@ -134,8 +527,8 @@ _LISTPODMETRICSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=557,
-  serialized_end=742,
+  serialized_start=1493,
+  serialized_end=1678,
 )
 
 
@@ -172,8 +565,8 @@ _LISTPODMETRICSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=745,
-  serialized_end=875,
+  serialized_start=1681,
+  serialized_end=1811,
 )
 
 
@@ -210,8 +603,8 @@ _LISTNODEMETRICSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=877,
-  serialized_end=993,
+  serialized_start=1813,
+  serialized_end=1929,
 )
 
 
@@ -248,8 +641,8 @@ _LISTNODEMETRICSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=996,
-  serialized_end=1129,
+  serialized_start=1932,
+  serialized_end=2065,
 )
 
 
@@ -286,8 +679,8 @@ _LISTPODSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1131,
-  serialized_end=1244,
+  serialized_start=2067,
+  serialized_end=2180,
 )
 
 
@@ -324,8 +717,8 @@ _LISTPODSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1246,
-  serialized_end=1366,
+  serialized_start=2182,
+  serialized_end=2302,
 )
 
 
@@ -355,8 +748,8 @@ _LISTNODESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1368,
-  serialized_end=1408,
+  serialized_start=2304,
+  serialized_end=2344,
 )
 
 
@@ -393,8 +786,8 @@ _LISTNODESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1410,
-  serialized_end=1526,
+  serialized_start=2346,
+  serialized_end=2462,
 )
 
 
@@ -431,8 +824,8 @@ _LISTPODPREDICTIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1529,
-  serialized_end=1718,
+  serialized_start=2465,
+  serialized_end=2654,
 )
 
 
@@ -469,8 +862,8 @@ _LISTPODPREDICTIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1721,
-  serialized_end=1867,
+  serialized_start=2657,
+  serialized_end=2803,
 )
 
 
@@ -507,8 +900,8 @@ _LISTNODEPREDICTIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1869,
-  serialized_end=1989,
+  serialized_start=2805,
+  serialized_end=2925,
 )
 
 
@@ -545,8 +938,8 @@ _LISTNODEPREDICTIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1992,
-  serialized_end=2141,
+  serialized_start=2928,
+  serialized_end=3077,
 )
 
 
@@ -583,8 +976,8 @@ _LISTPODRECOMMENDATIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2144,
-  serialized_end=2337,
+  serialized_start=3080,
+  serialized_end=3273,
 )
 
 
@@ -621,8 +1014,8 @@ _LISTPODRECOMMENDATIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2340,
-  serialized_end=2502,
+  serialized_start=3276,
+  serialized_end=3438,
 )
 
 
@@ -652,8 +1045,8 @@ _LISTSIMULATEDSCHEDULINGSCORESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2504,
-  serialized_end=2614,
+  serialized_start=3440,
+  serialized_end=3550,
 )
 
 
@@ -690,8 +1083,8 @@ _LISTSIMULATEDSCHEDULINGSCORESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2617,
-  serialized_end=2771,
+  serialized_start=3553,
+  serialized_end=3707,
 )
 
 
@@ -721,8 +1114,8 @@ _CREATEPODPREDICTIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2773,
-  serialized_end=2884,
+  serialized_start=3709,
+  serialized_end=3820,
 )
 
 
@@ -752,8 +1145,8 @@ _CREATENODEPREDICTIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2886,
-  serialized_end=3000,
+  serialized_start=3822,
+  serialized_end=3936,
 )
 
 
@@ -783,8 +1176,8 @@ _CREATEPODRECOMMENDATIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3002,
-  serialized_end=3129,
+  serialized_start=3938,
+  serialized_end=4065,
 )
 
 
@@ -814,8 +1207,8 @@ _CREATEPODSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3131,
-  serialized_end=3209,
+  serialized_start=4067,
+  serialized_end=4145,
 )
 
 
@@ -852,8 +1245,8 @@ _CREATENODESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3211,
-  serialized_end=3314,
+  serialized_start=4147,
+  serialized_end=4250,
 )
 
 
@@ -883,8 +1276,8 @@ _CREATESIMULATEDSCHEDULINGSCORESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3316,
-  serialized_end=3435,
+  serialized_start=4252,
+  serialized_end=4371,
 )
 
 
@@ -914,8 +1307,8 @@ _UPDATEPODSREQUEST_UPDATEDPOD_ISPREDICTEDWRAP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3647,
-  serialized_end=3686,
+  serialized_start=4583,
+  serialized_end=4622,
 )
 
 _UPDATEPODSREQUEST_UPDATEDPOD = _descriptor.Descriptor(
@@ -944,8 +1337,8 @@ _UPDATEPODSREQUEST_UPDATEDPOD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3543,
-  serialized_end=3686,
+  serialized_start=4479,
+  serialized_end=4622,
 )
 
 _UPDATEPODSREQUEST = _descriptor.Descriptor(
@@ -974,8 +1367,8 @@ _UPDATEPODSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3438,
-  serialized_end=3686,
+  serialized_start=4374,
+  serialized_end=4622,
 )
 
 
@@ -1005,8 +1398,8 @@ _UPDATENODESREQUEST_UPDATEDNODE_ISPREDICTEDWRAP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3647,
-  serialized_end=3686,
+  serialized_start=4583,
+  serialized_end=4622,
 )
 
 _UPDATENODESREQUEST_UPDATEDNODE = _descriptor.Descriptor(
@@ -1035,8 +1428,8 @@ _UPDATENODESREQUEST_UPDATEDNODE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3797,
-  serialized_end=3865,
+  serialized_start=4733,
+  serialized_end=4801,
 )
 
 _UPDATENODESREQUEST = _descriptor.Descriptor(
@@ -1065,8 +1458,8 @@ _UPDATENODESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3689,
-  serialized_end=3865,
+  serialized_start=4625,
+  serialized_end=4801,
 )
 
 
@@ -1096,8 +1489,8 @@ _DELETEPODSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3867,
-  serialized_end=3945,
+  serialized_start=4803,
+  serialized_end=4881,
 )
 
 
@@ -1127,13 +1520,19 @@ _DELETENODESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3947,
-  serialized_end=4028,
+  serialized_start=4883,
+  serialized_end=4964,
 )
 
 _QUERYCONDITION.fields_by_name['time_range'].message_type = datahub_dot_metric_dot_v1alpha2_dot_metric__pb2._TIMERANGE
 _QUERYCONDITION.fields_by_name['order'].enum_type = _QUERYCONDITION_ORDER
 _QUERYCONDITION_ORDER.containing_type = _QUERYCONDITION
+_GETCLUSTERPOLICYRESPONSE.fields_by_name['policy'].enum_type = datahub_dot_resource_dot_v1alpha2_dot_resource__pb2._CLUSTERAUTOSCALINGPOLICY
+_GETCLUSTERCONFIGRESPONSE.fields_by_name['node_groups'].message_type = datahub_dot_resource_dot_v1alpha2_dot_resource__pb2._INSTANCEGROUP
+_GETCURRENTPODSPECRESPONSE.fields_by_name['pod_spec'].message_type = datahub_dot_resource_dot_v1alpha2_dot_resource__pb2._PODSPEC
+_GETHISTORICALPODCOUNTREQUEST.fields_by_name['time_range'].message_type = datahub_dot_metric_dot_v1alpha2_dot_metric__pb2._TIMERANGE
+_GETHISTORICALPODCOUNTRESPONSE.fields_by_name['data'].message_type = datahub_dot_metric_dot_v1alpha2_dot_metric__pb2._SAMPLE
+_GETUNSCHEDULEDPODSRESPONSE.fields_by_name['pods'].message_type = datahub_dot_resource_dot_v1alpha2_dot_resource__pb2._POD
 _LISTPODMETRICSREQUEST.fields_by_name['namespaced_name'].message_type = datahub_dot_resource_dot_metadata_dot_v1alpha2_dot_metadata__pb2._NAMESPACEDNAME
 _LISTPODMETRICSREQUEST.fields_by_name['query_condition'].message_type = _QUERYCONDITION
 _LISTPODMETRICSRESPONSE.fields_by_name['status'].message_type = google_dot_rpc_dot_status__pb2._STATUS
@@ -1176,6 +1575,18 @@ _UPDATENODESREQUEST.fields_by_name['updated_nodes'].message_type = _UPDATENODESR
 _DELETEPODSREQUEST.fields_by_name['pods'].message_type = datahub_dot_resource_dot_v1alpha2_dot_resource__pb2._POD
 _DELETENODESREQUEST.fields_by_name['nodes'].message_type = datahub_dot_resource_dot_v1alpha2_dot_resource__pb2._NODE
 DESCRIPTOR.message_types_by_name['QueryCondition'] = _QUERYCONDITION
+DESCRIPTOR.message_types_by_name['GetClusterPolicyRequest'] = _GETCLUSTERPOLICYREQUEST
+DESCRIPTOR.message_types_by_name['GetClusterPolicyResponse'] = _GETCLUSTERPOLICYRESPONSE
+DESCRIPTOR.message_types_by_name['GetClusterStatusRequest'] = _GETCLUSTERSTATUSREQUEST
+DESCRIPTOR.message_types_by_name['GetClusterStatusResponse'] = _GETCLUSTERSTATUSRESPONSE
+DESCRIPTOR.message_types_by_name['GetClusterConfigRequest'] = _GETCLUSTERCONFIGREQUEST
+DESCRIPTOR.message_types_by_name['GetClusterConfigResponse'] = _GETCLUSTERCONFIGRESPONSE
+DESCRIPTOR.message_types_by_name['GetCurrentPodSpecRequest'] = _GETCURRENTPODSPECREQUEST
+DESCRIPTOR.message_types_by_name['GetCurrentPodSpecResponse'] = _GETCURRENTPODSPECRESPONSE
+DESCRIPTOR.message_types_by_name['GetHistoricalPodCountRequest'] = _GETHISTORICALPODCOUNTREQUEST
+DESCRIPTOR.message_types_by_name['GetHistoricalPodCountResponse'] = _GETHISTORICALPODCOUNTRESPONSE
+DESCRIPTOR.message_types_by_name['GetUnscheduledPodsRequest'] = _GETUNSCHEDULEDPODSREQUEST
+DESCRIPTOR.message_types_by_name['GetUnscheduledPodsResponse'] = _GETUNSCHEDULEDPODSRESPONSE
 DESCRIPTOR.message_types_by_name['ListPodMetricsRequest'] = _LISTPODMETRICSREQUEST
 DESCRIPTOR.message_types_by_name['ListPodMetricsResponse'] = _LISTPODMETRICSRESPONSE
 DESCRIPTOR.message_types_by_name['ListNodeMetricsRequest'] = _LISTNODEMETRICSREQUEST
@@ -1210,6 +1621,90 @@ QueryCondition = _reflection.GeneratedProtocolMessageType('QueryCondition', (_me
   # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.QueryCondition)
   ))
 _sym_db.RegisterMessage(QueryCondition)
+
+GetClusterPolicyRequest = _reflection.GeneratedProtocolMessageType('GetClusterPolicyRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETCLUSTERPOLICYREQUEST,
+  __module__ = 'datahub.v1alpha2.datahub_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.GetClusterPolicyRequest)
+  ))
+_sym_db.RegisterMessage(GetClusterPolicyRequest)
+
+GetClusterPolicyResponse = _reflection.GeneratedProtocolMessageType('GetClusterPolicyResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETCLUSTERPOLICYRESPONSE,
+  __module__ = 'datahub.v1alpha2.datahub_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.GetClusterPolicyResponse)
+  ))
+_sym_db.RegisterMessage(GetClusterPolicyResponse)
+
+GetClusterStatusRequest = _reflection.GeneratedProtocolMessageType('GetClusterStatusRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETCLUSTERSTATUSREQUEST,
+  __module__ = 'datahub.v1alpha2.datahub_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.GetClusterStatusRequest)
+  ))
+_sym_db.RegisterMessage(GetClusterStatusRequest)
+
+GetClusterStatusResponse = _reflection.GeneratedProtocolMessageType('GetClusterStatusResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETCLUSTERSTATUSRESPONSE,
+  __module__ = 'datahub.v1alpha2.datahub_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.GetClusterStatusResponse)
+  ))
+_sym_db.RegisterMessage(GetClusterStatusResponse)
+
+GetClusterConfigRequest = _reflection.GeneratedProtocolMessageType('GetClusterConfigRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETCLUSTERCONFIGREQUEST,
+  __module__ = 'datahub.v1alpha2.datahub_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.GetClusterConfigRequest)
+  ))
+_sym_db.RegisterMessage(GetClusterConfigRequest)
+
+GetClusterConfigResponse = _reflection.GeneratedProtocolMessageType('GetClusterConfigResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETCLUSTERCONFIGRESPONSE,
+  __module__ = 'datahub.v1alpha2.datahub_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.GetClusterConfigResponse)
+  ))
+_sym_db.RegisterMessage(GetClusterConfigResponse)
+
+GetCurrentPodSpecRequest = _reflection.GeneratedProtocolMessageType('GetCurrentPodSpecRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETCURRENTPODSPECREQUEST,
+  __module__ = 'datahub.v1alpha2.datahub_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.GetCurrentPodSpecRequest)
+  ))
+_sym_db.RegisterMessage(GetCurrentPodSpecRequest)
+
+GetCurrentPodSpecResponse = _reflection.GeneratedProtocolMessageType('GetCurrentPodSpecResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETCURRENTPODSPECRESPONSE,
+  __module__ = 'datahub.v1alpha2.datahub_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.GetCurrentPodSpecResponse)
+  ))
+_sym_db.RegisterMessage(GetCurrentPodSpecResponse)
+
+GetHistoricalPodCountRequest = _reflection.GeneratedProtocolMessageType('GetHistoricalPodCountRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETHISTORICALPODCOUNTREQUEST,
+  __module__ = 'datahub.v1alpha2.datahub_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.GetHistoricalPodCountRequest)
+  ))
+_sym_db.RegisterMessage(GetHistoricalPodCountRequest)
+
+GetHistoricalPodCountResponse = _reflection.GeneratedProtocolMessageType('GetHistoricalPodCountResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETHISTORICALPODCOUNTRESPONSE,
+  __module__ = 'datahub.v1alpha2.datahub_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.GetHistoricalPodCountResponse)
+  ))
+_sym_db.RegisterMessage(GetHistoricalPodCountResponse)
+
+GetUnscheduledPodsRequest = _reflection.GeneratedProtocolMessageType('GetUnscheduledPodsRequest', (_message.Message,), dict(
+  DESCRIPTOR = _GETUNSCHEDULEDPODSREQUEST,
+  __module__ = 'datahub.v1alpha2.datahub_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.GetUnscheduledPodsRequest)
+  ))
+_sym_db.RegisterMessage(GetUnscheduledPodsRequest)
+
+GetUnscheduledPodsResponse = _reflection.GeneratedProtocolMessageType('GetUnscheduledPodsResponse', (_message.Message,), dict(
+  DESCRIPTOR = _GETUNSCHEDULEDPODSRESPONSE,
+  __module__ = 'datahub.v1alpha2.datahub_pb2'
+  # @@protoc_insertion_point(class_scope:containersai.datahub.v1alpha2.GetUnscheduledPodsResponse)
+  ))
+_sym_db.RegisterMessage(GetUnscheduledPodsResponse)
 
 ListPodMetricsRequest = _reflection.GeneratedProtocolMessageType('ListPodMetricsRequest', (_message.Message,), dict(
   DESCRIPTOR = _LISTPODMETRICSREQUEST,
@@ -1434,13 +1929,67 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=4031,
-  serialized_end=6128,
+  serialized_start=4967,
+  serialized_end=7904,
   methods=[
+  _descriptor.MethodDescriptor(
+    name='GetClusterPolicy',
+    full_name='containersai.datahub.v1alpha2.DatahubService.GetClusterPolicy',
+    index=0,
+    containing_service=None,
+    input_type=_GETCLUSTERPOLICYREQUEST,
+    output_type=_GETCLUSTERPOLICYRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetClusterStatus',
+    full_name='containersai.datahub.v1alpha2.DatahubService.GetClusterStatus',
+    index=1,
+    containing_service=None,
+    input_type=_GETCLUSTERSTATUSREQUEST,
+    output_type=_GETCLUSTERSTATUSRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetClusterConfig',
+    full_name='containersai.datahub.v1alpha2.DatahubService.GetClusterConfig',
+    index=2,
+    containing_service=None,
+    input_type=_GETCLUSTERCONFIGREQUEST,
+    output_type=_GETCLUSTERCONFIGRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetCurrentPodSpec',
+    full_name='containersai.datahub.v1alpha2.DatahubService.GetCurrentPodSpec',
+    index=3,
+    containing_service=None,
+    input_type=_GETCURRENTPODSPECREQUEST,
+    output_type=_GETCURRENTPODSPECRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetHistoricalPodCount',
+    full_name='containersai.datahub.v1alpha2.DatahubService.GetHistoricalPodCount',
+    index=4,
+    containing_service=None,
+    input_type=_GETHISTORICALPODCOUNTREQUEST,
+    output_type=_GETHISTORICALPODCOUNTRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetUnscheduledPods',
+    full_name='containersai.datahub.v1alpha2.DatahubService.GetUnscheduledPods',
+    index=5,
+    containing_service=None,
+    input_type=_GETUNSCHEDULEDPODSREQUEST,
+    output_type=_GETUNSCHEDULEDPODSRESPONSE,
+    serialized_options=None,
+  ),
   _descriptor.MethodDescriptor(
     name='ListPodMetrics',
     full_name='containersai.datahub.v1alpha2.DatahubService.ListPodMetrics',
-    index=0,
+    index=6,
     containing_service=None,
     input_type=_LISTPODMETRICSREQUEST,
     output_type=_LISTPODMETRICSRESPONSE,
@@ -1449,7 +1998,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListNodeMetrics',
     full_name='containersai.datahub.v1alpha2.DatahubService.ListNodeMetrics',
-    index=1,
+    index=7,
     containing_service=None,
     input_type=_LISTNODEMETRICSREQUEST,
     output_type=_LISTNODEMETRICSRESPONSE,
@@ -1458,7 +2007,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListPods',
     full_name='containersai.datahub.v1alpha2.DatahubService.ListPods',
-    index=2,
+    index=8,
     containing_service=None,
     input_type=_LISTPODSREQUEST,
     output_type=_LISTPODSRESPONSE,
@@ -1467,7 +2016,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListNodes',
     full_name='containersai.datahub.v1alpha2.DatahubService.ListNodes',
-    index=3,
+    index=9,
     containing_service=None,
     input_type=_LISTNODESREQUEST,
     output_type=_LISTNODESRESPONSE,
@@ -1476,7 +2025,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListPodPredictions',
     full_name='containersai.datahub.v1alpha2.DatahubService.ListPodPredictions',
-    index=4,
+    index=10,
     containing_service=None,
     input_type=_LISTPODPREDICTIONSREQUEST,
     output_type=_LISTPODPREDICTIONSRESPONSE,
@@ -1485,7 +2034,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListNodePredictions',
     full_name='containersai.datahub.v1alpha2.DatahubService.ListNodePredictions',
-    index=5,
+    index=11,
     containing_service=None,
     input_type=_LISTNODEPREDICTIONSREQUEST,
     output_type=_LISTNODEPREDICTIONSRESPONSE,
@@ -1494,7 +2043,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListPodRecommendations',
     full_name='containersai.datahub.v1alpha2.DatahubService.ListPodRecommendations',
-    index=6,
+    index=12,
     containing_service=None,
     input_type=_LISTPODRECOMMENDATIONSREQUEST,
     output_type=_LISTPODRECOMMENDATIONSRESPONSE,
@@ -1503,7 +2052,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListSimulatedSchedulingScores',
     full_name='containersai.datahub.v1alpha2.DatahubService.ListSimulatedSchedulingScores',
-    index=7,
+    index=13,
     containing_service=None,
     input_type=_LISTSIMULATEDSCHEDULINGSCORESREQUEST,
     output_type=_LISTSIMULATEDSCHEDULINGSCORESRESPONSE,
@@ -1512,7 +2061,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreatePods',
     full_name='containersai.datahub.v1alpha2.DatahubService.CreatePods',
-    index=8,
+    index=14,
     containing_service=None,
     input_type=_CREATEPODSREQUEST,
     output_type=google_dot_rpc_dot_status__pb2._STATUS,
@@ -1521,7 +2070,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateNodes',
     full_name='containersai.datahub.v1alpha2.DatahubService.CreateNodes',
-    index=9,
+    index=15,
     containing_service=None,
     input_type=_CREATENODESREQUEST,
     output_type=google_dot_rpc_dot_status__pb2._STATUS,
@@ -1530,7 +2079,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreatePodPredictions',
     full_name='containersai.datahub.v1alpha2.DatahubService.CreatePodPredictions',
-    index=10,
+    index=16,
     containing_service=None,
     input_type=_CREATEPODPREDICTIONSREQUEST,
     output_type=google_dot_rpc_dot_status__pb2._STATUS,
@@ -1539,7 +2088,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateNodePredictions',
     full_name='containersai.datahub.v1alpha2.DatahubService.CreateNodePredictions',
-    index=11,
+    index=17,
     containing_service=None,
     input_type=_CREATENODEPREDICTIONSREQUEST,
     output_type=google_dot_rpc_dot_status__pb2._STATUS,
@@ -1548,7 +2097,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreatePodRecommendations',
     full_name='containersai.datahub.v1alpha2.DatahubService.CreatePodRecommendations',
-    index=12,
+    index=18,
     containing_service=None,
     input_type=_CREATEPODRECOMMENDATIONSREQUEST,
     output_type=google_dot_rpc_dot_status__pb2._STATUS,
@@ -1557,7 +2106,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateSimulatedSchedulingScores',
     full_name='containersai.datahub.v1alpha2.DatahubService.CreateSimulatedSchedulingScores',
-    index=13,
+    index=19,
     containing_service=None,
     input_type=_CREATESIMULATEDSCHEDULINGSCORESREQUEST,
     output_type=google_dot_rpc_dot_status__pb2._STATUS,
@@ -1566,7 +2115,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdatePods',
     full_name='containersai.datahub.v1alpha2.DatahubService.UpdatePods',
-    index=14,
+    index=20,
     containing_service=None,
     input_type=_UPDATEPODSREQUEST,
     output_type=google_dot_rpc_dot_status__pb2._STATUS,
@@ -1575,7 +2124,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateNodes',
     full_name='containersai.datahub.v1alpha2.DatahubService.UpdateNodes',
-    index=15,
+    index=21,
     containing_service=None,
     input_type=_UPDATENODESREQUEST,
     output_type=google_dot_rpc_dot_status__pb2._STATUS,
@@ -1584,7 +2133,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeletePods',
     full_name='containersai.datahub.v1alpha2.DatahubService.DeletePods',
-    index=16,
+    index=22,
     containing_service=None,
     input_type=_DELETEPODSREQUEST,
     output_type=google_dot_rpc_dot_status__pb2._STATUS,
@@ -1593,7 +2142,7 @@ _DATAHUBSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteNodes',
     full_name='containersai.datahub.v1alpha2.DatahubService.DeleteNodes',
-    index=17,
+    index=23,
     containing_service=None,
     input_type=_DELETENODESREQUEST,
     output_type=google_dot_rpc_dot_status__pb2._STATUS,
