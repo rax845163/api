@@ -202,7 +202,6 @@ message CreatePodsRequest {
  */
 message CreateNodesRequest {
     repeated containersai.datahub.resource.v1alpha2.Node nodes = 1;
-    bool is_predicted = 2;
 }
 
 /**
