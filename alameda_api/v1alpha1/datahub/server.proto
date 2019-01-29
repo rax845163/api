@@ -23,6 +23,24 @@ message QueryCondition {
 }
 
 /**
+ * Represents a request for get one pod recommendation to apply of a controller
+ * 
+ */
+message GetOneControllerPodRecommendationToApplyRequest {
+    string controller_type = 1;
+    NamespacedName namespaced_name = 2;
+} 
+
+/**
+ * Represents a response for get one pod recommendation to apply of a controller request
+ * 
+ */
+message GetOneControllerPodRecommendationToApplyResponse {
+    google.rpc.Status status = 1;
+    PodRecommendation pod_recommendation = 2;
+}
+
+/**
  * Represents a request for listing metric data of a pod
  * 
  */
@@ -230,6 +248,10 @@ message DeleteAlamedaNodesRequest {
  * Service for providing data stored in the backend
  */
 service DatahubService {
+    /// Used to get one pod recommendation of a controller need applying
+    rpc GetOneControllerPodRecommendationToApply(GetOneControllerPodRecommendationToApplyRequest)
+        returns (GetOneControllerPodRecommendationToApplyResponse) {}
+
     /// Used to list pod metric data
     rpc ListPodMetrics(ListPodMetricsRequest)
         returns (ListPodMetricsResponse) {}
