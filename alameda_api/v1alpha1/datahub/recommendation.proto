@@ -45,3 +45,12 @@ message PodRecommendation {
     AssignPodPolicy assign_pod_policy = 3;
     repeated ContainerRecommendation container_recommendations = 4;
 }
+
+message ControllerRecommendation {
+    NamespacedName namespaced_name = 1;
+    ControllerType type = 2;
+    repeated MetricData limit_recommendations = 3;
+    repeated MetricData request_recommendations = 4;
+    repeated MetricData initial_limit_recommendations = 5;
+    repeated MetricData initial_request_recommendations = 6;
+}

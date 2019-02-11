@@ -41,6 +41,23 @@ message GetOneControllerPodRecommendationToApplyResponse {
 }
 
 /**
+ * Represents a request for get one node information
+ * 
+ */
+message GetNodeInformationRequest {
+    string cluster_id = 1;
+    string node_name = 2;
+}
+
+/**
+ * Represents a response for get one node information request
+ * 
+ */
+message GetNodeInformationResponse {
+    Node node = 1;
+}
+
+/**
  * Represents a request for listing metric data of a pod
  * 
  */
@@ -77,6 +94,26 @@ message ListNodeMetricsResponse {
 }
 
 /**
+ * Represents a request for listing metric data of a controller
+ * 
+ */
+message ListControllerMetricsRequest {
+
+    NamespacedName namespaced_name = 1;
+    ControllerType type = 2;
+    QueryCondition query_condition = 3;
+}
+
+/**
+ * Represents a response for a listing controller metrics request
+ * 
+ */
+message ListControllerMetricsResponse {
+    google.rpc.Status status = 1;
+    repeated ControllerMetric controller_metrics = 2;
+}
+
+/**
  * Represents a response for a listing pods request
  * 
  */
@@ -91,6 +128,22 @@ message ListPodsResponse {
  */
 message ListAlamedaPodsRequest {
     NamespacedName alameda_scaler = 1;
+}
+
+/**
+ * Represents a request for listing controller that need to be predicted
+ * 
+ */
+message ListAlamedaControllersResquest {
+    // TODO
+}
+
+/**
+ * Represents a response for a listing controller request
+ * 
+ */
+message ListControllersResponse{
+    // TODO
 }
 
 /**
@@ -139,6 +192,25 @@ message ListNodePredictionsResponse {
 }
 
 /**
+ * Represents a request for listing predictions of controllers
+ * 
+ */
+message ListControllerPredictionsRequest {
+    NamespacedName namespaced_name = 1;
+    ControllerType type = 2;
+    QueryCondition query_condition = 3;
+}
+
+/**
+ * Represents a response for a listing predictions of controllers request
+ * 
+ */
+message ListControllerPredictionsResponse {
+    google.rpc.Status status = 1;
+    repeated ControllerPrediction controller_predictions = 2;
+}
+
+/**
  * Represents a request for listing recommendations of pods
  * 
  */
@@ -154,6 +226,25 @@ message ListPodRecommendationsRequest {
 message ListPodRecommendationsResponse {
     google.rpc.Status status = 1;
     repeated PodRecommendation pod_recommendations = 2;
+}
+
+/**
+ * Represents a request for listing recommendations of controller
+ * 
+ */
+message ListControllerRecommendationsRequest {
+    NamespacedName namespaced_name = 1;
+    ControllerType type = 2;
+    QueryCondition query_condition = 3;
+}
+
+/**
+ * Represents a response for listing controller recommendations request
+ * 
+ */
+message ListControllerRecommendationsResponse {
+    google.rpc.Status status = 1;
+    repeated ControllerRecommendation controller_recommendations = 2;
 }
 
 /**
@@ -197,12 +288,28 @@ message CreateNodePredictionsRequest {
 }
 
 /**
+ * Represents a request for creating predictions of controller' metric data
+ */
+message CreateControllerPredictionsRequest {
+    repeated ControllerPrediction controller_predictions = 1;
+}
+
+/**
  * Represents a request for creating a pod's recommendation
  * 
  */
 message CreatePodRecommendationsRequest {
     repeated PodRecommendation pod_recommendations = 1;
 }
+
+/**
+ * Represents a request for creating a controller's recommendation
+ * 
+ */
+message CreateControllerRecommendationsRequest {
+    repeated ControllerRecommendation controller_recommendations = 1;
+}
+
 
 /**
  * Represents a request for creating pods
@@ -252,6 +359,10 @@ service DatahubService {
     rpc GetOneControllerPodRecommendationToApply(GetOneControllerPodRecommendationToApplyRequest)
         returns (GetOneControllerPodRecommendationToApplyResponse) {}
 
+    // Used to get node information
+    rpc GetNodeInformation(GetNodeInformationRequest)
+        returns (GetNodeInformationResponse) {}
+
     /// Used to list pod metric data
     rpc ListPodMetrics(ListPodMetricsRequest)
         returns (ListPodMetricsResponse) {}
@@ -259,6 +370,10 @@ service DatahubService {
     /// Used to list node metric data
     rpc ListNodeMetrics(ListNodeMetricsRequest)
         returns (ListNodeMetricsResponse) {}
+
+    /// Used to list controller metric data
+    rpc ListControllerMetrics(ListControllerMetricsRequest)
+        returns (ListControllerMetricsResponse) {}
 
     // Used to list pods need to be predicted
     rpc ListAlamedaPods(ListAlamedaPodsRequest)
@@ -268,6 +383,10 @@ service DatahubService {
     rpc ListAlamedaNodes(google.protobuf.Empty)
         returns (ListNodesResponse){}
 
+    // Used to list controllers need to be predicted
+    rpc ListAlamedaControllers(ListAlamedaControllersResquest)
+        returns (ListControllersResponse){}
+
     /// Used to list pod predictions
     rpc ListPodPredictions(ListPodPredictionsRequest)
         returns (ListPodPredictionsResponse) {}
@@ -276,9 +395,17 @@ service DatahubService {
     rpc ListNodePredictions(ListNodePredictionsRequest)
         returns (ListNodePredictionsResponse) {}
 
+    /// Used to list controller predictions
+    rpc ListControllerPredictions(ListControllerPredictionsRequest)
+        returns (ListControllerPredictionsResponse) {}
+
     /// Used to list pod recommenations
     rpc ListPodRecommendations(ListPodRecommendationsRequest)
         returns (ListPodRecommendationsResponse) {}
+
+    /// Used to list controller recommenations
+    rpc ListControllerRecommendations(ListControllerRecommendationsRequest)
+        returns (ListControllerRecommendationsResponse) {}
 
     /// Used to list pods by a node name
     rpc ListPodsByNodeName(ListPodsByNodeNamesRequest)
@@ -304,8 +431,16 @@ service DatahubService {
     rpc CreateNodePredictions(CreateNodePredictionsRequest)
         returns (google.rpc.Status) {}
 
+    /// Used to create predictions of controllers
+    rpc CreateControllerPredictions(CreateControllerPredictionsRequest)
+        returns (google.rpc.Status) {}
+
     /// Used to create recommendations of pods
     rpc CreatePodRecommendations(CreatePodRecommendationsRequest)
+        returns (google.rpc.Status) {}
+
+    /// Used to create recommendations of controllers
+    rpc CreateControllerRecommendations(CreateControllerRecommendationsRequest)
         returns (google.rpc.Status) {}
 
     /// Used to create scores of system 

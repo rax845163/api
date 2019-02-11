@@ -40,6 +40,12 @@ message NodeMetric {
     repeated MetricData metric_data = 2;
 }
 
+message ControllerMetric {
+    NamespacedName namespaced_name = 1;
+    ControllerType type = 2;
+    repeated MetricData metric_data = 3;
+}
+
 /**
  * Represents a data point of time-series metric data
  */
