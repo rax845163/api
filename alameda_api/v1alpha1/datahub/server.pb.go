@@ -45,7 +45,7 @@ func (x QueryCondition_Order) String() string {
 	return proto.EnumName(QueryCondition_Order_name, int32(x))
 }
 func (QueryCondition_Order) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{0, 0}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{0, 0}
 }
 
 type QueryCondition struct {
@@ -61,7 +61,7 @@ func (m *QueryCondition) Reset()         { *m = QueryCondition{} }
 func (m *QueryCondition) String() string { return proto.CompactTextString(m) }
 func (*QueryCondition) ProtoMessage()    {}
 func (*QueryCondition) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{0}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{0}
 }
 func (m *QueryCondition) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_QueryCondition.Unmarshal(m, b)
@@ -102,6 +102,9 @@ func (m *QueryCondition) GetLimit() uint64 {
 	return 0
 }
 
+// *
+// Represents a request for get one pod recommendation to apply of a controller
+//
 type GetOneControllerPodRecommendationToApplyRequest struct {
 	ControllerType       string          `protobuf:"bytes,1,opt,name=controller_type,json=controllerType,proto3" json:"controller_type,omitempty"`
 	NamespacedName       *NamespacedName `protobuf:"bytes,2,opt,name=namespaced_name,json=namespacedName,proto3" json:"namespaced_name,omitempty"`
@@ -118,7 +121,7 @@ func (m *GetOneControllerPodRecommendationToApplyRequest) String() string {
 }
 func (*GetOneControllerPodRecommendationToApplyRequest) ProtoMessage() {}
 func (*GetOneControllerPodRecommendationToApplyRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{1}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{1}
 }
 func (m *GetOneControllerPodRecommendationToApplyRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetOneControllerPodRecommendationToApplyRequest.Unmarshal(m, b)
@@ -152,6 +155,9 @@ func (m *GetOneControllerPodRecommendationToApplyRequest) GetNamespacedName() *N
 	return nil
 }
 
+// *
+// Represents a response for get one pod recommendation to apply of a controller request
+//
 type GetOneControllerPodRecommendationToApplyResponse struct {
 	Status               *status.Status     `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	PodRecommendation    *PodRecommendation `protobuf:"bytes,2,opt,name=pod_recommendation,json=podRecommendation,proto3" json:"pod_recommendation,omitempty"`
@@ -168,7 +174,7 @@ func (m *GetOneControllerPodRecommendationToApplyResponse) String() string {
 }
 func (*GetOneControllerPodRecommendationToApplyResponse) ProtoMessage() {}
 func (*GetOneControllerPodRecommendationToApplyResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{2}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{2}
 }
 func (m *GetOneControllerPodRecommendationToApplyResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetOneControllerPodRecommendationToApplyResponse.Unmarshal(m, b)
@@ -217,7 +223,7 @@ func (m *ListPodMetricsRequest) Reset()         { *m = ListPodMetricsRequest{} }
 func (m *ListPodMetricsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListPodMetricsRequest) ProtoMessage()    {}
 func (*ListPodMetricsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{3}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{3}
 }
 func (m *ListPodMetricsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodMetricsRequest.Unmarshal(m, b)
@@ -266,7 +272,7 @@ func (m *ListPodMetricsResponse) Reset()         { *m = ListPodMetricsResponse{}
 func (m *ListPodMetricsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListPodMetricsResponse) ProtoMessage()    {}
 func (*ListPodMetricsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{4}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{4}
 }
 func (m *ListPodMetricsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodMetricsResponse.Unmarshal(m, b)
@@ -315,7 +321,7 @@ func (m *ListNodeMetricsRequest) Reset()         { *m = ListNodeMetricsRequest{}
 func (m *ListNodeMetricsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListNodeMetricsRequest) ProtoMessage()    {}
 func (*ListNodeMetricsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{5}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{5}
 }
 func (m *ListNodeMetricsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListNodeMetricsRequest.Unmarshal(m, b)
@@ -364,7 +370,7 @@ func (m *ListNodeMetricsResponse) Reset()         { *m = ListNodeMetricsResponse
 func (m *ListNodeMetricsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListNodeMetricsResponse) ProtoMessage()    {}
 func (*ListNodeMetricsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{6}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{6}
 }
 func (m *ListNodeMetricsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListNodeMetricsResponse.Unmarshal(m, b)
@@ -413,7 +419,7 @@ func (m *ListPodsResponse) Reset()         { *m = ListPodsResponse{} }
 func (m *ListPodsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListPodsResponse) ProtoMessage()    {}
 func (*ListPodsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{7}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{7}
 }
 func (m *ListPodsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodsResponse.Unmarshal(m, b)
@@ -461,7 +467,7 @@ func (m *ListAlamedaPodsRequest) Reset()         { *m = ListAlamedaPodsRequest{}
 func (m *ListAlamedaPodsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListAlamedaPodsRequest) ProtoMessage()    {}
 func (*ListAlamedaPodsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{8}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{8}
 }
 func (m *ListAlamedaPodsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListAlamedaPodsRequest.Unmarshal(m, b)
@@ -503,7 +509,7 @@ func (m *ListNodesResponse) Reset()         { *m = ListNodesResponse{} }
 func (m *ListNodesResponse) String() string { return proto.CompactTextString(m) }
 func (*ListNodesResponse) ProtoMessage()    {}
 func (*ListNodesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{9}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{9}
 }
 func (m *ListNodesResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListNodesResponse.Unmarshal(m, b)
@@ -552,7 +558,7 @@ func (m *ListPodPredictionsRequest) Reset()         { *m = ListPodPredictionsReq
 func (m *ListPodPredictionsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListPodPredictionsRequest) ProtoMessage()    {}
 func (*ListPodPredictionsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{10}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{10}
 }
 func (m *ListPodPredictionsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodPredictionsRequest.Unmarshal(m, b)
@@ -601,7 +607,7 @@ func (m *ListPodPredictionsResponse) Reset()         { *m = ListPodPredictionsRe
 func (m *ListPodPredictionsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListPodPredictionsResponse) ProtoMessage()    {}
 func (*ListPodPredictionsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{11}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{11}
 }
 func (m *ListPodPredictionsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodPredictionsResponse.Unmarshal(m, b)
@@ -650,7 +656,7 @@ func (m *ListNodePredictionsRequest) Reset()         { *m = ListNodePredictionsR
 func (m *ListNodePredictionsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListNodePredictionsRequest) ProtoMessage()    {}
 func (*ListNodePredictionsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{12}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{12}
 }
 func (m *ListNodePredictionsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListNodePredictionsRequest.Unmarshal(m, b)
@@ -699,7 +705,7 @@ func (m *ListNodePredictionsResponse) Reset()         { *m = ListNodePredictions
 func (m *ListNodePredictionsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListNodePredictionsResponse) ProtoMessage()    {}
 func (*ListNodePredictionsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{13}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{13}
 }
 func (m *ListNodePredictionsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListNodePredictionsResponse.Unmarshal(m, b)
@@ -748,7 +754,7 @@ func (m *ListPodRecommendationsRequest) Reset()         { *m = ListPodRecommenda
 func (m *ListPodRecommendationsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListPodRecommendationsRequest) ProtoMessage()    {}
 func (*ListPodRecommendationsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{14}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{14}
 }
 func (m *ListPodRecommendationsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodRecommendationsRequest.Unmarshal(m, b)
@@ -797,7 +803,7 @@ func (m *ListPodRecommendationsResponse) Reset()         { *m = ListPodRecommend
 func (m *ListPodRecommendationsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListPodRecommendationsResponse) ProtoMessage()    {}
 func (*ListPodRecommendationsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{15}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{15}
 }
 func (m *ListPodRecommendationsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodRecommendationsResponse.Unmarshal(m, b)
@@ -845,7 +851,7 @@ func (m *ListPodsByNodeNamesRequest) Reset()         { *m = ListPodsByNodeNamesR
 func (m *ListPodsByNodeNamesRequest) String() string { return proto.CompactTextString(m) }
 func (*ListPodsByNodeNamesRequest) ProtoMessage()    {}
 func (*ListPodsByNodeNamesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{16}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{16}
 }
 func (m *ListPodsByNodeNamesRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListPodsByNodeNamesRequest.Unmarshal(m, b)
@@ -886,7 +892,7 @@ func (m *ListSimulatedSchedulingScoresRequest) Reset()         { *m = ListSimula
 func (m *ListSimulatedSchedulingScoresRequest) String() string { return proto.CompactTextString(m) }
 func (*ListSimulatedSchedulingScoresRequest) ProtoMessage()    {}
 func (*ListSimulatedSchedulingScoresRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{17}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{17}
 }
 func (m *ListSimulatedSchedulingScoresRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListSimulatedSchedulingScoresRequest.Unmarshal(m, b)
@@ -928,7 +934,7 @@ func (m *ListSimulatedSchedulingScoresResponse) Reset()         { *m = ListSimul
 func (m *ListSimulatedSchedulingScoresResponse) String() string { return proto.CompactTextString(m) }
 func (*ListSimulatedSchedulingScoresResponse) ProtoMessage()    {}
 func (*ListSimulatedSchedulingScoresResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{18}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{18}
 }
 func (m *ListSimulatedSchedulingScoresResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListSimulatedSchedulingScoresResponse.Unmarshal(m, b)
@@ -975,7 +981,7 @@ func (m *CreatePodPredictionsRequest) Reset()         { *m = CreatePodPrediction
 func (m *CreatePodPredictionsRequest) String() string { return proto.CompactTextString(m) }
 func (*CreatePodPredictionsRequest) ProtoMessage()    {}
 func (*CreatePodPredictionsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{19}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{19}
 }
 func (m *CreatePodPredictionsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreatePodPredictionsRequest.Unmarshal(m, b)
@@ -1016,7 +1022,7 @@ func (m *CreateNodePredictionsRequest) Reset()         { *m = CreateNodePredicti
 func (m *CreateNodePredictionsRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateNodePredictionsRequest) ProtoMessage()    {}
 func (*CreateNodePredictionsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{20}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{20}
 }
 func (m *CreateNodePredictionsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreateNodePredictionsRequest.Unmarshal(m, b)
@@ -1057,7 +1063,7 @@ func (m *CreatePodRecommendationsRequest) Reset()         { *m = CreatePodRecomm
 func (m *CreatePodRecommendationsRequest) String() string { return proto.CompactTextString(m) }
 func (*CreatePodRecommendationsRequest) ProtoMessage()    {}
 func (*CreatePodRecommendationsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{21}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{21}
 }
 func (m *CreatePodRecommendationsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreatePodRecommendationsRequest.Unmarshal(m, b)
@@ -1098,7 +1104,7 @@ func (m *CreatePodsRequest) Reset()         { *m = CreatePodsRequest{} }
 func (m *CreatePodsRequest) String() string { return proto.CompactTextString(m) }
 func (*CreatePodsRequest) ProtoMessage()    {}
 func (*CreatePodsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{22}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{22}
 }
 func (m *CreatePodsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreatePodsRequest.Unmarshal(m, b)
@@ -1139,7 +1145,7 @@ func (m *CreateAlamedaNodesRequest) Reset()         { *m = CreateAlamedaNodesReq
 func (m *CreateAlamedaNodesRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateAlamedaNodesRequest) ProtoMessage()    {}
 func (*CreateAlamedaNodesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{23}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{23}
 }
 func (m *CreateAlamedaNodesRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreateAlamedaNodesRequest.Unmarshal(m, b)
@@ -1182,7 +1188,7 @@ func (m *CreateSimulatedSchedulingScoresRequest) Reset() {
 func (m *CreateSimulatedSchedulingScoresRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateSimulatedSchedulingScoresRequest) ProtoMessage()    {}
 func (*CreateSimulatedSchedulingScoresRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{24}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{24}
 }
 func (m *CreateSimulatedSchedulingScoresRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreateSimulatedSchedulingScoresRequest.Unmarshal(m, b)
@@ -1223,7 +1229,7 @@ func (m *DeletePodsRequest) Reset()         { *m = DeletePodsRequest{} }
 func (m *DeletePodsRequest) String() string { return proto.CompactTextString(m) }
 func (*DeletePodsRequest) ProtoMessage()    {}
 func (*DeletePodsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{25}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{25}
 }
 func (m *DeletePodsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeletePodsRequest.Unmarshal(m, b)
@@ -1264,7 +1270,7 @@ func (m *DeleteAlamedaNodesRequest) Reset()         { *m = DeleteAlamedaNodesReq
 func (m *DeleteAlamedaNodesRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteAlamedaNodesRequest) ProtoMessage()    {}
 func (*DeleteAlamedaNodesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_server_d4ef915880cfcd49, []int{26}
+	return fileDescriptor_server_0ca5f0956d7eb88f, []int{26}
 }
 func (m *DeleteAlamedaNodesRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeleteAlamedaNodesRequest.Unmarshal(m, b)
@@ -1992,10 +1998,10 @@ var _DatahubService_serviceDesc = grpc.ServiceDesc{
 }
 
 func init() {
-	proto.RegisterFile("alameda_api/v1alpha1/datahub/server.proto", fileDescriptor_server_d4ef915880cfcd49)
+	proto.RegisterFile("alameda_api/v1alpha1/datahub/server.proto", fileDescriptor_server_0ca5f0956d7eb88f)
 }
 
-var fileDescriptor_server_d4ef915880cfcd49 = []byte{
+var fileDescriptor_server_0ca5f0956d7eb88f = []byte{
 	// 1294 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xdc, 0x58, 0xcd, 0x6f, 0xdc, 0x44,
 	0x14, 0xcf, 0x34, 0x1f, 0x90, 0x97, 0xb2, 0x49, 0x26, 0xfd, 0x48, 0x1d, 0x0a, 0x91, 0x05, 0x65,
