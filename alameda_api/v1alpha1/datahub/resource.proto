@@ -51,3 +51,13 @@ message Node {
     string name = 1;
     Capacity capacity = 2;
 }
+
+/**
+ * Represents kubernetes resource kind
+ *
+ */
+enum Kind {
+    POD = 0;
+    DEPLOYMENT = 1;
+    DEPLOYMENTCONFIG = 2;
+}
