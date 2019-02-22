@@ -61,3 +61,12 @@ enum Kind {
     DEPLOYMENT = 1;
     DEPLOYMENTCONFIG = 2;
 }
+
+/**
+ * Represents top controller of the pod
+ * 
+ */
+message TopController {    
+    NamespacedName namespaced_name = 1;
+    Kind kind = 2;
+}

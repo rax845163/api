@@ -47,6 +47,5 @@ message PodRecommendation {
     repeated ContainerRecommendation container_recommendations = 4;
     google.protobuf.Timestamp start_time = 5;
     google.protobuf.Timestamp end_time = 6;
-    Kind top_controller_kind = 7;
-    string top_controller_name = 8;
+    TopController top_controller = 7;
 }
