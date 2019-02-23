@@ -31,6 +31,7 @@ message Pod {
     string node_name = 6;
     google.protobuf.Timestamp start_time = 7;
     RecommendationPolicy policy = 8;
+    TopController top_controller = 9;
 }
 
 /**
