@@ -36,7 +36,6 @@ message Pod {
     TopController top_controller = 9;
     string used_recommendation_id = 10;
     PodStatus status = 11;
-    string reason = 12;
 }
 
 /**
