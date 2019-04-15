@@ -39,7 +39,7 @@ func (x ControllerRecommendation_RecommendedType) String() string {
 	return proto.EnumName(ControllerRecommendation_RecommendedType_name, int32(x))
 }
 func (ControllerRecommendation_RecommendedType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_recommendation_cafe93414b164fe8, []int{3, 0}
+	return fileDescriptor_recommendation_690e8eef21150255, []int{3, 0}
 }
 
 // *
@@ -62,7 +62,7 @@ func (m *ContainerRecommendation) Reset()         { *m = ContainerRecommendation
 func (m *ContainerRecommendation) String() string { return proto.CompactTextString(m) }
 func (*ContainerRecommendation) ProtoMessage()    {}
 func (*ContainerRecommendation) Descriptor() ([]byte, []int) {
-	return fileDescriptor_recommendation_cafe93414b164fe8, []int{0}
+	return fileDescriptor_recommendation_690e8eef21150255, []int{0}
 }
 func (m *ContainerRecommendation) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ContainerRecommendation.Unmarshal(m, b)
@@ -136,7 +136,7 @@ func (m *AssignPodPolicy) Reset()         { *m = AssignPodPolicy{} }
 func (m *AssignPodPolicy) String() string { return proto.CompactTextString(m) }
 func (*AssignPodPolicy) ProtoMessage()    {}
 func (*AssignPodPolicy) Descriptor() ([]byte, []int) {
-	return fileDescriptor_recommendation_cafe93414b164fe8, []int{1}
+	return fileDescriptor_recommendation_690e8eef21150255, []int{1}
 }
 func (m *AssignPodPolicy) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AssignPodPolicy.Unmarshal(m, b)
@@ -323,7 +323,7 @@ func (m *PodRecommendation) Reset()         { *m = PodRecommendation{} }
 func (m *PodRecommendation) String() string { return proto.CompactTextString(m) }
 func (*PodRecommendation) ProtoMessage()    {}
 func (*PodRecommendation) Descriptor() ([]byte, []int) {
-	return fileDescriptor_recommendation_cafe93414b164fe8, []int{2}
+	return fileDescriptor_recommendation_690e8eef21150255, []int{2}
 }
 func (m *PodRecommendation) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PodRecommendation.Unmarshal(m, b)
@@ -399,9 +399,6 @@ func (m *PodRecommendation) GetRecommendationId() string {
 	return ""
 }
 
-// *
-// Represents a set of container resource configuration recommendations of a controller
-//
 type ControllerRecommendation struct {
 	RecommendedType      ControllerRecommendation_RecommendedType `protobuf:"varint,1,opt,name=recommended_type,json=recommendedType,proto3,enum=containers_ai.alameda.v1alpha1.datahub.ControllerRecommendation_RecommendedType" json:"recommended_type,omitempty"`
 	RecommendedSpec      *ControllerRecommendedSpec               `protobuf:"bytes,2,opt,name=recommended_spec,json=recommendedSpec,proto3" json:"recommended_spec,omitempty"`
@@ -414,7 +411,7 @@ func (m *ControllerRecommendation) Reset()         { *m = ControllerRecommendati
 func (m *ControllerRecommendation) String() string { return proto.CompactTextString(m) }
 func (*ControllerRecommendation) ProtoMessage()    {}
 func (*ControllerRecommendation) Descriptor() ([]byte, []int) {
-	return fileDescriptor_recommendation_cafe93414b164fe8, []int{3}
+	return fileDescriptor_recommendation_690e8eef21150255, []int{3}
 }
 func (m *ControllerRecommendation) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ControllerRecommendation.Unmarshal(m, b)
@@ -462,7 +459,7 @@ func (m *ControllerRecommendedSpec) Reset()         { *m = ControllerRecommended
 func (m *ControllerRecommendedSpec) String() string { return proto.CompactTextString(m) }
 func (*ControllerRecommendedSpec) ProtoMessage()    {}
 func (*ControllerRecommendedSpec) Descriptor() ([]byte, []int) {
-	return fileDescriptor_recommendation_cafe93414b164fe8, []int{4}
+	return fileDescriptor_recommendation_690e8eef21150255, []int{4}
 }
 func (m *ControllerRecommendedSpec) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ControllerRecommendedSpec.Unmarshal(m, b)
@@ -520,10 +517,10 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("alameda_api/v1alpha1/datahub/recommendation.proto", fileDescriptor_recommendation_cafe93414b164fe8)
+	proto.RegisterFile("alameda_api/v1alpha1/datahub/recommendation.proto", fileDescriptor_recommendation_690e8eef21150255)
 }
 
-var fileDescriptor_recommendation_cafe93414b164fe8 = []byte{
+var fileDescriptor_recommendation_690e8eef21150255 = []byte{
 	// 754 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x54, 0xdd, 0x4e, 0xdb, 0x48,
 	0x14, 0x86, 0xfc, 0x40, 0x32, 0x59, 0x48, 0x18, 0xed, 0x82, 0x61, 0x85, 0x40, 0xb9, 0x58, 0x81,

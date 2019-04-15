@@ -224,7 +224,7 @@ class DatahubServiceServicer(object):
     raise NotImplementedError('Method not implemented!')
 
   def CreateControllerRecommendations(self, request, context):
-    """Used to create recommendations of pods
+    """Used to create recommendations of controller
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
