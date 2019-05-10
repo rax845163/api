@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containers_ai.alameda.v1alpha1.datahub',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n+alameda_api/v1alpha1/datahub/resource.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a*alameda_api/v1alpha1/datahub/predict.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a+alameda_api/v1alpha1/datahub/metadata.proto\x1a)alameda_api/v1alpha1/datahub/metric.proto\x1a(alameda_api/v1alpha1/datahub/types.proto\"\xfc\x01\n\tContainer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12J\n\x0elimit_resource\x18\x02 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12L\n\x10request_resource\x18\x03 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12G\n\x06status\x18\x04 \x01(\x0b\x32\x37.containers_ai.alameda.v1alpha1.datahub.ContainerStatus\"\xdb\x04\n\x03Pod\x12O\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12\x15\n\rresource_link\x18\x02 \x01(\t\x12\x45\n\ncontainers\x18\x03 \x03(\x0b\x32\x31.containers_ai.alameda.v1alpha1.datahub.Container\x12\x12\n\nis_alameda\x18\x04 \x01(\x08\x12N\n\x0e\x61lameda_scaler\x18\x05 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12\x11\n\tnode_name\x18\x06 \x01(\t\x12.\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12L\n\x06policy\x18\x08 \x01(\x0e\x32<.containers_ai.alameda.v1alpha1.datahub.RecommendationPolicy\x12M\n\x0etop_controller\x18\t \x01(\x0b\x32\x35.containers_ai.alameda.v1alpha1.datahub.TopController\x12\x1e\n\x16used_recommendation_id\x18\n \x01(\t\x12\x41\n\x06status\x18\x0b \x01(\x0b\x32\x31.containers_ai.alameda.v1alpha1.datahub.PodStatus\"X\n\x08\x43\x61pacity\x12\x11\n\tcpu_cores\x18\x01 \x01(\x03\x12\x14\n\x0cmemory_bytes\x18\x02 \x01(\x03\x12#\n\x1bnetwotk_megabits_per_second\x18\x03 \x01(\x03\"\x88\x01\n\x04Node\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x42\n\x08\x63\x61pacity\x18\x02 \x01(\x0b\x32\x30.containers_ai.alameda.v1alpha1.datahub.Capacity\x12.\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xae\x01\n\rTopController\x12O\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12:\n\x04kind\x18\x02 \x01(\x0e\x32,.containers_ai.alameda.v1alpha1.datahub.Kind\x12\x10\n\x08Replicas\x18\x03 \x01(\x05\"\xa7\x01\n\x0cResourceInfo\x12U\n\x15owner_namespaced_name\x18\x01 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12@\n\nowner_kind\x18\x02 \x01(\x0e\x32,.containers_ai.alameda.v1alpha1.datahub.Kind\"\xb7\x01\n\nController\x12M\n\x0f\x63ontroller_info\x18\x01 \x01(\x0b\x32\x34.containers_ai.alameda.v1alpha1.datahub.ResourceInfo\x12H\n\nowner_info\x18\x02 \x03(\x0b\x32\x34.containers_ai.alameda.v1alpha1.datahub.ResourceInfo\x12\x10\n\x08Replicas\x18\x03 \x01(\x05*H\n\x04Kind\x12\x07\n\x03POD\x10\x00\x12\x0e\n\nDEPLOYMENT\x10\x01\x12\x14\n\x10\x44\x45PLOYMENTCONFIG\x10\x02\x12\x11\n\rALAMEDASCALER\x10\x03\x62\x06proto3')
+  serialized_pb=_b('\n+alameda_api/v1alpha1/datahub/resource.proto\x12&containers_ai.alameda.v1alpha1.datahub\x1a*alameda_api/v1alpha1/datahub/predict.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a+alameda_api/v1alpha1/datahub/metadata.proto\x1a)alameda_api/v1alpha1/datahub/metric.proto\x1a(alameda_api/v1alpha1/datahub/types.proto\"\xfc\x01\n\tContainer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12J\n\x0elimit_resource\x18\x02 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12L\n\x10request_resource\x18\x03 \x03(\x0b\x32\x32.containers_ai.alameda.v1alpha1.datahub.MetricData\x12G\n\x06status\x18\x04 \x01(\x0b\x32\x37.containers_ai.alameda.v1alpha1.datahub.ContainerStatus\"\xdb\x04\n\x03Pod\x12O\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12\x15\n\rresource_link\x18\x02 \x01(\t\x12\x45\n\ncontainers\x18\x03 \x03(\x0b\x32\x31.containers_ai.alameda.v1alpha1.datahub.Container\x12\x12\n\nis_alameda\x18\x04 \x01(\x08\x12N\n\x0e\x61lameda_scaler\x18\x05 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12\x11\n\tnode_name\x18\x06 \x01(\t\x12.\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12L\n\x06policy\x18\x08 \x01(\x0e\x32<.containers_ai.alameda.v1alpha1.datahub.RecommendationPolicy\x12M\n\x0etop_controller\x18\t \x01(\x0b\x32\x35.containers_ai.alameda.v1alpha1.datahub.TopController\x12\x1e\n\x16used_recommendation_id\x18\n \x01(\t\x12\x41\n\x06status\x18\x0b \x01(\x0b\x32\x31.containers_ai.alameda.v1alpha1.datahub.PodStatus\"X\n\x08\x43\x61pacity\x12\x11\n\tcpu_cores\x18\x01 \x01(\x03\x12\x14\n\x0cmemory_bytes\x18\x02 \x01(\x03\x12#\n\x1bnetwotk_megabits_per_second\x18\x03 \x01(\x03\"\x88\x01\n\x04Node\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x42\n\x08\x63\x61pacity\x18\x02 \x01(\x0b\x32\x30.containers_ai.alameda.v1alpha1.datahub.Capacity\x12.\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xae\x01\n\rTopController\x12O\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12:\n\x04kind\x18\x02 \x01(\x0e\x32,.containers_ai.alameda.v1alpha1.datahub.Kind\x12\x10\n\x08Replicas\x18\x03 \x01(\x05\"\x9b\x01\n\x0cResourceInfo\x12O\n\x0fnamespaced_name\x18\x01 \x01(\x0b\x32\x36.containers_ai.alameda.v1alpha1.datahub.NamespacedName\x12:\n\x04kind\x18\x02 \x01(\x0e\x32,.containers_ai.alameda.v1alpha1.datahub.Kind\"\xb7\x01\n\nController\x12M\n\x0f\x63ontroller_info\x18\x01 \x01(\x0b\x32\x34.containers_ai.alameda.v1alpha1.datahub.ResourceInfo\x12H\n\nowner_info\x18\x02 \x03(\x0b\x32\x34.containers_ai.alameda.v1alpha1.datahub.ResourceInfo\x12\x10\n\x08Replicas\x18\x03 \x01(\x05*H\n\x04Kind\x12\x07\n\x03POD\x10\x00\x12\x0e\n\nDEPLOYMENT\x10\x01\x12\x14\n\x10\x44\x45PLOYMENTCONFIG\x10\x02\x12\x11\n\rALAMEDASCALER\x10\x03\x62\x06proto3')
   ,
   dependencies=[alameda__api_dot_v1alpha1_dot_datahub_dot_predict__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_types__pb2.DESCRIPTOR,])
 
@@ -54,8 +54,8 @@ _KIND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1917,
-  serialized_end=1989,
+  serialized_start=1905,
+  serialized_end=1977,
 )
 _sym_db.RegisterEnumDescriptor(_KIND)
 
@@ -363,14 +363,14 @@ _RESOURCEINFO = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='owner_namespaced_name', full_name='containers_ai.alameda.v1alpha1.datahub.ResourceInfo.owner_namespaced_name', index=0,
+      name='namespaced_name', full_name='containers_ai.alameda.v1alpha1.datahub.ResourceInfo.namespaced_name', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='owner_kind', full_name='containers_ai.alameda.v1alpha1.datahub.ResourceInfo.owner_kind', index=1,
+      name='kind', full_name='containers_ai.alameda.v1alpha1.datahub.ResourceInfo.kind', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -389,7 +389,7 @@ _RESOURCEINFO = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1562,
-  serialized_end=1729,
+  serialized_end=1717,
 )
 
 
@@ -433,8 +433,8 @@ _CONTROLLER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1732,
-  serialized_end=1915,
+  serialized_start=1720,
+  serialized_end=1903,
 )
 
 _CONTAINER.fields_by_name['limit_resource'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_metric__pb2._METRICDATA
@@ -451,8 +451,8 @@ _NODE.fields_by_name['capacity'].message_type = _CAPACITY
 _NODE.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _TOPCONTROLLER.fields_by_name['namespaced_name'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2._NAMESPACEDNAME
 _TOPCONTROLLER.fields_by_name['kind'].enum_type = _KIND
-_RESOURCEINFO.fields_by_name['owner_namespaced_name'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2._NAMESPACEDNAME
-_RESOURCEINFO.fields_by_name['owner_kind'].enum_type = _KIND
+_RESOURCEINFO.fields_by_name['namespaced_name'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_metadata__pb2._NAMESPACEDNAME
+_RESOURCEINFO.fields_by_name['kind'].enum_type = _KIND
 _CONTROLLER.fields_by_name['controller_info'].message_type = _RESOURCEINFO
 _CONTROLLER.fields_by_name['owner_info'].message_type = _RESOURCEINFO
 DESCRIPTOR.message_types_by_name['Container'] = _CONTAINER
