@@ -30,6 +30,7 @@ message QueryCondition {
 message ListPodMetricsRequest {
     NamespacedName namespaced_name = 1;
     QueryCondition query_condition = 2;
+    uint64 rate_range = 3;
 }
 
 /**
