@@ -340,7 +340,7 @@ class DatahubServiceServicer(object):
     raise NotImplementedError('Method not implemented!')
 
   def CreateSimulatedSchedulingScores(self, request, context):
-    """Used to create scores of system 
+    """Used to create scores of system
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
