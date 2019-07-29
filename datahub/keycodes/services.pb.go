@@ -66,7 +66,7 @@ func (m *AddKeycodeRequest) GetKeycode() string {
 	return ""
 }
 
-// Represents a request for adding a keycode
+// Represents a response for adding a keycode
 type AddKeycodeResponse struct {
 	Status               *status.Status `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	Keycode              *Keycode       `protobuf:"bytes,2,opt,name=keycode,proto3" json:"keycode,omitempty"`

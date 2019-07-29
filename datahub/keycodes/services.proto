@@ -15,7 +15,7 @@ message AddKeycodeRequest {
     string keycode = 1; // example:"A5IMH-KBAFI-XTEDK-G4OQM-QMM67-4TEST"
 }
 
-// Represents a reaponse for adding a keycode
+// Represents a response for adding a keycode
 message AddKeycodeResponse {
     google.rpc.Status status = 1;
     Keycode keycode = 2;
@@ -30,7 +30,7 @@ message ListKeycodesRequest {
 message ListKeycodesResponse {
     google.rpc.Status status = 1;
     repeated Keycode keycodes = 2;
-	Keycode summary           = 3;
+    Keycode summary           = 3;
 }
 
 // Represents a request for deleting a keycode
