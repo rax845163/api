@@ -237,6 +237,11 @@ class DatahubServiceStub(object):
         request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreateGpuPredictionsRequest.SerializeToString,
         response_deserializer=google_dot_rpc_dot_status__pb2.Status.FromString,
         )
+    self.ListGpuPredictions = channel.unary_unary(
+        '/containers_ai.alameda.v1alpha1.datahub.DatahubService/ListGpuPredictions',
+        request_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListGpuPredictionsRequest.SerializeToString,
+        response_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListGpuPredictionsResponse.FromString,
+        )
     self.GetLicense = channel.unary_unary(
         '/containers_ai.alameda.v1alpha1.datahub.DatahubService/GetLicense',
         request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -557,6 +562,13 @@ class DatahubServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def ListGpuPredictions(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
   def GetLicense(self, request, context):
     """Licenses
     """
@@ -786,6 +798,11 @@ def add_DatahubServiceServicer_to_server(servicer, server):
           servicer.CreateGpuPredictions,
           request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.CreateGpuPredictionsRequest.FromString,
           response_serializer=google_dot_rpc_dot_status__pb2.Status.SerializeToString,
+      ),
+      'ListGpuPredictions': grpc.unary_unary_rpc_method_handler(
+          servicer.ListGpuPredictions,
+          request_deserializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListGpuPredictionsRequest.FromString,
+          response_serializer=alameda__api_dot_v1alpha1_dot_datahub_dot_server__pb2.ListGpuPredictionsResponse.SerializeToString,
       ),
       'GetLicense': grpc.unary_unary_rpc_method_handler(
           servicer.GetLicense,

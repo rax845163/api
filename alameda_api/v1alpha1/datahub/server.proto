@@ -448,6 +448,18 @@ message CreateGpuPredictionsRequest {
     repeated GpuPrediction gpu_predictions = 1;
 }
 
+message ListGpuPredictionsRequest {
+    string host = 1;
+    string minor_number = 2;
+    QueryCondition query_condition = 3;
+    int64 granularity = 4;
+}
+
+message ListGpuPredictionsResponse {
+    google.rpc.Status status = 1;
+    repeated GpuPrediction gpu_predictions = 2;
+}
+
 message GetLicenseResponse {
     google.rpc.Status status = 1;
     License license = 2;
@@ -620,6 +632,9 @@ service DatahubService {
 
     rpc CreateGpuPredictions(CreateGpuPredictionsRequest)
         returns (google.rpc.Status){}
+
+    rpc ListGpuPredictions(ListGpuPredictionsRequest)
+        returns (ListGpuPredictionsResponse){}
 
     // Licenses
     rpc GetLicense(google.protobuf.Empty)
