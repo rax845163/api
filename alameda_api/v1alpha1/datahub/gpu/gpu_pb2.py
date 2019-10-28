@@ -15,6 +15,7 @@ _sym_db = _symbol_database.Default()
 
 from alameda_api.v1alpha1.datahub.common import metrics_pb2 as alameda__api_dot_v1alpha1_dot_datahub_dot_common_dot_metrics__pb2
 from alameda_api.v1alpha1.datahub.gpu import types_pb2 as alameda__api_dot_v1alpha1_dot_datahub_dot_gpu_dot_types__pb2
+from alameda_api.v1alpha1.datahub.predictions import types_pb2 as alameda__api_dot_v1alpha1_dot_datahub_dot_predictions_dot_types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containersai.alameda.v1alpha1.datahub.gpu',
   syntax='proto3',
   serialized_options=_b('Z=github.com/containers-ai/api/alameda_api/v1alpha1/datahub/gpu'),
-  serialized_pb=_b('\n*alameda_api/v1alpha1/datahub/gpu/gpu.proto\x12)containersai.alameda.v1alpha1.datahub.gpu\x1a\x31\x61lameda_api/v1alpha1/datahub/common/metrics.proto\x1a,alameda_api/v1alpha1/datahub/gpu/types.proto\"\xad\x01\n\x03Gpu\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12H\n\x08metadata\x18\x03 \x01(\x0b\x32\x36.containersai.alameda.v1alpha1.datahub.gpu.GpuMetadata\x12@\n\x04spec\x18\x04 \x01(\x0b\x32\x32.containersai.alameda.v1alpha1.datahub.gpu.GpuSpec\"\xc0\x01\n\tGpuMetric\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12H\n\x08metadata\x18\x03 \x01(\x0b\x32\x36.containersai.alameda.v1alpha1.datahub.gpu.GpuMetadata\x12M\n\x0bmetric_data\x18\x04 \x03(\x0b\x32\x38.containersai.alameda.v1alpha1.datahub.common.MetricData\"\xae\x03\n\rGpuPrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12H\n\x08metadata\x18\x03 \x01(\x0b\x32\x36.containersai.alameda.v1alpha1.datahub.gpu.GpuMetadata\x12\x10\n\x08model_id\x18\x04 \x01(\t\x12\x15\n\rprediction_id\x18\x05 \x01(\t\x12T\n\x12predicted_raw_data\x18\x06 \x03(\x0b\x32\x38.containersai.alameda.v1alpha1.datahub.common.MetricData\x12[\n\x19predicted_upperbound_data\x18\x07 \x03(\x0b\x32\x38.containersai.alameda.v1alpha1.datahub.common.MetricData\x12[\n\x19predicted_lowerbound_data\x18\x08 \x03(\x0b\x32\x38.containersai.alameda.v1alpha1.datahub.common.MetricDataB?Z=github.com/containers-ai/api/alameda_api/v1alpha1/datahub/gpub\x06proto3')
+  serialized_pb=_b('\n*alameda_api/v1alpha1/datahub/gpu/gpu.proto\x12)containersai.alameda.v1alpha1.datahub.gpu\x1a\x31\x61lameda_api/v1alpha1/datahub/common/metrics.proto\x1a,alameda_api/v1alpha1/datahub/gpu/types.proto\x1a\x34\x61lameda_api/v1alpha1/datahub/predictions/types.proto\"\xad\x01\n\x03Gpu\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12H\n\x08metadata\x18\x03 \x01(\x0b\x32\x36.containersai.alameda.v1alpha1.datahub.gpu.GpuMetadata\x12@\n\x04spec\x18\x04 \x01(\x0b\x32\x32.containersai.alameda.v1alpha1.datahub.gpu.GpuSpec\"\xc0\x01\n\tGpuMetric\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12H\n\x08metadata\x18\x03 \x01(\x0b\x32\x36.containersai.alameda.v1alpha1.datahub.gpu.GpuMetadata\x12M\n\x0bmetric_data\x18\x04 \x03(\x0b\x32\x38.containersai.alameda.v1alpha1.datahub.common.MetricData\"\x94\x03\n\rGpuPrediction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12H\n\x08metadata\x18\x03 \x01(\x0b\x32\x36.containersai.alameda.v1alpha1.datahub.gpu.GpuMetadata\x12Y\n\x12predicted_raw_data\x18\x04 \x03(\x0b\x32=.containersai.alameda.v1alpha1.datahub.predictions.MetricData\x12`\n\x19predicted_upperbound_data\x18\x05 \x03(\x0b\x32=.containersai.alameda.v1alpha1.datahub.predictions.MetricData\x12`\n\x19predicted_lowerbound_data\x18\x06 \x03(\x0b\x32=.containersai.alameda.v1alpha1.datahub.predictions.MetricDataB?Z=github.com/containers-ai/api/alameda_api/v1alpha1/datahub/gpub\x06proto3')
   ,
-  dependencies=[alameda__api_dot_v1alpha1_dot_datahub_dot_common_dot_metrics__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_gpu_dot_types__pb2.DESCRIPTOR,])
+  dependencies=[alameda__api_dot_v1alpha1_dot_datahub_dot_common_dot_metrics__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_gpu_dot_types__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_predictions_dot_types__pb2.DESCRIPTOR,])
 
 
 
@@ -76,8 +77,8 @@ _GPU = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=187,
-  serialized_end=360,
+  serialized_start=241,
+  serialized_end=414,
 )
 
 
@@ -128,8 +129,8 @@ _GPUMETRIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=363,
-  serialized_end=555,
+  serialized_start=417,
+  serialized_end=609,
 )
 
 
@@ -162,36 +163,22 @@ _GPUPREDICTION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='model_id', full_name='containersai.alameda.v1alpha1.datahub.gpu.GpuPrediction.model_id', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='predicted_raw_data', full_name='containersai.alameda.v1alpha1.datahub.gpu.GpuPrediction.predicted_raw_data', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='prediction_id', full_name='containersai.alameda.v1alpha1.datahub.gpu.GpuPrediction.prediction_id', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='predicted_upperbound_data', full_name='containersai.alameda.v1alpha1.datahub.gpu.GpuPrediction.predicted_upperbound_data', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='predicted_raw_data', full_name='containersai.alameda.v1alpha1.datahub.gpu.GpuPrediction.predicted_raw_data', index=5,
+      name='predicted_lowerbound_data', full_name='containersai.alameda.v1alpha1.datahub.gpu.GpuPrediction.predicted_lowerbound_data', index=5,
       number=6, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='predicted_upperbound_data', full_name='containersai.alameda.v1alpha1.datahub.gpu.GpuPrediction.predicted_upperbound_data', index=6,
-      number=7, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='predicted_lowerbound_data', full_name='containersai.alameda.v1alpha1.datahub.gpu.GpuPrediction.predicted_lowerbound_data', index=7,
-      number=8, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -208,8 +195,8 @@ _GPUPREDICTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=558,
-  serialized_end=988,
+  serialized_start=612,
+  serialized_end=1016,
 )
 
 _GPU.fields_by_name['metadata'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_gpu_dot_types__pb2._GPUMETADATA
@@ -217,9 +204,9 @@ _GPU.fields_by_name['spec'].message_type = alameda__api_dot_v1alpha1_dot_datahub
 _GPUMETRIC.fields_by_name['metadata'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_gpu_dot_types__pb2._GPUMETADATA
 _GPUMETRIC.fields_by_name['metric_data'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_common_dot_metrics__pb2._METRICDATA
 _GPUPREDICTION.fields_by_name['metadata'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_gpu_dot_types__pb2._GPUMETADATA
-_GPUPREDICTION.fields_by_name['predicted_raw_data'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_common_dot_metrics__pb2._METRICDATA
-_GPUPREDICTION.fields_by_name['predicted_upperbound_data'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_common_dot_metrics__pb2._METRICDATA
-_GPUPREDICTION.fields_by_name['predicted_lowerbound_data'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_common_dot_metrics__pb2._METRICDATA
+_GPUPREDICTION.fields_by_name['predicted_raw_data'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_predictions_dot_types__pb2._METRICDATA
+_GPUPREDICTION.fields_by_name['predicted_upperbound_data'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_predictions_dot_types__pb2._METRICDATA
+_GPUPREDICTION.fields_by_name['predicted_lowerbound_data'].message_type = alameda__api_dot_v1alpha1_dot_datahub_dot_predictions_dot_types__pb2._METRICDATA
 DESCRIPTOR.message_types_by_name['Gpu'] = _GPU
 DESCRIPTOR.message_types_by_name['GpuMetric'] = _GPUMETRIC
 DESCRIPTOR.message_types_by_name['GpuPrediction'] = _GPUPREDICTION

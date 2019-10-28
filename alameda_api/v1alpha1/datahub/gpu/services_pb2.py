@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='containersai.alameda.v1alpha1.datahub.gpu',
   syntax='proto3',
   serialized_options=_b('Z=github.com/containers-ai/api/alameda_api/v1alpha1/datahub/gpu'),
-  serialized_pb=_b('\n/alameda_api/v1alpha1/datahub/gpu/services.proto\x12)containersai.alameda.v1alpha1.datahub.gpu\x1a\x31\x61lameda_api/v1alpha1/datahub/common/queries.proto\x1a*alameda_api/v1alpha1/datahub/gpu/gpu.proto\x1a\x17google/rpc/status.proto\"\x8c\x01\n\x0fListGpusRequest\x12U\n\x0fquery_condition\x18\x01 \x01(\x0b\x32<.containersai.alameda.v1alpha1.datahub.common.QueryCondition\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x14\n\x0cminor_number\x18\x03 \x01(\t\"t\n\x10ListGpusResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12<\n\x04gpus\x18\x02 \x03(\x0b\x32..containersai.alameda.v1alpha1.datahub.gpu.Gpu\"\x92\x01\n\x15ListGpuMetricsRequest\x12U\n\x0fquery_condition\x18\x01 \x01(\x0b\x32<.containersai.alameda.v1alpha1.datahub.common.QueryCondition\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x14\n\x0cminor_number\x18\x03 \x01(\t\"\x87\x01\n\x16ListGpuMetricsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12I\n\x0bgpu_metrics\x18\x02 \x03(\x0b\x32\x34.containersai.alameda.v1alpha1.datahub.gpu.GpuMetric\"p\n\x1b\x43reateGpuPredictionsRequest\x12Q\n\x0fgpu_predictions\x18\x01 \x03(\x0b\x32\x38.containersai.alameda.v1alpha1.datahub.gpu.GpuPrediction\"\xd4\x01\n\x19ListGpuPredictionsRequest\x12U\n\x0fquery_condition\x18\x01 \x01(\x0b\x32<.containersai.alameda.v1alpha1.datahub.common.QueryCondition\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x14\n\x0cminor_number\x18\x03 \x01(\t\x12\x10\n\x08model_id\x18\x04 \x01(\t\x12\x15\n\rprediction_id\x18\x05 \x01(\t\x12\x13\n\x0bgranularity\x18\x06 \x01(\x03\"\x93\x01\n\x1aListGpuPredictionsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12Q\n\x0fgpu_predictions\x18\x02 \x03(\x0b\x32\x38.containersai.alameda.v1alpha1.datahub.gpu.GpuPredictionB?Z=github.com/containers-ai/api/alameda_api/v1alpha1/datahub/gpub\x06proto3')
+  serialized_pb=_b('\n/alameda_api/v1alpha1/datahub/gpu/services.proto\x12)containersai.alameda.v1alpha1.datahub.gpu\x1a\x31\x61lameda_api/v1alpha1/datahub/common/queries.proto\x1a*alameda_api/v1alpha1/datahub/gpu/gpu.proto\x1a\x17google/rpc/status.proto\"\x8c\x01\n\x0fListGpusRequest\x12U\n\x0fquery_condition\x18\x01 \x01(\x0b\x32<.containersai.alameda.v1alpha1.datahub.common.QueryCondition\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x14\n\x0cminor_number\x18\x03 \x01(\t\"t\n\x10ListGpusResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12<\n\x04gpus\x18\x02 \x03(\x0b\x32..containersai.alameda.v1alpha1.datahub.gpu.Gpu\"\x92\x01\n\x15ListGpuMetricsRequest\x12U\n\x0fquery_condition\x18\x01 \x01(\x0b\x32<.containersai.alameda.v1alpha1.datahub.common.QueryCondition\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x14\n\x0cminor_number\x18\x03 \x01(\t\"\x87\x01\n\x16ListGpuMetricsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12I\n\x0bgpu_metrics\x18\x02 \x03(\x0b\x32\x34.containersai.alameda.v1alpha1.datahub.gpu.GpuMetric\"p\n\x1b\x43reateGpuPredictionsRequest\x12Q\n\x0fgpu_predictions\x18\x01 \x03(\x0b\x32\x38.containersai.alameda.v1alpha1.datahub.gpu.GpuPrediction\"\xd4\x01\n\x19ListGpuPredictionsRequest\x12U\n\x0fquery_condition\x18\x01 \x01(\x0b\x32<.containersai.alameda.v1alpha1.datahub.common.QueryCondition\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x14\n\x0cminor_number\x18\x03 \x01(\t\x12\x13\n\x0bgranularity\x18\x04 \x01(\x03\x12\x10\n\x08model_id\x18\x05 \x01(\t\x12\x15\n\rprediction_id\x18\x06 \x01(\t\"\x93\x01\n\x1aListGpuPredictionsResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12Q\n\x0fgpu_predictions\x18\x02 \x03(\x0b\x32\x38.containersai.alameda.v1alpha1.datahub.gpu.GpuPredictionB?Z=github.com/containers-ai/api/alameda_api/v1alpha1/datahub/gpub\x06proto3')
   ,
   dependencies=[alameda__api_dot_v1alpha1_dot_datahub_dot_common_dot_queries__pb2.DESCRIPTOR,alameda__api_dot_v1alpha1_dot_datahub_dot_gpu_dot_gpu__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
@@ -256,23 +256,23 @@ _LISTGPUPREDICTIONSREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='model_id', full_name='containersai.alameda.v1alpha1.datahub.gpu.ListGpuPredictionsRequest.model_id', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='granularity', full_name='containersai.alameda.v1alpha1.datahub.gpu.ListGpuPredictionsRequest.granularity', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='prediction_id', full_name='containersai.alameda.v1alpha1.datahub.gpu.ListGpuPredictionsRequest.prediction_id', index=4,
+      name='model_id', full_name='containersai.alameda.v1alpha1.datahub.gpu.ListGpuPredictionsRequest.model_id', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='granularity', full_name='containersai.alameda.v1alpha1.datahub.gpu.ListGpuPredictionsRequest.granularity', index=5,
-      number=6, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
+      name='prediction_id', full_name='containersai.alameda.v1alpha1.datahub.gpu.ListGpuPredictionsRequest.prediction_id', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),

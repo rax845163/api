@@ -40,9 +40,9 @@ message ListGpuPredictionsRequest {
     common.QueryCondition query_condition = 1;
     string                host            = 2;
     string                minor_number    = 3;
-    string                model_id        = 4;
-    string                prediction_id   = 5;
-    int64                 granularity     = 6;
+    int64                 granularity     = 4;
+    string                model_id        = 5;
+    string                prediction_id   = 6;
 }
 
 message ListGpuPredictionsResponse {
