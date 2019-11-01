@@ -8,13 +8,13 @@ import "alameda_api/v1alpha1/datahub/common/metrics.proto";
 import "alameda_api/v1alpha1/datahub/plannings/types.proto";
 import "alameda_api/v1alpha1/datahub/resources/metadata.proto";
 import "alameda_api/v1alpha1/datahub/resources/policies.proto";
-import "alameda_api/v1alpha1/datahub/resources/resources.proto";
+import "alameda_api/v1alpha1/datahub/resources/types.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/containers-ai/api/alameda_api/v1alpha1/datahub/plannings";
 
 message ContainerPlanning {
-    resources.ObjectMeta       object_meta               = 1;
+    string                     name                      = 1;
     repeated common.MetricData limit_plannings           = 2;
     repeated common.MetricData request_plannings         = 3;
     repeated common.MetricData initial_limit_plannings   = 4;
@@ -22,14 +22,14 @@ message ContainerPlanning {
 }
 
 message PodPlanning {
-    resources.ObjectMeta       object_meta         = 1;
-    PlanningType               planning_type       = 2;
+    PlanningType               planning_type       = 1;
+    resources.NamespacedName   namespaced_name     = 2;
     bool                       apply_planning_now  = 3;
     resources.AssignPodPolicy  assign_pod_policy   = 4;
     repeated ContainerPlanning container_plannings = 5;
     google.protobuf.Timestamp  start_time          = 6;
     google.protobuf.Timestamp  end_time            = 7;
-    resources.Controller       top_controller      = 8;
+    resources.TopController    top_controller      = 8;
     string                     planning_id         = 9;
     double                     total_cost          = 10;
 }
@@ -39,20 +39,4 @@ message ControllerPlanning {
     ControllerPlanningType    ctl_planning_type     = 2;
     ControllerPlanningSpec    ctl_planning_spec     = 3;
     ControllerPlanningSpecK8s ctl_planning_spec_k8s = 4;
-}
-
-message ApplicationPlanning {
-    resources.ObjectMeta object_meta = 1;
-}
-
-message NamespacePlanning {
-    resources.ObjectMeta object_meta = 1;
-}
-
-message NodePlanning {
-    resources.ObjectMeta object_meta = 1;
-}
-
-message ClusterPlanning {
-    resources.ObjectMeta object_meta = 1;
 }
