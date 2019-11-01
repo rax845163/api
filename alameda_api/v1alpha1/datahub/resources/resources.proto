@@ -13,9 +13,9 @@ option go_package = "github.com/containers-ai/api/alameda_api/v1alpha1/datahub/r
 
 // Represents a container and its containing limit and requeset configurations
 message Container {
-    ObjectMeta           object_meta = 1;
-    ResourceRequirements resources   = 2;
-    ContainerStatus      status      = 3;
+    string               name      = 1;
+    ResourceRequirements resources = 2;
+    ContainerStatus      status    = 3;
 }
 
 // Represents a Kubernetes pod
