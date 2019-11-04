@@ -11,7 +11,7 @@ option go_package = "github.com/containers-ai/api/alameda_api/v1alpha1/datahub/m
 
 // Represents metric data of a container
 message ContainerMetric {
-    resources.ObjectMeta       object_meta = 1;
+    string                     name        = 1;
     repeated common.MetricData metric_data = 2;
 }
 
