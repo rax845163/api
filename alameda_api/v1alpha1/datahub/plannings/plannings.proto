@@ -14,7 +14,7 @@ import "google/protobuf/timestamp.proto";
 option go_package = "github.com/containers-ai/api/alameda_api/v1alpha1/datahub/plannings";
 
 message ContainerPlanning {
-    resources.ObjectMeta       object_meta               = 1;
+    string                     name                      = 1;
     repeated common.MetricData limit_plannings           = 2;
     repeated common.MetricData request_plannings         = 3;
     repeated common.MetricData initial_limit_plannings   = 4;
@@ -35,24 +35,46 @@ message PodPlanning {
 }
 
 message ControllerPlanning {
-    PlanningType              planning_type         = 1;
-    ControllerPlanningType    ctl_planning_type     = 2;
-    ControllerPlanningSpec    ctl_planning_spec     = 3;
-    ControllerPlanningSpecK8s ctl_planning_spec_k8s = 4;
+    resources.ObjectMeta      object_meta           = 1;
+    resources.Kind            kind                  = 2;
+    PlanningType              planning_type         = 3;
+    ControllerPlanningType    ctl_planning_type     = 4;
+    ControllerPlanningSpec    ctl_planning_spec     = 5;
+    ControllerPlanningSpecK8s ctl_planning_spec_k8s = 6;
 }
 
 message ApplicationPlanning {
-    resources.ObjectMeta object_meta = 1;
+    resources.ObjectMeta      object_meta                   = 1;
+    resources.Kind            kind                          = 2;
+    PlanningType              planning_type                 = 3;
+    ControllerPlanningType    application_planning_type     = 4;
+    ControllerPlanningSpec    application_planning_spec     = 5;
+    ControllerPlanningSpecK8s application_planning_spec_k8s = 6;
 }
 
 message NamespacePlanning {
-    resources.ObjectMeta object_meta = 1;
+    resources.ObjectMeta      object_meta                 = 1;
+    resources.Kind            kind                        = 2;
+    PlanningType              planning_type               = 3;
+    ControllerPlanningType    namespace_planning_type     = 4;
+    ControllerPlanningSpec    namespace_planning_spec     = 5;
+    ControllerPlanningSpecK8s namespace_planning_spec_k8s = 6;
 }
 
 message NodePlanning {
-    resources.ObjectMeta object_meta = 1;
+    resources.ObjectMeta      object_meta            = 1;
+    resources.Kind            kind                   = 2;
+    PlanningType              planning_type          = 3;
+    ControllerPlanningType    node_planning_type     = 4;
+    ControllerPlanningSpec    node_planning_spec     = 5;
+    ControllerPlanningSpecK8s node_planning_spec_k8s = 6;
 }
 
 message ClusterPlanning {
-    resources.ObjectMeta object_meta = 1;
+    resources.ObjectMeta      object_meta               = 1;
+    resources.Kind            kind                      = 2;
+    PlanningType              planning_type             = 3;
+    ControllerPlanningType    cluster_planning_type     = 4;
+    ControllerPlanningSpec    cluster_planning_spec     = 5;
+    ControllerPlanningSpecK8s cluster_planning_spec_k8s = 6;
 }

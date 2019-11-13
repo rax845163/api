@@ -11,10 +11,10 @@ option go_package = "github.com/containers-ai/api/alameda_api/v1alpha1/datahub/p
 
 // Represents a list of predicted metric data of a container
 message ContainerPrediction {
-    resources.ObjectMeta     object_meta               = 1;
-    repeated MetricData      predicted_raw_data        = 2;
-    repeated MetricData      predicted_upperbound_data = 3;
-    repeated MetricData      predicted_lowerbound_data = 4;
+    string              name                      = 1;
+    repeated MetricData predicted_raw_data        = 2;
+    repeated MetricData predicted_upperbound_data = 3;
+    repeated MetricData predicted_lowerbound_data = 4;
 }
 
 // Represents a list of predicted metrics data of a pod
@@ -24,17 +24,18 @@ message PodPrediction {
 }
 
 message ControllerPrediction  {
-    resources.ObjectMeta     object_meta               = 1;
-    repeated MetricData      predicted_raw_data        = 2;
-    repeated MetricData      predicted_upperbound_data = 3;
-    repeated MetricData      predicted_lowerbound_data = 4;
+    resources.ObjectMeta object_meta               = 1;
+    resources.Kind       kind                      = 2;
+    repeated MetricData  predicted_raw_data        = 3;
+    repeated MetricData  predicted_upperbound_data = 4;
+    repeated MetricData  predicted_lowerbound_data = 5;
 }
 
 message ApplicationPrediction  {
-    resources.ObjectMeta     object_meta               = 1;
-    repeated MetricData      predicted_raw_data        = 2;
-    repeated MetricData      predicted_upperbound_data = 3;
-    repeated MetricData      predicted_lowerbound_data = 4;
+    resources.ObjectMeta object_meta               = 1;
+    repeated MetricData  predicted_raw_data        = 2;
+    repeated MetricData  predicted_upperbound_data = 3;
+    repeated MetricData  predicted_lowerbound_data = 4;
 }
 
 message NamespacePrediction  {

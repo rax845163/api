@@ -15,6 +15,13 @@ enum Kind {
     STATEFULSET      = 4;
 }
 
+enum ScalingTool {
+    SCALING_TOOL_UNDEFINED = 0;
+    NONE                   = 1;
+    VPA                    = 2;
+    HPA                    = 3;
+}
+
 message ObjectMeta {
     string name         = 1;
     string namespace    = 2;
