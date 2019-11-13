@@ -41,7 +41,8 @@ message Controller {
 }
 
 message Application {
-    ObjectMeta object_meta = 1;
+    ObjectMeta             object_meta              = 1;
+    AlamedaApplicationSpec alameda_application_spec = 2;
 }
 
 message Namespace {
