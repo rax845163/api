@@ -4,10 +4,10 @@ syntax = "proto3";
 
 package containersai.alameda.v1alpha1.datahub.recommendations;
 
+import "alameda_api/v1alpha1/datahub/common/metrics.proto";
 import "alameda_api/v1alpha1/datahub/resources/metadata.proto";
 import "alameda_api/v1alpha1/datahub/resources/policies.proto";
 import "alameda_api/v1alpha1/datahub/resources/resources.proto";
-import "alameda_api/v1alpha1/datahub/resources/types.proto";
 import "alameda_api/v1alpha1/datahub/recommendations/types.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -16,9 +16,11 @@ option go_package = "github.com/containers-ai/api/alameda_api/v1alpha1/datahub/r
 // Represents a resource configuration recommendation
 // It includes recommended limits and requests for the initial stage (a container which is just started) and after the initial stage
 message ContainerRecommendation {
-    string                                  name              = 1;
-    repeated resources.ResourceRequirements resources         = 2;
-    repeated resources.ResourceRequirements initial_resources = 3;
+    string                     name                            = 1;
+    repeated common.MetricData limit_recommendations           = 2;
+    repeated common.MetricData request_recommendations         = 3;
+    repeated common.MetricData initial_limit_recommendations   = 4;
+    repeated common.MetricData initial_request_recommendations = 5;
 }
 
 // Represents a set of container resource configuration recommendations of a pod

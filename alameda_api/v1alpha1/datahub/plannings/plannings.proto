@@ -4,24 +4,28 @@ syntax = "proto3";
 
 package containersai.alameda.v1alpha1.datahub.plannings;
 
+import "alameda_api/v1alpha1/datahub/common/metrics.proto";
 import "alameda_api/v1alpha1/datahub/plannings/types.proto";
 import "alameda_api/v1alpha1/datahub/resources/metadata.proto";
 import "alameda_api/v1alpha1/datahub/resources/policies.proto";
 import "alameda_api/v1alpha1/datahub/resources/resources.proto";
-import "alameda_api/v1alpha1/datahub/resources/types.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/containers-ai/api/alameda_api/v1alpha1/datahub/plannings";
 
 message Planning {
-    repeated resources.ResourceRequirements resources         = 1;
-    repeated resources.ResourceRequirements initial_resources = 2;
+    repeated common.MetricData limit_plannings           = 1;
+    repeated common.MetricData request_plannings         = 2;
+    repeated common.MetricData initial_limit_plannings   = 3;
+    repeated common.MetricData initial_request_plannings = 4;
 }
 
 message ContainerPlanning {
-    string                                  name              = 1;
-    repeated resources.ResourceRequirements resources         = 2;
-    repeated resources.ResourceRequirements initial_resources = 3;
+    string                     name                      = 1;
+    repeated common.MetricData limit_plannings           = 2;
+    repeated common.MetricData request_plannings         = 3;
+    repeated common.MetricData initial_limit_plannings   = 4;
+    repeated common.MetricData initial_request_plannings = 5;
 }
 
 message PodPlanning {
