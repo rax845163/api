@@ -322,7 +322,7 @@ func (m *ListPodPlanningsRequest) GetKind() resources.Kind {
 	if m != nil {
 		return m.Kind
 	}
-	return resources.Kind_POD
+	return resources.Kind_KIND_UNDEFINED
 }
 
 func (m *ListPodPlanningsRequest) GetGranularity() int64 {
@@ -442,7 +442,7 @@ func (m *ListControllerPlanningsRequest) GetKind() resources.Kind {
 	if m != nil {
 		return m.Kind
 	}
-	return resources.Kind_POD
+	return resources.Kind_KIND_UNDEFINED
 }
 
 func (m *ListControllerPlanningsRequest) GetCtlPlanningType() ControllerPlanningType {
@@ -561,7 +561,7 @@ func (m *ListApplicationPlanningsRequest) GetKind() resources.Kind {
 	if m != nil {
 		return m.Kind
 	}
-	return resources.Kind_POD
+	return resources.Kind_KIND_UNDEFINED
 }
 
 func (m *ListApplicationPlanningsRequest) GetCtlPlanningType() ControllerPlanningType {
@@ -679,7 +679,7 @@ func (m *ListNamespacePlanningsRequest) GetKind() resources.Kind {
 	if m != nil {
 		return m.Kind
 	}
-	return resources.Kind_POD
+	return resources.Kind_KIND_UNDEFINED
 }
 
 func (m *ListNamespacePlanningsRequest) GetCtlPlanningType() ControllerPlanningType {
@@ -797,7 +797,7 @@ func (m *ListNodePlanningsRequest) GetKind() resources.Kind {
 	if m != nil {
 		return m.Kind
 	}
-	return resources.Kind_POD
+	return resources.Kind_KIND_UNDEFINED
 }
 
 func (m *ListNodePlanningsRequest) GetCtlPlanningType() ControllerPlanningType {
@@ -915,7 +915,7 @@ func (m *ListClusterPlanningsRequest) GetKind() resources.Kind {
 	if m != nil {
 		return m.Kind
 	}
-	return resources.Kind_POD
+	return resources.Kind_KIND_UNDEFINED
 }
 
 func (m *ListClusterPlanningsRequest) GetCtlPlanningType() ControllerPlanningType {

@@ -228,7 +228,7 @@ func (m *Controller) GetKind() Kind {
 	if m != nil {
 		return m.Kind
 	}
-	return Kind_POD
+	return Kind_KIND_UNDEFINED
 }
 
 func (m *Controller) GetReplicas() int32 {

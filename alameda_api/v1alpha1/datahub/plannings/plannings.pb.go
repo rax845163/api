@@ -253,7 +253,7 @@ func (m *ControllerPlanning) GetKind() resources.Kind {
 	if m != nil {
 		return m.Kind
 	}
-	return resources.Kind_POD
+	return resources.Kind_KIND_UNDEFINED
 }
 
 func (m *ControllerPlanning) GetPlanningType() PlanningType {
@@ -332,7 +332,7 @@ func (m *ApplicationPlanning) GetKind() resources.Kind {
 	if m != nil {
 		return m.Kind
 	}
-	return resources.Kind_POD
+	return resources.Kind_KIND_UNDEFINED
 }
 
 func (m *ApplicationPlanning) GetPlanningType() PlanningType {
@@ -411,7 +411,7 @@ func (m *NamespacePlanning) GetKind() resources.Kind {
 	if m != nil {
 		return m.Kind
 	}
-	return resources.Kind_POD
+	return resources.Kind_KIND_UNDEFINED
 }
 
 func (m *NamespacePlanning) GetPlanningType() PlanningType {
@@ -490,7 +490,7 @@ func (m *NodePlanning) GetKind() resources.Kind {
 	if m != nil {
 		return m.Kind
 	}
-	return resources.Kind_POD
+	return resources.Kind_KIND_UNDEFINED
 }
 
 func (m *NodePlanning) GetPlanningType() PlanningType {
@@ -569,7 +569,7 @@ func (m *ClusterPlanning) GetKind() resources.Kind {
 	if m != nil {
 		return m.Kind
 	}
-	return resources.Kind_POD
+	return resources.Kind_KIND_UNDEFINED
 }
 
 func (m *ClusterPlanning) GetPlanningType() PlanningType {
